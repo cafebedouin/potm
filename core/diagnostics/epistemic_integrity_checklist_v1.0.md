@@ -1,3 +1,4 @@
+---
 title: Epistemic Integrity Checklist
 version: 1.0
 authors: [cafebedouin, ChatGPT]
@@ -10,6 +11,8 @@ description: >
   Helps identify potential confusion, overreach, or failures of justification in high-stakes use.
 
 ---
+
+# Epistemic Integrity Checklist v1.0
 
 ## ✅ Core Questions
 
