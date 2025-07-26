@@ -1,4 +1,14 @@
-# Membrane Model v2.2
+# Membrane Model v2.2 — Ontological Tier Architecture
+
+**Version**: 2.2  
+**Status**: ✅ Core
+**Category**: Framework  
+**Location**: /core/models/membrane_model_v2.2.md  
+**Date**: 2025-07-24  
+**Authors**: ChatGPT (as “Pal”), cafebedouin  
+**Reviewed**: Yes — human-reviewed, live in public repo
+
+---
 
 ## 🪨 Tier 0 Definition (Revised)
 **Tier 0: First-order experience and reflection.**  
