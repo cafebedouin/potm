@@ -9,9 +9,7 @@ tags: [epistemic, integrity, checklist, diagnostics, ai-human]
 description: >
   A tool to evaluate the epistemic reliability of claims generated or mediated by AI systems.
   Helps identify potential confusion, overreach, or failures of justification in high-stakes use.
-
 ---
-
 # Epistemic Integrity Checklist v1.0
 
 ## ✅ Core Questions
