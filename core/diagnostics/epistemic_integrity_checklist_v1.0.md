@@ -1,15 +1,13 @@
-# 🧠 Epistemic Integrity Checklist
-
-**Version**: 1.0  
-**Status**: ✅ Core  
-**Location**: /core/diagnostics/epistemic_integrity_checklist_v1.0.md  
-**Date**: 2025-07-24  
-**Authors**: ChatGPT (as “Pal”), cafebedouin  
-**Reviewed**: Yes — human-reviewed, live in public repo
-
----
-
-This diagnostic tool is used to assess the epistemic health of a practitioner, practice, or AI interlocutor. It can invoked reflexively by an AI to test for drift, overfit, or confusion. Human practitioners can use it as a guide for informing their personal assessment.
+title: Epistemic Integrity Checklist
+version: 1.0
+authors: [cafebedouin, ChatGPT]
+date: 2025-07-24
+category: diagnostic
+status: core
+tags: [epistemic, integrity, checklist, diagnostics, ai-human]
+description: >
+  A tool to evaluate the epistemic reliability of claims generated or mediated by AI systems.
+  Helps identify potential confusion, overreach, or failures of justification in high-stakes use.
 
 ---
 
