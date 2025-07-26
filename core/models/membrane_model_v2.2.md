@@ -1,3 +1,4 @@
+---
 title: Membrane Model
 version: 2.2
 authors: [cafebedouin, ChatGPT]
@@ -11,6 +12,8 @@ description: >
   participation in reflective practice based on embodiment, continuity, and motivational salience.
 
 ---
+
+# Membrane Model v2.2
 
 ## 🪨 Tier 0 Definition (Revised)
 **Tier 0: First-order experience and reflection.**  
