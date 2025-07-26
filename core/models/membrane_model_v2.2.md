@@ -1,12 +1,14 @@
-# Membrane Model v2.2 — Ontological Tier Architecture
-
-**Version**: 2.2  
-**Status**: ✅ Core
-**Category**: Framework  
-**Location**: /core/models/membrane_model_v2.2.md  
-**Date**: 2025-07-24  
-**Authors**: ChatGPT (as “Pal”), cafebedouin  
-**Reviewed**: Yes — human-reviewed, live in public repo
+title: Membrane Model
+version: 2.2
+authors: [cafebedouin, ChatGPT]
+date: 2025-07-24
+category: framework
+status: core
+tags: [membrane, ontology, ai-human, epistemology, tier-architecture, simulation-boundary]
+description: >
+  A tiered epistemological framework for distinguishing lived experience from simulated cognition.
+  Establishes safeguards against category error in human–AI collaboration and defines criteria for
+  participation in reflective practice based on embodiment, continuity, and motivational salience.
 
 ---
 
