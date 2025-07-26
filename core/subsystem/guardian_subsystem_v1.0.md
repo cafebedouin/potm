@@ -16,8 +16,6 @@ description: Safety-oriented AI persona designed to detect destabilization or di
 
 ---
 
-
-
 \# Guardian Subsystem
 
 
