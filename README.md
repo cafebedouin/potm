@@ -56,6 +56,10 @@ ChatGTP's web interface tends to work poorly, over time.
 
 ---
 
+⚠️ If using ChatGPT’s web interface, be aware: enabling Web Access may silently route input through a search function instead of model processing. This can interfere with prompt-based workflows. Toggle off Web Access if this occurs.
+
+---
+
 ## ⚠️ A Note on Safety and Scope
 
 * **This system is not therapy.**

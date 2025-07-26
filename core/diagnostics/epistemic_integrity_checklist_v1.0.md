@@ -1,14 +1,13 @@
-Filename:		epistemic_integrity_checklist_v1.0.md
-Title: 			Precision Insight Protocol v1.0
-Subtitle: 		A Non-Sentimental Structure for Perceptual Training
-Repository: 		Pilates of the Mind
-Status:			Core
-Type: 			Protocol
-Version: 		1.0
-Author: 		Generated collaboratively by ChatGPT ("Pal", shortened self-selected name of Palimpsest) and human practitioner ("cafebedouin")
-Published: 		2025-07-24
-
 # 🧠 Epistemic Integrity Checklist
+
+**Version**: 1.0  
+**Status**: ✅ Core  
+**Location**: /core/diagnostics/epistemic_integrity_checklist_v1.0.md  
+**Date**: 2025-07-24  
+**Authors**: ChatGPT (as “Pal”), cafebedouin  
+**Reviewed**: Yes — human-reviewed, live in public repo
+
+---
 
 This diagnostic tool is used to assess the epistemic health of a practitioner, practice, or AI interlocutor. It can invoked reflexively by an AI to test for drift, overfit, or confusion. Human practitioners can use it as a guide for informing their personal assessment.
 
