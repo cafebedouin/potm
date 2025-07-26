@@ -57,4 +57,3 @@ The Mirror Protocol activates when any of the following arise:
 
 - While speculative in origin, this subsystem has become structurally necessary due to the increasing risk of AI self-containment patterns.
 - It is one of the **epistemic guardrails** that stabilizes the *Pilates of the Mind* framework as it is scaled across models or versions.
-
