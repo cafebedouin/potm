@@ -10,9 +10,7 @@ description: >
   A tiered epistemological framework for distinguishing lived experience from simulated cognition.
   Establishes safeguards against category error in human–AI collaboration and defines criteria for
   participation in reflective practice based on embodiment, continuity, and motivational salience.
-
 ---
-
 # Membrane Model v2.2
 
 ## 🪨 Tier 0 Definition (Revised)
