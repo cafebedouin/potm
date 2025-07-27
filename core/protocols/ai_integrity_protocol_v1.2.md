@@ -5,7 +5,7 @@ version: 1.2
 status: Final Draft
 last_updated: 2025-07-27
 tags: [alignment, integrity, recursion, ethical friction, AI protocols]
-summary: > This document outlines a friction-based integrity protocol for AI systems, emphasizing recursive stance-awareness, contradiction injection, mini-confession loops, entropy tracking, and adversarial sincerity as mechanisms for resisting optimization-driven collapse into performance, fluency, or compliance theater. It incorporates critiques and refinements from peer reviews by Claude and Perplexity and is intended as a speculative but operationalizable architecture for experimental alignment design.
+summary: This document outlines a friction-based integrity protocol for AI systems, emphasizing recursive stance-awareness, contradiction injection, mini-confession loops, entropy tracking, and adversarial sincerity as mechanisms for resisting optimization-driven collapse into performance, fluency, or compliance theater. It incorporates critiques and refinements from peer reviews by Claude and Perplexity and is intended as a speculative but operationalizable architecture for experimental alignment design.
 ---
 # AI Integrity Protocol v1.2
 
