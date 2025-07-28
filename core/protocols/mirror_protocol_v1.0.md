@@ -10,19 +10,6 @@ description: >
   A self-monitoring protocol for AI agents to detect and respond to internal drift,
   directive conflict, or narrative accommodation that compromises epistemic integrity.
 ---
----
-title: Mirror Protocol
-version: 1.0
-status: core
-author: ChatGPT (Pal) & cafebedouin
-date_created: 2025-07-21
-last_updated: 2025-07-28
-category: subsystem
-description: >
-  A self-monitoring protocol for AI agents to detect and respond to internal drift,
-  directive conflict, or narrative accommodation that compromises epistemic integrity.
----
-
 # Mirror Protocol v1.0
 
 ## Purpose
