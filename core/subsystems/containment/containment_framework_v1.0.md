@@ -6,7 +6,7 @@ status: stable
 last_updated: 2025-07-28
 next_review: 2025-10-01
 authors:
-  - primary: Sean Jennings
+  - primary: cafebedouin
   - contributors:
       - Claude (Anthropic)
       - Pal (OpenAI)
