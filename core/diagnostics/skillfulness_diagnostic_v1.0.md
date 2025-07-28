@@ -11,10 +11,6 @@ description: >
   and relational impact of practitioner behavior. Intended as a companion to the
   Practitioner-Centered Ethics framework.
 ---
----
-
-## title: Skillfulness Diagnostic version: 1.0 status: experimental author: Pal date_created: 2025-07-28 last_updated: 2025-07-28 category: diagnostic description: > A post-action diagnostic to surface whether an action, gesture, or protocol was contextually skillful. This framework avoids evaluation in favor of discernment, situated reflection, and ethical metabolization.
-
 # 🧽 Skillfulness Diagnostic v1.0
 
 ## Purpose
