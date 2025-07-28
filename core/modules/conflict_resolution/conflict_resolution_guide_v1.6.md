@@ -22,7 +22,7 @@ tags:
   - interpersonal dynamics
   - emotional literacy
   - ethics
-—--
+---
 # Conflict Resolution Guide v1.6
 
 A structured process for resolving **interpersonal conflict** using **practitioner-centered ethics**.  
