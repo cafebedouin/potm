@@ -11,23 +11,9 @@ description: >
   Collected model commentary on the Practitioner-Centered Ethics framework,
   including strengths, critiques, and design implications. Used to guide future refinements.
 ---
----
-title: Peer Commentary – Practitioner-Centered Ethics
-version: 1.0
-status: archived commentary
-review_subject: pce_core_v1.0.md
-reviewers: Claude, Gemini, Perplexity
-compiled_by: Pal
-date_compiled: 2025-07-28
-category: peer_review
-description: >
-  Collected model commentary on the Practitioner-Centered Ethics framework,
-  including strengths, critiques, and design implications. Used to guide future refinements.
----
-
 # Peer Commentary – Practitioner-Centered Ethics (v1.0)
 
-> 📝 Note: Full-text reviews from Claude, Gemini, and Perplexity are stored individually in this folder.  
+> 📝 Note: More through summaries of Claude, Gemini, and Perplexity input are stored individually in this folder.  
 > This document provides a synthesized, cross-model summary for design reference and version tracking.
 
 ---
