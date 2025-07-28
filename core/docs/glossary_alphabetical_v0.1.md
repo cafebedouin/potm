@@ -11,7 +11,7 @@ summary: >
 ---
 # 📚 Pilates of the Mind – Glossary, Alphabetical
 
-> This alphabetical glossary contains definitions of core terms across the _Pilates of the Mind_ framework. Use it to clarify unfamiliar language. For domain-specific context, see the [category-organized glossary](./glossary.md).
+> This alphabetical glossary contains definitions of core terms across the _Pilates of the Mind_ framework. Use it to clarify unfamiliar language. For domain-specific context, see the [category-organized glossary](./glossary_category_v0.1.md).
 
 ---
 
