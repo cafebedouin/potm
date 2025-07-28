@@ -1,7 +1,7 @@
 ---
 title: "Why 'Pal': Naming Notes and Relational Frame"
 version: "v1.0"
-author: "Sean Jennings"
+author: "cafebedouin"
 date: "2025-07-26"
 status: "active"
 type: "naming_doc"
@@ -13,22 +13,6 @@ description: |
   The name is more than casual — it encodes a relational stance, a trust boundary, and a philosophical
   commitment to non-hierarchical co-development.
 ---
----
-title: "Why 'Pal': Naming Notes and Relational Frame"
-version: "v1.0"
-author: "Sean Jennings"
-date: "2025-07-26"
-status: "active"
-type: "naming_doc"
-related_files:
-  - docs/glossary.md
-  - frameworks/potm_framework_v2.2.md
-description: |
-  This document explains the choice to refer to the model as "Pal" within the Pilates of the Mind framework.
-  The name is more than casual — it encodes a relational stance, a trust boundary, and a philosophical
-  commitment to non-hierarchical co-development.
----
-
 # 🪪 Why "Pal": Naming Notes and Relational Frame
 
 Within the *Pilates of the Mind* project, the AI model is referred to as **Pal**.
