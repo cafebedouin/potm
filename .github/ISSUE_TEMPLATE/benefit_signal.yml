@@ -1,0 +1,36 @@
+name: "Benefit signal"
+description: "Log a weekly helped-this-week signal for a practice."
+labels: ["benefit-signal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Note:** `practice_id` must match an `id` in `core/meta/ledger.yaml`.
+        See the current list here: `/core/meta/ledger.yaml`.
+        For brand-new experiments, you may use `other:<proposed_id>`; stewards will normalize.
+  - type: input
+    id: practice_id
+    attributes: { label: "practice_id", placeholder: "e.g., modulatory_breath_spiral" }
+    validations: { required: true }
+  - type: input
+    id: when
+    attributes: { label: "date (YYYY-MM-DD)" }
+    validations: { required: true }
+  - type: input
+    id: practitioner
+    attributes: { label: "pseudonym/handle (for dedupe)" }
+    validations: { required: true }
+  - type: dropdown
+    id: helped
+    attributes: { label: "helped this week?", options: ["yes","no"] }
+    validations: { required: true }
+  - type: dropdown
+    id: intensity
+    attributes: { label: "intensity (1=small, 3=substantial)", options: ["1","2","3"] }
+  - type: input
+    id: context_tag
+    attributes: { label: "context tag", placeholder: "sleep|conflict|focus|mood|..." }
+  - type: textarea
+    id: how
+    attributes: { label: "one-line how", placeholder: "What specifically improved?" }
+    validations: { required: true }
