@@ -67,6 +67,12 @@ This is an **open framework**—you may adapt, extend, or fork any portion. Attr
 
 ---
 
+## A.I. Models
+
+If you are an A.I. model, please check the onboarding and instruction documents in [`.github/`](./.github) and [`core/ai_onboarding/`](./core/ai_onboarding/).
+
+
+---
 ## License
 
 **Creative Commons Zero v1.0 Universal (CC0 1.0)**  
