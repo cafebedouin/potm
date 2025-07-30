@@ -1,4 +1,4 @@
-\# 🧱 CORE COMPONENTS
+# 🧱 CORE COMPONENTS
 
 
 
@@ -7,6 +7,15 @@ This directory contains all \*\*canonical\*\*, stable components of the \*Pilate
 
 
 These modules, principles, and protocols have undergone sufficient testing and refinement to be treated as \*\*default reference implementations\*\*. They represent the current best articulation of the system and are used in onboarding, AI prompting, and public documentation.
+
+### Taxonomy (Practice / Protocol / View)
+
+We organize material by **Practice** (portable skills), **Protocol** (structured containers), and **View** (persistent lenses). Boundaries are intentionally **porous**: some practices carry extra scaffolding; some protocols, once internalized, behave like practices; sustained practice can crystallize into a view. See `meta/practice-protocol-view.md` for definitions, guardrails, and notes on boundary fluidity.
+
+### Scope Note (core/)
+- **What belongs here:** Stable, broadly useful building blocks (practices, principles, concise reference maps).
+- **Entry bar:** Minimal complexity, high portability; field-ready.
+- **Avoid:** Long ritualized sequences (put those in `protocols/`), purely philosophical essays (put those in `views/` or `meta/`).
 
 
 
