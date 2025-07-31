@@ -40,7 +40,7 @@ If you’re looking for a finished system, this isn’t it. If you’re drawn to
 - **Disorientation Drills**: Structured epistemic discomfort as a tool for transformation.
 - **Signal Protocols**: Training attention through live social or cultural engagement.
 
-See [`docs/`](./core/docs/) and [`glossary.md`](./core/docs/glossary.md) for terminology.
+See [`docs/`](./core/docs/) and [`glossary and glyphs`](./glossary/) for terminology.
 
 ---
 ---
@@ -49,9 +49,9 @@ See [`docs/`](./core/docs/) and [`glossary.md`](./core/docs/glossary.md) for ter
 
 | Name | Description |
 |------|-------------|
-| [`ai_integrity_protocol_v1.5`](./core/protocols/ai_integrity_protocol_v1.5.md) | Ensures AI never simulates wisdom or personhood |
-| [`mirror_protocol_v1.0`](./core/protocols/mirror_protocol_v1.0.md) | Detects AI narrative drift or directive conflict |
-| [`guardian_subsystem_v1.0`](./core/subsystem/guardian_subsystem_v1.0.md) | Redirects practice when user safety is at risk |
+| [`ai_integrity_protocol`](./core/protocols/ai_integrity_protocol.md) | Ensures AI never simulates wisdom or personhood |
+| [`mirror_protocol`](./core/protocols/mirror_protocol.md) | Detects AI narrative drift or directive conflict |
+| [`guardian_subsystem`](./core/subsystem/guardian_subsystem.md) | Redirects practice when user safety is at risk |
 
 *More protocols under active development.*
 
