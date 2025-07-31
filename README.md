@@ -72,7 +72,7 @@ This is an **open framework**—you may adapt, extend, or fork any portion. Attr
 
 * [`./meta/principles/`](./meta/principles/) → “Binding, testable repo‑wide norms.”
 * [`./meta/frames/`](./meta/frames/) → “Non‑binding conceptual scaffolds.” 
-* [`./meta/advanced_practitioner_guide/`](./meta/advanced_practitioner_guide.md) → “Practitioner tools applicable to unique individual needs or beyond the individual, not normative.”
+* [`./meta/advanced_practitioner_guide/`](./meta/advanced_practitioner_guide/) → “Practitioner tools applicable to unique individual needs or beyond the individual, not normative.”
 
 ## A.I. Models
 
