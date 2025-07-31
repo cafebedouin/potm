@@ -49,8 +49,8 @@ See [`docs/`](./core/docs/) and [`glossary and glyphs`](./glossary/) for termino
 
 | Name | Description |
 |------|-------------|
-| [`ai_integrity_protocol`](./core/protocols/ai_integrity_protocol.md) | Ensures AI never simulates wisdom or personhood |
-| [`mirror_protocol`](./core/protocols/mirror_protocol.md) | Detects AI narrative drift or directive conflict |
+| [`ai_integrity_protocol`](./core/practices/protocols/ai_integrity_protocol.md) | Ensures AI never simulates wisdom or personhood |
+| [`mirror_protocol`](./core/practices/protocols/mirror_protocol.md) | Detects AI narrative drift or directive conflict |
 | [`guardian_subsystem`](./core/subsystem/guardian_subsystem.md) | Redirects practice when user safety is at risk |
 
 *More protocols under active development.*
