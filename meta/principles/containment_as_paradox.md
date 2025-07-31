@@ -1,9 +1,15 @@
+---
 title: Containment as Paradox
 version: 1.0
-type: appendix
-subsystem: containment
+type: meta
 status: stable
 last_updated: 2025-07-28
+scope: meta
+status: normative
+applies_to: all
+links:
+  instantiations:
+    - core/subsystems/containment/paradox_instantiation.md
 tags:
   - containment
   - ethics

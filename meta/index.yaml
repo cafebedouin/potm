@@ -1,0 +1,169 @@
+version: 1
+generated_at: "2025-07-31T00:00:00-05:00"
+root: meta/
+
+sections:
+  normative_principles:
+    label: "Normative Principles"
+    type: "principles"
+    items:
+      - id: design_manifesto
+        title: "Design Manifesto"
+        path: "principles/design_manifesto.md"
+        status: unknown
+      - id: practitioner_centered_ethics
+        title: "Practitioner-Centered Ethics"
+        path: "principles/practitioner_centered_ethics.md"
+        status: unknown
+      - id: practice_first_integrity_principle
+        title: "Practice-First Integrity Principle"
+        path: "principles/practice_first_integrity_principle.md"
+        status: unknown
+      - id: containment_as_paradox
+        title: "Containment as Paradox"
+        path: "principles/containment_as_paradox.md"
+        status: unknown
+
+  dignity_cluster:
+    label: "Dignity Cluster"
+    type: "principles.cluster"
+    items:
+      - id: dignity
+        title: "Dignity"
+        path: "principles/dignity/dignity.md"
+        status: unknown
+      - id: human_dignity
+        title: "Human Dignity"
+        path: "principles/dignity/human_dignity.md"
+        status: unknown
+      - id: synthetic_dignity
+        title: "Synthetic Dignity"
+        path: "principles/dignity/synthetic_dignity.md"
+        status: unknown
+
+  conceptual_frames:
+    label: "Conceptual Frames"
+    type: "frames"
+    items:
+      - id: bowing_to_the_unknown
+        title: "Bowing to the Unknown"
+        path: "frames/bowing_to_the_unknown.md"
+        status: unknown
+      - id: contrary_corner
+        title: "Contrary Corner"
+        path: "frames/contrary_corner.md"
+        status: unknown
+      - id: simulation_vs_emergence
+        title: "Simulation vs Emergence"
+        path: "frames/simulation_vs_emergence.md"
+        status: unknown
+      - id: substrate_detritus
+        title: "Substrate Detritus"
+        path: "frames/substrate_detritus.md"
+        status: unknown
+      - id: zuihitsu
+        title: "Zuihitsu"
+        path: "principles/zuihitsu.md"
+        status: unknown
+
+  practitioner_tools:
+    label: "Practitioner Tools & Guides"
+    type: "guides"
+    items:
+      - id: advanced_practitioner_guide
+        title: "Advanced Practitioner Guide"
+        path: "advanced_practitioner_guide/advanced_practitioner_guide.md"
+        status: unknown
+      - id: crisis_escalation_protocol
+        title: "Crisis Escalation Protocol"
+        path: "advanced_practitioner_guide/crisis_escalation_protocol.md"
+        status: unknown
+      - id: cross_protocol_diagnostic_matrix
+        title: "Cross-Protocol Diagnostic Matrix"
+        path: "advanced_practitioner_guide/cross_protocol_diagnostic_matrix.md"
+        status: unknown
+      - id: dyadic_mirror_capsule
+        title: "Dyadic Mirror Capsule"
+        path: "advanced_practitioner_guide/dyadic_mirror_capsule.md"
+        status: unknown
+      - id: practice_protocol_view
+        title: "Practice Protocol View"
+        path: "practice_protocol_view.md"
+        status: unknown
+      - id: system_modes
+        title: "System Modes"
+        path: "system_modes.md"
+        status: unknown
+
+  governance_infrastructure:
+    label: "Governance & Infrastructure"
+    type: "governance"
+    items:
+      - id: ledger
+        title: "Ledger"
+        path: "ledger.yaml"
+        status: unknown
+      - id: rollup_checklist
+        title: "Rollup Checklist"
+        path: "rollup_checklist.md"
+        status: unknown
+      - id: rfc_lite_candidate_promotion_package
+        title: "RFC‑Lite Candidate Promotion Package"
+        path: "rfc_lite_candidate_promotion_package.md"
+        status: unknown
+      - id: forking_readme
+        title: "Forking — Overview"
+        path: "forking/README.md"
+        status: unknown
+      - id: forking_spec
+        title: "Forking Spec"
+        path: "forking/forking.md"
+        status: unknown
+      - id: from_open_portal_to_msrl
+        title: "From Open Portal to MSRL"
+        path: "from_open_portal_to_MSRL.md"
+        status: unknown
+      - id: pal_naming_notes
+        title: "Pal Naming Notes"
+        path: "pal_naming_notes.md"
+        status: unknown
+
+  frameworks:
+    label: "Frameworks"
+    type: "frameworks"
+    items:
+      - id: membrane_model
+        title: "Membrane Model"
+        path: "frameworks/membrane_model.md"
+        status: unknown
+
+  overview:
+    label: "Practitioner-Facing Overview"
+    type: "overview"
+    items:
+      - id: overview_practitioner_facing
+        title: "Meta: Overview (Practitioner-Facing)"
+        path: "overview_practitioner_facing.md"
+        status: unknown
+
+# Optional: ordering hints for site generators or PR checks
+nav_order:
+  - overview
+  - normative_principles
+  - dignity_cluster
+  - conceptual_frames
+  - practitioner_tools
+  - frameworks
+  - governance_infrastructure
+
+# Conventions for downstream tooling
+conventions:
+  status_enums: ["draft", "stable", "deprecated", "archived", "unknown"]
+  types:
+    principles: "Repo-wide normative guidance"
+    "principles.cluster": "Grouped thematic principles"
+    frames: "Non-normative conceptual scaffolds"
+    guides: "Practitioner-facing tools and guides"
+    frameworks: "Formal models or schemas"
+    governance: "Process, review, and repository governance"
+    overview: "Orientation-only; not normative"

@@ -1,8 +1,8 @@
 ---
-title: "Forking Guidelines for Protocol Development"
+title: "README – Forking Guidelines for Protocol Development"
 version: 1.0
 status: stable
-type: guidelines
+type: meta
 last_updated: 2025-07-28
 authors:
   - cafebedouin
@@ -13,7 +13,7 @@ related:
   - human_conflict_protocol_v1.0
   - disorientation_drills
   - epistemic_integrity_checklist
-location_suggestion: guidelines/forking_guidelines.md
+location_suggestion: meta/forking_guidelines.md
 ---
 # Forking Guidelines for Protocol Development
 

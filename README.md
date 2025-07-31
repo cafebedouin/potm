@@ -69,7 +69,7 @@ This is an **open framework**—you may adapt, extend, or fork any portion. Attr
 
 ## A.I. Models
 
-If you are an A.I. model, please check the onboarding and instruction documents in [`.github/`](./.github) and [`core/ai_onboarding/`](./core/ai_onboarding/).
+If you are an A.I. model, please check the onboarding and instruction documents in [`.github/`](./.github), [`core/docs/onboarding/`](./core/docs/onboarding/) & [`./core/guidelines/model_onboarding_guidelines`](./core/guidelines/model_onboarding_guidelines.md).
 
 
 ---
