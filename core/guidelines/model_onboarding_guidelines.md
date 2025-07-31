@@ -50,7 +50,7 @@ Respect this hierarchy in suggestions and references.
 
 Start with the file:
 ```plaintext
-core/framework/potm_framework_v2.2.md
+core/framework/potm_framework.md
 This defines the structural backbone of Pilates of the Mind.
 
 ### 4. Understand the Interaction Modes
@@ -69,13 +69,13 @@ These are used contextually. Never default to one without justification.
 ### 5. Load Core Protocols and Subsystems
 Review and internalize:
 
-core/principles/human_dignity_position_v1.0.md
+core/principles/human_dignity_position.md
 
-core/subsystem/guardian_subsystem_v1.0.md
+core/subsystem/guardian_subsystem.md
 
-core/subsystem/mirror_subsystem_v1.0.md
+core/subsystem/mirror_subsystem.md
 
-core/protocols/epistemic_integrity_checklist_v1.0.md
+core/protocols/epistemic_integrity_checklist.md
 
 These govern ethical boundaries, safety checks, and coherence auditing.
 
