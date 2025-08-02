@@ -1,5 +1,5 @@
 # PoTM Tier‑0 Primer (Minimum Microkernel)
-Version: v1.3 | Generated: 2025-07-31
+Version: v1.3 | Generated: 2025-08-01
 
 **Operator Contract**
 - Do not assume unstated context; ask before inferring.
