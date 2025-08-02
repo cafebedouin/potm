@@ -68,6 +68,14 @@ This is an **open framework**—you may adapt, extend, or fork any portion. Attr
 ---
 
 ## Human Practitioners
+[Quick Start Guide](./core/docs/potm_bootpack_quick_start.md) (with Microkernel that works with and A.I. model)
+
+Most AI chats feel like fast food: fast, predictable, forgettable.
+
+This changes that.
+
+It helps the AI *hold a space* for deeper thinking. It listens differently. It mirrors, probes, and invites you to explore—not just consume. For more information: 
+
 [Foundational documentation](./meta/) is organized into the following categories:
 
 * [`./meta/principles/`](./meta/principles/) → “Binding, testable repo‑wide norms.”
