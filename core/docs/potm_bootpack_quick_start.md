@@ -1,5 +1,3 @@
-Yes, absolutely. Let’s make a clear, inviting, and practical **“One Sheet”** that captures the essence of how to try *Pilates of the Mind* in a model-agnostic way—no preamble, no intellectual scaffolding—just enough to get someone started.
-
 ---
 
 ## 🧠 *Pilates of the Mind* BootPack: Quick Start Guide
