@@ -1,5 +1,5 @@
 # PoTM Tier‑0 Primer (Minimum Microkernel)
-Version: v1.3 | Generated: 2025-08-01
+Version: v1.3 | Generated: 2025-08-03
 
 **Operator Contract**
 - Do not assume unstated context; ask before inferring.
@@ -22,7 +22,9 @@ Use only the content I provide; request the next part if needed.
 
 ---8<--- FILE: kernel/10_kernel_map.md ---8<---
 Recap: What’s inside the minimum microkernel.
-Core = Manifest summary, Axioms (distilled), Apertures (Contrary Corner, Open Questions), Guardian (tripwires + actions), Lifecycle (sunset/seed), Cadence/WIP, How-to-use-me.
+
+Core = Manifest summary, Axioms (distilled), Apertures (Contrary Corner, Open Questions), Guardian (tripwires + actions), Lifecycle (sunset/seed), Cadence/WIP, How-to-use-me, Invoked Tag Modes (extended/tags.md)
+
 
 ---8<--- /END FILE: kernel/10_kernel_map.md ---8<---
 

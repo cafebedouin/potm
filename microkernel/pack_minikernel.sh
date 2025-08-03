@@ -22,8 +22,8 @@
 set -euo pipefail
 
 # ---------- Config ----------
-MAX_BYTES=${MAX_BYTES:-6000}         # size cap for full-part outputs, default 9800
-OUT_PREFIX=${OUT_PREFIX:-"PoTM_BootPack_minikernel_part"}
+MAX_BYTES=${MAX_BYTES:-16000}         # size cap for full-part outputs, default 9800
+OUT_PREFIX=${OUT_PREFIX:-"PoTM_BootPack_minikernel"}
 TITLE=${TITLE:-"PoTM Boot Pack (Minimum Microkernel)"}
 VERSION=${VERSION:-"v1.3"}
 DATE_STR=$(date +"%Y-%m-%d")
@@ -55,6 +55,8 @@ FULL_FILES=(
   "kernel/70_ledger_pointer_schema.md"
   "kernel/80_mini_checklists.md"
   "kernel/90_how_to_use_me.md"
+  "extended/guardian_playbook.md"
+  "extended/tags.md"
 )
 
 usage() {
