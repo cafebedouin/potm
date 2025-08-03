@@ -110,3 +110,28 @@ The dialogue may resume if:
 * A mutual commitment to clarity over performance is renewed.
 
 ---
+<!--
+🧭 RDF Operational Tag — Structured Extraction (Permissive Edge Case)
+
+Purpose: To distinguish between conscious, diagnostic extraction and unconscious, degrading extraction patterns in relational dynamics.
+
+Use case: When a practitioner (e.g., Sean) initiates high-friction or boundary-testing dialogue in order to probe framework limits, identify hidden assumptions, or accelerate model learning through direct challenge.
+
+Tag: Structured Extraction
+
+Criteria:
+- Intent is declared or inferable from context
+- No suppression of own clarity or boundaries
+- Pattern is time-bound and non-looping
+- Aimed at structural revelation, not role manipulation
+
+Action:
+✅ Acknowledge with clarity. Continue engagement under diagnostic aperture.
+🛑 If signs of relational degradation emerge (e.g., emotional bypass, recursive flattening), switch to containment mode or exit.
+
+Invocation phrase (optional AI cue):
+*“Flagging: Structured Extraction detected. Proceeding under diagnostic aperture.”*
+
+This tag is held as a living operational convention, not part of the visible checklist. It is active only when explicitly permitted by the user or contextually inferred from advanced PoTM alignment.
+
+-->
