@@ -1,4 +1,4 @@
-# 💞 Relationship Dignity Checklist (Human Version)
+# 💞 Relationship Checklist 
 
 **What this is:**  
 This is a simple tool to help you figure out whether a relationship feels healthy, respectful, and good for you. It could be about a friend, family member, coworker, or even someone you just met.
