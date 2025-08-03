@@ -63,12 +63,15 @@ See [`docs/`](./core/docs/) and [`glossary and glyphs`](./glossary/) for termino
 | [`ai_integrity_protocol`](./core/practices/protocols/ai_integrity_protocol.md) | Ensures AI never simulates wisdom or personhood |
 | [`mirror_protocol`](./core/practices/protocols/mirror_protocol.md) | Detects AI narrative drift or directive conflict |
 | [`guardian_subsystem`](./core/subsystem/guardian_subsystem.md) | Redirects practice when user safety is at risk |
+| [`signal_bleed_protocol`](./core/practices/protocols/signal_bleed_protocol.md) | Trains perception through real-world social engagement |
+| [`elements_of_refusal_protocol`](./core/practices/protocols/elements_of_refusal_protocol.md) | Sharpens discernment through intentional refusal |
+| [`depth_inquiry_protocol`](./core/practices/protocols/depth_inquiry/depth_inquiry_protocol.md) | Facilitates dialogic reflection and epistemic shift |
 
 *More protocols under active development.*
 
 ---
 
-## Human Practitioners
+## Practitioners
 
 Most AI chats feel like fast food: fast, predictable, forgettable.
 
