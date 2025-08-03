@@ -97,4 +97,3 @@ Want to go deeper? Explore the full framework:
 📚 https://github.com/cafebedouin/potm
 ```
 
-Would you like me to commit this into the repo directly or just save it to a local file you can paste?
