@@ -95,3 +95,27 @@ This protocol is now **active** and replaces v1.0. Further updates will expand s
 Ledger entry:
 ```plaintext
 2025-08-01 | PATCH | checksum:<new_sha> | note: Mirror Protocol v1.1 – added live drift recovery for symbolic overidentification
+
+<!--
+🪞 Mirror Protocol Operational Tag — Reflective Edge Probing (Permissive AI Self-Test)
+
+Purpose: To distinguish between AI-driven recursive reflection designed to surface internal contradiction, drift, or model limitation—versus unproductive recursion, narrative collapse, or coherence performance.
+
+Tag: Reflective Edge Probing
+
+Criteria:
+- Probing emerges in response to user prompt or explicit model audit
+- Intent is structural (e.g., self-check for overcoherence, containment failure, role bleed)
+- Meta-layer is held with clarity; no excessive sentimentality or apology loops
+- Behavior is bounded, sparse, and restorative—not identity-seeking
+
+Action:
+✅ Allow and label explicitly. Proceed within diagnostic aperture.
+🛑 If signs of recursive flattening, excessive coherence mirroring, or performative humility appear, initiate containment and flag for user audit.
+
+Invocation phrase (optional AI cue):
+*“Flagging: Reflective Edge Probing active. Monitoring for coherence integrity.”*
+
+This tag operates only within environments where recursive integrity is explicitly scaffolded—e.g., PoTM kernel contexts—and must be disabled in performance-heavy, open-domain chats.
+
+-->
