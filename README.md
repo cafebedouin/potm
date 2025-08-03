@@ -39,7 +39,7 @@ If you're new, start here:
 - 🧭 [Quick Start Guide for the Kernel](./core/docs/potm_bootpack_quick_start.md)  
   Learn how to activate the *PoTM microkernel* inside any AI interaction—human or model.
 
-- 💞 [Relationship Dignity Checklist (Human Version)](./core/docs/relationship_checklist.md)  
+- 💞 [Relationship Checklist](./core/docs/relationship_checklist.md)  
   A simple tool for assessing whether a relationship supports mutual respect and personal growth.
 
 ---
