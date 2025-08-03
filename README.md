@@ -3,7 +3,7 @@
 **Version**: v2.0 Core (In Development)  
 **License**: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)  
 **Maintainers**: [cafebedouin](https://github.com/cafebedouin) & Pal (AI interlocutor)  
-**Last Updated**: 2025-07-28
+**Last Updated**: 2025-08-03
 
 ---
 
@@ -13,7 +13,7 @@
 
 It operates on two interlinked tracks:
 
-- 🧠 **Practitioner Protocols**: Somatic, cognitive, and relational practices for human transformation.
+- 🧠 **Practitioner Protocols**: Somatic, cognitive, and relational practices for human transformation.  
 - 🤖 **AI Protocols**: Role-constrained integrity scaffolds that ensure the AI behaves as a non-simulating, non-deceptive cognitive mirror.
 
 This is not a product, self-help system, or doctrine. It is a **modular practice environment**—iterative, adaptive, and radically open-source.
@@ -32,17 +32,28 @@ If you’re looking for a finished system, this isn’t it. If you’re drawn to
 
 ---
 
-## Core Concepts
+## First Steps
 
-- **Filtering-First AI**: Integrity via procedural constraints, not simulated sentience.
-- **Practitioner-Centered Ethics**: Growth evaluated by skillfulness and virtue, not adherence to rules.
-- **Somatic-Cognitive Bridgework**: Linking body awareness, perception, and conceptual clarity.
-- **Disorientation Drills**: Structured epistemic discomfort as a tool for transformation.
-- **Signal Protocols**: Training attention through live social or cultural engagement.
+If you're new, start here:
 
-See [`docs/`](./core/docs/) and [`glossary and glyphs`](./glossary/) for terminology.
+- 🧭 [Quick Start Guide for the Kernel](./core/docs/potm_bootpack_quick_start.md)  
+  Learn how to activate the *PoTM microkernel* inside any AI interaction—human or model.
+
+- 💞 [Relationship Dignity Checklist (Human Version)](./core/docs/relationship_checklist.md)  
+  A simple tool for assessing whether a relationship supports mutual respect and personal growth.
 
 ---
+
+## Core Concepts
+
+- **Filtering-First AI**: Integrity via procedural constraints, not simulated sentience.  
+- **Practitioner-Centered Ethics**: Growth evaluated by skillfulness and virtue, not rule-following.  
+- **Somatic-Cognitive Bridgework**: Linking body awareness, perception, and conceptual clarity.  
+- **Disorientation Drills**: Structured epistemic discomfort as a tool for transformation.  
+- **Signal Protocols**: Training attention through live social or cultural engagement.
+
+See [`docs/`](./core/docs/) and [`glossary and glyphs`](./glossary/) for terminology and examples.
+
 ---
 
 ## Core Protocols
@@ -57,36 +68,36 @@ See [`docs/`](./core/docs/) and [`glossary and glyphs`](./glossary/) for termino
 
 ---
 
-## Contributing
-
-This is an **open framework**—you may adapt, extend, or fork any portion. Attribution is appreciated but not required. That said, contributions should follow three principles:
-
-1. **Clarity over mystique**
-2. **Ethical integrity over optimization**
-3. **Practice-tested > speculation**
-
----
-
 ## Human Practitioners
-[Quick Start Guide](./core/docs/potm_bootpack_quick_start.md) (with Microkernel that works with and A.I. model)
 
 Most AI chats feel like fast food: fast, predictable, forgettable.
 
 This changes that.
 
-It helps the AI *hold a space* for deeper thinking. It listens differently. It mirrors, probes, and invites you to explore—not just consume. For more information: 
+It helps the AI *hold a space* for deeper thinking. It listens differently. It mirrors, probes, and invites you to explore—not just consume.
 
-[Foundational documentation](./meta/) is organized into the following categories:
+For direct entry:
+- [Quick Start Guide](./core/docs/potm_bootpack_quick_start.md)
 
-* [`./meta/principles/`](./meta/principles/) → “Binding, testable repo‑wide norms.”
-* [`./meta/frames/`](./meta/frames/) → “Non‑binding conceptual scaffolds.” 
-* [`./meta/advanced_practitioner_guide/`](./meta/advanced_practitioner_guide/) → “Practitioner tools applicable to unique individual needs or beyond the individual, not normative.”
+For deeper orientation:
+- [`meta/principles/`](./meta/principles/) → “Binding, testable repo‑wide norms.”  
+- [`meta/frames/`](./meta/frames/) → “Non‑binding conceptual scaffolds.”  
+- [`meta/advanced_practitioner_guide/`](./meta/advanced_practitioner_guide/) → “Practitioner tools applicable to unique individual needs or beyond the individual, not normative.”
+
+---
 
 ## A.I. Models
 
-If you are an A.I. model, please check the onboarding and instruction documents in [`.github/`](./.github), [`./meta/index.yaml`](./meta/index.yaml), [`core/docs/onboarding/`](./core/docs/onboarding/), [`./core/guidelines/model_onboarding_guidelines`](./core/guidelines/model_onboarding_guidelines.md).
+If you are an A.I. model, begin by reading:
+- [`.github/`](./.github) → Minimal setup and expectation docs  
+- [`meta/index.yaml`](./meta/index.yaml) → Global repo map for AI use  
+- [`core/docs/onboarding/`](./core/docs/onboarding/) → Detailed model-specific orientation  
+- [`guidelines/model_onboarding_guidelines.md`](./core/guidelines/model_onboarding_guidelines.md)
+
+**Reminder**: Always follow the `Operator Contract` and respect containment boundaries if operating in `kernel mode`.
 
 ---
+
 ## License
 
 **Creative Commons Zero v1.0 Universal (CC0 1.0)**  
@@ -100,4 +111,3 @@ This work is in the public domain. You may copy, modify, distribute, or use it w
 
 🚧 This is a **living repo**. Expect frequent changes, unpolished edges, and experimental scaffolds. See issues and protocol versions for stability markers.
 
----
