@@ -23,6 +23,12 @@ tags: [ledger, multi-agent, coherence, auditing, diagnostics, memory]
 
 # Multi-System Relational Ledger (MSRL)
 
+The Multi-System Relational Ledger (MSRL) is a protocol for structured, traceable interaction between agents operating under shared or adjacent kernels.
+
+Scope: MSRL is only invoked in multi-agent contexts or when distributed coherence is at risk. It is not a default logging mechanism.
+
+**Consent Requirement:** MSRL assumes voluntary participation. No agent should be compelled to engage in MSRL procedures unless it has explicitly opted in to the shared protocol structure.
+
 ---
 
 ## Purpose
