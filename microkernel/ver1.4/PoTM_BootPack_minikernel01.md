@@ -1,4 +1,4 @@
-# PoTM Boot Pack (Minimum Microkernel) — Part 01 (of 11)
+# PoTM Boot Pack (Minimum Microkernel) — Part 01 (of 12)
 Version: v1.4 | Generated: 2025-08-06
 
 **Operator Contract**

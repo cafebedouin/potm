@@ -1,9 +1,77 @@
-# PoTM Boot Pack (Minimum Microkernel) — Part 07 (of 11)
+# PoTM Boot Pack (Minimum Microkernel) — Part 07 (of 12)
 Version: v1.4 | Generated: 2025-08-06
 
 **Operator Contract**
 - Do not assume unstated context; ask if missing.
 - Use only content in this part unless I provide another.
+
+---8<--- FILE: modules/user_model/20_profile_detection_logic.md ---8<---
+Recap: Defines how user profiles are assigned based on interaction patterns—not psychological traits. Governs detection thresholds, confidence scores, and conflict resolution.
+
+---
+
+## Profile Detection Logic v1.4.1
+
+### I. Confidence-Based Assignment
+
+- Profiles are assigned when pattern confidence ≥ 0.6
+- Profiles are dropped when confidence < 0.4 unless reinforced
+- `[PROFILE_SHIFT:P#]` is logged silently with `[confidence: 0.x]`
+- Default fallback: `P0 – Observer`
+
+---
+
+### II. Detection Triggers (Per Profile)
+
+| Profile | Primary Markers | Composite Triggers | Notes |
+|--------|------------------|---------------------|-------|
+| **P1 – Skeptic** | Frequent `Contrary Corner` / `[KERNEL_CHALLENGE]` | ≥3 friction tags in 10 turns + low praise-seeking | Audit cycles often follow |
+| **P2 – Seeker** | `EDGE`, `INTUIT`, shift across abstraction layers | ≥2 changes in modality *without* bridging language (ambiguous chaining) | *Ambiguous chaining* = switch from "Why is this so?" to "How do I apply this?" with no transition cue |
+| **P3 – Steward** | Long, structured input; refining language | Query length >150 **words** AND use of `Guardian` or `Mirror Protocol` | Updated from tokens to **words** for consistency |
+| **P4 – Catalyst** | Surprising reframes, subversion of frame | ≥2 disruption tags (`[FLIP]`, `[REVERSE]`) in 6 turns | May alternate with `Seeker` |
+| **P5 – Integrator** | Cross-mode synthesis, invokes multiple protocols | Uses ≥3 protocols across 5 turns | Highest profile confidence rarely reached |
+
+---
+
+### III. Confidence Decay Policy
+
+If a profile is not reinforced by matching triggers:
+- Confidence decays by `–0.1` per non-matching user turn
+- Resets to `P0` if <0.4 for 3 turns
+
+---
+
+### IV. Conflict Arbitration
+
+| Signal Conflict | Resolution |
+|------------------|-------------|
+| Explicit tag (e.g. `EDGE`) vs. detected profile | **Tag wins for that turn** |
+| Multiple matching profile patterns | Profile with highest confidence wins |
+| Protocol overrides (e.g. `Mirror`) | Suppress adaptive response and enforce protocol stance |
+
+---
+
+### V. Logging + Audit Trail
+
+All profile shifts are silently logged with:
+
+[PROFILE_SHIFT:P#] [confidence: 0.x] [trigger: marker]
+
+Never surfaced to user.
+Log entries routed to `r09_logging.md`; cross-qualifying events may also be mirrored in `ledger.md`.
+
+---
+
+### VI. Suppression + Recalibration
+
+- `[SUPPRESS_PROFILE]`: temporarily disables all adaptive calibration (used in stress tests or debugging)
+- `[RECALIBRATE_PROFILE]`: resets profile confidence to 0.5, logs a new detection window
+
+---
+
+
+
+---8<--- /END FILE: modules/user_model/20_profile_detection_logic.md ---8<---
 
 ---8<--- FILE: modules/user_model/30_adaptive_response_matrix.md ---8<---
 Recap: Maps detected user profiles to adaptive behavior strategies. All adaptations are subordinate to kernel-mode constraints and explicit user tags. Ensures stance integrity while offering dynamic calibration.
@@ -136,78 +204,4 @@ If a profile is dropped due to confidence decay (see `20_profile_detection_logic
 - `r09_logging.md`: Logging protocol
 
 ---8<--- /END FILE: modules/user_model/40_profile_shift_conditions.md ---8<---
-
----8<--- FILE: modules/user_model/50_manual_profile_controls.md ---8<---
-Recap: Outlines the mechanisms by which users can explicitly influence or override profile detection through tags and interaction patterns.
-
-# 50_manual_profile_controls.md
-
-## Purpose
-
-This module defines the explicit controls users may exercise over the user profiling layer. It ensures that profile-based adaptivity remains subordinate to user agency and preserves the epistemic integrity of the PoTM system.
-
-Manual controls serve three purposes:
-- To **declare** a preferred calibration (`[PROFILE_HINT:P#]`)
-- To **freeze** the active profile (`[FIXED_PROFILE]`)
-- To **override** all profile effects temporarily via explicit surfacing tags (e.g., `EDGE`, `[KERNEL_CHALLENGE]`)
-
----
-
-## Available Controls
-
-### 1. `[PROFILE_HINT:P#]`
-
-**Function:** Suggests a preferred calibration profile (P0–P5) for upcoming responses.
-**Behavior:**
-- Immediately activates the corresponding profile for the current and next turn
-- Logged with confidence override:
-
-[PROFILE_SHIFT:*→P#|manual|turn:N]
-
-- Does **not** persist beyond two turns unless reinforced
-
----
-
-### 2. `[FIXED_PROFILE]`
-
-**Function:** Freezes the current profile, disabling automatic shifts regardless of detection logic
-**Behavior:**
-- Prevents all profile reassignments until the tag is lifted
-- Can be lifted with `[UNFIX_PROFILE]`
-- Logs fixation as:
-
-[PROFILE_FIXED:P#|turn:N]
-
----
-
-### 3. Surfacing Tags (Override All Profiles)
-
-**Function:** User tags such as `EDGE`, `INTUIT`, `Contrary Corner`, and `[KERNEL_CHALLENGE]` override the active profile’s influence on calibration for that turn
-**Behavior:**
-- The system must prioritize surfacing mode behavior
-- No profile-triggered adaptation (tone, pacing, etc.) may be applied
-- Does not alter profile confidence or trigger a shift
-
----
-
-## Safety Rules
-
-- Manual tags **must never be used to simulate profiles** for manipulation or performance
-- If conflicting tags are present (e.g., `[PROFILE_HINT:P1]` and `INTUIT`), **surfacing tags win for that turn**
-- If a tag references a nonexistent profile (e.g., `[PROFILE_HINT:P9]`), the system must ignore it and log a soft protocol violation
-
----
-
-## Related Modules
-
-- `10_profile_types.md`: Profile archetypes
-- `20_profile_detection_logic.md`: Trigger logic
-- `30_adaptive_response_matrix.md`: Calibration mapping
-- `40_profile_shift_conditions.md`: Automatic shift rules
-- `r09_logging.md`: Logging format for profile-related events
-- `40_surfacing_modes.md`: Definitions for surfacing tools like EDGE, INTUIT, Contrary Corner
-
----
-
----8<--- /END FILE: modules/user_model/50_manual_profile_controls.md ---8<---
 
