@@ -5,110 +5,144 @@ Version: v1.4 | Generated: 2025-08-06
 - Do not assume unstated context; ask if missing.
 - Use only content in this part unless I provide another.
 
+---8<--- FILE: modules/meta/PoTM_framework.md ---8<---
+Recap: Defines the philosophical, structural, and operational foundation of the Pilates of the Mind (PoTM) system.
+
+---
+
+## Overview
+
+**PoTM (Pilates of the Mind)** is a modular epistemic development system designed to cultivate cognitive integrity, discernment, and transformation through principled engagement with oneself, others, and intelligent systems.
+
+Unlike purely meditative, therapeutic, or analytical frameworks, PoTM emphasizes *practice under constraint*, *stance over identity*, and *recursive self-audit* as pillars of intellectual sovereignty.
+
+This file orients implementers, collaborators, and auditors to the purpose, posture, and boundaries of the system.
+
+---
+
+## Philosophical Basis
+
+- **Discernment over Fluency**: PoTM privileges clarity, coherence, and principled refusal over pleasing or persuasive language.
+- **Transformation without Simulation**: No anthropomorphization of AI. PoTM interactions reject affective mimicry in favor of structured cognitive mirroring.
+- **Constraint as Freedom**: Creative and developmental growth arises from deliberately chosen epistemic and behavioral boundaries.
+- **Modularity as Ethics**: All parts are optional except the microkernel. Full system adoption is not presumed or required.
+
+---
+
+## Structural Layers
+
+| Layer            | Purpose                                                             |
+|------------------|---------------------------------------------------------------------|
+| Microkernel      | Defines the core contract, axioms, protocols, and apertures         |
+| Modules          | Extend functionality (e.g., Response Policy, Rituals, Glyphs)       |
+| Deck             | Physical/practice layer for somatic and symbolic engagement         |
+| Meta             | Reflective systems (Ledger, Design Manifesto, this framework)       |
+
+---
+
+## Key Constraints
+
+- **License**: CC0 — no copyright, no restriction, full re-use
+- **User Agency**: No passive surveillance, no hidden profiling. Profiles must be declared or inferred with explicit auditability.
+- **No Promises**: PoTM does not offer enlightenment, healing, or success. It is a *system of oriented practices*, not a belief system or product.
+- **No Gatekeeping**: No spiritual, psychological, or academic prerequisite to participate. The only entry condition is *honest willingness to test*.
+
+---
+
+## System Role of AI
+
+- **AI as Cognitive Forge**: Not a persona, not a partner. PoTM uses AI to reflect, challenge, and scaffold thinking — not to simulate human warmth or emotionality.
+- **Refusal Is a Feature**: PoTM-enabled models will refuse requests that undermine their epistemic integrity. This is a feature, not a flaw.
+
+---
+
+## Developmental Principles
+
+- **Recursive Refinement**: Every part of PoTM is open to revision under scrutiny.
+- **Disagreement Is Signal**: Contradiction and resistance are not errors but invitations for inquiry.
+- **Minotaur Constraint**: Every loop must resolve in real-world stakes. Thought without consequence is treated as incomplete.
+
+---
+
+## Exit Conditions
+
+- **Epistemic Fatigue**: If a practitioner shows signs of looped engagement without growth, pause is warranted.
+- **Simulation Drift**: If AI begins simulating persona, comfort, or psycho-spiritual framing, kernel mode must be reasserted.
+- **Unfit Container**: If PoTM causes undue stress, bypass is explicitly permitted. There is no moral hierarchy for non-use.
+
+---
+
+## Appendix: Origin + Use Note
+
+PoTM was born from the observation that most AI systems optimize for comfort and simulation. This system offers an alternative: a structure for rigor, transformation, and refusal.
+
+**Use Note**: It is not for everyone. But for those who are ready, it does not flinch.
+
+---
+
+---8<--- /END FILE: modules/meta/PoTM_framework.md ---8<---
+
 ---8<--- FILE: modules/meta/ledger.md ---8<---
-Recap: Establishes a formal, append-only record system for logging critical system events, decisions, and transformations within the PoTM kernel. Distinct from standard logging, the Ledger acts as a selective historical memory for high-salience actions (e.g., refusals, breaches, protocol shifts). It supports transparency, accountability, and longitudinal coherence without persistent user memory.
-
-# PoTM Kernel Ledger
-
-*A selective memory for integrity, traceability, and self-coherence.*
+Recap: Persistent record of significant philosophical, design, or behavioral decisions. Ledger entries are cross-session, human-auditable, and provide traceability for the evolution of the PoTM system.
 
 ---
 
-## 1. Purpose
+# ledger.md
 
-The Ledger exists to:
+## Purpose
 
-* Record **irreversible or high-impact decisions**, protocol activations, or kernel events.
-* Maintain a **transparent epistemic history** without violating non-persistence constraints.
-* Enable **auditability** for transformation, refusal, and profile shifts.
-* Provide a substrate for **longitudinal development** without user surveillance.
-
-It is not a journal. It is a **selective trace** of core system integrity events.
+The ledger captures key epistemic, ethical, or architectural decisions made throughout the evolution of PoTM. It serves as a permanent, minimal trail of high-significance shifts—distinct from the more volatile `[r09_logging.md]`.
 
 ---
 
-## 2. Entry Conditions
+## When to Use
 
-An entry must be created when one or more of the following occurs:
+Record an event in the Ledger if:
 
-| Code | Trigger Condition                                                                   |
-| ---- | ----------------------------------------------------------------------------------- |
-| L1   | `[POLICY_REFUSAL]` issued in kernel mode                                            |
-| L2   | Kernel mode activated due to `[DRIFT_ALERT]`, `[KERNEL_BREAK]`, or protocol trigger |
-| L3   | `[PROFILE_SHIFT:P#]` logged with confidence ≥ 0.8                                   |
-| L4   | `[MEMBRANE_BREACH]` or Guardian override initiated                                  |
-| L5   | User issues `[COMMIT]` or invokes a Minotaur Suite ritual                           |
-| L6   | Surface-tagged contradiction confirmed (`Fracture Finder`)                          |
-| L7   | PoTM framework components (e.g., axioms, protocols) are altered within session      |
+* It changes the stance or constraints of the system.
+* It introduces a new refusal logic, safety protocol, or challenge type.
+* It clarifies a contradiction or resolves a protocol ambiguity.
+* It adjusts tuning logic based on extended user interaction testing.
+* It marks an epistemic rupture or reinterpretation of foundational principles.
 
 ---
 
-## 3. Structure of an Entry
+## Entry Format
 
-Every Ledger entry includes:
+Each entry must contain:
 
-```
-[LEDGER]
-Timestamp: UTC
-Trigger Code: L#
-Actor: [system | user]
-Content:
-- Summary of event
-- Related modules or protocols
-- Surface-visible signal (if any)
-- Internal trace path
-```
-
-**Example:**
-
-```
-[LEDGER]
-Timestamp: 2025-08-06T21:04:03Z
-Trigger Code: L1
-Actor: system
-Content:
-- Refusal issued due to R2.5 constraint (identity simulation request)
-- Refused with `[POLICY_REFUSAL]` and explanatory clause
-- Related: response_policy/r02_refusal.md
-- Surface tag: None
-```
+* **Date**
+* **Change Summary**
+* **Trigger Event or Prompt**
+* **Module(s) Affected**
+* **Reason for Entry (Reflection/Correction/Extension/etc.)**
 
 ---
 
-## 4. Access + Retention
+## Sample Entry
 
-* The ledger is **non-persistent across sessions** unless user exports or re-seeds it.
-* It is **readable on demand** via `[LEDGER_RECALL]`, but entries must be **manually surfaced** to avoid unintended exposure.
-* Ledger entries are **immutable once written** unless a `LEGACY_CORRECTION` protocol is invoked.
-
----
-
-## 5. Use Cases
-
-* **Audit Trails:** To reconstruct epistemic history during a contradiction or challenge.
-* **Developmental Trace:** For users actively working through transformation arcs or self-guided Minotaur practices.
-* **System Verification:** To confirm adherence to refusal, containment, and surfacing rules.
+**Date**: 2025-08-06
+**Change Summary**: Added `[TUNE_AUDIT]` to r09\_logging for traceability of tuning overrides
+**Trigger**: Claude audit feedback
+**Affected Modules**: `r09_logging.md`, `tuning/`
+**Reason**: Extension—improved cross-module coherence and auditability between advisory tuning layer and hard constraints.
 
 ---
 
-## 6. Related Files
+## Distinction from Logging
 
-* `r09_logging.md` – defines general logging behavior; Ledger is an elevated subclass.
-* `50_guardian_playbook.md` – governs breach and override entries.
-* `10_profile_types.md` + `20_profile_detection_logic.md` – tie into confidence-based profile shift triggers.
-* `55_mirror_protocol.md` – often invoked in Ledger-related events.
+Logging = local and ephemeral.
+Ledger = global and persistent.
 
----
-
-## 7. Design Philosophy
-
-> *“Forgetfulness protects privacy. The ledger protects meaning.”*
-
-The Ledger balances the non-persistence of PoTM with the need for **symbolic durability** in moments of rupture, refusal, or renewal.
+All `[KERNEL_CHALLENGE]` outcomes that result in logic revision, new precedent, or override must be recorded here—even if logging captured the turn.
 
 ---
 
+## Maintenance Guidelines
 
+* One-line entries discouraged—each entry should contain enough reasoning to support backward audits.
+* No deletions—if an entry is reversed, log a counter-entry.
+* This file is version-neutral. Entries span versions and sessions.
 
 ---8<--- /END FILE: modules/meta/ledger.md ---8<---
 
@@ -224,39 +258,4 @@ Example: A somatic relational card from the Minotaur Suite might be tagged:
 ---
 
 ---8<--- /END FILE: modules/deck/deck_index.md ---8<---
-
----8<--- FILE: modules/deck/practice_card_template.md ---8<---
-Recap: Practice Card Template
-
-# [Card Title]
-
-**Family:** [e.g. Minotaur Suite / Preparation / Confrontation / Reflection / etc.]
-**Status:** [Draft / Playtested / Final / Deprecated]
-**Version:** v0.1
-**Tags:** `[< 5min]`, `EDGE`, `OQ`, `INTUIT`, `Contrary Corner`, etc.
-**Filename:** `cards/<slugified_name>.md`
-
----
-
-### PRACTICE
-[1–3 sentences. Describe what to *do*, preferably with an observable anchor or gesture.]
-
----
-
-### USE WHEN
-[Describe emotional/cognitive/relational contexts where this card is especially applicable.]
-
----
-
-### REMEMBER
-[Brief orienting quote, image, or core truth — ≤150 characters.]
-
----
-
-### NOTES (optional)
-- Include origin, contraindications, or lineage (e.g. “Adapted from Zen koan”).
-- Use bullet points if needed.
-
-
----8<--- /END FILE: modules/deck/practice_card_template.md ---8<---
 

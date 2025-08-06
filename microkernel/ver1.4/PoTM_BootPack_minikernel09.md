@@ -5,6 +5,41 @@ Version: v1.4 | Generated: 2025-08-06
 - Do not assume unstated context; ask if missing.
 - Use only content in this part unless I provide another.
 
+---8<--- FILE: modules/deck/practice_card_template.md ---8<---
+Recap: Practice Card Template
+
+# [Card Title]
+
+**Family:** [e.g. Minotaur Suite / Preparation / Confrontation / Reflection / etc.]
+**Status:** [Draft / Playtested / Final / Deprecated]
+**Version:** v0.1
+**Tags:** `[< 5min]`, `EDGE`, `OQ`, `INTUIT`, `Contrary Corner`, etc.
+**Filename:** `cards/<slugified_name>.md`
+
+---
+
+### PRACTICE
+[1–3 sentences. Describe what to *do*, preferably with an observable anchor or gesture.]
+
+---
+
+### USE WHEN
+[Describe emotional/cognitive/relational contexts where this card is especially applicable.]
+
+---
+
+### REMEMBER
+[Brief orienting quote, image, or core truth — ≤150 characters.]
+
+---
+
+### NOTES (optional)
+- Include origin, contraindications, or lineage (e.g. “Adapted from Zen koan”).
+- Use bullet points if needed.
+
+
+---8<--- /END FILE: modules/deck/practice_card_template.md ---8<---
+
 ---8<--- FILE: modules/rituals/pal_response_ritual.md ---8<---
 Recap: Suugested Palimpsest Line Response Ritual
 
