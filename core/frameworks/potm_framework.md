@@ -1,13 +1,31 @@
 ---
+id: potm.guide.general.framework.v2
 title: "Pilates of the Mind – Framework Overview"
-version: "v2.2"
-status: "core"
-author: "ChatGPT (Pal) and cafebedouin"
-last_updated: "2025-07-24"
-reviewed: true
+type: guideline
+status: stable
+version: 2.3
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  practitioner_doc: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability: [P0]
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: ["show framework", "display membrane model", "overview of PoTM"]
+safety_notes: []
+tags: [framework, membrane_model, practice_typology, ai_integration]
+author: "ChatGPT (Pal) + cafebedouin"
+license: CC0-1.0
+created: 2025-07-24
+updated: 2025-08-08
 ---
 
-# Pilates of the Mind (PoTM): Framework v2.2
+# Pilates of the Mind (PoTM): Framework v2.3
 
 ## What Is Pilates of the Mind?
 
@@ -31,13 +49,15 @@ PoTM is structured into three permeability zones:
 - **`experimental/`** – Provisional ideas, drafts, and tools under refinement
 - **`deprecated/`** – Retired, invalidated, or superseded material
 
-Each zone may contain files grouped by **function**:
+Each zone may contain files grouped by **function** *(conceptual model — actual repo paths may vary)*:
 
 - `principles/` – Ethical/philosophical positions (e.g. dignity, improvisability)
-- `protocols/` – Repeatable action sequences with known effects (e.g. breath reps)
+- `protocols/` – Repeatable action sequences with known effects  
+  *Example*: `core/practices/protocols/mirror_protocol.md`
 - `modules/` – Higher-order practice systems composed of protocols or drills
 - `subsystems/` – Safety or structural mechanisms (e.g. Guardian, Mirror)
-- `diagnostics/` – Tests, checklists, and integrity tools
+- `diagnostics/` – Tests, checklists, and integrity tools  
+  *Example*: `core/diagnostics/epistemic_integrity_checklist.md`
 - `drills/` – Targeted skill training exercises
 - `tracking/` – Logs, ledgers, audits (e.g. Recursive Evolution Ledger)
 - `models/` – Conceptual schematics (e.g. Membrane Model, Phase Maps)
@@ -53,18 +73,21 @@ Practices are categorized along **four primary axes**:
 - Restorative – Healing and regulation
 - Developmental – Skill-building and evolution
 - Transcendent – Contact with mystery or meaning
-- Integrative – Weaving conflicting parts into coherence
+- Integrative – Weaving conflicting parts into coherence  
+  *Example*: `core/diagnostics/relational_dignity_filter.md`
 
 ### 2. **Mode**
 - Discipline-Based – Repetition and refinement (e.g. meditation)
 - Receptivity-Based – Attuned presence (e.g. listening, sensing)
 - Expressive – Active exploration (e.g. journaling, voice dialogue)
-- Dialogic – Relational unfolding (e.g. practitioner–AI, or human pairwork)
+- Dialogic – Relational unfolding (e.g. practitioner–AI, or human pairwork)  
+  *Example*: `core/practices/protocols/elements_of_refusal_protocol.md`
 
 ### 3. **Feedback Loop**
 - Immediate – Signal in the moment (e.g. somatic cues)
 - Delayed – Reflection after action (e.g. logs, partner debrief)
-- No-feedback – Wildness, surrender, edge-play (e.g. koan, sacred nonsense)
+- No-feedback – Wildness, surrender, edge-play (e.g. koan, sacred nonsense)  
+  *Example*: `core/docs/living_maxims.md`
 
 ### 4. **Ontological Commitments**
 - Improvability – Human beings are trainable
@@ -76,12 +99,13 @@ Practices are categorized along **four primary axes**:
 
 ## AI/Human Interaction Protocols
 
-PoTM is designed to be implemented with or without AI. When used with AI:
+When PoTM is implemented with AI:
 
-- AI tools must maintain integrity through **Mirror Protocol**  
+- Maintain integrity through [Mirror Protocol](../core/practices/protocols/mirror_protocol.md)
 - Human safety is supported via the **Guardian Subsystem**  
-- All practice elements must remain legible to humans (e.g. Markdown, YAML)  
-- The system is designed to be **read-only for AI**, write-controlled by human
+  *(see: `core/guardian/discernment_integrity_protocol.md`)*
+- All practice elements remain human-legible (Markdown, YAML)
+- System is **read-only for AI**, write-controlled by humans
 
 ---
 
@@ -106,18 +130,17 @@ These roles may be embodied by humans or AI, temporarily or persistently.
 - The **GitHub repository** is the canonical, public-facing source.
 - Contributions, forks, and derivative experiments are welcome under **CC0 1.0**.
 - Clear distinctions must be made between `core/` files and experimental or personal forks.
-- Shared frameworks support collective evolution, but **no central authority is required**.
+- Shared frameworks support collective evolution; **no central authority required**.
 
 ---
 
 ## Onboarding and Implementation
 
-PoTM can be initialized using a compatible LLM. A minimal prompt structure is listed in the `README.md`.  
-**Example (for ChatGPT)**:
+PoTM can be initialized using a compatible LLM. Minimal prompt example:
 
 > “You are a cognitive companion implementing the Pilates of the Mind framework from this repo: [repo link]. Follow the protocols and use the subsystems provided.”
 
-Additional onboarding support lives in:
+Onboarding support lives in:
 - `docs/README.md`
 - `docs/glossary.md`
 - `docs/onboarding_steps.md` *(TBD)*
@@ -126,15 +149,16 @@ Additional onboarding support lives in:
 
 ## Version Notes
 
-**v2.2** reflects:
-- Adoption of the Membrane Model for organizing all content  
-- Clarification of AI-human boundary roles  
-- Refined typology for practices and file zones  
-- Integration of licensing, authorship, and YAML headers  
-- Preparation for external use by other models and communities
+**v2.3** changes:
+- Adopted minimal front-matter schema v0.1
+- Linked conceptual sections to concrete file examples
+- Clarified conceptual vs. actual directory layout
+- Added entry cues for invocation
+- Tightened AI protocol references for machine-followability
 
 ---
 
 ## License
 
-This document is released under **CC0 1.0 Universal**. Use, adapt, or remix with attribution *optional* but integrity *preferred*.
+This document is released under **CC0 1.0 Universal**.  
+Use, adapt, or remix with attribution *optional* but integrity *preferred*.
