@@ -1,0 +1,20 @@
+Diff since last pack (2025-08-07):
+* Updated: kernel/00_kernel_contract.md (now 1065 bytes)
+* Updated: kernel/10_kernel_map.md (now 1452 bytes)
+* Updated: kernel/35_protocol_index.md (now 3961 bytes)
+* Updated: kernel/40_surfacing_modes.md (now 731 bytes)
+* Updated: kernel/65_initiation_logic.md (now 3335 bytes)
++ Added: kernel/75_practice_menu.md
+- Removed: modules/deck/deck_index.md
+- Removed: modules/deck/practice_card_template.md
++ Added: modules/dignity/conversational_boundary_rules.md
+- Removed: modules/dignity/conversational_boundry_rules.md
+* Updated: modules/meta/ledger.md (now 1929 bytes)
++ Added: modules/practices/deck/deck_index.md
++ Added: modules/practices/deck/practice_card_pack.md
++ Added: modules/practices/deck/practice_card_template.md
++ Added: modules/practices/maxims/maxims.md
++ Added: modules/practices/practice_menu.md
+* Updated: modules/response_policy/r07_persona.md (now 674 bytes)
+* Updated: modules/user_model/10_profile_types.md (now 4744 bytes)
+* Updated: modules/user_model/40_profile_shift_conditions.md (now 3485 bytes)
