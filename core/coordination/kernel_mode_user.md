@@ -1,13 +1,35 @@
 ---
-title: "kernel_mode_user"
-version: 1.0
-status: stable
+id: potm.guide.kernel.kernel_mode_user.v1
+title: kernel_mode_user
 type: diagnostic_protocol
-created: 2025-08-01
+status: stable
+version: 1.0
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes:
+- Narrative parking, not deletion
+- If destabilized, narrow frame or pause
+tags:
+- user_diagnostic
+- microkernel
+- self_audit
+- poTM_practice
+- epistemic_hygiene
 author: Pal (ChatGPT) in coordination with Claude & Gemini
-tags: [user_diagnostic, microkernel, self_audit, poTM_practice, epistemic_hygiene]
+license: CC0-1.0
+created: 2025-08-01
 ---
-
 # Kernel Mode for Practitioners (v1.0)
 
 ## Purpose
