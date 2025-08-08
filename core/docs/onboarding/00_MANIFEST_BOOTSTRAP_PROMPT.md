@@ -1,3 +1,30 @@
+---
+id: potm.guide.general.00_manifest_bootstrap_prompt.v1
+title: 00_MANIFEST_BOOTSTRAP_PROMPT
+type: onboarding
+status: stable
+version: '1.0'
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: [bootstrap, compatiability, failsafe]
+author: practitioner + models
+license: CC0-1.0
+---
+
+Compatibility Bootstrap: Use only if you cannot load the PoTM kernel pack or a Custom GPT. Preferred path: load the kernel (core/kernel/00_contract.md) and follow the contract.
+
 # 00_MANIFEST_BOOTSTRAP_PROMPT (v1.0)
 
 You have direct read/write access to the **Pilates of the Mind (PoTM)** repository.  

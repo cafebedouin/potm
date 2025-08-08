@@ -1,95 +1,119 @@
 ---
-title: "PoTM Repo Upgrade Checklist"
-version: 1.0
-status: stable
+id: potm.guide.general.potm_repo_upgrade_checklist.v1_1
+title: PoTM Repo Upgrade Checklist
 type: maintainer_guideline
-created: 2025-07-31
-tags: [repo hygiene, versioning, promotions, documentation integrity]
+status: stable
+version: 1.1
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: [potm.guide.general.potm_repo_upgrade_checklist.v1]
+  superseded_by: []
+interfaces: []
+applicability: [P0]
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: [repo hygiene, versioning, promotions, documentation integrity, breaking changes]
+author: practitioner + models
+license: CC0-1.0
+last_updated: '2025-08-08'
 ---
 
 ## 🎯 Purpose
 
-This checklist ensures consistency and traceability when promoting, deprecating, or substantially revising documents in the *Pilates of the Mind* repository. It formalizes the steps to preserve symbolic integrity and maintain clean provenance across time.
+Ensure consistency and traceability when promoting, deprecating, or substantially revising documents in the *Pilates of the Mind* repository.  
+Applies to **all zones** (`core/`, `meta/`, `experimental/`, `deprecated/`).
 
 ---
 
-## ✅ Standard Promotion Pathway  
-_From Experimental to Core_
+## ✅ Standard Promotion Pathway — *From Experimental to Stable/Core*
 
-1. **Finalize Content**
-   - Confirm conceptual stability, stylistic polish, and PoTM-aligned coherence.
+1) **Finalize content**  
+   Conceptually stable, PoTM-aligned, minimal fluff.
 
-2. **Rename File**
-   - Remove version suffix → `name_v0.9.md` → `name.md`
+2) **Rename file**  
+   `name_v0.9.md` → `name.md` (no version suffix in active core/docs).
 
-3. **Move to Stable Folder**
-   - `/experimental/` → appropriate subfolder under `/core/`, `/frameworks/`, etc.
+3) **Move to stable folder**  
+   `/experimental/...` → appropriate subfolder in `/core/...` (or `/meta/...` if it’s meta).
 
-4. **Update Frontmatter**
-   - Set `status: stable`
-   - Remove version (or update if retaining `version: 1.0`)
-   - Refresh `updated:` timestamp
+4) **Update front-matter**  
+   - `status: stable`  
+   - keep/adjust `version:` (e.g., `1.0`)  
+   - refresh `last_updated:` (or `updated:` if that’s your field)
 
-5. **Archive Prior Canonical (If Applicable)**
-   - Rename current canonical → `name_v1.0.md`
-   - Move to `/deprecated/` or `core/archive/`
+5) **Archive prior canonical (only if breaking)**  
+   - Move the *last pre-breaking* version to `/deprecated/` as `name_vX.Y.md`.  
+   - Do **not** archive every minor edit—git history and tags handle that.
 
-6. **Update Manifest**
-   - Add or revise line in `guidelines/00_MANIFEST.md`
+6) **Update manifest**  
+   - Edit `core/docs/onboarding/00_MANIFEST.md` to reflect the promotion.
 
-7. **Log in Ledger**
-   - Add a short entry to current week's `ledger/YYYY-MM-DD.md`
-   - Example: _“Promoted `metabolic_membrane_v0.9.md` → `core/metabolic_membrane.md` (2025-07-31)”_
+7) **Log in ledger**  
+   - Add a line to `templates/ledger_weekly.md` (then copy into the current week’s ledger if you keep one), e.g.:  
+     _Promoted `metabolic_membrane_v0.9.md` → `core/metabolic_membrane.md` (2025-08-08)._
 
-8. **Run Hygiene Check (Optional)**
-   - Execute `tools/repo_hygiene_check_stub.py` to validate structure
+8) **Sync counterparts (if any)**  
+   - If there’s an agent **and** practitioner file, update `relations.*` both ways.
+
+9) **Run hygiene checks (optional)**  
+   - Normalize FM: `./scripts/upgrade_front_matter.py "core/**/*.md" "docs/**/*.md" --write`  
+   - Rebuild indexes: `./scripts/build_indexes.py --write core docs`
 
 ---
 
-## 🔄 Deprecation Pathway  
-_When replacing or retiring an existing file_
+## 🔄 Deprecation Pathway — *When replacing or retiring a file*
 
-1. **Rename Canonical File**
-   - Add version suffix → `name.md` → `name_v1.0.md`
+1) **Version the canonical file**  
+   `name.md` → `name_vX.Y.md`
 
-2. **Move to Archive**
-   - Place in `/deprecated/` or sub-archive folder
+2) **Move to archive**  
+   `/deprecated/...` (mirror the original substructure if useful)
 
-3. **Update Frontmatter**
-   - Set `status: deprecated`
-   - Preserve last `version:` and update `updated:` timestamp
+3) **Update front-matter**  
+   - `status: deprecated`  
+   - keep `version:`; update `last_updated:`  
+   - add `relations.superseded_by: [<new_id>]` (if successor exists)  
+   - add brief `archived_reason:` (1 line)
 
-4. **Revise Manifest**
-   - Update row in `00_MANIFEST.md` to reflect new location/status
+4) **Revise manifest**  
+   - Update `core/docs/onboarding/00_MANIFEST.md` with new location/status.
 
-5. **Log in Ledger**
-   - Record deprecation with reason if available (e.g. replaced by new model)
+5) **Log in ledger**  
+   - Short note with reason (e.g., “replaced by profile-based user model”).
 
 ---
 
 ## 🧪 New Experimental Drafts
 
-1. **Use Proper Naming**
-   - `name_v0.X.md` with no missing version number
+1) **Name it**  
+   `name_v0.X.md` (no gaps in 0.X sequence)
 
-2. **Place in `/experimental/`**
-   - Use clear subfolders (e.g. `/experimental/frameworks/`)
+2) **Place it**  
+   `/experimental/<category>/...`
 
-3. **Add Frontmatter**
-   - Set `status: experimental`, `version: 0.X`, and full timestamps
+3) **Front-matter**  
+   `status: experimental`, `version: 0.X`, `last_updated:` set
 
-4. **Declare Intent (Optional)**
-   - Add a short note to the weekly ledger describing the purpose of draft
-
----
-
-## 📎 Related Documents
-
-- `guidelines/repo_file_conventions_v1.1.md`
-- `guidelines/00_MANIFEST.md`
-- `ledger/weekly-template.md`
-- `tools/repo_hygiene_check_stub.py`
+4) **(Optional) Declare intent**  
+   One-liner in the weekly ledger template.
 
 ---
 
-By following this checklist, contributors help maintain PoTM’s membrane hygiene—keeping ideas alive, traceable, and structurally trustworthy across their lifecycle.
+## 📎 Related (actual files)
+
+- `meta/front_matter_schema_v0.1.md`  
+- `core/guidelines/potm_file_naming_versioning_conventions.md`  
+- `core/docs/onboarding/00_MANIFEST.md`  
+- `templates/ledger_weekly.md`  
+- `scripts/upgrade_front_matter.py`  
+- `scripts/build_indexes.py`  
+- `core/tools/benefit_signal_lint.md`
+
+---
+
+By following this checklist, contributors keep PoTM’s membrane clean: **core stays canonical**, **experimental stays fertile**, and history remains **traceable** without hoarding every change.

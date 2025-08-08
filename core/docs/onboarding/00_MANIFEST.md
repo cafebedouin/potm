@@ -1,6 +1,32 @@
+---
+id: potm.guide.general.00_manifest.v1
+title: 00_MANIFEST
+type: onboarding
+status: stable
+version: '1.0'
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: [bootstrap, compatiability, failsafe]
+author: practitioner + models
+license: CC0-1.0
+---
 ==================== 00_MANIFEST.md ====================
 
 # PoTM Microkernel v0 – MANIFEST
+
+Compatibility Bootstrap: Use only if you cannot load the PoTM kernel pack or a Custom GPT. Preferred path: load the kernel (core/kernel/00_contract.md) and follow the contract.
 
 ## Purpose
 Reconstitute Pilates of the Mind (PoTM) from zero state in <60 min.  
