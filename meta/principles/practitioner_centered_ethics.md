@@ -107,3 +107,15 @@ Use PCE as a **living guide**, not a universal rulebook.
 - ✅ **Active**
 - 🧱 Forms core of human-facing ethical reflection in Pilates of the Mind
 - 🗂 Connected to future modules on Conflict Resolution and Skillfulness Calibration
+
+## Cross-References
+
+- **Epistemic Resilience Arc** — `core/meta/epistemic_resilience_arc.md`  
+  *Links:*  
+  - Detection → Uses PCE’s fracture-as-signal stance to surface ethical tension.  
+  - Engagement → Informs virtue-in-context evaluation when navigating persuasive frames.  
+  - Deconstruction → Frames fracture as growth aperture, preventing tool ossification.
+
+- **Discernment Integrity Protocol (DIP)** — `core/guardian/discernment_integrity_protocol.md`  
+  *Links:*  
+  - Provides immediate containment when ethical clarity or boundaries are destabilized.
