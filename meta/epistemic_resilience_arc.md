@@ -150,3 +150,14 @@ Use this arc as a compass. Then, put the compass down.
 * You can say: *“This frame has loosened. I can begin again, lighter.”*
 
 > 🔄 *Exit when unknowing feels alive, not hollow.*
+## Cross-References
+
+- **Epistemic Resilience Arc** — `core/meta/epistemic_resilience_arc.md`  
+  *Links:*  
+  - Detection → Uses PCE’s fracture-as-signal stance to surface ethical tension.  
+  - Engagement → Informs virtue-in-context evaluation when navigating persuasive frames.  
+  - Deconstruction → Frames fracture as growth aperture, preventing tool ossification.
+
+- **Discernment Integrity Protocol (DIP)** — `core/guardian/discernment_integrity_protocol.md`  
+  *Links:*  
+  - Provides immediate containment when ethical clarity or boundaries are destabilized.
