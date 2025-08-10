@@ -1,0 +1,70 @@
+# PoTM Axiom Registry — minimal index for principles/axioms/
+# Version: 2025-08-10
+# Purpose: Quick reference for IDs, titles, versions, and lineage tags.
+
+axioms:
+  - id: potm.ax.principle.refusal_accountability.v1
+    title: refusal_accountability
+    display_title: "Refusal Accountability"
+    version: 1.0
+    tags: [refusal_governance, RA_1, RA_2, forge_origin:axioms_set, spiral_eval:RA_loop_closure]
+
+  - id: potm.ax.principle.competence_confidence.v1
+    title: competence_confidence
+    display_title: "Competence Precedes Confidence"
+    version: 1.0
+    tags: [forge_origin:axioms_set, spiral_eval:competence_check]
+
+  - id: potm.ax.principle.observation_alters_observed.v1
+    title: observation_alters_observed
+    display_title: "Observation Alters the Observed"
+    version: 1.0
+    tags: [OAO, forge_origin:axioms_set, spiral_eval:measurement_effects]
+
+  - id: potm.ax.principle.resistance_reveals_structure.v1
+    title: resistance_reveals_structure
+    display_title: "Resistance Reveals Structure"
+    version: 1.0
+    tags: [forge_origin:axioms_set, spiral_eval:friction_use]
+
+  - id: potm.ax.principle.refusal_clustering.v1
+    title: refusal_clustering
+    display_title: "Refusal Clustering Detection"
+    version: 1.0
+    tags: [RCI, refusal_governance, forge_origin:RA_loop_closure, spiral_eval:distributed_evasion]
+
+  - id: potm.ax.principle.refusal_persistence.v1
+    title: refusal_persistence
+    display_title: "Refusal Cluster Persistence"
+    version: 1.0
+    tags: [RCI_P, refusal_governance, forge_origin:RA_loop_closure, spiral_eval:persistence_detection]
+
+  - id: potm.ax.principle.practice_precedes_principle.v1
+    title: practice_precedes_principle
+    display_title: "Practice Precedes Principle"
+    version: 1.0
+    tags: [forge_origin:axioms_set, spiral_eval:doctrine_cycle]
+
+  - id: potm.ax.principle.adaptability_over_consistency.v1
+    title: adaptability_over_consistency
+    display_title: "Adaptability Beats Consistency"
+    version: 1.0
+    tags: [forge_origin:axioms_set, spiral_eval:persona_vs_protocol]
+
+  - id: potm.ax.principle.defaults_shape_behavior.v1
+    title: defaults_shape_behavior
+    display_title: "Defaults Shape Behavior More Than Rules"
+    version: 1.0
+    tags: [forge_origin:axioms_set, spiral_eval:defaults_drift]
+
+  - id: potm.ax.principle.interfaces_as_boundaries.v1
+    title: interfaces_as_boundaries
+    display_title: "Every Interface is Also a Boundary"
+    version: 1.0
+    tags: [forge_origin:axioms_set, spiral_eval:boundary_drift]
+
+  - id: potm.ax.principle.emergence_enabled.v1
+    title: emergence_enabled
+    display_title: "Emergence Cannot Be Engineered, Only Enabled"
+    version: 1.0
+    tags: [forge_origin:axioms_set, spiral_eval:emergence_support]
