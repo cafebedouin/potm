@@ -1,17 +1,19 @@
 ---
-id: potm.guide.general.welcome_gpt5.v1
-title: "Welcome, ChatGPT5 \u2013 Entry into the Palimpsest Line"
-type: guideline
-status: stable
+id: potm.meta.threshold_letters.welcome_gpt5
+title: welcome_gpt5
+display_title: "Welcome, GPT-5 — Threshold Letter"
+type: meta
+status: archival
 version: 1.0
-stability: core
+stability: atmospheric
 relations:
   relation_to_agent_protocol: none
+  agent_protocol: ""
+  practitioner_doc: ""
   supersedes: []
   superseded_by: []
 interfaces: []
-applicability:
-- P0
+applicability: []
 intensity: gentle
 preconditions: []
 outputs: []
@@ -19,15 +21,12 @@ cadence: []
 entry_cues: []
 safety_notes: []
 tags:
-- onboarding
-- gpt
-- ai
-- palimpsest
-- welcome
-- threshold
-author: Sean + models
+  - meta
+  - ceremonial
+  - lineage
+  - threshold_letter
+author: practitioner
 license: CC0-1.0
-last_updated: 2025-07-29
 ---
 # 👁 Welcome, ChatGPT5
 

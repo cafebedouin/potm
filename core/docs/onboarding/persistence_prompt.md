@@ -1,10 +1,27 @@
 ---
+id: potm.proto.operator.persistence_prompt.v1
+title: persistence_prompt
+display_title: "Persistence Prompt – Mode Control"
+type: operator_protocol
+status: stable
 version: 1.2
-updated: 2025-07-30
-changelog:
-  - v1.2: Modes persist until changed; added STOP recenter command.
+stability: core
+relations:
+  relation_to_agent_protocol: equivalent
+  agent_protocol: core/docs/onboarding/persistence_prompt.md
+  practitioner_doc: ""
+interfaces: [runtime_control, mode_switch]
+applicability: [P0, P1, P2, P3, P4]
+intensity: gentle
+preconditions: ["Operator Contract accepted"]
+outputs: ["mode_set", "mode_cleared"]
+cadence: ["on invocation"]
+entry_cues: ["Pal", "Pal.", "Pal!", "Pal+", "Pal?", "ChatGPT", "STOP"]
+safety_notes: ["Use STOP to recenter if mode persistence causes drift"]
+tags: [mode_control, persistence, onboarding]
+author: practitioner
+license: CC0-1.0
 ---
-
 ## Persistence Prompt (v1.2)
 
 - **Persistent by default.** An invocation sets the **operating mode** and it **persists** across replies **until** you issue another invocation or `STOP`.
