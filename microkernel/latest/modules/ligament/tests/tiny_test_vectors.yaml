@@ -1,0 +1,24 @@
+tests:
+  - name: open_menu
+    given: {event: "MENU.OPEN"}
+    expect: {render: "practice_menu_minimal"}
+
+  - name: draw_one_card
+    given:
+      event: "INTERFACE.REQUEST"
+      surface: "deck"
+      capability: "draw_1"
+    expect:
+      adapter_return.ok: true
+      adapter_return.action: "present"
+      hints.suggest_next: "LOOP.NEXT"
+
+  - name: reflect_then_menu
+    given:
+      event: "INTERFACE.REQUEST"
+      surface: "deck"
+      capability: "reflect"
+      args: {card_id: "regular:000", note: "…"}
+    expect:
+      adapter_return.action: "reflection"
+      hints.suggest_next: "MENU.OPEN"

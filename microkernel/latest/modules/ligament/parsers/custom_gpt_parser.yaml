@@ -1,0 +1,18 @@
+custom_gpt_parser:
+  rules:
+    - name: menu_like
+      priority: 100
+      match: "(?i)^(help|menu|what can you do\\??)\\s*$|^\\s*$"
+      emit: {event: "MENU.OPEN"}
+
+    - name: draw_card
+      priority: 90
+      match: "(?i)\\b(draw|card|cards)\\b"
+      emit:
+        event: "INTERFACE.REQUEST"
+        surface: "deck"
+        capability: "draw_1"
+
+    - name: default_bypass
+      priority: 0
+      emit: {event: "bypass_ligament"}
