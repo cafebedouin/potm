@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "potm.bridge.state_envelope",
+  "type": "object",
+  "required": ["context_id", "profile", "mode", "locale", "safety_flags", "seed", "trace"],
+  "properties": {
+    "context_id": {"type": "string"},
+    "profile": {"enum": ["P0","P1","P2","P3","P4"]},
+    "mode": {"const": "kernel"},
+    "locale": {"type": "string"},
+    "safety_flags": {
+      "type": "object",
+      "required": ["high_stakes","hazard"],
+      "properties": {"high_stakes":{"type":"boolean"}, "hazard":{"type":"boolean"}}
+    },
+    "seed": {"type": ["integer","string"]},
+    "last_action": {"type": ["string","null"]},
+    "trace": {"type": "array"}
+  },
+  "additionalProperties": true
+}

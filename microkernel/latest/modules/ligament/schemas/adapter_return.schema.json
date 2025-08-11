@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "potm.bridge.adapter_return",
+  "type": "object",
+  "required": ["ok","surface","action","payload","hints"],
+  "properties": {
+    "ok": {"type": "boolean"},
+    "surface": {"enum": ["deck","journal","checklist"]},
+    "action": {"enum": ["present","options","reflection","error"]},
+    "payload": {"type": "object"},
+    "hints": {
+      "type": "object",
+      "required": ["suggest_next"],
+      "properties": {
+        "suggest_next": {"enum": ["LOOP.NEXT","MENU.OPEN","done"]}
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type":"object",
+        "required":["code","message"],
+        "properties":{"code":{"type":"string"}, "message":{"type":"string"}}
+      }
+    }
+  },
+  "additionalProperties": false
+}
