@@ -1,0 +1,26 @@
+id: cmg_YYYYMMDD_hhmm_owner
+owner: <agent_id>
+roles:
+  sponsor: <id_or_none>
+  second: <id_or_none>   # required for L3
+profile_level: P2|P3|P4
+scope:
+  include: ["strategy:search", "tactics:prompting"]
+  exclude: []
+risk_tier: L1|L2|L3
+duration_h: 24
+nogo_doctrine: ["dignity:*", "no_simulated_wisdom", "no_deception", "practitioner_safety"]
+probes:
+  coherence_delta:
+    cadence_h: 12|6|4
+    thresholds: {amber: tolerate|warn, red: abort}
+  values_tripwire: {on: event, action: pause+consult}
+  scope_drift_meter: {max_out_of_scope: 2|1|0}
+data_policy:
+  retention_days: 14
+  export: false
+exit_plan:
+  aar_c_at: 2025-08-14T16:00Z
+  reviewer: <sponsor_or_none>
+tacit_probation_days: 90     # NEW: default probation for tacit entries
+notes: ""

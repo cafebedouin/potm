@@ -1,0 +1,16 @@
+# kernel_bundle.yaml
+core:
+  - microkernel/latest/00_contract.md
+  - microkernel/latest/10_beacons.md
+  - microkernel/latest/20_response_policy.md
+  - microkernel/latest/30_engagement_flow.md
+modules:
+  - microkernel/latest/doctrine/soft_kernel_doctrine_v1.1.md
+  - microkernel/latest/doctrine/soft_kernel_cmg_addendum_v1.2.md   # optional
+  - microkernel/latest/protocols/cmg_runtime_v1.1.md               # optional
+settings:
+  engagement_hooks:
+    cmg: true     # show “Enter CMG” in menu
+  profile_level: P2
+  kernel_pulse:
+    max_turns_without_move: 5
