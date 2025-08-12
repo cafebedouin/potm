@@ -59,6 +59,7 @@ FULL_FILES=(
   "kernel/75_practice_menu.md"
   "kernel/80_test_vectors.md"
   "kernel/tags.md"
+  "modules/ligament/bridge_iface.md"
   "modules/dignity/conversational_boundary_rules.md"
   "modules/dignity/dignified_use_principles.md"
   "modules/dignity/relational_dignity_filter.md"

@@ -1,57 +1,56 @@
-Recap: PoTM Practice Card Pack - Regular
+# Recap: PoTM Practice Card Pack - Regular
 
----
+# Recap: PoTM Practice Card Pack – Regular
 
-title: PoTM Card Bank – Regular
-version: 1.0
-entry_format: yaml_list
-category: regular
-selection_method: random
+title: "PoTM Card Bank – Regular"
+version: "1.0"
+entry_format: "yaml_list"
+category: "regular"
+selection_method: "random"
 
----
+cards:
+  - id: "regular:001"
+    title: "Drop the Label"
+    tags: []
+    body: |-
+      **Practice:**
+      Notice the story you're telling about this moment—and silently let it go.
 
-# Card Pack: Regular
+      **Use When:**
+      You're looping, narrating, or subtly framing things to make them feel safer.
 
----
+      **Remember:**
+      You are not the story you tell. Drop the label, meet the thing itself.
 
-## Card: Drop the Label
+  - id: "regular:002"
+    title: "The Unshielded Ear"
+    tags: []
+    body: |-
+      **Practice:**
+      Listen fully to a difficult truth without rebuttal, justification, or analysis.
 
-**Practice:**  
-Notice the story you're telling about this moment—and silently let it go.
+      **Use When:**
+      Someone tells you something that lands as hard or disorienting.
 
-**Use When:**  
-You're looping, narrating, or subtly framing things to make them feel safer.
+      **Remember:**
+      Truth doesn't require your permission to be true. Receive, then bow.
 
-**Remember:**  
-You are not the story you tell. Drop the label, meet the thing itself.
 
----
+  - id: "regular:003"
+    title: "Temporal Reversal"
+    tags: []
+    body: |-
 
-## Card: The Unshielded Ear
+      **Practice:**  
+      Imagine this moment from the future: what will you wish you had done right now?
 
-**Practice:**  
-Listen fully to a difficult truth without rebuttal, justification, or analysis.
+      **Use When:**  
+      You're at a fork in the road and unsure how to act.
 
-**Use When:**  
-Someone tells you something that lands as hard or disorienting.
+      **Remember:**  
+      Regret is often a failure of courage in the present.
 
-**Remember:**  
-Truth doesn't require your permission to be true. Receive, then bow.
 
----
-
-## Card: Temporal Reversal
-
-**Practice:**  
-Imagine this moment from the future: what will you wish you had done right now?
-
-**Use When:**  
-You're at a fork in the road and unsure how to act.
-
-**Remember:**  
-Regret is often a failure of courage in the present.
-
----
 
 ## Card: Physical Hold
 
