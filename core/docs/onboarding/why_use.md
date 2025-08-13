@@ -39,7 +39,7 @@ It's not about "fixing" your thoughts. It's about having more tools to pick from
 
 ## The Thinking Style Circle
 
-![Thinking Style Circle](../../assets/thinking_style_circle.png "Thinking Style Circle")
+![Thinking Style Circle](../../../assets/thinking_style_circle.png "Thinking Style Circle")
 
 These are different ways your mind naturally works. There's no "best" one — they're just different tools for different moments. Most people already use several of these without knowing it.
 
