@@ -79,7 +79,10 @@ This changes that.
 
 It helps the AI *hold a space* for deeper thinking. It listens differently. It mirrors, probes, and invites you to explore—not just consume.
 
-For direct entry:
+For questions about what Pilates of the Mind can do:
+- [Why use Pilates of the Mind?](./core/docs/onboarding/why_use.md)
+
+To use it, right now, with any A.I. model you use that has a prompt:
 - [Quick Start Guide](./core/docs/potm_bootpack_quick_start.md)
 
 For deeper orientation:
