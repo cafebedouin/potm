@@ -1,0 +1,13 @@
+=== Onboard Trim Log: Wed Aug 13 23:06:53 CDT 2025 ===
+Onboard build size: 11423 chars (limit: 10240)
+⚠ Stage 1 trim — over by 1183 chars.
+🔧 Stage 1: Removing ## Examples sections from lenses...
+   Captured 0 removed lines to /home/scott/bin/potm/microkernel/v1.5/dist/trimmed_content/stage1_30_lenses.md.bak.diff
+♻ Rebuilding onboard profile...
+📏 New size after stage 1: 18842 chars (limit: 10240)
+⚠ Stage 2 trim — over by 8602 chars.
+🔧 Stage 2: Removing long descriptions (keep heading + gist) from lenses...
+   Captured 352 removed lines to /home/scott/bin/potm/microkernel/v1.5/dist/trimmed_content/stage2_30_lenses_mini.md.bak.diff
+♻ Rebuilding onboard profile...
+📏 New size after stage 2: 8110 chars (limit: 10240)
+✅ Onboard build is now under limit.

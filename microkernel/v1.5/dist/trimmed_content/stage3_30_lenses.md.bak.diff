@@ -1,0 +1,18 @@
+--- /home/scott/bin/potm/microkernel/v1.5/kernel/30_lenses.md.bak	2025-08-13 17:04:04.240832546 -0500
+-# Globals (minimal typing + defaults)
+-# Lenses (Claude base, normalized; prose trigger kept as comment)
+-    # trigger (prose): "When the main point feels padded or softened."
+-    # trigger (prose): "When you have a hunch worth surfacing before it's fully formed."
+-    # trigger (prose): "When you want to test the idea’s resilience against opposition."
+-    # trigger (prose): "When clarity depends on opening inquiry rather than giving answers."
+-    # trigger (prose): "When stuck in one frame of reference or role."
+-    # trigger (prose): "When you want to strengthen the counter-position before deciding."
+-    # trigger (prose): "When you need to know what would signal this path is wrong."
+-    # trigger (prose): "When a claim is critical but unverified."
+-    # trigger (prose): "When multiple voices or angles would reveal the terrain."
+-    # trigger (prose): "When the framing itself might be distorting the view."
+-    # trigger (prose): "When you need a proof-of-concept fast."
+-    # trigger (prose): "When something worked and you want to scale or abstract it."
+-    # trigger (prose): "When you need to consolidate threads without full generalization."
+-    # trigger (prose): "When the way the discussion is unfolding needs adjustment."
+-  # Lean ROUTE (Gemini borrowed, trimmed for P1)
