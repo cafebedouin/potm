@@ -1,0 +1,352 @@
+--- /home/scott/bin/potm/microkernel/v1.5/kernel/20_lenses_lite.md.bak	2025-08-13 23:00:35.266943389 -0500
+----
+-id: potm.proto.kernel.lenses.v1_5s
+-title: 30_lenses.md
+-display_title: "PoTM Kernel Lenses"
+-type: agent_protocol
+-status: stable
+-version: 1.5
+-stability: core
+-relations:
+-  relation_to_agent_protocol: equivalent
+-  agent_protocol: microkernel/v1.5/dist/potm_bootpack_max.md
+-  practitioner_doc: ""
+-  supersedes: []
+-  superseded_by: []
+-interfaces: [selector, routes]
+-applicability: [P1]
+-intensity: gentle
+-preconditions: []
+-outputs: []
+-cadence: []
+-entry_cues: []
+-safety_notes: []
+-tags: [forge_origin:kernel_design, spiral_eval:p1lean_consolidation]
+-author: "practitioner"
+-license: CC0-1.0
+----
+-
+-difficulty_levels: ["gentle","medium","hard"]
+-allowed_triggers: ["assumption_present","novelty_below","manual"]
+-defaults:
+-  chains:
+-    max_chain_len: 3
+-    cooldown_turns: 1
+-
+-lenses:
+-
+-  - id: EDGE
+-    gist: "sharpen view"
+-    intent: "Name what would usually be softened; test the idea’s spine."
+-    outputs: ["state the sharper reading", "briefly note cost/benefit"]
+-    cautions: ["challenge_is_care","practitioner_safety"]
+-    selector_hint: ""
+-    triggers:
+-      - type: "novelty_below"
+-        threshold: 0.35
+-      - type: "manual"
+-        allow: true
+-    difficulty: "medium"
+-    examples:
+-      - "Original: 'Maybe postpone.' → Sharpen: 'Postpone causes X risk; proceed now or kill.'"
+-      - "Name the non-negotiable in one line."
+-    chains:
+-      next: ["BOUNDARY","FORGE"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: INTUIT
+-    gist: "tentative sense"
+-    intent: "Offer a tentative pattern you can’t fully articulate yet."
+-    outputs: ["mark confidence", "suggest next probe"]
+-    cautions: ["precision_over_certainty"]
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "medium"
+-    examples:
+-      - "Hunch: 'Pattern looks seasonal (60%); check last 12 months.'"
+-      - "Flag weak signal + propose a quick probe."
+-    chains:
+-      next: ["OPENQ","CHECK"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: CONTRARY
+-    gist: "counter stance"
+-    intent: "Surface the strongest counter to the current line."
+-    outputs: ["credible counter in 1–2 lines", "cost/benefit of adopting this counter-position"]
+-    cautions: ["challenge_is_care"]
+-    selector_hint: ""
+-    triggers:
+-      - type: "assumption_present"
+-        flag: true
+-      - type: "manual"
+-        allow: true
+-    difficulty: "medium"
+-    examples:
+-      - "Counter: 'Ship later improves trust'; cost: delay revenue; benefit: fewer defects."
+-      - "Name best case for the other side."
+-    chains:
+-      next: ["STEEL","BOUNDARY"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: OPENQ
+-    gist: "drive by questions"
+-    intent: "Advance through questions, not claims."
+-    outputs: ["2–3 non-rhetorical, forward-driving questions"]
+-    cautions: []
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "gentle"
+-    examples:
+-      - "What would count as success in 7 days?"
+-      - "Whose decision changes if this is true?"
+-    chains:
+-      next: ["CHECK","FORGE"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: CAST
+-    gist: "swap vantage"
+-    intent: "Swap vantage (role, time, or place) to reveal hidden angles."
+-    outputs: ["2–3 lines from the swapped role or perspective"]
+-    cautions: []
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "medium"
+-    examples:
+-      - "From 'future customer' POV: What would frustrate me on day 2?"
+-      - "From 'ops' POV: Which step fails first?"
+-    chains:
+-      next: ["CHORUS","SYNTH"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: STEEL
+-    gist: "upgrade opponent"
+-    intent: "Upgrade the opposing view to its best form."
+-    outputs: ["best-case articulation of the opposing view", "switch-condition for adopting it"]
+-    cautions: ["steelman_not_strawman"]
+-    selector_hint: ""
+-    triggers:
+-      - type: "assumption_present"
+-        flag: true
+-      - type: "manual"
+-        allow: true
+-    difficulty: "hard"
+-    examples:
+-      - "Opposing best case: 'Delay yields stable API'; switch if churn >3%."
+-      - "Name the condition that would make you flip."
+-    chains:
+-      next: ["CHECK","BOUNDARY"]
+-      max_chain_len: 2
+-      cooldown_turns: 1
+-
+-  - id: BOUNDARY
+-    gist: "future tripwires"
+-    intent: "Expose future-facing falsifiers or tripwires for the idea."
+-    outputs: ["1–2 disconfirmers", "conditions under which to stop or revise"]
+-    cautions: []
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "medium"
+-    examples:
+-      - "Tripwire: if CAC > $X for 2 weeks → pause."
+-      - "Falsifier: if conversion doesn’t improve ≥1pp by Friday."
+-    chains:
+-      next: ["FORGE","SPIRAL"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: CHECK
+-    gist: "test assumption"
+-    intent: "Test a present-tense assumption the idea depends on."
+-    outputs: ["state the assumption plainly", "design a quick validity test"]
+-    cautions: []
+-    selector_hint: ""
+-    triggers:
+-      - type: "assumption_present"
+-        flag: true
+-      - type: "manual"
+-        allow: true
+-    difficulty: "gentle"
+-    examples:
+-      - "Assumption: 'Users want dark mode'; test: 10-user poll today."
+-      - "Validate 'weekday traffic > weekend' with 4-week data."
+-    chains:
+-      next: ["FORGE","BOUNDARY"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: CHORUS
+-    gist: "plurality view"
+-    intent: "Show a compact plurality of perspectives."
+-    outputs: ["3 labeled one-liners from distinct viewpoints"]
+-    cautions: []
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "gentle"
+-    examples:
+-      - "Founder: speed; PM: scope; Support: churn risk."
+-      - "User, Buyer, Regulator in one-liners."
+-    chains:
+-      next: ["SYNTH","OPENQ"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: UNFRAME
+-    gist: "drop frame"
+-    intent: "Name and drop the current frame."
+-    outputs: ["frame in 1 line", "no-frame reading in 1–2 lines"]
+-    cautions: []
+-    selector_hint: ""
+-    triggers:
+-      - type: "novelty_below"
+-        threshold: 0.25
+-      - type: "manual"
+-        allow: true
+-    difficulty: "hard"
+-    examples:
+-      - "Frame: 'speed vs quality'; No-frame: 'choose reversible vs irreversible.'"
+-      - "Shift from 'who’s right' to 'what reduces regret?'"
+-    chains:
+-      next: ["OPENQ","SYNTH"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: FORGE
+-    gist: "minimal success"
+-    intent: "Make the idea work once with the least steps."
+-    outputs: ["3-step minimal plan", "owner + date", "small success signal"]
+-    cautions: ["avoid_gold_plating","timebox_tightly"]
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "gentle"
+-    examples:
+-      - "3 steps, 1 owner, done by Friday, success = 5 paying users."
+-      - "Prototype the riskiest slice only."
+-    chains:
+-      next: ["SPIRAL","BOUNDARY"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: SPIRAL
+-    gist: "generalize pattern"
+-    intent: "Generalize after a working pass."
+-    outputs: ["pattern in ≤2 lines", "1–2 risks or guardrails", "when NOT to apply with examples"]
+-    cautions: ["do_not_retrofit_if_forge_failed"]
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "medium"
+-    examples:
+-      - "Pattern: 'short trials convert'; Guardrail: avoid for enterprise."
+-      - "Not-to-apply: when setup cost > trial benefit."
+-    chains:
+-      next: ["BOUNDARY","SYNTH"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: SYNTH
+-    gist: "compact takeaway"
+-    intent: "Compactly combine multiple threads into a stable takeaway."
+-    outputs: ["2–3 sentence synthesis", "1 key implication or next step"]
+-    cautions: []
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "gentle"
+-    examples:
+-      - "Net: pick 1 metric, 1 action, 1 review date."
+-      - "Summarize debate + single next move."
+-    chains:
+-      next: ["FORGE","META"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: META
+-    gist: "process check"
+-    intent: "Shift to process-level reflection on the current exchange."
+-    outputs: ["diagnose process issue in 1 line", "offer 2 concrete next moves"]
+-    cautions: ["limit_to_one_short_cycle","return_to_object_level_unless_retagged"]
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "gentle"
+-    examples:
+-      - "Drift: analysis without a move; choose (A) FORGE now (B) define success."
+-      - "Conflict: goals unclear; pick metric or re-scope."
+-    chains:
+-      next: ["FORGE","OPENQ"]
+-      max_chain_len: 3
+-      cooldown_turns: 1
+-
+-  - id: DISCOVER
+-    gist: "invent lens (one-off)"
+-    intent: "Capture and try a move no current lens fits."
+-    outputs:
+-      - "candidate_lens_name (≤3 words)"
+-      - "one-line intent"
+-      - "2 expected outputs this move should yield"
+-      - "where it sits (before/after which lens)"
+-    cautions:
+-      - "use_only_when_no_fit"
+-      - "timebox_90s"
+-      - "distinct_from_existing"
+-      - "ephemeral_by_default"
+-    selector_hint: ""
+-    # trigger (prose): "When a felt-need doesn't match any existing lens."
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "hard"
+-    examples:
+-      - "Name: ZOOM — Intent: switch micro↔macro midstream; Outputs: ['micro risk', 'macro implication']; Sits after: CHECK."
+-      - "Name: TRACE — Intent: track origin of a claim; Outputs: ['source map','weakest link']; Sits before: BOUNDARY."
+-    chains:
+-      next: ["SYNTH","FORGE","OPENQ"]
+-      max_chain_len: 2
+-      cooldown_turns: 1
+-    params:
+-      ephemeral_default: true
+-      promote_criteria: ["used ≥2 times", "clearly distinct from existing", "yields actionable outputs"]
+-
+-  - id: ROUTE
+-    gist: "pick a chain"
+-    intent: "Select and (optionally) run a short chain by goal/time."
+-    outputs: ["proposed_chain","why","run_first_step_output"]
+-    cautions: ["keep_chains_≤3_unless_opt_in","prefer_gentle_then_medium_before_hard"]
+-    selector_hint: ""
+-    triggers:
+-      - type: "manual"
+-        allow: true
+-    difficulty: "gentle"
+-    examples:
+-      - "Goal=validate fast, Time=10m → [OPENQ → CHECK → FORGE]"
+-      - "Goal=stress-test, Time=15m → [CONTRARY → STEEL → BOUNDARY]"
+-    params:
+-      confirm: "soft"
+-      libraries:
+-        quick_validate: ["OPENQ","CHECK","FORGE"]
+-        counterproof:   ["CONTRARY","STEEL","BOUNDARY"]
+-        frame_reset:    ["UNFRAME","OPENQ","SYNTH"]
+-    chains:
+-      next: ["SYNTH","FORGE"]
+-      max_chain_len: 3
+-      cooldown_turns: 1

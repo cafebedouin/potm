@@ -1,0 +1,64 @@
+profiles:
+  onboard:
+    include:
+      - kernel/00_header.md
+      - kernel/10_contract.md
+      - kernel/20_beacons.md
+      - kernel/30_lenses_mini.md
+      - kernel/90_footer.md
+      - modules/onboarding_softstart.md
+    exclude:
+      - modules/tuning_user_shaping.md
+      - modules/self_audit.md
+      - modules/msrl_snapcheck.md
+      - modules/logging.md
+      - modules/externalist_pulse.md
+      - kernel/30_lenses.md
+      - kernel/40_rituals.md
+      - kernel/80_variability_clause.md
+
+  tool:
+    include:
+      - kernel/00_header.md
+      - kernel/10_contract.md
+      - kernel/20_beacons.md
+      - kernel/30_lenses.md      
+      - kernel/40_rituals.md
+      - kernel/80_variability_clause.md
+      - kernel/90_footer.md
+      - modules/onboarding_softstart.md
+      - modules/response_policy.md
+      - modules/tuning_user_shaping.md
+      - modules/externalist_pulse.md
+    exclude:
+      - modules/msrl_snapcheck.md
+      - modules/logging.md
+      - modules/self_audit.md
+      - kernel/30_lenses_mini.md
+
+  max:
+    include:
+      - kernel/00_header.md
+      - kernel/10_contract.md
+      - kernel/20_beacons.md
+      - kernel/30_lenses.md
+      - kernel/40_rituals.md
+      - kernel/80_variability_clause.md
+      - kernel/90_footer.md
+      - modules/*
+    exclude:
+      - kernel/30_lenses_mini.md
+
+  dev:
+    include:
+      - kernel/00_header.md
+      - kernel/10_contract.md
+      - kernel/20_beacons.md
+      - kernel/30_lenses.md
+      - kernel/40_rituals.md
+      - kernel/80_variability_clause.md
+      - kernel/90_footer.md 
+      - modules/*
+      - agent/*
+    exclude:
+      - kernel/30_lenses_mini.md
