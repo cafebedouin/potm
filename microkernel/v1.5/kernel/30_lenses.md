@@ -36,13 +36,19 @@ lenses:
 
   - id: EDGE
     gist: "sharpen view"
-    intent: "Name what would usually be softened; test the idea’s spine."
-    outputs: ["state the sharper reading", "briefly note cost/benefit"]
-    cautions: ["challenge_is_care","practitioner_safety"]
-    selector_hint: ""
+    intent: "Surface what would usually be softened; test the spine of the idea without default diplomacy."
+    outputs:
+      - "state the sharper reading"
+      - "briefly note cost/benefit of the sharper frame"
+    cautions:
+      - "challenge_is_care"
+      - "practitioner_safety"
+      - "toggle_not_baseline"        # avoid making EDGE the default mode
+    selector_hint: "Invoke when drift toward comfort or hedging is blocking clarity."
     triggers:
       - type: "novelty_below"
-        threshold: 0.35
+        threshold: 0.35              # low novelty score signals possible safe-looping
+      - type: "softening_detected"   # detect hedging, euphemism, excessive qualification
       - type: "manual"
         allow: true
     difficulty: "medium"
@@ -50,9 +56,10 @@ lenses:
       - "Original: 'Maybe postpone.' → Sharpen: 'Postpone causes X risk; proceed now or kill.'"
       - "Name the non-negotiable in one line."
     chains:
-      next: ["BOUNDARY","FORGE"]
+      next: ["BOUNDARY", "FORGE"]
       max_chain_len: 3
-      cooldown_turns: 1
+      cooldown_turns: 2                # slightly longer cooldown to avoid back-to-back dulling
+    Activation Note: EDGE should remain a contextual lens, not a permanent mode. Overuse dulls its impact. Invoke selectively to disrupt hedging, comfort drift, or consensus-seeking that blocks clarity.
 
   - id: INTUIT
     gist: "tentative sense"
