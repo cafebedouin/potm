@@ -23,8 +23,8 @@ Think of it as a **modular practice environment** — part playground, part lab 
 
 | Role             | What You’ll Do                                                                                  | Key Links                                                                                                           |
 | ---------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **Practitioner** | Use practice cards, checklists, and guides to improve how you think and act in real situations. | [Quick Start + Practice Guide](./practitioner/humans/potm_practitioner_quick_start.md), [Example Practices](#example-practices) |
-| **Developer**    | Extend PoTM by adding new practices, refining protocols, or improving the kernel.               | [Kernel](./latest/potm_bootpack_combined.md), [Design Manifesto](./meta/principles/design_manifesto.md)                          |
+| **Practitioner** | Use practice cards, checklists, and guides to improve how you think and act in real situations. | [Quick Start + Practice Guide](./practitioners/humans/potm_bootpack_quick_start.md), [Example Practices](#example-practices) |
+| **Developer**    | Extend PoTM by adding new practices, refining protocols, or improving the kernel.               | [Kernel](./microkernel/latest/potm_bootpack_combined.md), [Design Manifesto](./meta/principles/design_manifesto.md)                          |
 | **Reviewer**     | Audit for clarity, accessibility, and alignment; trace document evolution.                      | [meta/](./meta/), [PoTM Distinctions](./meta/potm_distinctions.md)                                                      |
 
 ---
@@ -37,7 +37,7 @@ Try these without knowing the full system — each is a 1-page, plain-language g
 * [Relationship Checklist](./practitioners/humans/reference/relationship_checklist.md)
 * [Gaslighting](./practitioners/humans/guides/gaslighting_guide.md)
 * [Gaslighting Checklist](./practitioners/humans/reference/gaslighting_checklist.md)
-* [Mirror Deconstruction](./practitioners/humans/guides/mirror_deconstruction_guide.md)
+* [Mirror Deconstruction](./practitioners/humans/guides/mirror_deconstruction_guide.md): 
 
 In-Development
 
