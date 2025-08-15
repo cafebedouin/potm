@@ -1,8 +1,3 @@
-Here’s a draft architectural note that ties the substrate-agnostic framing to the **Quaker Faith & Practice** and **Shikinen Sengu** analogies:
-
----
-
-```markdown
 ---
 id: potm.arch.practitioner_as_renewal.v1
 title: practitioner_as_renewal
