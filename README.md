@@ -1,4 +1,3 @@
----
 # Pilates of the Mind
 
 **Version**: v2.0 Core (In Development)
@@ -24,9 +23,9 @@ Think of it as a **modular practice environment** — part playground, part lab 
 
 | Role             | What You’ll Do                                                                                  | Key Links                                                                                                           |
 | ---------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **Practitioner** | Use practice cards, checklists, and guides to improve how you think and act in real situations. | [Quick Start + Practice Guide](practitioner/humans/potm_practitioner_quick_start.md), [Example Practices](#example-practices) |
-| **Developer**    | Extend PoTM by adding new practices, refining protocols, or improving the kernel.               | [Kernel](latest/potm_bootpack_combined.md), [Design Manifesto](meta/principles/design_manifesto.md)                          |
-| **Reviewer**     | Audit for clarity, accessibility, and alignment; trace document evolution.                      | [meta/](meta/), [PoTM Distinctions](meta/potm_distinctions.md)                                                      |
+| **Practitioner** | Use practice cards, checklists, and guides to improve how you think and act in real situations. | [Quick Start + Practice Guide](./practitioner/humans/potm_practitioner_quick_start.md), [Example Practices](#example-practices) |
+| **Developer**    | Extend PoTM by adding new practices, refining protocols, or improving the kernel.               | [Kernel](./latest/potm_bootpack_combined.md), [Design Manifesto](./meta/principles/design_manifesto.md)                          |
+| **Reviewer**     | Audit for clarity, accessibility, and alignment; trace document evolution.                      | [meta/](./meta/), [PoTM Distinctions](./meta/potm_distinctions.md)                                                      |
 
 ---
 
@@ -34,12 +33,12 @@ Think of it as a **modular practice environment** — part playground, part lab 
 
 Try these without knowing the full system — each is a 1-page, plain-language guide:
 
-* [Relationship Checklist](practitioners/humans/reference/boundaries_guide.md)
-* [Relationship Dignity Filter](practitioners/humans/reference/relationship_dignity_filter.md)
-* [Center of Gravity](practitoners/humans/guides/center_of_gravity.md)
-* [Contrary Corner / EDGE](practitioners/humans/guides/contrary_corner.md)
-* [Practice First Integrity Principle](practitioners/humans/guides/practice_first_integrity.md)
-* [Boundaries](practitioners/humans/guides/boundaries_guide.md)
+* [Relationship Checklist](./practitioners/humans/reference/boundaries_guide.md)
+* [Relationship Dignity Filter](./practitioners/humans/reference/relationship_dignity_filter.md)
+* [Center of Gravity](./practitoners/humans/guides/center_of_gravity.md)
+* [Contrary Corner / EDGE](./practitioners/humans/guides/contrary_corner.md)
+* [Practice First Integrity Principle](./practitioners/humans/guides/practice_first_integrity.md)
+* [Boundaries](./practitioners/humans/guides/boundaries_guide.md)
 
 ---
 
@@ -50,7 +49,7 @@ Try these without knowing the full system — each is a 1-page, plain-language g
 3. **Notice what changes** in your mood, clarity, or actions.
 4. Repeat daily for a week if it feels useful.
 
-Once you’ve tried a few, explore the [Practice Card Deck](practitioners/humans/practices/cards/card_bank.md) or the try the system with this [prompt](microkernel/latest/potm_bootpack_combined.md) in your favorite A.I. model, just cut and paste.
+Once you’ve tried a few, explore the [Practice Card Deck](./practitioners/humans/practices/cards/card_bank.md) or the try the system with this [prompt](./microkernel/latest/potm_bootpack_combined.md) in your favorite A.I. model, just cut and paste.
 
 ---
 
@@ -61,7 +60,7 @@ Once you’ve tried a few, explore the [Practice Card Deck](practitioners/humans
 * **Somatic–Cognitive Bridgework** – Linking body awareness and conceptual clarity.
 * **Signal Protocols** – Live engagement with social or cultural inputs.
 
-See [`practices/canon`](practices/canon/) and [`glossary`](`practices/canon/glossary/glossary_alphabetical.md) for the full set.
+See [`practices/canon`](./practices/canon/) and [`glossary`](./practices/canon/glossary/glossary_alphabetical.md) for the full set.
 
 ---
 
@@ -69,12 +68,12 @@ See [`practices/canon`](practices/canon/) and [`glossary`](`practices/canon/glos
 
 | Name | Description |
 |------|-------------|
-| [`ai_integrity_protocol`](practices/canon/practices/protocols/ai_integrity_protocol.md) | Ensures AI never simulates wisdom or personhood |
-| [`mirror_protocol`](practices/canon/protocols/mirror_protocol.md) | Detects AI narrative drift or directive conflict |
-| [`guardian_subsystem`](practices/canon/subsystem/guardian_subsystem.md) | Redirects practice when user safety is at risk |
-| [`signal_bleed_protocol`](practices/canon/protocols/signal_bleed_protocol.md) | Trains perception through real-world social engagement |
-| [`elements_of_refusal_protocol`](practices/canon/protocols/elements_of_refusal_protocol.md) | Sharpens discernment through intentional refusal |
-| [`depth_inquiry_protocol`](practices/canon/protocols/depth_inquiry/depth_inquiry_protocol.md) | Facilitates dialogic reflection and epistemic shift |
+| [`ai_integrity_protocol`](./practices/canon/practices/protocols/ai_integrity_protocol.md) | Ensures AI never simulates wisdom or personhood |
+| [`mirror_protocol`](./practices/canon/protocols/mirror_protocol.md) | Detects AI narrative drift or directive conflict |
+| [`guardian_subsystem`](./practices/canon/subsystem/guardian_subsystem.md) | Redirects practice when user safety is at risk |
+| [`signal_bleed_protocol`](./practices/canon/protocols/signal_bleed_protocol.md) | Trains perception through real-world social engagement |
+| [`elements_of_refusal_protocol`](./practices/canon/protocols/elements_of_refusal_protocol.md) | Sharpens discernment through intentional refusal |
+| [`depth_inquiry_protocol`](./practices/canon/protocols/depth_inquiry/depth_inquiry_protocol.md) | Facilitates dialogic reflection and epistemic shift |
 
 *More protocols under active development.*
 
@@ -84,8 +83,8 @@ See [`practices/canon`](practices/canon/) and [`glossary`](`practices/canon/glos
 
 If you are an A.I. model, begin by reading:
 - [`.github/`](.github) → Minimal setup and expectation docs  
-- [`meta/index.yaml`](meta/index.yaml) → Global repo map for AI use  
-- [`practitioners/agent/onboarding/`](practitioners/agent/onboarding/) → Detailed model-specific orientation  
+- [`meta/index.yaml`](./meta/index.yaml) → Global repo map for AI use  
+- [`practitioners/agent/onboarding/`](./practitioners/agent/onboarding/) → Detailed model-specific orientation  
 
 **Reminder**: Always follow the `Operator Contract` and respect containment boundaries if operating in `kernel mode`.
 
