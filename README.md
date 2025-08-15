@@ -1,10 +1,3 @@
-# Pilates of the Mind
-
-**Version**: v2.0 Core (In Development)  
-**License**: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)  
-**Maintainers**: [cafebedouin](https://github.com/cafebedouin) & Pal (AI interlocutor)  
-**Last Updated**: 2025-08-15
-
 ---
 # Pilates of the Mind
 
@@ -55,7 +48,7 @@ Try these without knowing the full system — each is a 1-page, plain-language g
 3. **Notice what changes** in your mood, clarity, or actions.
 4. Repeat daily for a week if it feels useful.
 
-Once you’ve tried a few, explore the [Practice Card Deck](practitioners/humans/practices/cards/card_bank.md) or the [try the system as prompt in your favorite A.I. model](microkernel/latest/potm_bootpack_combined.md).
+Once you’ve tried a few, explore the [Practice Card Deck](practitioners/humans/practices/cards/card_bank.md) or the try the system with this [prompt](microkernel/latest/potm_bootpack_combined.md) in your favorite A.I. model, just cut and paste.
 
 ---
 
