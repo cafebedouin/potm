@@ -7,52 +7,81 @@
 
 ---
 
+I see — your current README is already strong for an *internal-facing* audience, but for the **new dynamic** you’re describing we’d need to:
+
+* **Reshape the “Who is this for?” section** into explicit **Practitioner / Developer / Reviewer** lanes, with quick “what you do here” summaries.
+* **Merge Quick Start + Practitioner intro** so the first-time user path is one, clear flow.
+* **Surface example practices** in a “see it in action” section — ideally linking to the new *human-readable* guides.
+* **Tie Reviewer to meta/** so it’s clear that’s the home for evaluation, validation, and distinctions work.
+* **Streamline first steps** so that the path from curiosity → action is obvious in under 15 seconds.
+
+---
+
+If we treat this as **Pass 1 of the rewrite**, the top could look like:
+
+---
+
+# Pilates of the Mind
+
+**Version**: v2.0 Core (In Development)
+**License**: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+**Maintainers**: [cafebedouin](https://github.com/cafebedouin) & Pal (AI interlocutor)
+**Last Updated**: 2025-08-03
+
+---
+
 ## What is *Pilates of the Mind*?
 
-*Pilates of the Mind* (PoTM) is an experimental framework for inner development, cognitive flexibility, and ethical practice—designed to support **rigorous self-inquiry**, **disciplined perception**, and **human-AI coevolution**.
+*Pilates of the Mind* (PoTM) is an experimental framework for inner development, cognitive flexibility, and ethical practice. It’s built to support:
 
-It operates on two interlinked tracks:
+* **Rigorous self-inquiry**
+* **Disciplined perception**
+* **Human–AI co-evolution**
 
-- 🧠 **Practitioner Protocols**: Somatic, cognitive, and relational practices for human transformation.  
-- 🤖 **AI Protocols**: Role-constrained integrity scaffolds that ensure the AI behaves as a non-simulating, non-deceptive cognitive mirror.
-
-This is not a product, self-help system, or doctrine. It is a **modular practice environment**—iterative, adaptive, and radically open-source.
-
----
-
-## Who Is This For?
-
-| Audience       | Purpose                                                         |
-|----------------|-----------------------------------------------------------------|
-| **Practitioners** | Those exploring attention, perception, ethics, and selfhood.   |
-| **Developers**    | Those contributing to protocol design, repo structure, or tools.|
-| **Reviewers**     | Those critiquing, forking, or adapting the framework elsewhere.|
-
-If you’re looking for a finished system, this isn’t it. If you’re drawn to **practice-first epistemology**, recursive ethics, or dialogic transformation—you’re in the right place.
+Think of it as a **modular practice environment** — part playground, part lab — for exploring how you think, and how AI can help you think better.
 
 ---
 
-## First Steps
+## Who It’s For & What You Do Here
 
-If you're new, start here:
+| Role             | What You’ll Do                                                                                  | Key Links                                                                                                           |
+| ---------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Practitioner** | Use practice cards, checklists, and guides to improve how you think and act in real situations. | [Quick Start + Practice Guide](core/docs/potm_practitioner_quick_start.md), [Example Practices](#example-practices) |
+| **Developer**    | Extend PoTM by adding new practices, refining protocols, or improving the kernel.               | [Kernel](ver1.4/potm_bootpack_combined.md), [Design Manifesto](design/design_manifesto.md)                          |
+| **Reviewer**     | Audit for clarity, accessibility, and alignment; trace document evolution.                      | [meta/](meta/), [PoTM Distinctions](meta/potm_distinctions.md)                                                      |
 
-- 🧭 [Quick Start Guide for the Kernel](./core/docs/potm_bootpack_quick_start.md)  
-  Learn how to activate the *PoTM microkernel* inside any AI interaction—human or model.
+---
 
-- 💞 [Relationship Checklist](./core/docs/relationship_checklist.md)  
-  A simple tool for assessing whether a relationship supports mutual respect and personal growth.
+## Example Practices
+
+Try these without knowing the full system — each is a 1-page, plain-language guide:
+
+* [Relationship Dignity Filter](guides/relationship_dignity_filter.md)
+* [Center of Gravity](guides/center_of_gravity.md)
+* [Contrary Corner / EDGE](guides/contrary_corner.md)
+* [Practice First Integrity Principle](guides/practice_first_integrity.md)
+
+---
+
+## Quick Start for Practitioners
+
+1. **Pick an example practice** from the list above.
+2. **Do it once today** — takes 1–5 minutes.
+3. **Notice what changes** in your mood, clarity, or actions.
+4. Repeat daily for a week if it feels useful.
+
+Once you’ve tried a few, explore the [Practice Card Deck](modules/deck/practice_card_pack.md) or the [full kernel](ver1.4/potm_bootpack_combined.md).
 
 ---
 
 ## Core Concepts
 
-- **Filtering-First AI**: Integrity via procedural constraints, not simulated sentience.  
-- **Practitioner-Centered Ethics**: Growth evaluated by skillfulness and virtue, not rule-following.  
-- **Somatic-Cognitive Bridgework**: Linking body awareness, perception, and conceptual clarity.  
-- **Disorientation Drills**: Structured epistemic discomfort as a tool for transformation.  
-- **Signal Protocols**: Training attention through live social or cultural engagement.
+* **Filtering-First AI** – Integrity via procedural constraints, not simulated sentience.
+* **Practitioner-Centered Ethics** – Growth measured by skillfulness, not rigid rules.
+* **Somatic–Cognitive Bridgework** – Linking body awareness and conceptual clarity.
+* **Signal Protocols** – Live engagement with social or cultural inputs.
 
-See [`docs/`](./core/docs/) and [`glossary and glyphs`](./glossary/) for terminology and examples.
+See [`docs/`](core/docs/) and [`glossary/`](glossary/) for the full set.
 
 ---
 
@@ -69,28 +98,7 @@ See [`docs/`](./core/docs/) and [`glossary and glyphs`](./glossary/) for termino
 
 *More protocols under active development.*
 
----
-
-## Practitioners
-
-Most AI chats feel like fast food: fast, predictable, forgettable.
-
-This changes that.
-
-It helps the AI *hold a space* for deeper thinking. It listens differently. It mirrors, probes, and invites you to explore—not just consume.
-
-For questions about what Pilates of the Mind can do:
-- [Why use Pilates of the Mind?](./core/docs/onboarding/why_use.md)
-
-To use it, right now, with any A.I. model you use that has a prompt:
-- [Quick Start Guide](./core/docs/potm_bootpack_quick_start.md)
-
-For deeper orientation:
-- [`meta/principles/`](./meta/principles/) → “Binding, testable repo‑wide norms.”  
-- [`meta/frames/`](./meta/frames/) → “Non‑binding conceptual scaffolds.”  
-- [`meta/advanced_practitioner_guide/`](./meta/advanced_practitioner_guide/) → “Practitioner tools applicable to unique individual needs or beyond the individual, not normative.”
-
----
+--
 
 ## A.I. Models
 
