@@ -17,6 +17,8 @@
 
 Think of it as a **modular practice environment** — part playground, part lab — for exploring how you think, and how AI can help you think better.
 
+Read the [introduction](./practitioners/humans/potm_introduction.md).
+
 ---
 
 ## Who It’s For & What You Do Here
@@ -38,13 +40,6 @@ Try these without knowing the full system — each is a 1-page, plain-language g
 * [Gaslighting](./practitioners/humans/guides/gaslighting_guide.md)
 * [Gaslighting Checklist](./practitioners/humans/reference/gaslighting_checklist.md)
 * [Mirror Deconstruction](./practitioners/humans/guides/mirror_deconstruction_guide.md): 
-
-In-Development
-
-* [Relationship Dignity Filter](./practitioners/humans/reference/relationship_dignity_filter.md)
-* [Center of Gravity](./practitoners/humans/guides/center_of_gravity.md)
-* [Contrary Corner / EDGE](./practitioners/humans/guides/contrary_corner.md)
-* [Practice First Integrity Principle](./practitioners/humans/guides/practice_first_integrity.md)
 
 ---
 
