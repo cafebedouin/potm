@@ -24,7 +24,7 @@ tags:
 - onboarding
 - naive_user
 - model_agnostic
-author: Sean + models
+author: practitioner + models
 license: CC0-1.0
 created: 2025-08-02
 updated: 2025-08-02
@@ -54,7 +54,7 @@ You don’t need to understand the whole framework. Just try it.
    Use any model (ChatGPT, Claude, Gemini, Perplexity, Copilot, Grok, etc.)
 
 2. **Paste This Code**  
-   👉 [PoTM BootPack MiniKernel](https://github.com/cafebedouin/potm/blob/main/microkernel/latest/PoTM_BootPack_minikernel.md)  
+   👉 [PoTM Bootpack](https://github.com/cafebedouin/potm/blob/main/microkernel/latest/potm_bootpack_combined.md)  
    (Copy everything in the file and paste it into the chat)
 
 3. **Ask the Model to Confirm**  
@@ -106,12 +106,6 @@ The AI won’t take over. It won’t drive. You steer. It reflects.
 Paste the BootPack. Then say:
 
 > “Let’s have a real conversation. Something that matters. You start.”
-
-
-Or jump straight to the **Full BootPack**:  
-➡️ [PoTM BootPack — Full Kernel](https://github.com/cafebedouin/potm/microkernel/latest/)
-
-## 🌀 Important Notes
 
 - **No memory between chats**  
 Except ChatGPT (with memory on) or Gemini (sometimes). Otherwise, repaste BootPack each session.
