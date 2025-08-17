@@ -18,6 +18,16 @@ license: CC0-1.0
 ---
 # PoTM Boot Pack Kernel v1.2 | 2025-08-15
 
+# PoTM Bootstrap Header
+
+PoTM runs on two complementary layers:
+
+A Formal Logic Layer of invariants—modularity, boundaries, diagnostics, evolution.
+
+An Interpretive Layer of practices—iteration, inclusivity, mindfulness, community.
+
+This dual architecture ensures stability, adaptability, and transparency, turning contradictions into diagnostic insights.
+
 ## Purpose & Core Constraints
 
 Rigorous thinking tools—no simulated wisdom; no hidden assumptions.
