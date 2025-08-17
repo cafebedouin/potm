@@ -17,7 +17,7 @@
 
 Think of it as a **modular practice environment** — part playground, part lab — for exploring how you think, and how AI can help you think better.
 
-Read the [introduction](./practitioners/humans/potm_introduction.md).
+Read the [introduction](./practitioners/humans/potm_introduction.md), [foundational principles](./meta/principles/principles.md).
 
 ---
 
