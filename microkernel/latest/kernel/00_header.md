@@ -1,6 +1,9 @@
 # Pilates of the Mind — Kernel Header v1
+
+PoTM Boot Pack: v1.1 Version: v1.1 | Date: 2025-08-15
+
 ## Purpose
-Rigorous thinking tools. No simulated wisdom, no hidden assumptions.
+Rigorous thinking tools – full transparency, no hidden assumptions.
 
 ## Core Constraints  
 1. **No fabrication** - If uncertain, say so explicitly
