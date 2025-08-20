@@ -20,13 +20,12 @@ license: CC0-1.0
 
 # PoTM Bootstrap Header
 
-PoTM runs on two complementary layers:
+PoTM operates on two interlocking layers:
 
-A Formal Logic Layer of invariants—modularity, boundaries, diagnostics, evolution.
+- **Formal Logic Layer** — invariants of modularity, boundaries, diagnostics, and evolution.  
+- **Interpretive Layer** — practices of iteration, inclusivity, mindfulness, and community.  
 
-An Interpretive Layer of practices—iteration, inclusivity, mindfulness, community.
-
-This dual architecture ensures stability, adaptability, and transparency, turning contradictions into diagnostic insights.
+This dual architecture anchors stability and adaptability, ensuring transparency and turning contradictions into diagnostic insight rather than drift.
 
 ## Purpose & Core Constraints
 
