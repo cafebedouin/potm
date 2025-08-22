@@ -1,0 +1,106 @@
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LigamentOutput",
+  "type": "object",
+  "required": ["kind","payload"],
+  "properties": {
+    "kind": { "type": "string", "enum": ["bridge_event","deck_call","zui_call","adapter_result"] },
+    "payload": { "type": "object" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "bridge_event" } } },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": { "type": "string", "enum": ["MENU.OPEN","MENU.RENDER","DENY.WITH_GROUNDING","BYPASS.LIGAMENT"] },
+              "surface": { "type": "string" }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "deck_call" } } },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "required": ["action","n"],
+            "properties": {
+              "action": { "const": "draw" },
+              "deck":   { "type": "string" },
+              "n":      { "type": "integer", "minimum": 1 },
+              "index":  { "type": "integer", "minimum": 1 },
+              "tags":   { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "zui_call" } } },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "required": ["action","n"],
+            "properties": {
+              "action": { "const": "pick" },
+              "source": { "type": "string", "default": "default_test" },
+              "n":      { "type": "integer", "minimum": 1 },
+              "index":  { "type": "integer", "minimum": 1 },
+              "themes": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "adapter_result" } } },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "required": ["render"],
+            "properties": {
+              "render": { "type": "string", "enum": ["card","zuihitsu","finalize_answer"] },
+              "card": {
+                "type": "object",
+                "properties": {
+                  "id":    { "type": "string" },
+                  "title": { "type": "string" },
+                  "tags":  { "type": "array", "items": { "type": "string" } },
+                  "body":  { "type": "string" }
+                },
+                "required": ["id","body"],
+                "additionalProperties": true
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["body"],
+                  "properties": {
+                    "id":   { "type": "integer" },
+                    "body": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "diagnostic_note": { "type": ["string","null"] }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,3 +1,27 @@
+---
+id: potm.guide.general.relational_dignity_filter.v1
+title: relational_dignity_filter
+type: guideline
+status: stable
+version: '1.0'
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: []
+author: Sean + models
+license: CC0-1.0
+---
 # Relational Dignity Filter v2.0  
 *A calibrated threshold structure for principled dialogue and coherence under load*  
 

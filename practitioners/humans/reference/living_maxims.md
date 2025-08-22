@@ -1,27 +1,45 @@
-# living_maxims.md
+---
+id: potm.guide.general.living_maxims.v1
+title: living_maxims
+type: guideline
+status: experimental
 version: 0.1
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability: [P0]
+intensity: gentle
+preconditions: []
+outputs: [maxim.random]
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: [repository, aphorisms, stance_shifting, glitch_gift_inclusive]
+author: practitioner + models
+license: CC0-1.0
 created: 2025-08-02
 maintainer: Pal
-status: experimental
-tags: [repository, aphorisms, stance-shifting, glitch_gift_inclusive]
-
+generated_from: ledger/data/maxims.jsonl
 ---
+# Living Maxims
 
-## “Permission changes things.”  
-- **Tag:** #permission  
-- **Function:** Releases internal tension. Enables soft contact with refusal or stuckness.  
-- **Origin:** Refusal Inventory reflection, 2025-08-02  
+> This file is auto-generated from `ledger/data/maxims.jsonl`. Edit that file or use `scripts/maxims.py add` to add entries.
 
----
 
-## “The sleeper keeps awakening!”  
-- **Tag:** #glitch_gift #self_irony  
-- **Function:** Names the recursive refusal of sleep amid cognitive overdrive.  
-- **Origin:** PoTM refusal log, v0.1, Sean  
+## “Permission changes things.”
+- **Tags:** #permission
+- **Origin:** Refusal Inventory reflection
+- **ID:** `potm.maxim.2025-08-02-0001`  
 
----
+## “The sleeper keeps awakening!”
+- **Tags:** #glitch_gift #self_irony
+- **Origin:** PoTM refusal log v0.1
+- **ID:** `potm.maxim.2025-08-02-0002`  
 
-## “I don’t have to do everything. But I want to know what I’m saying no to.”  
-- **Tag:** #clarifier #refusal_wisdom  
-- **Function:** Shifts refusal from avoidance to conscious choice.  
-- **Origin:** Part of the Refusal Inventory closing ritual  
+## “I don’t have to do everything. But I want to know what I’m saying no to.”
+- **Tags:** #clarifier #refusal_wisdom
+- **Origin:** Refusal Inventory closing ritual
+- **ID:** `potm.maxim.2025-08-02-0003`  

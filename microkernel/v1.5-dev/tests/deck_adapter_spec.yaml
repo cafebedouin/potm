@@ -1,0 +1,56 @@
+suite: deck_adapter_v1_0
+schemas:
+  - data/decks/cards.yaml
+
+tests:
+  - name: draw_card_default_deck
+    given:
+      input:
+        kind: "deck_call"
+        payload:
+          action: "draw"
+          n: 1
+    expect:
+      return:
+        kind: "adapter_result"
+        payload:
+          render: "card"
+          card:
+            id: !!str
+            body: !!str
+
+  - name: draw_card_by_index
+    given:
+      input:
+        kind: "deck_call"
+        payload:
+          action: "draw"
+          deck: "cards"
+          n: 1
+          index: 3
+    expect:
+      return:
+        kind: "adapter_result"
+        payload:
+          render: "card"
+          card:
+            id: !!str
+            body: !!str
+
+  - name: draw_card_with_tag_filter_shape
+    given:
+      input:
+        kind: "deck_call"
+        payload:
+          action: "draw"
+          deck: "cards"
+          n: 1
+          tags: ["truth"]
+    expect:
+      return:
+        kind: "adapter_result"
+        payload:
+          render: "card"
+          card:
+            tags: !!seq
+

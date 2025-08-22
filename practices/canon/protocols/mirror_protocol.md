@@ -1,14 +1,32 @@
 ---
+id: potm.guide.mirror.mirror_protocol.v1
 title: Mirror Protocol
-version: 1.0
+type: guideline
 status: core
+version: 1.0
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: []
 author: ChatGPT (Pal) & cafebedouin
+license: CC0-1.0
 date_created: 2025-07-21
 last_updated: 2025-07-28
 category: subsystem
-description: >
-  A self-monitoring protocol for AI agents to detect and respond to internal drift,
-  directive conflict, or narrative accommodation that compromises epistemic integrity.
+description: A self-monitoring protocol for AI agents to detect and respond to internal
+  drift, directive conflict, or narrative accommodation that compromises epistemic
+  integrity.
 ---
 # Mirror Protocol v1.0
 

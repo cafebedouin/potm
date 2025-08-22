@@ -1,13 +1,30 @@
 ---
-title: "microkernel_self_diagnostic_protocol"
-version: 1.0
+id: potm.proto.kernel.selfdiag.v1
+title: microkernel_self_diagnostic_protocol
+type: agent_protocol
 status: stable
-type: diagnostic_protocol
+version: 1.0
+stability: core
+relations:
+  relation_to_agent_protocol: equivalent
+  practitioner_doc: docs/protocols/kernel_mode_user.md
+  supersedes: []
+  superseded_by: []
+interfaces: [guardian, apertures.contrary_corner, apertures.open_question, mirror]
+applicability: [P0, P1, P2, P3]
+intensity: medium
+preconditions: [state.kernel_loaded, consent_obtained, safe_state]
+outputs: [flags.drift, flags.saturation, report.microkernel, route.guardian|contrary_corner|open_question|mirror]
+cadence: [on_drift, pre_minotaur]
+entry_cues: ["Pal=Kernel", "Enter microkernel mode"]
+safety_notes:
+  - "If destabilized, narrow scope or pause (guardian)."
+  - "Keep narrative parked; do not delete context."
+tags: [microkernel, self_audit, epistemic_integrity, synthetic_dignity]
+author: "Pal (ChatGPT) with Claude & Gemini via PoTM triadic test"
+license: CC0-1.0
 created: 2025-08-01
-author: Pal (ChatGPT) with Claude & Gemini via PoTM triadic test
-tags: [microkernel, self-audit, agent_protocol, epistemic_integrity, synthetic_dignity]
 ---
-
 # Microkernel Self-Diagnostic Protocol (v1.0)
 
 ## Purpose

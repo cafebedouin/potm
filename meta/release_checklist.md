@@ -90,3 +90,23 @@ license: CC0-1.0
 Tag exists, golden prompts archived, safety pass completed, changelog committed.
 
 ---
+
+ledger/
+├── calibration/
+│   └── vX.Y-RC1/
+│       ├── guardian_checks.md          # Guardian tripwire calibration outputs
+│       ├── contrary_corner.md          # CC aperture prompt + output
+│       ├── mirror_protocol.md          # Mirror outputs from RC
+│       └── summary.md                   # Short RC calibration summary
+│
+├── drift_notes/
+│   └── drift_notes_vX.Y-RC1.md          # Observed compression/drift since last tag
+│
+├── safety_reports/
+│   └── safety_report_vX.Y-RC1.md        # Manual + automated safety pass notes
+│
+├── changelogs/
+│   └── CHANGELOG_vX.Y-RC1.md            # Freeze-period changelog
+│
+└── tags/
+    └── vX.Y-RC1.md                      # One-line tag description + commit hash

@@ -1,0 +1,143 @@
+# data/decks/cards.yaml
+id: cards
+title: "Card Deck"
+cards:
+  - id: "minotaur:001"
+    title: "The Truth Tell"
+    tags: [truth, confession, vulnerability, rupture]
+    body: |-
+      **Action:**
+      Confess something you concealed from someone it directly affects.
+
+      **Activation Clause:**
+      Do not draw this card unless you are willing to say it out loud to them within 48 hours.
+
+      **Point of No Return:**
+      Once you text, call, or set the meeting: you commit to not backing out.
+
+      Do not embellish the truth.
+
+  - id: "minotaur:002"
+    title: "The Pattern Break"
+    tags: [pattern, disruption, witness, integrity]
+    body: |-
+      **Action:**
+      Publicly interrupt a behavior others associate with you but that is corrosive.
+
+      **Activation Clause:**
+      This must be witnessed by at least one person who knows your pattern.
+
+      **Examples:**
+      Gossip, chronic lateness, subtle control, false modesty or passive-aggression.
+
+      Don't pick a small issue.
+
+  - id: "minotaur:003"
+    title: "The Ask Impossible"
+    tags: [request, vulnerability, intimacy, risk]
+    body: |-
+      **Action:**
+      Make a vulnerable request to someone that risks rejection, rupture, or deep contact.
+
+      **Activation Clause:**
+      You must deliver the ask without hedging or disclaimers.
+
+      **Examples:**
+      “Can you forgive me?” "Will you stay?" “Will you stop doing this to me?” “I need help.”
+
+      Don't soften to avoid vulnerability.
+
+  - id: "minotaur:004"
+    title: "The Debt Pay"
+    tags: [apology, accountability, repair, humility]
+    body: |-
+      **Action:**
+      Apologize for something you’ve previously justified, minimized, or avoided.
+
+      **Activation Clause:**
+      You must accept that forgiveness may not be offered.
+
+      **Requirements:**
+      • Speak only to the person affected.
+      • State the harm without defending yourself.
+      • Ask nothing in return.
+      • Do not say, "I'm sorry you feel that way..."
+
+  - id: "minotaur:005"
+    title: "The Legacy Break"
+    tags: [inheritance, autonomy, refusal, identity]
+    body: |-
+      **Action:**
+      Refuse an inheritance: a family script, identity, or obligation you no longer consent to carry.
+
+      **Activation Clause:**
+      Name it out loud to family, peer or journal.
+
+      **Point of No Return:**
+      If they say yes, the door is opened.
+
+      If you do it with someone who wants you to refuse, then it is only theater.
+
+  - id: "minotaur:006"
+    title: "The Witness Invitation"
+    tags: [witness, courage, visibility, exposure]
+    body: |-
+      **Action:**
+      Choose someone you trust. Invite them to witness you perform a Minotaur card.
+
+      **Activation Clause:**
+      You must accept the possibility of being seen and still misunderstood.
+
+      **Requirements:**
+      • Tell them what you’re doing.
+      • Ask only for presence, not reassurance.
+
+      Performing for praise is theater.
+
+  - id: "minotaur:007"
+    title: "The Unshielded Ear"
+    tags: [listening, critique, humility, feedback]
+    body: |-
+      **Action:**
+      Invite someone you trust (or harmed) to tell you their unfiltered critique of your behavior or impact.
+
+      **Activation Clause:**
+      Listen without interruption, defense, or visible reaction.
+
+      **Requirements:**
+      • Minimum of five minutes.
+      • When they are done, say "Thank you."
+
+      No rebuttals. Walk away or close the conversation.
+
+  - id: "minotaur:008"
+    title: "The Physical Hold"
+    tags: [presence, body, attention, intensity]
+    body: |-
+      **Action:**
+      During another Minotaur card action, keep sustained eye contact and physical presence
+
+      **Activation Clause:**
+      Once contact is made, do not look away, fidget or gesture nervously.
+
+      **Requirements:**
+      • Remain bodily present throughout.
+      • Give your undivided attention.
+
+      Do not use this as a power move.
+
+  - id: "minotaur:009"
+    title: "The Inventory"
+    tags: [accountability, reflection, avoidance, honesty]
+    body: |-
+      **Action:**
+      Name aloud the Minotaur cards you have not performed. Name why.
+
+      **Activation Clause:**
+      Commit to finding what you are avoiding.
+
+      **Requirements:**
+      • Say it to a trusted friend, peer, partner, or even a mirror.
+      • No explanation. No reframing.
+
+      Once named, avoidance has structure. Rationalize delays are only justification.

@@ -8,7 +8,7 @@ version: 1.1
 stability: core
 relations:
   relation_to_agent_protocol: inspired
-  agent_protocol: ver1.4/modules/practices/practice_menu.md
+  agent_protocol: microkernel/latest/modules/practices/practice_menu.md
   practitioner_doc: ""
   supersedes: [potm.proto.tooling.externalist_modes.v1]
   superseded_by: []

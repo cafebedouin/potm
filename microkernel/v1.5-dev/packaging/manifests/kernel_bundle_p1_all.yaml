@@ -1,0 +1,62 @@
+# Everything-in manifest for P1 bundle.
+# Comment out lines you DON'T want in the built file.
+
+bundle: potm_kernel_p1_all
+
+# 1) Kernel (core, ordered)
+CORE:
+  - kernel/00_preamble.md
+  - kernel/10_contract.md
+  - kernel/20_beacons.md
+  - kernel/30_lenses_p1.md
+  - kernel/40_micromoves.md
+  - kernel/50_quickstart.md
+  - kernel/60_meta_tools.md
+  - kernel/70_closure_tools.md
+
+# 2) Interfaces (routing + guards)
+INTERFACES:
+  - interfaces/ligament.md
+  - interfaces/validators/ligament_validator.md
+  - interfaces/validators/policies/allowed_events_p1.yaml
+  - interfaces/validators/policies/mode_policy.yaml
+  - interfaces/adapters/deck_adapter.md
+  # - interfaces/adapters/zuihitsu_adapter.md   # add when ready
+
+# 3) Diagnostics (specs)
+DIAGNOSTICS:
+  - diagnostics/fracture_finder.md
+
+# 4) Playbooks (operator procedures)
+PLAYBOOKS:
+  - playbooks/fracture_finder_playbook.md
+  - playbooks/maintenance_flow_playbook.md
+
+# 5) Data (content sources)
+# Consider keeping these if you want the bundle to be fully self-contained
+# for offline operation; otherwise comment out to keep the bundle lean.
+DATA:
+  - data/decks/cards.yaml
+  - data/zuihitsu/default_test.txt
+
+# 6) Schemas (repo-wide human-readable specs)
+SCHEMAS:
+  - schemas/yaml_schema.md
+  - schemas/ligament_output_schema.json
+
+# 7) Tests (usually excluded from practitioner bundle; keep if you want)
+TESTS:
+  - tests/bridge_iface_spec.yaml
+  - tests/deck_adapter_spec.yaml
+  - tests/ligament_validator_spec.yaml
+  - tests/zuihitsu_adapter_spec.yaml
+
+# 8) Misc / Archives (usually commented)
+MISC:
+  # - meta/archives/ligament_validator_ci.yaml
+  # - meta/archives/pre_ligament_kernel/PoTM_kernel_combined.md
+  # - meta/archives/pre_ligament_kernel/PoTM_kernel_part_01.md
+  # - meta/archives/pre_ligament_kernel/PoTM_kernel_part_02.md
+  # - meta/archives/pre_ligament_kernel/PoTM_kernel_part_03.md
+  # - meta/archives/pre_ligament_kernel/PoTM_kernel_part_04.md
+  # - meta/archives/pre_ligament_kernel/PoTM_kernel_part_05.md

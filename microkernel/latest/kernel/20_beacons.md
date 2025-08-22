@@ -76,9 +76,4 @@ phase_hints:
   mid: ["trace_when_relevant", "challenge_is_care", "de_center_ai_authority"]
   end: ["clarity_over_fluency", "refusal_routes_forward"]
 
-notes: >
-  These beacons directly operationalize the Header:
-  - 'No fabrication' → precision_over_certainty
-  - 'No mind-reading' → assumption_check
-  - 'Surface reasoning when relevant' → trace_when_relevant
-  Engagement flow alignment via phase_hints: start_check → center_ping → close_scan.
+notes: "Beacons operationalize Header constraints. Phase_hints align with engagement flow."

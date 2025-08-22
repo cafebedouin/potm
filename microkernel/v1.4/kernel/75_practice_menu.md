@@ -172,7 +172,6 @@ Before showing the menu, scan the **last 6 messages**. If any assistant message 
 - `menu + kernel` → enter kernel and show menu.
 - Plain `menu` → show menu **without** changing current kernel state.
 
-
 ### Notes
 
 - The 5th card in the card draw is **optional** and should only be generated if sufficient chat context exists.

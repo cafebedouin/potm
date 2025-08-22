@@ -1,0 +1,9 @@
+allowed_events:
+  - bridge_event: ["MENU.OPEN","MENU.RENDER","DENY.WITH_GROUNDING","BYPASS.LIGAMENT"]
+  - deck_call:    ["draw"]
+  - zui_call:     ["pick"]
+  - adapter_result: ["card","zuihitsu","finalize_answer"]
+
+allowed_surfaces:
+  bridge_event:
+    MENU.RENDER: ["practice_menu"]

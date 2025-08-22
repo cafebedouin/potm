@@ -1,0 +1,31 @@
+# meta/lineage_index.yaml  (v0.1)
+version: 0.1
+generated_at: 2025-08-12T00:00:00Z
+scope:
+  root: .
+  include: ["**/*.md"]
+  exclude: ["validation/**", "deprecated/**"]
+fields:
+  required: [path, id, title, type, status, version, tags]
+  tag_keys:
+    forge_origin: true
+    spiral_eval: true
+items:
+  - path: ver1.4/meta/potm_distinctions.md
+    id: potm.meta.distinctions.v1
+    title: "PoTM Distinctions"
+    type: meta
+    status: draft
+    version: 1.0
+    tags:
+      forge_origin: "forge:claude-edge-sequence@2025-08-06"
+      spiral_eval: "spiral:cross-model-audit@2025-08-07"
+  - path: ver1.4/modules/ledger/msrl.md
+    id: potm.module.msrl.v1_1
+    title: "Multi-Substrate Refinement Loop (MSRL)"
+    type: diagnostic
+    status: draft
+    version: 1.1
+    tags:
+      forge_origin: "forge:msrl-original-kernel@2025-08-04"
+      spiral_eval: "spiral:soft-kernel-rewrite@2025-08-09"

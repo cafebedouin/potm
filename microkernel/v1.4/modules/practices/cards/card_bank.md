@@ -14,7 +14,7 @@ selection_method: random
 
 ---
 
-## Card: The Label Drop
+## Card: Drop the Label
 
 **Practice:**  
 Notice the story you're telling about this moment—and silently let it go.
@@ -228,7 +228,7 @@ You have complete control over very few things. Your response is always one of t
 
 ---
 
-## Card: Pause Between Words
+## Card: Pause Before You Speak
 
 **Practice:**  
 In conversation, consciously pause for a beat before speaking.
@@ -708,3 +708,216 @@ You're upset, having a breakthrough, or notice patterns in your responses.
 We are composites of our influences. Knowing your sources helps you choose consciously.
 
 ---
+
+## Card: Shadow Approval
+
+**Practice:**
+Act today as if no one will ever know what you did.
+
+**Use When:**
+You catch yourself angling for praise, likes, or recognition.
+
+**Remember:**
+Integrity is measured by what you do when applause is impossible.
+
+---
+
+## Card: Interrupt the Script
+
+**Practice:**
+In the middle of a well-worn routine, do one thing completely differently.
+
+**Use When:**
+You’re on autopilot, bored, or feel predictably predictable.
+
+**Remember:**
+A single break in the pattern can open a crack for fresh seeing.
+
+---
+
+## Card: Borrowed Courage
+
+**Practice:**
+Think of someone whose bravery you admire and act as if you had their nerve.
+
+**Use When:**
+You’re stalling, doubting yourself, or shrinking from the next step.
+
+**Remember:**
+Courage can be contagious — sometimes you just need to catch it.
+
+---
+
+## Card: The Quietest Voice
+
+**Practice:**
+Ask yourself: “What is the softest thing in me trying to say right now?”
+
+**Use When:**
+Your mind is loud, reactive, or drowning out subtle truths.
+
+**Remember:**
+The quietest voices often tell the most important truths.
+
+---
+
+Love it. Since you don’t want to wrangle repos right now, here’s a **pilot mini-deck (12 cards)** you can field-test immediately. All are new (or clear rebrands), short, imperative, and tuned to your system’s vibe.
+
+---
+
+## Card: Be Pro-social 
+
+**Practice:**
+After any micro-interaction, add one small positive follow-up within 24 hours (note, intro, link, thanks).
+
+**Use When:**
+You meet someone new, have a brief chat, or exchange messages.
+
+**Remember:**
+Tiny gestures compound into trust. Low stakes, high signal.
+
+---
+
+## Card: Culture Vulture 
+
+**Practice:**
+Spend 10 minutes with something outside your bubble—music, forum, neighborhood—just notice.
+
+**Use When:**
+You feel stale, insulated, or bored of your own thoughts.
+
+**Remember:**
+Exposure precedes insight. Sample before judging.
+
+---
+
+## Card: Mercy Insert
+
+**Practice:**
+Add one unexpected act of softness inside a firm stance (extra minute, kinder phrasing, smaller ask).
+
+**Use When:**
+You’re “right” but sharp; tension is rising.
+
+**Remember:**
+Mercy often reveals better information than pressure.
+
+---
+
+## Card: Cornerstone Scan
+
+**Practice:**
+Pick one idea/person you dismissed; ask, “What would make this the keystone I missed?”
+
+**Use When:**
+Contempt, quick rejection, or pattern fights show up.
+
+**Remember:**
+Today’s scrap can be tomorrow’s anchor.
+
+---
+
+## Card: Say It Smaller
+
+**Practice:**
+Compress your claim to one sentence a curious skeptic could accept.
+
+**Use When:**
+You’re verbose, evangelizing, or losing the room.
+
+**Remember:**
+Clarity is kindness. Size your claim to contact.
+
+---
+
+## Card: Ask for Receipts
+
+**Practice:**
+Invite one concrete example or metric before deciding.
+
+**Use When:**
+Hot takes, sweeping conclusions, confident advice.
+
+**Remember:**
+Truth before coherence. Evidence beats vibes.
+
+---
+
+## Card: Name the Cost
+
+**Practice:**
+Before sharing “insight,” name what it cost to earn (time, risk, discomfort).
+
+**Use When:**
+You feel slick, performative, or “wise.”
+
+**Remember:**
+Real insight has a receipt. Otherwise: call it a hunch.
+
+---
+
+## Card: Third Place
+
+**Practice:**
+Move the conversation to neutral ground (walk, cafe, park) to reset the pattern.
+
+**Use When:**
+Home/office dynamics are stuck.
+
+**Remember:**
+Space is a lever. Change the room, change the story.
+
+---
+
+## Card: Ledger Write
+
+**Practice:**
+After any decision, write the next smallest visible action and who owns it.
+
+**Use When:**
+Meetings, breakthroughs, closure moments.
+
+**Remember:**
+Decisions without owners evaporate.
+
+---
+
+## Card: Bow Out Clean
+
+**Practice:**
+If a thread isn’t good to continue, exit explicitly and kindly; name why and what (if anything) comes next.
+
+**Use When:**
+You feel trapped, performative, or unsafe.
+
+**Remember:**
+Endings are practices. Clean exits protect dignity.
+
+---
+
+## Card: Tension → Temperature
+
+**Practice:**
+Rate your internal dial (0–10). Name one concrete thing that would drop it by one point.
+
+**Use When:**
+Escalation, overwhelm, or muddled needs.
+
+**Remember:**
+Titration beats suppression.
+
+---
+
+## Card: Quiet the Cleverness
+
+**Practice:**
+Swap your clever workaround for a plain question: “What am I avoiding?”
+
+**Use When:**
+Success feels slick but misaligned.
+
+**Remember:**
+Clever hides drift. Plain contact finds it.
+
+---
+

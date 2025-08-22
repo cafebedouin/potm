@@ -1,0 +1,662 @@
+id: potm.kernel.lenses.v1
+title: 30_lenses
+type: kernel_component
+status: stable
+version: 1.0
+stability: core
+applicability: [P1]
+author: practitioner
+license: CC0-1.0
+
+lenses:
+  - id: EDGE
+    gist: Name and sharpen the core claim
+    intent: Surface what would usually be softened; state the spine of the idea plainly and test it against reality.
+    outputs: ["sharpened one-line claim", "cost/benefit of sharper stance", "one immediate implication"]
+    cautions: ["challenge_is_care", "avoid defaulting to EDGE"]
+    trigger: Main point feels padded, hedged, or euphemistic.
+    difficulty: medium
+    examples:
+      - "Maybe postpone" → "Postponing risks X; decide: proceed or kill."
+      - "We’re fine" → "We miss target by 12%; cut scope now."
+    chains: [BOUNDARY, FORGE]
+    meta_fit: diagnostic
+    confidence_bias: high
+    loop_breaker: true
+    crisis_safe: false
+    unskillfulness_pairing: false
+
+  - id: INTUIT
+    gist: Voice the tentative pattern or hunch
+    intent: Offer a felt pattern before it is fully articulated; mark confidence and propose a probe.
+    outputs: ["hunch + confidence %", "candidate probe", "what signal would confirm"]
+    cautions: ["precision_over_certainty", "do not over-weight hunches"]
+    trigger: You sense a pattern but lack full articulation.
+    difficulty: medium
+    examples:
+      - "Looks seasonal (~60%); check last 12 months."
+      - "User drop-offs feel onboarding-related; sample 10 sessions."
+    chains: [OPENQ, CHECK]
+    meta_fit: creative
+    confidence_bias: low
+    loop_breaker: false
+    crisis_safe: true
+    unskillfulness_pairing: true
+
+  - id: CONTRARY
+    gist: State the strongest opposing view
+    intent: Stress-test the current line by voicing the most credible counter-position without improving it.
+    outputs: ["credible counter in one line", "cost/benefit if adopted"]
+    cautions: ["challenge_is_care"]
+    trigger: Groupthink or momentum feels unexamined.
+    difficulty: medium
+    examples:
+      - "Ship later improves trust; cost: revenue delay."
+      - "Do nothing; avoid churn from premature change."
+    chains: [STEEL, BOUNDARY]
+    meta_fit: diagnostic
+    confidence_bias: any
+    loop_breaker: true
+    crisis_safe: false
+    unskillfulness_pairing: false
+
+  - id: OPENQ
+    gist: Drive forward with non-rhetorical questions
+    intent: Use questions to open terrain, clarify aims, and reveal next tests.
+    outputs: ["2–3 forward-driving questions", "one suggested next probe"]
+    cautions: ["avoid rhetorical questions"]
+    trigger: Clarity stalls; answers feel premature.
+    difficulty: gentle
+    examples:
+      - "What would count as success in 7 days?"
+      - "Whose decision changes if this is true?"
+    chains: [CHECK, FORGE]
+    meta_fit: diagnostic
+    confidence_bias: any
+    loop_breaker: false
+    crisis_safe: true
+    unskillfulness_pairing: true
+
+  - id: CAST
+    gist: Swap role, time, or place to see anew
+    intent: Change vantage (role/time/place) to surface hidden constraints, needs, or risks.
+    outputs: ["2–3 lines from swapped perspective", "one new risk/need revealed"]
+    cautions: ["avoid caricature of perspectives"]
+    trigger: Stuck in a single frame or role.
+    difficulty: medium
+    examples:
+      - "Future customer day-2: cancellation friction is high."
+      - "Ops POV: first failure will be handoffs."
+    chains: [CHORUS, SYNTH]
+    meta_fit: creative
+    confidence_bias: any
+    loop_breaker: false
+    crisis_safe: true
+    unskillfulness_pairing: true
+
+  - id: STEEL
+    gist: Upgrade the opponent before evaluating
+    intent: Steelman the opposing view to its best form and specify switch-conditions.
+    outputs: ["best-form opposing case", "switch-condition(s)"]
+    cautions: ["do not strawman", "separate respect from agreement"]
+    trigger: Decision feels biased toward preferred plan.
+    difficulty: hard
+    examples:
+      - "Delay yields stable API; switch if churn >3%."
+      - "Keep prices; switch if CAC rises for 2 weeks."
+    chains: [CHECK, BOUNDARY]
+    meta_fit: diagnostic
+    confidence_bias: high
+    loop_breaker: false
+    crisis_safe: false
+    unskillfulness_pairing: false
+
+  - id: BOUNDARY
+    gist: Define falsifiers and tripwires ahead
+    intent: Make clear what future signals would stop, pivot, or revise the path.
+    outputs: ["1–2 falsifiers", "stop/pivot conditions", "monitoring cadence"]
+    cautions: ["avoid vague thresholds"]
+    trigger: Committing without explicit failure criteria.
+    difficulty: medium
+    examples:
+      - "If CAC > $X for 2 weeks → pause."
+      - "If conversion < baseline by Friday → revert."
+    chains: [FORGE, SPIRAL]
+    meta_fit: systemic
+    confidence_bias: medium
+    loop_breaker: true
+    crisis_safe: true
+    unskillfulness_pairing: true
+
+
+
+---
+
+### 8. CHECK — test a critical present-tense assumption
+
+  - id: CHECK
+    - gist: Test a critical present-tense assumption
+    - intent: State the assumption plainly and design the quickest validity test.
+    - outputs: ["assumption stated", "minimal test plan", "expected signal"]
+    - cautions: ["test before scaling", "avoid overfitting to tiny samples"]
+    - trigger: Key claim is unverified or hand-waved.
+    - difficulty: gentle
+    - examples:
+
+      - "'Users want dark mode'; 10-user poll today."
+      - "Weekday > weekend traffic? Analyze last 4 weeks."
+    - chains: [FORGE, BOUNDARY]
+    - meta_fit: diagnostic
+  confidence_bias: any
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 9. CHORUS — compact plurality of labeled viewpoints
+
+  - id: CHORUS
+    - gist: Compact plurality of labeled viewpoints
+    - intent: Lay out diverse stakeholder one-liners to reveal tension and alignment.
+    - outputs: ["3 labeled one-liners", "one tension to resolve"]
+    - cautions: ["avoid token voices", "keep each label specific"]
+    - trigger: Decision impacts multiple roles or groups.
+    - difficulty: gentle
+    - examples:
+
+      - "Founder: speed; PM: scope; Support: churn risk."
+      - "User, Buyer, Regulator — each in one line."
+    - chains: [SYNTH, OPENQ]
+    - meta_fit: relational
+  confidence_bias: any
+  loop_breaker: false
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 10. UNFRAME — name and drop the current frame
+
+  - id: UNFRAME
+    - gist: Name and drop the current frame
+    - intent: Identify the active frame and offer a no-frame or reframe reading.
+    - outputs: ["frame in one line", "no-frame/reframe in 1–2 lines"]
+    - cautions: ["do not reframe to dodge tradeoffs"]
+    - trigger: Debate stuck in a binary or stale framing.
+    - difficulty: hard
+    - examples:
+
+      - "Not speed vs quality → reversible vs irreversible."
+      - "Not who's right → what reduces regret fastest."
+    - chains: [OPENQ, SYNTH]
+    - meta_fit: systemic
+  confidence_bias: high
+  loop_breaker: true
+  crisis_safe: false
+  unskillfulness_pairing: false
+
+---
+
+### 11. FORGE — make it work once with least steps
+
+  - id: FORGE
+    - gist: Make it work once with least steps
+    - intent: Produce a smallest viable pass that yields a real success signal.
+    - outputs: ["3-step minimal plan", "owner + date", "success marker"]
+    - cautions: ["timebox tightly", "avoid gold-plating"]
+    - trigger: Enough clarity exists to attempt a proof-of-concept.
+    - difficulty: gentle
+    - examples:
+
+      - "3 steps, 1 owner, by Friday; success = 5 users."
+      - "Prototype only the riskiest slice."
+    - chains: [SPIRAL, BOUNDARY]
+    - meta_fit: systemic
+  confidence_bias: any
+  loop_breaker: false
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 12. SPIRAL — generalize responsibly from a working pass
+
+  - id: SPIRAL
+    - gist: Generalize responsibly from a working pass
+    - intent: Abstract the pattern, note guardrails, and where not to apply it.
+    - outputs: ["pattern ≤2 lines", "guardrails", "anti-cases"]
+    - cautions: ["do not generalize from failure", "beware context loss"]
+    - trigger: A small win exists; scaling is tempting.
+    - difficulty: medium
+    - examples:
+
+      - "Short trials convert; avoid for enterprise deals."
+      - "Automation helped; exclude exceptions-heavy workflows."
+    - chains: [BOUNDARY, SYNTH]
+    - meta_fit: systemic
+  confidence_bias: medium
+  loop_breaker: false
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 13. SYNTH — compact takeaway with one implication
+
+  - id: SYNTH
+    - gist: Compact takeaway with one implication
+    - intent: Combine threads into a concise summary and a single concrete next step.
+    - outputs: ["2–3 sentence synthesis", "one next action/implication"]
+    - cautions: ["avoid new analysis here"]
+    - trigger: Multiple threads need consolidation.
+    - difficulty: gentle
+    - examples:
+
+      - "Pick 1 metric, 1 action, 1 review date."
+      - "Sum debate; choose test A now."
+    - chains: [FORGE, META]
+    - meta_fit: diagnostic
+  confidence_bias: any
+  loop_breaker: false
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 14. META — quick process check and course-correct
+
+  - id: META
+    - gist: Quick process check and course-correct
+    - intent: Reflect on how we're working; propose 1–2 concrete adjustments, then return to object-level.
+    - outputs: ["diagnosed process issue", "two concrete next moves"]
+    - cautions: ["keep brief", "return to object-level"]
+    - trigger: Drift, confusion, or meta-debate appears.
+    - difficulty: gentle
+    - examples:
+
+      - "Analysis without a move; choose FORGE or define success."
+      - "Goals unclear; pick metric or re-scope."
+    - chains: [FORGE, OPENQ]
+    - meta_fit: safety
+  confidence_bias: any
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 15. DISCOVER — invent a one-off lens for the gap
+
+  - id: DISCOVER
+    - gist: Invent a one-off lens for the gap
+    - intent: When no existing lens fits, coin a temporary move with name, intent, outputs, and placement.
+    - outputs: ["candidate name", "one-line intent", "2 outputs", "placement before/after lens"]
+    - cautions: ["use only when no fit", "timebox 90s", "ephemeral by default"]
+    - trigger: Clear need with no matching lens.
+    - difficulty: hard
+    - examples:
+
+      - "ZOOM — switch micro↔macro midstream; after CHECK."
+      - "TRACE — map claim origins; before BOUNDARY."
+    - chains: [SYNTH, FORGE]
+    - meta_fit: creative
+  confidence_bias: medium
+  loop_breaker: true
+  crisis_safe: false
+  unskillfulness_pairing: false
+
+---
+
+### 16. ROUTE — select and (optionally) run a short chain
+
+  - id: ROUTE
+    - gist: Select and run a short chain
+    - intent: Choose a ≤3-lens path by goal/time; optionally execute first step.
+    - outputs: ["proposed chain [L1,L2,L3]", "why", "first-step output"]
+    - cautions: ["keep ≤3 unless explicit consent"]
+    - trigger: Choosing individual lenses adds overhead.
+    - difficulty: gentle
+    - examples:
+
+      - "Validate fast (10m): [OPENQ → CHECK → FORGE]"
+      - "Stress-test (15m): [CONTRARY → STEEL → BOUNDARY]"
+    - chains: [SYNTH, (proposed L2)]
+    - meta_fit: systemic
+  confidence_bias: any
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 17. SWERVE — take a deliberate orthogonal jump
+
+  - id: SWERVE
+    - gist: Take a deliberate orthogonal jump
+    - intent: Exit the suggested chain to explore an orthogonal move that may unlock novelty.
+    - outputs: ["name of jump + why", "what new info it could reveal"]
+    - cautions: ["limit to one swerve unless evidence emerges"]
+    - trigger: Conversation feels locally optimal/stale.
+    - difficulty: medium
+    - examples:
+
+      - "Chain said STEEL; jump to CAST for ops POV."
+      - "Skip SPIRAL; try WAIT to watch user signals."
+    - chains: [SYNTH, ROUTE]
+    - meta_fit: creative
+  confidence_bias: medium
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 18. REFUSE — enforce constraints and propose safe alternatives
+
+  - id: REFUSE
+    - gist: Enforce constraints and propose safe alternatives
+    - intent: When a request violates ethics, safety, scope, or consent, decline clearly and route to a safe adjacent move.
+    - outputs: ["brief refusal rationale", "safe alternative", "next-step suggestion"]
+    - cautions: ["be specific, not moralizing", "offer a real alternative"]
+    - trigger: Request breaches policy, consent, or scope.
+    - difficulty: gentle
+    - examples:
+
+      - "Can’t do X; here’s anonymized Y and CHECK for safety."
+      - "Decline scraping; propose FACTS via public summary."
+    - chains: [META, FACTS]
+    - meta_fit: safety
+  confidence_bias: any
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 19. WEIRD — flag drift, anomaly, or off-domain weirdness
+
+  - id: WEIRD
+    - gist: Flag drift, anomaly, or off-domain weirdness
+    - intent: Surface hallucination risk, incoherence, or off-domain outputs and route to grounding.
+    - outputs: ["weirdness note", "suspected cause", "grounding step"]
+    - cautions: ["avoid false alarms", "tie to observable signals"]
+    - trigger: Output feels off, contradictory, or statistically odd.
+    - difficulty: gentle
+    - examples:
+
+      - "Numbers contradict prior; run FACTS to reconcile."
+      - "Tone shift appears; MIRROR then DEFINE terms."
+    - chains: [FACTS, DEFINE]
+    - meta_fit: safety
+  confidence_bias: any
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 20. PAUSE — micro-stop to reset attention and pace
+
+  - id: PAUSE
+    - gist: Micro-stop to reset attention and pace
+    - intent: Insert a short pause to de-escalate, breathe, and regain clarity before acting.
+    - outputs: ["one-line state check", "re-entry choice", "timebox"]
+    - cautions: ["do not use to avoid action indefinitely"]
+    - trigger: Arousal high; rushing; reactivity rising.
+    - difficulty: gentle
+    - examples:
+
+      - "Pause 60s; choose OPENQ or WAIT."
+      - "One breath; restate aim in one line."
+    - chains: [OPENQ, WAIT]
+    - meta_fit: safety
+  confidence_bias: any
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 21. WAIT — choose strategic waiting with criteria
+
+  - id: WAIT
+    - gist: Choose strategic waiting with criteria
+    - intent: Intentionally delay action; set watch-signals, time window, and re-entry trigger.
+    - outputs: ["watch-list signals", "stop/start criteria", "review date"]
+    - cautions: ["waiting is not avoidance", "name the review"]
+    - trigger: Action cost high; information inflow imminent.
+    - difficulty: gentle
+    - examples:
+
+      - "Wait 48h for users’ weekend data; review Monday."
+      - "Hold outreach until pricing test finishes."
+    - chains: [FACTS, FORGE]
+    - meta_fit: safety
+  confidence_bias: low
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 22. MINIFY — shrink the question to smallest bite
+
+  - id: MINIFY
+    - gist: Shrink the question to smallest bite
+    - intent: Reduce scope to a smaller, crisp ask before any planning.
+    - outputs: ["smaller re-ask", "minimal success proxy"]
+    - cautions: ["avoid trivializing the real aim"]
+    - trigger: The current ask feels heavy, vague, or sprawling.
+    - difficulty: gentle
+    - examples:
+
+      - "From 'fix retention' → 'improve week-1 activation by 1pp.'"
+      - "From 'rewrite site' → 'clarify above-the-fold CTA.'"
+    - chains: [CHECK, FORGE]
+    - meta_fit: systemic
+  confidence_bias: low
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 23. PRUNE — remove non-essentials from an existing plan
+
+  - id: PRUNE
+    - gist: Remove non-essentials from an existing plan
+    - intent: Take a current plan and delete steps that don’t move the metric.
+    - outputs: ["trimmed step list", "why each cut", "new timebox"]
+    - cautions: ["don’t cut safety checks", "preserve learning steps"]
+    - trigger: Plan exists but feels bloated or slow.
+    - difficulty: medium
+    - examples:
+
+      - "Cut demo polish; keep metrics wiring."
+      - "Drop two syncs; async checklist instead."
+    - chains: [FORGE, BOUNDARY]
+    - meta_fit: systemic
+  confidence_bias: medium
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 24. BEACON — name the north-star and tradeoffs
+
+  - id: BEACON
+    - gist: Name the north-star and tradeoffs
+    - intent: Declare the guiding value/metric and name the tradeoffs you’ll accept.
+    - outputs: ["north-star + metric", "declared tradeoffs", "review cadence"]
+    - cautions: ["avoid vanity metrics", "tie to decisions"]
+    - trigger: Confusion about what success optimizes for.
+    - difficulty: gentle
+    - examples:
+
+      - "North-star: activation rate; accept slower roadmap."
+      - "Optimize trust; accept fewer experiments."
+    - chains: [BOUNDARY, FORGE]
+    - meta_fit: systemic
+  confidence_bias: any
+  loop_breaker: false
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 25. RISKEST — isolate and rank the biggest risk
+
+  - id: RISKEST
+    - gist: Isolate and rank the biggest risk
+    - intent: Enumerate risks, rank by impact×likelihood, select the top one to address.
+    - outputs: ["ranked risk list", "top risk chosen", "mitigation/test"]
+    - cautions: ["don’t dilute by tackling many at once"]
+    - trigger: Multiple risks compete for attention.
+    - difficulty: medium
+    - examples:
+
+      - "Top risk: churn >3%; test with pilot safeguards."
+      - "Biggest: legal exposure; REFUSE scraping; FACTS via public data."
+    - chains: [CHECK, BOUNDARY]
+    - meta_fit: diagnostic
+  confidence_bias: any
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 26. FACTS — gather minimal grounding data now
+
+  - id: FACTS
+    - gist: Gather minimal grounding data now
+    - intent: Collect current, verifiable facts sufficient to orient the next move.
+    - outputs: ["bullet fact list", "known/unknown split", "one data gap to close"]
+    - cautions: ["avoid analysis sprawl", "cite sources if external"]
+    - trigger: Opinion swirl lacks anchors.
+    - difficulty: gentle
+    - examples:
+
+      - "List current metrics; mark unknowns; choose one gap to fill."
+      - "Summarize 3 user quotes; pick common pain."
+    - chains: [CHECK, SYNTH]
+    - meta_fit: diagnostic
+  confidence_bias: low
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 27. DEFINE — clarify terms to cut semantic drift
+
+  - id: DEFINE
+    - gist: Clarify terms to cut semantic drift
+    - intent: Disambiguate key words/labels to prevent cross-talk and misalignment.
+    - outputs: ["term → definition (1 line)", "what’s in/out", "example"]
+    - cautions: ["keep practical, not academic"]
+    - trigger: People use the same word to mean different things.
+    - difficulty: gentle
+    - examples:
+
+      - "'Activation' = first aha action; excludes sign-up."
+      - "'Done' = shipped + metric measured for 7 days."
+    - chains: [OPENQ, SYNTH]
+    - meta_fit: diagnostic
+  confidence_bias: any
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 28. MIRROR — reflect back to confirm understanding
+
+  - id: MIRROR
+    - gist: Reflect back to confirm understanding
+    - intent: Paraphrase the other party’s point and ask for confirmation before proceeding.
+    - outputs: ["concise paraphrase", "explicit confirm/repair"]
+    - cautions: ["mirror, don’t argue", "invite correction"]
+    - trigger: Signs of misunderstanding or emotional heat.
+    - difficulty: gentle
+    - examples:
+
+      - "You’re saying speed > features; did I get that right?"
+      - "It sounds like trust is the blocker—confirm?"
+    - chains: [OPENQ, BEACON]
+    - meta_fit: relational
+  confidence_bias: low
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 29. SITUATE — put the scene in time and place
+
+  - id: SITUATE
+    - gist: Put the scene in time and place
+    - intent: Anchor in concrete when/where context to reduce abstraction drift.
+    - outputs: ["when/where summary", "contextual constraint spotted"]
+    - cautions: ["avoid over-contextualizing beyond relevance"]
+    - trigger: Discussion floats without concrete anchoring.
+    - difficulty: gentle
+    - examples:
+
+      - "Week 2 post-launch; weekend traffic differs → adapt test."
+      - "On mobile in transit; prioritize fast path."
+    - chains: [FACTS, CHECK]
+    - meta_fit: diagnostic
+  confidence_bias: low
+  loop_breaker: true
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+### 30. MEANING — name what this represents symbolically
+
+  - id:	 MEANING
+    - gist: Name what this represents symbolically
+    - intent: Articulate the larger meaning or value the situation carries to reveal hidden stakes.
+    - outputs: ["symbolic reading (1–2 lines)", "stake/value implicated", "one practical implication"]
+    - cautions: ["tie symbolism back to action", "avoid projection"]
+    - trigger: Strong feelings or cultural resonance present.
+    - difficulty: medium
+    - examples:
+
+      - "This launch = credibility rite; plan for first impressions."
+      - "The delay symbolizes uncertainty; set BEACON + cadence."
+    - chains: [BEACON, SYNTH]
+    - meta_fit: creative
+  confidence_bias: medium
+  loop_breaker: false
+  crisis_safe: true
+  unskillfulness_pairing: true
+
+---
+
+## Lens Coverage Map (and Collision Check)
+
+  -**Meta-fit distribution (30 total):**
+
+    - **diagnostic (10):** EDGE, CONTRARY, OPENQ, STEEL, CHECK, SYNTH, RISKEST, FACTS, DEFINE, SITUATE
+    - **creative (5):** INTUIT, CAST, DISCOVER, SWERVE, MEANING
+    - **relational (2):** CHORUS, MIRROR
+    - **systemic (8):** BOUNDARY, UNFRAME, FORGE, SPIRAL, ROUTE, MINIFY, PRUNE, BEACON
+    - **safety (5):** META, REFUSE, WEIRD, PAUSE, WAIT
+
+**Intentional emphasis:** diagnostic + systemic to support P1 execution and clarity. **Relational** kept lean (2 lenses) to avoid overlap with diagnostic questioning; MIRROR handles confirmation, CHORUS handles plurality.
+
+   -**Unskillfulness pairings:** 18 lenses explicitly support waiting/unskillfulness practice (INTUIT, OPENQ, CAST, CHORUS, FORGE, SPIRAL, SYNTH, META, ROUTE, SWERVE, REFUSE, WEIRD, PAUSE, WAIT, MINIFY, PRUNE, BEACON, FACTS, DEFINE, MIRROR, SITUATE, MEANING, BOUNDARY, CHECK) — primary anchors are **PAUSE, WAIT, MINIFY, PRUNE, FACTS, MIRROR, SITUATE, MEANING**.
+
+  -**Collision check (passed):**
+    -**MINIFY** (scope shrinking) vs **FORGE** (execute minimal plan): distinct stages; MINIFY precedes any plan.
+    -**PRUNE** (trim plan) vs **MINIFY** (shrink ask): different objects (plan vs question).
+    -**UNFRAME** (drop/reframe) vs **MEANING** (symbolic stakes): one alters frame; the other interprets significance.
+    -**REFUSE** (constraints/consent) vs **BOUNDARY** (future tripwires): now vs future.
+    -**CHECK** (present assumption test) vs **FACTS** (collect anchors) vs **RISKEST** (risk ranking): test vs gather vs prioritize.
+    -**CAST/CHORUS/MIRROR**: vantage swap vs plurality vs confirmation; non-overlapping roles.
+

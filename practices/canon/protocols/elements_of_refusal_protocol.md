@@ -1,3 +1,27 @@
+---
+id: potm.guide.general.elements_of_refusal_protocol.v1
+title: elements_of_refusal_protocol
+type: guideline
+status: stable
+version: '1.0'
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: []
+author: Sean + models
+license: CC0-1.0
+---
 # Elements of Refusal Protocol (v0.1)
 created: 2025-08-02
 inspired_by: John Zerzan, *Elements of Refusal* (1988)

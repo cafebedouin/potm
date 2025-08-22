@@ -4,7 +4,7 @@ profiles:
       - kernel/00_header.md
       - kernel/10_contract.md
       - kernel/20_beacons.md
-      - kernel/30_lenses_mini.md
+      - kernel/30_lenses_onboarding.md
       - kernel/90_footer.md
       - modules/onboarding_softstart.md
     exclude:

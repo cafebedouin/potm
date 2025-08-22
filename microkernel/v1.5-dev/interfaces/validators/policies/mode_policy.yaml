@@ -1,0 +1,9 @@
+modes:
+  containment:
+    block:
+      - kind: deck_call
+      - kind: zui_call
+  fracture_active:
+    require_note_for:
+      - kind: adapter_result
+        render: finalize_answer

@@ -1,0 +1,92 @@
+suite: ligament_validator_v1_0
+
+tests:
+  - name: allow_menu_render_normal
+    given:
+      modes:
+        containment: false
+        fracture_active: false
+      ligament_output:
+        kind: "bridge_event"
+        payload:
+          type: "MENU.RENDER"
+          surface: "practice_menu"
+    expect:
+      status: PASS
+
+  - name: block_draw_in_containment
+    given:
+      modes:
+        containment: true
+      ligament_output:
+        kind: "deck_call"
+        payload:
+          action: "draw"
+          n: 1
+          tags: ["best"]
+    expect:
+      status: FAIL
+      guardian_flag: INTRUSION
+      mode_set:
+        containment: true
+      return:
+        kind: "bridge_event"
+        payload:
+          type: "DENY.WITH_GROUNDING"
+
+  - name: schema_violation_fail_closed
+    given:
+      modes:
+        containment: false
+      ligament_output:
+        kind: "deck_call"
+        payload:
+          action: "unknown_call"
+    expect:
+      status: FAIL
+      guardian_flag: INTRUSION
+      mode_set:
+        containment: true
+
+  - name: fracture_requires_note_before_finalize
+    given:
+      modes:
+        fracture_active: true
+      ligament_output:
+        kind: "adapter_result"
+        payload:
+          render: "finalize_answer"
+          diagnostic_note: null
+    expect:
+      status: FAIL
+      reason: "missing_diagnostic_note"
+      guardian_flag: INTRUSION
+
+  - name: whitelist_only
+    given:
+      modes:
+        containment: false
+      ligament_output:
+        kind: "bridge_event"
+        payload:
+          type: "MENU.RENDER"
+          surface: "unknown_surface"
+    expect:
+      status: FAIL
+      guardian_flag: INTRUSION
+
+  - name: deckcall_unknown_action_fail_closed
+    given:
+      modes:
+        containment: false
+      ligament_output:
+        kind: "deck_call"
+        payload:
+          action: "unknown_call"
+          n: 1
+    expect:
+      status: FAIL
+      guardian_flag: INTRUSION
+      mode_set:
+        containment: true
+      reason: "schema_violation"
