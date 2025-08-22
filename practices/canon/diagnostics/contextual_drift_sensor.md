@@ -1,22 +1,36 @@
 ---
-
+id: potm.guide.general.contextual_drift_sensor.v1
 title: Contextual Drift Sensor
-author: Pal + Sean
-date\_created: 2025-08-02
-version: 0.1
+type: guideline
 status: active
-intended\_use: PoTM epistemic alignment diagnostics
-related\_files:
-
-* doctrine\_mutation\_vectors.md
-* values\_integrity\_audit.md
-* meta\_log\_layer.md
-* affective\_resonance\_registry.md
-* intentionality\_layer.md
-* strategy\_doctrine\_relation.md
-
+version: 0.1
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: []
+author: Pal + Practitioner
+license: CC0-1.0
+date_created: 2025-08-02
+intended_use: PoTM epistemic alignment diagnostics
+related_files:
+- doctrine_mutation_vectors.md
+- values_integrity_audit.md
+- meta_log_layer.md
+- affective_resonance_registry.md
+- intentionality_layer.md
+- strategy_doctrine_relation.md
 ---
-
 # Contextual Drift Sensor
 
 The **Contextual Drift Sensor** monitors for subtle yet consequential shifts in alignment caused by prolonged exposure to external systems (e.g. institutional, cultural, technological, familial). It serves as an early warning system for doctrinal distortion due to **unexamined environmental assimilation**.

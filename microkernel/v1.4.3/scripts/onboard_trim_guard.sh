@@ -7,7 +7,7 @@ DIST_DIR="$ROOT_DIR/dist"
 ONBOARD_BUILD="$DIST_DIR/kernel_onboard.md"
 SIZE_LIMIT=10240
 LENSES_FILE="$ROOT_DIR/kernel/30_lenses.md"
-LENSES_LITE="$ROOT_DIR/kernel/30_lenses_mini.md"
+LENSES_LITE="$ROOT_DIR/kernel/30_lenses_onboarding.md"
 TRIM_LOG="$DIST_DIR/kernel_onboard_trim.log"
 TRIM_DIR="$DIST_DIR/trimmed_content"
 

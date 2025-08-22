@@ -1,11 +1,30 @@
 ---
-title: "Pilates of the Mind — Core Index"
-version: 0.1
+id: potm.guide.general.index.v1
+title: "Pilates of the Mind \u2014 Core Index"
+type: guideline
 status: draft
+version: 0.1
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: []
+author: Sean + models
+license: CC0-1.0
 updated: 2025-07-30
-authors: [pal]
+authors:
+- pal
 ---
-
 # Pilates of the Mind — Core Index
 
 **PoTM** is a modular, practice‑first framework for refining perception, agency, and relational skill.  

@@ -1,0 +1,319 @@
+version: '0.1'
+generated_at: '2025-08-13T05:28:25Z'
+scope:
+  root: .
+  include:
+  - '**/*.md'
+  exclude:
+  - validation/**
+  - deprecated/**
+fields:
+  required:
+  - path
+  - id
+  - title
+  - type
+  - status
+  - version
+  - tags
+  tag_keys:
+    forge_origin: true
+    spiral_eval: true
+items:
+- path: README.md
+  id: potm.guide.general.readme.v1
+  title: README
+  type: guideline
+  status: stable
+  version: '1.0'
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: coordination/microkernel_self_diagnostic_protocol.md
+  id: potm.proto.kernel.selfdiag.v1
+  title: microkernel_self_diagnostic_protocol
+  type: agent_protocol
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: diagnostics/blind_kernel_pass_diagnostic.md
+  id: potm.guide.kernel.blind_kernel_pass_diagnostic.v1
+  title: Blind Kernel Pass Diagnostic
+  type: diagnostic_protocol
+  status: core
+  version: 1.1
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: diagnostics/contextual_drift_sensor.md
+  id: potm.guide.general.contextual_drift_sensor.v1
+  title: Contextual Drift Sensor
+  type: guideline
+  status: active
+  version: 0.1
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: diagnostics/epistemic_integrity_checklist.md
+  id: potm.guide.general.epistemic_integrity_checklist.v1
+  title: Epistemic Integrity Checklist
+  type: guideline
+  status: core
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: diagnostics/memory_drift_diagnostic.md
+  id: potm.guide.general.memory_drift_diagnostic.v1
+  title: Memory Drift Detection Diagnostic
+  type: guideline
+  status: active
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: diagnostics/relational_dignity_filter.md
+  id: potm.guide.general.relational_dignity_filter.v1
+  title: relational_dignity_filter
+  type: guideline
+  status: stable
+  version: '1.0'
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: diagnostics/structural_audit.md
+  id: potm.proto.kernel.structural_audit.v1
+  title: Structural Audit (Refusal Governance — Tier 3)
+  type: diagnostic
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: RA_loop_closure
+    spiral_eval: RCI_P_persistence
+- path: docs/README.md
+  id: potm.guide.general.readme.v1
+  title: README
+  type: guideline
+  status: stable
+  version: '1.0'
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: docs/index.md
+  id: potm.guide.general.index.v1
+  title: Core Docs Index
+  type: index
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: docs/living_maxims.md
+  id: potm.guide.general.living_maxims.v1
+  title: living_maxims
+  type: guideline
+  status: experimental
+  version: 0.1
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: docs/msrl_pocket.md
+  id: potm.proto.msrl_pocket.v1
+  title: MSRL Pocket Card — Single Cycle
+  type: agent_protocol
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: MSRL
+    spiral_eval: Runtime_v1
+- path: docs/onboarding/00_MANIFEST.md
+  id: potm.guide.general.00_manifest.v1
+  title: 00_MANIFEST
+  type: onboarding
+  status: stable
+  version: '1.0'
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: docs/onboarding/00_MANIFEST_BOOTSTRAP_PROMPT.md
+  id: potm.guide.general.00_manifest_bootstrap_prompt.v1
+  title: 00_MANIFEST_BOOTSTRAP_PROMPT
+  type: onboarding
+  status: stable
+  version: '1.0'
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: docs/onboarding/five_lenses_intro_to_cards.md
+  id: potm.doc.onboarding.cards.five_lenses_intro.v1
+  title: Intro to Practice Cards — Five Lenses Anywhere
+  type: practitioner_doc
+  status: draft
+  version: 1.0
+  tags:
+    forge_origin: practical_observation
+    spiral_eval: naive_user_design
+- path: docs/onboarding/persistence_prompt.md
+  id: potm.proto.operator.persistence_prompt.v1
+  title: Persistence Prompt – Mode Control
+  type: operator_protocol
+  status: stable
+  version: 1.2
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: docs/onboarding/why_use.md
+  id: potm.doc.onboarding.why_use.v1
+  title: Why Use Pilates of the Mind?
+  type: practitioner_doc
+  status: draft
+  version: 1.0
+  tags:
+    forge_origin: practical_observation
+    spiral_eval: naive_user_design
+- path: docs/potm_bootpack_quick_start.md
+  id: potm.guide.general.potm_bootpack_quick_start.v1
+  title: 'PoTM BootPack: One-Sheet Quick Start Guide'
+  type: onboarding
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: docs/protocols/kernel_mode_user.md
+  id: potm.pract.kernel.mode_user.v1_1
+  title: Kernel Mode for Practitioners
+  type: practitioner_protocol
+  status: stable
+  version: 1.1
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: frameworks/potm_framework.md
+  id: potm.guide.general.framework.v2
+  title: Pilates of the Mind – Framework Overview
+  type: guideline
+  status: stable
+  version: 2.3
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: guardian/discernment_integrity_protocol.md
+  id: potm.guide.guardian.discernment_integrity_protocol.v1
+  title: discernment_integrity_protocol
+  type: guideline
+  status: stable
+  version: '1.0'
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: guidelines/potm_repo_upgrade_checklist.md
+  id: potm.guide.general.potm_repo_upgrade_checklist.v1_1
+  title: PoTM Repo Upgrade Checklist
+  type: maintainer_guideline
+  status: stable
+  version: 1.1
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: index.md
+  id: potm.guide.general.index.v1
+  title: Pilates of the Mind — Core Index
+  type: guideline
+  status: draft
+  version: 0.1
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: logs/fracture_log.md
+  id: potm.log.fracture.v1
+  title: Fracture Log Entry
+  type: log_template
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: practices/baseline_practices.md
+  id: potm.practice.anchors.v1
+  title: Baseline Practices
+  type: practitioner_protocol
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: practices/externalist_diagnostic_modes.md
+  id: potm.proto.tooling.externalist_modes.v1.1
+  title: Externalist Diagnostic Modes
+  type: practitioner_protocol
+  status: stable
+  version: 1.1
+  tags:
+    forge_origin: PoTM
+    spiral_eval: 0808-ContraryCorner
+- path: practices/protocols/ai_integrity_protocol.md
+  id: ''
+  title: AI Integrity Protocol
+  type: ''
+  status: ''
+  version: 1.6
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: practices/protocols/baseline_practices.md
+  id: potm.practice.anchors.v1
+  title: Baseline Practices
+  type: practitioner_protocol
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: practices/protocols/consensus_closure_scan.md
+  id: potm.proto.consensus_closure_scan.v1
+  title: Consensus Closure Scan
+  type: practitioner_protocol
+  status: stable
+  version: 1.1
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: practices/protocols/elements_of_refusal_protocol.md
+  id: potm.guide.general.elements_of_refusal_protocol.v1
+  title: elements_of_refusal_protocol
+  type: guideline
+  status: stable
+  version: '1.0'
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: practices/protocols/floor_integration_stack.md
+  id: potm.proto.floor_integration_stack.v1
+  title: floor_integration_stack
+  type: practitioner_protocol
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: practices/protocols/microkernel_self_diagnostic_protocol.md
+  id: potm.proto.kernel.selfdiag.v1
+  title: microkernel_self_diagnostic_protocol
+  type: agent_protocol
+  status: stable
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''
+- path: practices/protocols/mirror_protocol.md
+  id: potm.guide.mirror.mirror_protocol.v1
+  title: Mirror Protocol
+  type: guideline
+  status: core
+  version: 1.0
+  tags:
+    forge_origin: ''
+    spiral_eval: ''

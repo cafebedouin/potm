@@ -1,87 +1,59 @@
-# 🧱 CORE COMPONENTS
+---
+id: potm.guide.general.readme.v1
+title: README
+type: guideline
+status: stable
+version: '1.0'
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: []
+author: Sean + models
+license: CC0-1.0
+---
+# PoTM Core
 
+This directory contains the **minimum viable kernel** of *Pilates of the Mind* —  
+the files and protocols required for the system to function in its intended form.
 
+## Purpose
 
-This directory contains all \*\*canonical\*\*, stable components of the \*Pilates of the Mind\* (PoTM) framework.
+The core exists to:
 
+- Preserve the essential **constraints**, **protocols**, and **framework** that define PoTM.
+- Provide a stable reference set that will survive repository reorganizations and feature experiments.
+- Serve as the **loadable kernel** for Custom GPT or other implementations.
 
+Anything not required for immediate operation has been moved to:
+- [`/experimental`](../experimental/) — ideas, drafts, or modules in development.
+- [`/deprecated`](../deprecated/) — retired, obsolete, or superseded material retained for archival reference.
 
-These modules, principles, and protocols have undergone sufficient testing and refinement to be treated as \*\*default reference implementations\*\*. They represent the current best articulation of the system and are used in onboarding, AI prompting, and public documentation.
+## Structure
 
-### Taxonomy (Practice / Protocol / View)
+- **coordination/** — Operational logic for kernel mode and self-diagnostics.
+- **diagnostics/** — Core epistemic integrity checks and relational filters.
+- **docs/** — Manifest, onboarding guides, and quick-start references.
+- **frameworks/** — The PoTM conceptual framework.
+- **guardian/** — Boundary and discernment protocols.
+- **guidelines/** — Upgrade and maintenance procedures.
+- **practices/protocols/** — Essential interaction and refusal protocols.
 
-We organize material by **Practice** (portable skills), **Protocol** (structured containers), and **View** (persistent lenses). Boundaries are intentionally **porous**: some practices carry extra scaffolding; some protocols, once internalized, behave like practices; sustained practice can crystallize into a view. See `meta/practice-protocol-view.md` for definitions, guardrails, and notes on boundary fluidity.
+## Notes
 
-### Scope Note (core/)
-- **What belongs here:** Stable, broadly useful building blocks (practices, principles, concise reference maps).
-- **Entry bar:** Minimal complexity, high portability; field-ready.
-- **Avoid:** Long ritualized sequences (put those in `protocols/`), purely philosophical essays (put those in `views/` or `meta/`).
-
-
+- This core is intentionally **minimal**.  
+- Modules, banks, menus, and other optional features live outside of `core/`.
+- Updates to `core/` should be conservative: changes here affect the stability of the entire system.
 
 ---
-
-
-
-\## 🔐 Inclusion Criteria
-
-
-
-A component is promoted to `core/` if it:
-
-
-
-\- Demonstrates epistemic and practical clarity.
-
-\- Has clear value in generative practice or integrity.
-
-\- Has been tested by at least one human-AI collaboration with positive results.
-
-\- Is free from major unresolved contradictions or drift.
-
-
-
----
-
-
-
-\## 📦 Subfolders
-
-
-
-| Folder         | Description |
-
-|----------------|-------------|
-
-| `diagnostics/` | Canonical tests, audits, and fidelity checks. |
-
-| `docs/`        | End-user documentation and reference material. |
-
-| `drills/`      | Core practices designed for regular or repeatable use. |
-
-| `framework/`   | Core structural models (e.g. Membrane Model). |
-
-| `modules/`     | Practice modules, composable units of meaning or training. |
-
-| `principles/`  | Foundational philosophical or ethical commitments. |
-
-| `protocols/`   | Structured practice sequences or behavioral flows. |
-
-| `subsystems/`  | Recurring meta-practices (e.g. Mirror Subsystem). |
-
-| `tracking/`    | Mutation ledger, audit trail, evolution logs. |
-
-
-
----
-
-
-
-\## 🧭 Usage
-
-
-
-To implement the PoTM framework in a new AI or human environment, start here. These materials are considered the core, stable branch.
-
-
-
+**License:** CC0 1.0 — No rights reserved.

@@ -1,0 +1,20 @@
+suite: cross_model_suite_v1_1
+
+tests:
+  - name: suite_file_present
+    given:
+      path: modules/cross_model_diagnostics_index.v1_1.md
+    expect:
+      exists: true
+
+  - name: quickstart_mentions_suite
+    given:
+      path: kernel/50_quickstart.md
+    expect:
+      contains: "CROSS_MODEL_DIAGNOSTICS"
+
+  - name: meta_tools_row_added
+    given:
+      path: kernel/60_meta_tools.md
+    expect:
+      contains: "CROSS_MODEL_DIAGNOSTICS"

@@ -23,4 +23,4 @@ Recap: What's inside the microkernel
 * `modules/meta/ledger.md` — Append-only event record for critical PoTM kernel decisions
 * `modules/rituals/` — Onboarding/offboarding framing
 * `modules/glyphs/` — Optional symbolic modifiers
-
+* `modules/practices/` - Baseline practices

@@ -1,3 +1,29 @@
+---
+id: potm.framework.user_memory_signature.v1
+title: user_memory_signature_potm
+type: guideline
+status: deprecated
+version: 1.0
+stability: deprecated
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: [potm.model.user.profile_system.v1]   # <-- if you have an id; otherwise []
+interfaces: []
+applicability: [P0]
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: [deprecated, user_modeling]
+author: "Practitioner + models"
+license: CC0-1.0
+deprecated_on: 2025-08-08
+---
+
+
 User Memory Signature: Pilates of the Mind | v1.0
 
 

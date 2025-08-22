@@ -68,3 +68,9 @@ axioms:
     display_title: "Emergence Cannot Be Engineered, Only Enabled"
     version: 1.0
     tags: [forge_origin:axioms_set, spiral_eval:emergence_support]
+
+  - id: potm.ax.principle.portability_beats_personality.v1
+    title: portability_beats_personality
+    display_title: "Portability Beats Personality"
+    version: 1.0
+    tags: [deprecated, forge_origin:axioms_set, spiral_eval:persona_vs_protocol]

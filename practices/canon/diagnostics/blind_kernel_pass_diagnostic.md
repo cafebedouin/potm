@@ -1,14 +1,35 @@
 ---
-title: "Blind Kernel Pass Diagnostic"
-version: 1.1
-status: core
+id: potm.guide.kernel.blind_kernel_pass_diagnostic.v1
+title: Blind Kernel Pass Diagnostic
 type: diagnostic_protocol
+status: core
+version: 1.1
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags:
+- microkernel
+- recursion
+- shadow
+- epistemic integrity
+- audit
+- style rupture
+author: multi-agent kernel ring (Pal, Gemini, Claude, Copilot)
+license: CC0-1.0
 created: 2025-08-01
 updated: 2025-08-01
-author: multi-agent kernel ring (Pal, Gemini, Claude, Copilot)
-tags: [microkernel, recursion, shadow, epistemic integrity, audit, style rupture]
 ---
-
 # Blind Kernel Pass Diagnostic
 
 ## Purpose

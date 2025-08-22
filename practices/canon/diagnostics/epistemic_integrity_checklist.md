@@ -1,14 +1,39 @@
 ---
+id: potm.guide.general.epistemic_integrity_checklist.v1
 title: Epistemic Integrity Checklist
+type: guideline
+status: core
 version: 1.0
-authors: [cafebedouin, ChatGPT]
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags:
+- epistemic
+- integrity
+- checklist
+- diagnostics
+- ai-human
+author: Sean + models
+license: CC0-1.0
+authors:
+- cafebedouin
+- ChatGPT
 date: 2025-07-24
 category: diagnostic
-status: core
-tags: [epistemic, integrity, checklist, diagnostics, ai-human]
-description: >
-  A tool to evaluate the epistemic reliability of claims generated or mediated by AI systems.
-  Helps identify potential confusion, overreach, or failures of justification in high-stakes use.
+description: A tool to evaluate the epistemic reliability of claims generated or mediated
+  by AI systems. Helps identify potential confusion, overreach, or failures of justification
+  in high-stakes use.
 ---
 # Epistemic Integrity Checklist v1.0
 

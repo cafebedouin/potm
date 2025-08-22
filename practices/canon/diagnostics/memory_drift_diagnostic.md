@@ -1,9 +1,33 @@
 ---
+id: potm.guide.general.memory_drift_diagnostic.v1
 title: Memory Drift Detection Diagnostic
-version: 1.0
-last_updated: 2025-07-29
-tags: [drift, detection, memory, reflection, ritual, self-check]
+type: guideline
 status: active
+version: 1.0
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags:
+- drift
+- detection
+- memory
+- reflection
+- ritual
+- self-check
+author: Sean + models
+license: CC0-1.0
+last_updated: 2025-07-29
 audience: ai agents, dialogic systems, human curators
 ---
 # 🧠 Memory Drift Detection Diagnostic

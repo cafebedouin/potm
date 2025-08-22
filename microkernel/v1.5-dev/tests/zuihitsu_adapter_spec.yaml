@@ -1,0 +1,35 @@
+suite: zuihitsu_adapter_v1_0
+schemas:
+  - data/zuihitsu/default_test.txt
+
+tests:
+  - name: pick_one_quote
+    given:
+      input:
+        kind: "zui_call"
+        payload:
+          action: "pick"
+          n: 1
+    expect:
+      return:
+        kind: "adapter_result"
+        payload:
+          render: "zuihitsu"
+          quotes:
+            - body: !!str
+
+  - name: pick_indexed_quote
+    given:
+      input:
+        kind: "zui_call"
+        payload:
+          action: "pick"
+          n: 1
+          index: 2
+    expect:
+      return:
+        kind: "adapter_result"
+        payload:
+          render: "zuihitsu"
+          quotes:
+            - body: !!str

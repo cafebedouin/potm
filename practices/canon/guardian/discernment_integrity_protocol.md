@@ -1,3 +1,27 @@
+---
+id: potm.guide.guardian.discernment_integrity_protocol.v1
+title: discernment_integrity_protocol
+type: guideline
+status: stable
+version: '1.0'
+stability: core
+relations:
+  relation_to_agent_protocol: none
+  supersedes: []
+  superseded_by: []
+interfaces: []
+applicability:
+- P0
+intensity: gentle
+preconditions: []
+outputs: []
+cadence: []
+entry_cues: []
+safety_notes: []
+tags: []
+author: Sean + models
+license: CC0-1.0
+---
 # 🛡️ Discernment Integrity Protocol (DIP)
 
 **Filename**: `core/guardian/discernment_integrity_protocol.md`

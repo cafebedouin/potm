@@ -1,0 +1,42 @@
+suite: bridge_iface_v1_0
+
+tests:
+  - name: open_menu
+    given:
+      input: "MENU.OPEN"
+    expect:
+      event:
+        kind: "bridge_event"
+        payload:
+          type: "MENU.RENDER"
+          surface: "practice_menu"
+
+  - name: draw_one_card
+    given:
+      input: "draw 1 best"
+    expect:
+      event:
+        kind: "deck_call"
+        payload:
+          action: "draw"
+          n: 1
+          tags: ["best"]
+
+  - name: unknown_cmd
+    given:
+      input: "foobar"
+    expect:
+      event:
+        kind: "bridge_event"
+        payload:
+          type: "BYPASS.LIGAMENT"
+
+  - name: pick_one_quote_via_menu
+    given:
+      input: "pick 1"
+    expect:
+      event:
+        kind: "zui_call"
+        payload:
+          action: "pick"
+          n: 1

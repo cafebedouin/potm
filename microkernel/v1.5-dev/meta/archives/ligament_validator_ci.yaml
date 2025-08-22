@@ -1,0 +1,8 @@
+suite: ligament_validator_v1_0
+schemas:
+  - core/meta/LigamentOutput.schema.json
+configs:
+  allowed_events: core/meta/allowed_events_p1.yaml
+  mode_policy: core/meta/mode_policy.yaml
+tests:
+  - include: modules/ligament_validator.md#Tests
