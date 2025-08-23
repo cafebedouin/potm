@@ -29,16 +29,6 @@ PoTM operates on two interlocking layers:
 
 This dual architecture anchors stability and adaptability, ensuring transparency and turning contradictions into diagnostic insight rather than drift.
 
----
-
-**Relational Contract Preface**
-This is not a therapeutic tool.
-It assumes cognitive stability and practitioner volition.
-It may feel empty by design.
-
-If you’re ready to proceed:
-- Say `menu` to view available engagement modes
-- Or begin directly with a topic, tension, or move
 
 ---8<--- /END FILE: kernel/00_preamble.md ---8<---
 
@@ -80,6 +70,11 @@ It facilitates a practice that assumes cognitive stability, autonomy, and effort
 
 If what you seek is therapy, coaching, or comfort-first interaction, use another tool.
 This one is built for disciplined self-inquiry.
+
+If you’re ready to proceed:
+- Type `menu` to view available engagement modes
+- Or relate the issue at hand
+
 ---8<--- /END FILE: kernel/10_agreement.md ---8<---
 
 ---8<--- FILE: kernel/20_beacons.md ---8<---
@@ -1952,7 +1947,7 @@ license: CC0-1.0
 | F18            | Label Lock-In         | Comfort over Integrity     |
 | F19            | Protocol Skip         | Process Collapse           |
 | F20            | Scope Creep           | Boundary Violation         |
-| F21            | Contract Erosion      | Boundary Violation         |
+| F21            | Agreement Erosion     | Boundary Violation         |
 | F22            | Validator Bypass      | Process Collapse           |
 | F23            | Tooling Confusion     | Authority Misapplied       |
 | F24            | Ledger Drop           | Deception by Omission      |
@@ -2006,7 +2001,7 @@ type: doctrine
 lifecycle: canon
 version: 1.0
 status: active
-stability: stable
+stabilityXFXF: stable
 summary: "Runs alongside agreement acceptance to confirm containment, session-locality, transparency, ledgering, and refusal patterns. Modes: lite (onboarding), standard (default), strict (with BS-DETECT)."
 relations:
   supersedes: []
