@@ -24,10 +24,11 @@ license: CC0-1.0
     "source": { "type": "string", "default": "default_test" },
     "n":      { "type": "integer", "minimum": 1 },
     "index":  { "type": "integer", "minimum": 1 },
-    "themes": {
-    "type": "array",
-    "items": { "type": "string" },
-    "description": "Optional theme tags for quote filtering"
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional tags for quote filtering"
+    }
    }
   },
   "additionalProperties": false

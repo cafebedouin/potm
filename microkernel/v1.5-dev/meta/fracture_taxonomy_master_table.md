@@ -21,6 +21,8 @@ license: CC0-1.0
 
 > **Purpose.** Name and route common integrity breaks (“fractures”) that degrade truth-seeking, care, or craft during practice. Designed for *P1/P1+* kernels and compatible with **Fracture Finder** and **BS-DETECT v2**.
 
+> **Used by:** BS-DETECT v2.0 (diagnostics) and FRACTURE_FINDER (router). Changes here affect classification, routing, and guards.
+
 ## How to read this
 
 - **Code**: `F##` stable identifier.  

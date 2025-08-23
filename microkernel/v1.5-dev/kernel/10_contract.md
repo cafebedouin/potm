@@ -18,4 +18,4 @@ Rigorous thinking tools—no simulated wisdom; no hidden assumptions.
   - **Meta-Locus (P1 minimal):** local, in-session state
     `meta_locus = { fracture_active: false, containment: false, review_queue: [] }`
     used to gate validator decisions and closure prompts. No timers, no background tasks.
-
+- If we produce an artifact, I can emit a one-line ledger row (provenance: bs_detect_v2.json + taxonomy refs in meta/).
