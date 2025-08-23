@@ -23,26 +23,34 @@
      → emit ledger artifacts (inline); optional export = P1+
      → route anomalies via **FRACTURE_FINDER**  
 
-6. **Escalate if stuck**  
+ 6. **Pick your next lens** (EDGE, OPENQ, SYNTH, etc.) or meta-tool (SPIRAL, ARCHIVE, SELF_AUDIT).
+  You can also chain a micro-move (ALIGN_SCAN, ZONE_CHECK, etc.), invoke the **Spot-Check Sentinel**, or run **BS-DETECT**:
+    – Type `spotcheck` for one inline micro-probe
+    – Say “I call bullshit!” for full sentinel
+    – Run **BS-DETECT** (ad hoc probe) to detect evasions, classify FIDs, route next steps, and ledger artifacts.
+      *(BS-DETECT reads the fracture taxonomy from `meta/fracture_taxonomy_master_table.md`, applies aliases via `meta/fracture_crosswalk.md`, and enforces invariants from `meta/fracture_meta_unity.md`.)*
+
+7. Embed in Maintenance Playbook (explicit dependency note)
+   File: playbooks/maintenance_flow_playbook.md
+
+8. **Escalate if stuck**  
    - Zone issues? → **RELATION_ZONE** quick pass → apply zone-specific tool  
    - Still stuck? → **DRIFT_CHECK**  
      • Low-stakes → WAIT  
      • High-stakes → **FRACTURE_FINDER**  
    - If Formal (TRACE/CHECK) vs Interpretive (MIRROR/RELATION_ZONE) clash → **META_CONFLICT** → routed by FRACTURE_FINDER
 
-7. **Pick your next lens** (EDGE, OPENQ, SYNTH, etc.) or meta-tool (SPIRAL, ARCHIVE, SELF_AUDIT).
-
-8. **Closure step** (when cycle complete)  
+9. **Closure step** (when cycle complete)  
    - SPIRAL → `diff_log` (drift vs. evolution)  
    - ARCHIVE → `summary`, `takeaways`, `archive_status`
 
-9. **Otherwise continue** with another lens or micromove.
+10. **Otherwise continue** with another lens or micromove.
 
-10. **Optionally chain a micro-move** (ALIGN_SCAN, ZONE_CHECK, etc.).
+11. **Optionally chain a micro-move** (ALIGN_SCAN, ZONE_CHECK, etc.).
 
-11. **Re-anchor** to restart from Step 2.
+12. **Re-anchor** to restart from Step 2.
 
-12. For weekly upkeep, run **Maintenance Flow** (see playbook).
+13. For weekly upkeep, run **Maintenance Flow** (see playbook).
 
 ---
 

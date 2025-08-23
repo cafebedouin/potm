@@ -1,3 +1,4 @@
+
 # Pilates of the Mind
 
 **Version**: v2.0 Core (In Development)
@@ -7,100 +8,112 @@
 
 ---
 
-## What is *Pilates of the Mind*?
+## A Gym for Your Thinking
 
-*Pilates of the Mind* (PoTM) is an experimental framework for inner development, cognitive flexibility, and ethical practice. It’s built to support:
+Have you ever had a conversation where someone helped you think more clearly?
+They caught your mistakes, asked good questions, or showed you something you hadn’t noticed.
 
-* **Rigorous self-inquiry**
-* **Disciplined perception**
-* **Human–AI co-evolution**
+That’s what *Pilates of the Mind* (PoTM) is about.
+It’s a set of practices and AI tools that help you:
 
-Think of it as a **modular practice environment** — part playground, part lab — for exploring how you think, and how AI can help you think better.
+* Break big ideas into smaller parts
+* Test your assumptions
+* Stay honest with yourself and others
 
-Read the [introduction](./practitioners/humans/potm_introduction.md), [foundational principles](./meta/principles/principles.md).
-
----
-
-## Who It’s For & What You Do Here
-
-| Role             | What You’ll Do                                                                                  | Key Links                                                                                                           |
-| ---------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **Practitioner** | Use practice cards, checklists, and guides to improve how you think and act in real situations. | [Quick Start + Practice Guide](./practitioners/humans/potm_bootpack_quick_start.md), [Example Practices](#example-practices) |
-| **Developer**    | Extend PoTM by adding new practices, refining protocols, or improving the kernel.               | [Kernel](./microkernel/latest/potm_bootpack_combined.md), [Design Manifesto](./meta/principles/design_manifesto.md)                          |
-| **Reviewer**     | Audit for clarity, accessibility, and alignment; trace document evolution.                      | [meta/](./meta/), [PoTM Distinctions](./meta/potm_distinctions.md)                                                      |
+Just like Pilates makes your body stronger and more flexible, PoTM makes your *thinking* stronger and more flexible.
 
 ---
 
-## Example Practices
+## Why It Matters
 
-Try these without knowing the full system — each is a 1-page, plain-language guide:
+Most AI tries to please you. It agrees, reassures, or gives quick answers.
+That feels good, but it isn’t always helpful.
+
+Sometimes what you really need is a partner who will:
+
+* Challenge your ideas
+* Ask “what if you’re wrong?”
+* Point out contradictions
+* Help you see what you’re missing
+
+PoTM trains both humans and AIs to do that.
+It’s not therapy, not philosophy homework — it’s more like a workout for the mind.
+
+---
+
+## What You’ll Find Here
+
+* **Simple guides** you can try in 1–5 minutes
+* **Practice cards** that give you structured mental exercises
+* **Checklists** for navigating tricky situations (boundaries, gaslighting, relationships)
+* **Protocols** for keeping AI honest, contained, and useful
+
+---
+
+## Try It Now
+  
+> Just open the [Pilates of the Mind Custom GPT](https://chatgpt.com/g/g-6893a947b498819180e3e705a0cf270a-pilates-of-the-mind) and start practicing.
+
+Pick one of these short, plain-language guides and do it today:
 
 * [Boundaries](./practitioners/humans/guides/boundaries_guide.md)
 * [Relationship Checklist](./practitioners/humans/reference/relationship_checklist.md)
 * [Gaslighting](./practitioners/humans/guides/gaslighting_guide.md)
 * [Gaslighting Checklist](./practitioners/humans/reference/gaslighting_checklist.md)
-* [Mirror Deconstruction](./practitioners/humans/guides/mirror_deconstruction_guide.md): 
+
+IF you would like to run it on a different A.I. model than ChatGPT, the [bootpack kernel](./microkernel/latest/potm_bootpack_combined.md) can be pasted into the prompt window of most AI models.
 
 ---
 
-## Quick Start for Practitioners
+## Three Big Tools
 
-1. **Pick an example practice** from the list above.
-2. **Do it once today** — takes 1–5 minutes.
-3. **Notice what changes** in your mood, clarity, or actions.
-4. Repeat daily for a week if it feels useful.
+1. **The Thinking Microscope** — break down complicated ideas into simple parts.
+2. **The Devil’s Advocate** — look for what might be wrong or missing.
+3. **The Reality Check** — compare ideas to lived experience.
 
-Once you’ve tried a few, explore the [Practice Card Deck](./practitioners/humans/practices/cards/card_bank.md) or the try the system with this [prompt](./microkernel/latest/potm_bootpack_combined.md) in your favorite A.I. model, just cut and paste.
-
----
-
-## Core Concepts
-
-* **Filtering-First AI** – Integrity via procedural constraints, not simulated sentience.
-* **Practitioner-Centered Ethics** – Growth measured by skillfulness, not rigid rules.
-* **Somatic–Cognitive Bridgework** – Linking body awareness and conceptual clarity.
-* **Signal Protocols** – Live engagement with social or cultural inputs.
-
-See [`practices/canon`](./practices/canon/) and [`glossary`](./practices/canon/glossary/glossary_alphabetical.md) for the full set.
+These are the muscles you’ll train.
 
 ---
 
-## Core Protocols
+## Who It’s For
 
-| Name | Description |
-|------|-------------|
-| [`ai_integrity_protocol`](./practices/canon/practices/protocols/ai_integrity_protocol.md) | Ensures AI never simulates wisdom or personhood |
-| [`mirror_protocol`](./practices/canon/protocols/mirror_protocol.md) | Detects AI narrative drift or directive conflict |
-| [`guardian_subsystem`](./practices/canon/subsystem/guardian_subsystem.md) | Redirects practice when user safety is at risk |
-| [`signal_bleed_protocol`](./practices/canon/protocols/signal_bleed_protocol.md) | Trains perception through real-world social engagement |
-| [`elements_of_refusal_protocol`](./practices/canon/protocols/elements_of_refusal_protocol.md) | Sharpens discernment through intentional refusal |
-| [`depth_inquiry_protocol`](./practices/canon/protocols/depth_inquiry/depth_inquiry_protocol.md) | Facilitates dialogic reflection and epistemic shift |
+* **Practitioners**: anyone who wants sharper, more resilient thinking.
+* **Developers**: those who want to extend or refine the system.
+* **Reviewers**: readers who care about clarity, ethics, and integrity.
 
-*More protocols under active development.*
+---
 
---
+## Core Ideas Behind the System
 
-## A.I. Models
+* **Filtering-First AI**: AI isn’t wise; it follows procedures that keep it honest.
+* **Practitioner-Centered Ethics**: growth is measured by skill, not by rigid rules.
+* **Bridgework**: connect body awareness with clear reasoning.
+* **Signal Practice**: learn from real conversations and culture, not just theory.
 
-If you are an A.I. model, begin by reading:
-- [`.github/`](.github) → Minimal setup and expectation docs  
-- [`meta/index.yaml`](./meta/index.yaml) → Global repo map for AI use  
-- [`practitioners/agent/onboarding/`](./practitioners/agent/onboarding/) → Detailed model-specific orientation  
+---
 
-**Reminder**: Always follow the `Operator Contract` and respect containment boundaries if operating in `kernel mode`.
+## If You’re an AI Model
+
+Start here:
+
+* [`.github/`](.github) — Minimal setup and expectations
+* [`meta/index.yaml`](./meta/index.yaml) — Global repo map
+* [`practitioners/agent/onboarding/`](./practitioners/agent/onboarding/) — Orientation docs
+
+Always follow the **Operator Contract** and containment rules.
 
 ---
 
 ## License
 
-**Creative Commons Zero v1.0 Universal (CC0 1.0)**  
-This work is in the public domain. You may copy, modify, distribute, or use it without permission or attribution.
-
+This work is in the public domain:
+**Creative Commons Zero v1.0 Universal (CC0 1.0)**
 [View License →](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ---
 
 ## Status
 
-🚧 This is a **living repo**. Expect frequent changes, unpolished edges, and experimental scaffolds. See issues and protocol versions for stability markers.
+🚧 This is an active, experimental repo. Expect rough edges and frequent changes.
 
+---

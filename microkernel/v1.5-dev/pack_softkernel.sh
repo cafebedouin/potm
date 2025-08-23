@@ -6,7 +6,7 @@
 set -euo pipefail
 
 # ---------- Config ----------
-MAX_BYTES=${MAX_BYTES:-5000}                         # hard cap per part
+MAX_BYTES=${MAX_BYTES:-1000000}                         # hard cap per part
 OUT_PREFIX=${OUT_PREFIX:-"PoTM_kernel"}  # base filename for parts
 TITLE=${TITLE:-"PoTM Kernel"}
 VERSION=${VERSION:-"v1.2.1"}
@@ -53,6 +53,8 @@ FULL_FILES=(
   "meta/fracture_taxonomy_master_table.md"
   "meta/fracture_meta_unity.md"
   "meta/fracture_crosswalk.md"
+  "meta/integrity_check.md"
+  "meta/integrity_report.md"
   "modules/cross_model_diagnostics.md"
   "playbooks/fracture_finder_playbook.md"
   "playbooks/maintenance_flow_playbook.md"

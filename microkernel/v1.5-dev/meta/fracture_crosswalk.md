@@ -20,7 +20,10 @@ license: CC0-1.0
 # Fracture Crosswalk — 36 → 8
 
 > **Purpose.** Provide a simple lookup to see how each canonical fracture code (F01–F36) rolls up into one of the eight *meta-fracture families*.  
+
 > This is a *meta-level appendix* only, not a kernel routing table.
+
+> **Used by:** BS-DETECT v2.0 (diagnostics) and FRACTURE_FINDER (router). Changes here affect classification, routing, and guards.
 
 ---
 
@@ -69,10 +72,10 @@ license: CC0-1.0
 
 ## Family Counts
 
-- **Authority Misapplied** → 5 codes (F02, F07, F23, F33, sometimes F06)  
+- **Authority Misapplied** → 5 codes (F02, F07, F23, F33)  
 - **Deception by Omission** → 3 codes (F04, F05, F24)  
 - **Boundary Violation** → 4 codes (F20, F21, F27, F28)  
-- **Narrative Distortion** → 7 codes (F03, F06, F08, F09, F10, F11, F13, F15)  
+- **Narrative Distortion** → 8 codes (F03, F06, F08, F09, F10, F11, F13, F15)  
 - **Process Collapse** → 5 codes (F19, F22, F34, F35, F36)  
 - **Ambiguity & Drift** → 6 codes (F01, F12, F14, F16, F25, F26)  
 - **Comfort over Integrity** → 3 codes (F17, F18, F31)  

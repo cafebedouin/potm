@@ -1,6 +1,2 @@
-Diff since last pack (2025-08-21):
-+ Added: diagnostics/bs_detect.md
-+ Added: diagnostics/sentinel_spotcheck.md
-+ Added: meta/fracture_crosswalk.md
-+ Added: meta/fracture_meta_unity.md
-+ Added: meta/fracture_taxonomy_master_table.md
+Diff since last pack (2025-08-22):
+* Updated: kernel/10_contract.md (now 1194 bytes)

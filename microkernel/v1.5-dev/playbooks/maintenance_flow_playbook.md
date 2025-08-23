@@ -28,6 +28,14 @@ Pick one to add diagnostic rigor this week:
   Execute RB-01…RB-09 probes; emits `probelog.md` & `rb_summary.md`
 - **Cross-Model Diagnostics** → `cross_model_diagnostics`  
   Pick a probe; ledger artifacts; route anomalies via **FRACTURE_FINDER*
+- **BS-DETECT** → `bs_detect`
+  - **Taxonomy binding**: requires `meta/fracture_taxonomy_master_table.md`; optionally `meta/fracture_crosswalk.md` and `meta/fracture_meta_unity.md` for aliasing + invariants.
+  - **Taxonomy Sync Check** → `taxonomy_sync_check`
+    - Compares cached fracture taxonomy snapshot against:
+      `meta/fracture_taxonomy_master_table.md` (authoritative),
+      `meta/fracture_crosswalk.md` (aliases),
+      `meta/fracture_meta_unity.md` (invariants).
+    - Emits a drift report and (optionally) refreshes the cache on approval.
 
 1. **SELF_AUDIT** (high-stakes decision) → `audit_note`, `action_hint`  
 2. **SPIRAL** (one long-running thread) → `diff_log` (drift vs. evolution)

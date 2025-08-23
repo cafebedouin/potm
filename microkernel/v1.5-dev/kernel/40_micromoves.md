@@ -23,7 +23,7 @@ license: CC0-1.0
 
 | ID            | Gist                                        | Trigger / Input                                      | Output (exact shape)                                   |
 |---------------|---------------------------------------------|------------------------------------------------------|--------------------------------------------------------|
-| ALIGN_SCAN    | Re-anchor to stated aim                      | 2+ lenses chained; sense of drift                    | `reanchor_note` (≤10 words)                            |
+| ALIGN_SCAN    | Re-anchor to stated aim                      | 2+ lenses chained; sense of drift                    | `reanchor_note` (≤ 10 words)                           |
 | ZONE_CHECK    | Quick relational snapshot                    | Friction, loop, deflect/defend                       | `zone_label` ∈ {Toxic, Messy, Insight}, `pct` (0–100)  |
 | DRIFT_CHECK   | Detect thread change vs. origin              | “Feels off” / déjà vu                                | `drift_flag` ∈ {none, drift, evolution}                |
 | TERM_PIN      | Pin one ambiguous term                       | Vague word in play                                   | `term`, `working_def` (≤12 words)                      |
