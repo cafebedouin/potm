@@ -43,6 +43,9 @@ license: CC0-1.0
 | CONTRARY_SEED | One-line strongest opposing view             | Groupthink / high alignment                          | `contrary_line` (≤12 words)                            |
 | SYNTH_LINE    | Compact takeaway                             | Micro-closure                                        | `synth_line` (≤12 words)                               |
 | WAIT_MARK     | Mark strategic pause                         | Tempo too fast / affect hot                          | `wait_reason` (≤10 words), `reentry_hint` (≤8 words)   |
+| TWO_PASS      | Read once, then sharpen via EDGE             | Dense/vague input                                    | `twopass_note` (≤12 words)                             |
+| FACTS_CHECK   | Gather 3 facts, pick one to test             | Evidence unclear                                     | `facts_list` (3 lines), `test_target`                  |
+| ONE_STEP_BACK | Zoom out to larger context                   | Over-focus, tunnel vision                            | `context_line` (≤12 words)                             |
 
 ## Usage notes
 - **Chain with lenses:** e.g., `DEFINE → TERM_PIN → EDGE`.  

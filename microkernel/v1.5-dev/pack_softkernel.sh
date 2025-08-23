@@ -9,7 +9,7 @@ set -euo pipefail
 MAX_BYTES=${MAX_BYTES:-1000000}                         # hard cap per part
 OUT_PREFIX=${OUT_PREFIX:-"PoTM_kernel"}  # base filename for parts
 TITLE=${TITLE:-"PoTM Kernel"}
-VERSION=${VERSION:-"v1.2.1"}
+VERSION=${VERSION:-"v1.5"}
 DATE_STR=$(date +"%Y-%m-%d")
 CACHE_DIR=".pack_cache"
 HASHES_FILE="$CACHE_DIR/source_hashes.txt"
@@ -24,7 +24,7 @@ BUILD_MODE="core"
 # ---------- File sets (aligned to your tree) ----------
 CORE_FILES=(
   "kernel/00_preamble.md"
-  "kernel/10_contract.md" 
+  "kernel/10_agreement.md" 
   "kernel/20_beacons.md"
   "kernel/30_lenses_p1.md"
   "kernel/40_micromoves.md"
@@ -109,17 +109,17 @@ part_header() {
   local part="$1" ; local total="$2"
   cat <<EOF
 ---
-id: potm.kernel.v1_2_1
+id: potm.kernel.v1_5
 title: potm_bootpack_kernel
-display_title: "PoTM Boot Pack Kernel v1.2.1 (Single-File, P1)"
+display_title: "PoTM Boot Pack Kernel v1.5 (Single-File, P1)"
 type: kernel 
 lifecycle: canon
-version: 1.2.1
+version: 1.5
 status: active
 stability: core
 summary: "Self-contained P1 kernel with embedded bridge, validator, and deck data. No external authority required."
 relations:
-  supersedes: [potm.kernel.v1_2]
+  supersedes: [potm.kernel.v1_2_1]
   superseded_by: []
 tags: [kernel, bootpack, reference, P1, single_file]
 author: practitioner

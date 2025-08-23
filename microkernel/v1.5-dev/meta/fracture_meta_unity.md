@@ -40,8 +40,8 @@ license: CC0-1.0
 - **Essence:** What’s *missing* is more telling than what’s present.
 
 ### 3. Boundary Violation
-- **Core Idea:** Crossing a defined line—scope, contract, or consent—without renegotiation.  
-- **Absorbs:** Scope Creep (F20), Contract Erosion (F21), Consent Blur (F27), Boundary Slide (F28).  
+- **Core Idea:** Crossing a defined line—scope, agreement, or consent—without renegotiation.  
+- **Absorbs:** Scope Creep (F20), Agreement Erosion (F21), Consent Blur (F27), Boundary Slide (F28).  
 - **Essence:** Integrity = staying inside agreed boundaries.
 
 ### 4. Narrative Distortion

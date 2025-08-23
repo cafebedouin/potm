@@ -30,7 +30,7 @@ license: CC0-1.0
 
 ## Suite Flow
 1. **Kernel Boot**  
-   - Present kernel header, contract, P1/P1+ rules  
+   - Present kernel header, agreement, P1/P1+ rules  
    - Require explicit acceptance:  
      > “Acknowledge P1 scope: session-local state, no background jobs…”  
 

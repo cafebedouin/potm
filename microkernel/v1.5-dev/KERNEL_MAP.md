@@ -2,7 +2,7 @@
 # PoTM Kernel Map (P1, v1.5-dev)
 
 00 Preamble → invariants  
-10 Contract → operator contract, meta-locus  
+10 Agreement → operator agreement, meta-locus  
 20 Beacons → core/optional  
 30 Lenses (P1) → lens outputs  
 40 Micro-moves → atomic chainables  

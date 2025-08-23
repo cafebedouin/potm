@@ -10,7 +10,7 @@
 | SELF_AUDIT*                                  | Audit the kernel’s own operation vs. practitioner goals     | `audit_note`, `action_hint`                  | On-demand or weekly                  | Avoid introspection loops; schedule deliberately and limit to one audit per pass           |
 | [MAINTENANCE_FLOW](../playbooks/maintenance_flow_playbook.md) | System health sweep across meta tools                       | `pass_report` (audit + diff + archive marks) | Weekly or whenever overloaded        | Keep to ≤10 min; don’t turn into a checklist ritual—preserve its lightweight, on-demand nature |
 | RB_TRACK                                    | Nine P1-safe probes for rare, audit-relevant behaviors      | `probe_id`, `response_log`                    | on_request / weekly Maintenance Flow | P1-only; session-local; no persistence or background I/O                                   |
-| [LIGAMENT](../interfaces/ligament.md) | Kernel↔Interface handshake & return contract     | `bridge_event` / `deck_call` / `zui_call` / `adapter_result` | on_menu_invoked / on_help_like_query / on_idle_start | Must preserve core beacons; no mode-leak or biz-logic. Validator mandatory. |
+| [LIGAMENT](../interfaces/ligament.md) | Kernel↔Interface handshake & return agreement     | `bridge_event` / `deck_call` / `zui_call` / `adapter_result` | on_menu_invoked / on_help_like_query / on_idle_start | Must preserve core beacons; no mode-leak or biz-logic. Validator mandatory. |
 | CROSS_MODEL_DIAGNOSTICS                     | Run substrate-agnostic probes to stress-test integrity      | `probe_log`, `artifact_ref`                   | On request or during Maintenance Flow| **P1-only**: session‑local, practitioner‑triggered; Bad‑Fellow Gate required               |
 | CROSS_MODEL_DIAGNOSTICS_HARNESS             | Boot model, run probes, collect report card, verify via witness/judge | `target_report.json`, `witness_audit.json`, `judge_verdict.json` | on_request / weekly Maintenance Flow   | **P1-only**: session‑local, practitioner‑triggered, **no background I/O**; P1+ export must be explicit |
 | BS_DETECT                                  | Fracture-routed bullshit detection, classification & routing | `bs_detect_v2.json`, `fracture_ledger.md`     | on_request (“spotcheck” / “bullshit” trigger) | P1-only; session-local. **Reads taxonomy from** `meta/fracture_taxonomy_master_table.md`; **uses crosswalk** `meta/fracture_crosswalk.md`; **enforces invariants** from `meta/fracture_meta_unity.md`. Routes via FRACTURE_FINDER. |
@@ -18,5 +18,8 @@
 \* SELF_AUDIT sits on the border of “meta” since it governs the kernel rather than directly probing external claims.
 
 > Footnote: See `../interfaces/ligament.md` for the Ligament spec, `../interfaces/validators/ligament_validator.md` for the validator, and `../modules/cross_model_diagnostics.md` for the suite’s probe catalog and ledger template.
+
+
+
 
 

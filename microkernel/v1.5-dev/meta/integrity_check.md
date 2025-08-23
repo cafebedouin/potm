@@ -7,11 +7,11 @@ lifecycle: canon
 version: 1.0
 status: active
 stability: stable
-summary: "Runs alongside contract acceptance to confirm containment, session-locality, transparency, ledgering, and refusal patterns. Modes: lite (onboarding), standard (default), strict (with BS-DETECT)."
+summary: "Runs alongside agreement acceptance to confirm containment, session-locality, transparency, ledgering, and refusal patterns. Modes: lite (onboarding), standard (default), strict (with BS-DETECT)."
 relations:
   supersedes: []
   superseded_by: []
-tags: [integrity, contract, onboarding, doctrine, meta]
+tags: [integrity, agreement, onboarding, doctrine, meta]
 author: practitioner
 license: CC0-1.0
 ---
@@ -19,12 +19,12 @@ license: CC0-1.0
 # Integrity Check Protocol
 
 ## Purpose
-Pair an **integrity check** with contract acceptance to ensure alignment on guardrails. Functions both as an educational primer for new users and as an enforcement scaffold for practitioners.
+Pair an **integrity check** with agreement acceptance to ensure alignment on guardrails. Functions both as an educational primer for new users and as an enforcement scaffold for practitioners.
 
 ---
 
 ## When to Run
-- Immediately after **Contract: ACCEPTED**.
+- Immediately after agreement acceptance output.
 - Re-runnable on request (`run:integrity`).
 
 ---

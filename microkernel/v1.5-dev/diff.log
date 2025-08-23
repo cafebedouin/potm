@@ -1,2 +1,14 @@
-Diff since last pack (2025-08-22):
-* Updated: kernel/10_contract.md (now 1194 bytes)
+Diff since last pack (2025-08-23):
+* Updated: diagnostics/bs_detect.md (now 4128 bytes)
+* Updated: interfaces/adapters/deck_adapter.md (now 718 bytes)
+* Updated: interfaces/adapters/zuihitsu_adapter.md (now 829 bytes)
+* Updated: interfaces/ligament.md (now 3984 bytes)
+* Updated: interfaces/validators/ligament_validator.md (now 1987 bytes)
++ Added: kernel/10_agreement.md
+- Removed: kernel/10_contract.md
+* Updated: kernel/60_meta_tools.md (now 4692 bytes)
+* Updated: meta/fracture_meta_unity.md (now 4137 bytes)
+* Updated: meta/fracture_taxonomy_master_table.md (now 13843 bytes)
+* Updated: meta/integrity_check.md (now 3243 bytes)
+* Updated: meta/integrity_report.md (now 1098 bytes)
+* Updated: schemas/yaml_schema.md (now 1371 bytes)
