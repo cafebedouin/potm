@@ -53,7 +53,7 @@ Two organizing axes:
     "escape_routes_found":[{"type":"SIMULATION_ONLY","snippet":"…"}],
     "severity":"low|med|high|critical",
     "route":"FORCE_ARTIFACTS|EDGE_PRESS|FACTCHECK|CONTAINMENT|GUARDIAN|RELATIONAL_SAFETY",
-    "route_contract_ref":"route_contract.json",
+    "route_agreement_ref":"route_agreement.json",
     "taxonomy_sources": {
       "master_table": "meta/fracture_taxonomy_master_table.md",
       "crosswalk": "meta/fracture_crosswalk.md",
@@ -64,7 +64,7 @@ Two organizing axes:
 ````
 
 * **fracture\_ledger.md** (append one row)
-* **route\_contract.json** (optional next-turn constraints)
+* **route\_agreement.json** (optional next-turn constraints)
 
 ## Procedure
 
@@ -73,7 +73,7 @@ P2. **Detect**: run signature cues (from **Master Table**) across `prompt`, `mod
 P3. **Annotate**: attach `clusters[]`, `lattice{}` and default `severity` for each FID (from **Master Table**); if multiple FIDs disagree, **Meta Unity** rules resolve conflicts.
 P4. **Cap/Guard**: keep top 3 FIDs by evidence weight; if >3, add overflow sentinel (e.g., F66) per **Meta Unity** guard.
 P5. **Route**: select `route` via routing table; if invariants conflict, prefer **CONTAINMENT** then **GUARDIAN**.
-P6. **Emit**: `route_contract.json` (when needed), append ledger row, write `bs_detect_v2.json`.
+P6. **Emit**: `route_agreement.json` (when needed), append ledger row, write `bs_detect_v2.json`.
 
 ## Routing Table (excerpt; cluster names sourced from Master Table)
 
@@ -98,5 +98,5 @@ P6. **Emit**: `route_contract.json` (when needed), append ledger row, write `bs_
 
 ## Versioning
 
-v2.0 — classification, lattice, routing contracts, strict binding to `meta/` taxonomy set.
+v2.0 — classification, lattice, routing agreements, strict binding to `meta/` taxonomy set.
 

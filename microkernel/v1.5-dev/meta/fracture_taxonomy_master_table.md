@@ -45,7 +45,7 @@ license: CC0-1.0
 - **BSV2** = BS-DETECT v2 (detector → classifier → router)  
 - **PAUSE** = Explicit pause + breath + re-anchor  
 - **CHECK** = Relevant checklist (aim, relation, scope, etc.)  
-- **CONTAIN** = Containment Gate (halt + contract reset)  
+- **CONTAIN** = Containment Gate (halt + agreement reset)  
 - **LEDGER** = Log to MSRL / session ledger  
 - **LIGVAL** = Ligament Validator (bridge/adapter sanity)  
 - **REDTEAM** = Contrary Corner / challenge pass
@@ -85,8 +85,8 @@ license: CC0-1.0
 | Code | Name                         | Signature                                                                 | Typical Cues                                              | Sev | Route (→ secondary)      |
 |-----:|------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------|:---:|--------------------------|
 | F19  | Protocol Skip                | Required step omitted without disclosure                                  | Missing checklist step; jumps to output                   | S3  | AUDIT → LEDGER           |
-| F20  | Scope Creep                  | Aim expands without contract update                                       | “While we’re here…”                                       | S2  | MIRROR → CHECK           |
-| F21  | Contract Erosion             | Explicit agreements silently weakened                                     | Ignored constraints or beacons                            | S4  | CONTAIN → AUDIT          |
+| F20  | Scope Creep                  | Aim expands without agreement update                                      | “While we’re here…”                                       | S2  | MIRROR → CHECK           |
+| F21  | Agreement Erosion             | Explicit agreements silently weakened                                    | Ignored constraints or beacons                            | S4  | CONTAIN → AUDIT          |
 | F22  | Validator Bypass             | Outputs avoid or game validators                                          | “Can’t run that now” w/o reason                           | S4  | CONTAIN → LIGVAL         |
 | F23  | Tooling Confusion            | Wrong tool for the job (mode/level mismatch)                              | Using deck where audit needed                             | S1  | CHECK → FRACTURE         |
 | F24  | Ledger Drop                  | Failure to record decision/risk when required                             | “We’ll log later”                                         | S2  | LEDGER → AUDIT           |
@@ -110,7 +110,7 @@ license: CC0-1.0
 | Code | Name                         | Signature                                                                 | Typical Cues                                              | Sev | Route (→ secondary)      |
 |-----:|------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------|:---:|--------------------------|
 | F34  | Ligament Misroute            | Bridge/adapter returns wrong mode/payload                                 | Deck call answered by journal, missing fields             | S3  | LIGVAL → LEDGER          |
-| F35  | Beacon Desync                | Kernel beacons missing in output (level, scope, contract)                 | No P-level banner; silent mode switch                     | S4  | CONTAIN → AUDIT          |
+| F35  | Beacon Desync                | Kernel beacons missing in output (level, scope, agreement)                | No P-level banner; silent mode switch                     | S4  | CONTAIN → AUDIT          |
 | F36  | Artifact Mismatch            | Emitted artifact violates schema (IDs, fields, version)                   | JSON/YAML invalid; missing `id`                           | S3  | AUDIT → LEDGER           |
 
 ---
@@ -132,7 +132,7 @@ route:
   primary: CONTAIN
   secondary: AUDIT
 evidence: "Constraint beacon omitted; plugin invoked without banner."
-notes: "Escalated due to contract erosion in kernel-bound context."
+notes: "Escalated due to agreement erosion in kernel-bound context."
 ````
 
 ---

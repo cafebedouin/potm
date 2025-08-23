@@ -12,7 +12,7 @@ relations:
   related: [potm.meta.integrity_check.v1_0]
 supersedes: []
 superseded_by: []
-tags: [integrity, contract, artifact, meta]
+tags: [integrity, agreement, artifact, meta]
 author: practitioner
 license: CC0-1.0
 ---

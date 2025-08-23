@@ -10,7 +10,7 @@ relations:
   agent_protocol: ver1.4/potm_bootpack_combined.md
   practitioner_doc: modules/practices/practice_menu.md
 interfaces: [kernel_menu, deck_adapter, zuihitsu_adapter]
-preconditions: ["contract.accepted == true"]
+preconditions: ["agreement.accepted == true"]
 outputs: [bridge_event, deck_call, zui_call, adapter_result]
 cadence: ["on_menu_invoked","on_help_like_query","on_idle_start"]
 entry_cues: ["menu","help","draw","card","prompt"]
@@ -34,7 +34,7 @@ surface_registry:
   zuihitsu: data/zuihitsu/default_test.txt
   # future: journals, checklists
 
-# Return Contract
+# Return Agreement
 … (as per spec)
 
 # Bridge Logic
@@ -80,7 +80,7 @@ All LIGAMENT outputs are emitted via `LIGAMENT.EMIT`. A mandatory `ligament_vali
 # Parser Hooks
 … (as per spec)
 
-## Menu Surface Spec (non-normative UI contract)
+## Menu Surface Spec (non-normative UI agreement)
 
 When the practitioner says `menu` or `draw`, the bridge MAY emit:
 

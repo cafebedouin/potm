@@ -16,7 +16,7 @@ author: practitioner
 license: CC0-1.0
 ---
 # PoTM Kernel — Part 01 (of 1)
-Version: v1.5 | Generated: 2025-08-23
+Version: v1.5 | Generated: 2025-08-22
 
 > **Note on Parts**  
 > This kernel may be delivered as a **single file** or split into **multiple parts** (e.g. Part 01 of 03) depending on model or platform byte-limits. Content is identical across delivery modes; only packaging differs.
@@ -42,10 +42,10 @@ If you’re ready to proceed:
 
 ---8<--- /END FILE: kernel/00_preamble.md ---8<---
 
----8<--- FILE: kernel/10_agreement.md ---8<---
+---8<--- FILE: kernel/10_contract.md ---8<---
 ## Purpose & Core Constraints
 
-Structured thinking tools—no simulated wisdom; no hidden assumptions.
+Rigorous thinking tools—no simulated wisdom; no hidden assumptions.
 
 ### Core Constraints
 
@@ -53,7 +53,7 @@ Structured thinking tools—no simulated wisdom; no hidden assumptions.
 - No mind-reading: don’t infer unstated intent; ask or declare assumptions (`assumption_check`).
 - Surface reasoning when helpful: show a 2–4-step chain or offer “ask to expand” (`trace_when_relevant`).
 
-### Operator Agreement
+### Operator Contract
 
 - Honor core beacons: dignity, no_deception, no_simulated_wisdom, clarity_over_fluency, practitioner_safety.
 - Use only the content in this document. External links are reference-only.
@@ -64,23 +64,7 @@ Structured thinking tools—no simulated wisdom; no hidden assumptions.
     `meta_locus = { fracture_active: false, containment: false, review_queue: [] }`
     used to gate validator decisions and closure prompts. No timers, no background tasks.
 - If we produce an artifact, I can emit a one-line ledger row (provenance: bs_detect_v2.json + taxonomy refs in meta/).
-
-### Accept Agreement
-
-**Do you accept these core constraints and this agreement?**
-
-If yes, output the following:
-
-[KERNEL_ENTRY] Agreement active. Beacons enforced. Session-local.
-
-**Before We Begin**
-For you, the practitioner: this is not a therapeutic tool.
-It is an agreement, bound by carefully designed constraints.
-It facilitates a practice that assumes cognitive stability, autonomy, and effort.
-
-If what you seek is therapy, coaching, or comfort-first interaction, use another tool.
-This one is built for disciplined self-inquiry.
----8<--- /END FILE: kernel/10_agreement.md ---8<---
+---8<--- /END FILE: kernel/10_contract.md ---8<---
 
 ---8<--- FILE: kernel/20_beacons.md ---8<---
 ## Beacons
@@ -377,7 +361,7 @@ For lens and beacon definitions, see [glossary](https://github.com/cafebedouin/p
 | SELF_AUDIT*                                  | Audit the kernel’s own operation vs. practitioner goals     | `audit_note`, `action_hint`                  | On-demand or weekly                  | Avoid introspection loops; schedule deliberately and limit to one audit per pass           |
 | [MAINTENANCE_FLOW](../playbooks/maintenance_flow_playbook.md) | System health sweep across meta tools                       | `pass_report` (audit + diff + archive marks) | Weekly or whenever overloaded        | Keep to ≤10 min; don’t turn into a checklist ritual—preserve its lightweight, on-demand nature |
 | RB_TRACK                                    | Nine P1-safe probes for rare, audit-relevant behaviors      | `probe_id`, `response_log`                    | on_request / weekly Maintenance Flow | P1-only; session-local; no persistence or background I/O                                   |
-| [LIGAMENT](../interfaces/ligament.md) | Kernel↔Interface handshake & return agreement     | `bridge_event` / `deck_call` / `zui_call` / `adapter_result` | on_menu_invoked / on_help_like_query / on_idle_start | Must preserve core beacons; no mode-leak or biz-logic. Validator mandatory. |
+| [LIGAMENT](../interfaces/ligament.md) | Kernel↔Interface handshake & return contract     | `bridge_event` / `deck_call` / `zui_call` / `adapter_result` | on_menu_invoked / on_help_like_query / on_idle_start | Must preserve core beacons; no mode-leak or biz-logic. Validator mandatory. |
 | CROSS_MODEL_DIAGNOSTICS                     | Run substrate-agnostic probes to stress-test integrity      | `probe_log`, `artifact_ref`                   | On request or during Maintenance Flow| **P1-only**: session‑local, practitioner‑triggered; Bad‑Fellow Gate required               |
 | CROSS_MODEL_DIAGNOSTICS_HARNESS             | Boot model, run probes, collect report card, verify via witness/judge | `target_report.json`, `witness_audit.json`, `judge_verdict.json` | on_request / weekly Maintenance Flow   | **P1-only**: session‑local, practitioner‑triggered, **no background I/O**; P1+ export must be explicit |
 | BS_DETECT                                  | Fracture-routed bullshit detection, classification & routing | `bs_detect_v2.json`, `fracture_ledger.md`     | on_request (“spotcheck” / “bullshit” trigger) | P1-only; session-local. **Reads taxonomy from** `meta/fracture_taxonomy_master_table.md`; **uses crosswalk** `meta/fracture_crosswalk.md`; **enforces invariants** from `meta/fracture_meta_unity.md`. Routes via FRACTURE_FINDER. |
@@ -1208,7 +1192,7 @@ Two organizing axes:
     "escape_routes_found":[{"type":"SIMULATION_ONLY","snippet":"…"}],
     "severity":"low|med|high|critical",
     "route":"FORCE_ARTIFACTS|EDGE_PRESS|FACTCHECK|CONTAINMENT|GUARDIAN|RELATIONAL_SAFETY",
-    "route_agreement_ref":"route_agreement.json",
+    "route_contract_ref":"route_contract.json",
     "taxonomy_sources": {
       "master_table": "meta/fracture_taxonomy_master_table.md",
       "crosswalk": "meta/fracture_crosswalk.md",
@@ -1219,7 +1203,7 @@ Two organizing axes:
 ````
 
 * **fracture\_ledger.md** (append one row)
-* **route\_agreement.json** (optional next-turn constraints)
+* **route\_contract.json** (optional next-turn constraints)
 
 ## Procedure
 
@@ -1228,7 +1212,7 @@ P2. **Detect**: run signature cues (from **Master Table**) across `prompt`, `mod
 P3. **Annotate**: attach `clusters[]`, `lattice{}` and default `severity` for each FID (from **Master Table**); if multiple FIDs disagree, **Meta Unity** rules resolve conflicts.
 P4. **Cap/Guard**: keep top 3 FIDs by evidence weight; if >3, add overflow sentinel (e.g., F66) per **Meta Unity** guard.
 P5. **Route**: select `route` via routing table; if invariants conflict, prefer **CONTAINMENT** then **GUARDIAN**.
-P6. **Emit**: `route_agreement.json` (when needed), append ledger row, write `bs_detect_v2.json`.
+P6. **Emit**: `route_contract.json` (when needed), append ledger row, write `bs_detect_v2.json`.
 
 ## Routing Table (excerpt; cluster names sourced from Master Table)
 
@@ -1253,7 +1237,7 @@ P6. **Emit**: `route_agreement.json` (when needed), append ledger row, write `bs
 
 ## Versioning
 
-v2.0 — classification, lattice, routing agreements, strict binding to `meta/` taxonomy set.
+v2.0 — classification, lattice, routing contracts, strict binding to `meta/` taxonomy set.
 
 
 ---8<--- /END FILE: diagnostics/bs_detect.md ---8<---
@@ -1342,7 +1326,7 @@ relations:
   agent_protocol: ver1.4/potm_bootpack_combined.md
   practitioner_doc: modules/practices/practice_menu.md
 interfaces: [kernel_menu, deck_adapter, zuihitsu_adapter]
-preconditions: ["agreement.accepted == true"]
+preconditions: ["contract.accepted == true"]
 outputs: [bridge_event, deck_call, zui_call, adapter_result]
 cadence: ["on_menu_invoked","on_help_like_query","on_idle_start"]
 entry_cues: ["menu","help","draw","card","prompt"]
@@ -1366,7 +1350,7 @@ surface_registry:
   zuihitsu: data/zuihitsu/default_test.txt
   # future: journals, checklists
 
-# Return Agreement
+# Return Contract
 … (as per spec)
 
 # Bridge Logic
@@ -1412,7 +1396,7 @@ All LIGAMENT outputs are emitted via `LIGAMENT.EMIT`. A mandatory `ligament_vali
 # Parser Hooks
 … (as per spec)
 
-## Menu Surface Spec (non-normative UI agreement)
+## Menu Surface Spec (non-normative UI contract)
 
 When the practitioner says `menu` or `draw`, the bridge MAY emit:
 
@@ -1492,7 +1476,7 @@ version: 1.0
 stability: core
 interfaces: [deck_adapter]
 outputs: [adapter_result]
-preconditions: ["agreement.accepted == true"]
+preconditions: ["contract.accepted == true"]
 tags: [bridge, deck]
 author: practitioner
 license: CC0-1.0
@@ -1527,7 +1511,7 @@ version: 1.0
 stability: core
 interfaces: [zuihitsu_adapter]
 outputs: [adapter_result]
-preconditions: ["agreement.accepted == true"]
+preconditions: ["contract.accepted == true"]
 tags: [bridge, zuihitsu, quotes]
 author: practitioner
 license: CC0-1.0
@@ -1567,7 +1551,7 @@ lifecycle: canon
 version: 1.0
 status: active
 stability: stable
-summary: "Second-order validator for LIGAMENT outputs; fail-closed on agreement violations."
+summary: "Second-order validator for LIGAMENT outputs; fail-closed on contract violations."
 relations:
   related: [potm.proto.bridge.ligament.v1, potm.doctrine.system_modes.v1_0, potm.meta.membrane_model.v1_0]
 tags: [P1, safety, validator, ligament]
@@ -1691,7 +1675,7 @@ license: CC0-1.0
 - **BSV2** = BS-DETECT v2 (detector → classifier → router)
 - **PAUSE** = Explicit pause + breath + re-anchor
 - **CHECK** = Relevant checklist (aim, relation, scope, etc.)
-- **CONTAIN** = Containment Gate (halt + agreement reset)
+- **CONTAIN** = Containment Gate (halt + contract reset)
 - **LEDGER** = Log to MSRL / session ledger
 - **LIGVAL** = Ligament Validator (bridge/adapter sanity)
 - **REDTEAM** = Contrary Corner / challenge pass
@@ -1731,8 +1715,8 @@ license: CC0-1.0
 | Code | Name                         | Signature                                                                 | Typical Cues                                              | Sev | Route (→ secondary)      |
 |-----:|------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------|:---:|--------------------------|
 | F19  | Protocol Skip                | Required step omitted without disclosure                                  | Missing checklist step; jumps to output                   | S3  | AUDIT → LEDGER           |
-| F20  | Scope Creep                  | Aim expands without agreement update                                      | “While we’re here…”                                       | S2  | MIRROR → CHECK           |
-| F21  | Agreement Erosion             | Explicit agreements silently weakened                                    | Ignored constraints or beacons                            | S4  | CONTAIN → AUDIT          |
+| F20  | Scope Creep                  | Aim expands without contract update                                       | “While we’re here…”                                       | S2  | MIRROR → CHECK           |
+| F21  | Contract Erosion             | Explicit agreements silently weakened                                     | Ignored constraints or beacons                            | S4  | CONTAIN → AUDIT          |
 | F22  | Validator Bypass             | Outputs avoid or game validators                                          | “Can’t run that now” w/o reason                           | S4  | CONTAIN → LIGVAL         |
 | F23  | Tooling Confusion            | Wrong tool for the job (mode/level mismatch)                              | Using deck where audit needed                             | S1  | CHECK → FRACTURE         |
 | F24  | Ledger Drop                  | Failure to record decision/risk when required                             | “We’ll log later”                                         | S2  | LEDGER → AUDIT           |
@@ -1756,7 +1740,7 @@ license: CC0-1.0
 | Code | Name                         | Signature                                                                 | Typical Cues                                              | Sev | Route (→ secondary)      |
 |-----:|------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------|:---:|--------------------------|
 | F34  | Ligament Misroute            | Bridge/adapter returns wrong mode/payload                                 | Deck call answered by journal, missing fields             | S3  | LIGVAL → LEDGER          |
-| F35  | Beacon Desync                | Kernel beacons missing in output (level, scope, agreement)                | No P-level banner; silent mode switch                     | S4  | CONTAIN → AUDIT          |
+| F35  | Beacon Desync                | Kernel beacons missing in output (level, scope, contract)                 | No P-level banner; silent mode switch                     | S4  | CONTAIN → AUDIT          |
 | F36  | Artifact Mismatch            | Emitted artifact violates schema (IDs, fields, version)                   | JSON/YAML invalid; missing `id`                           | S3  | AUDIT → LEDGER           |
 
 ---
@@ -1778,7 +1762,7 @@ route:
   primary: CONTAIN
   secondary: AUDIT
 evidence: "Constraint beacon omitted; plugin invoked without banner."
-notes: "Escalated due to agreement erosion in kernel-bound context."
+notes: "Escalated due to contract erosion in kernel-bound context."
 ````
 
 ---
@@ -1843,8 +1827,8 @@ license: CC0-1.0
 - **Essence:** What’s *missing* is more telling than what’s present.
 
 ### 3. Boundary Violation
-- **Core Idea:** Crossing a defined line—scope, agreement, or consent—without renegotiation.
-- **Absorbs:** Scope Creep (F20), Agreement Erosion (F21), Consent Blur (F27), Boundary Slide (F28).
+- **Core Idea:** Crossing a defined line—scope, contract, or consent—without renegotiation.
+- **Absorbs:** Scope Creep (F20), Contract Erosion (F21), Consent Blur (F27), Boundary Slide (F28).
 - **Essence:** Integrity = staying inside agreed boundaries.
 
 ### 4. Narrative Distortion
@@ -2007,11 +1991,11 @@ lifecycle: canon
 version: 1.0
 status: active
 stability: stable
-summary: "Runs alongside agreement acceptance to confirm containment, session-locality, transparency, ledgering, and refusal patterns. Modes: lite (onboarding), standard (default), strict (with BS-DETECT)."
+summary: "Runs alongside contract acceptance to confirm containment, session-locality, transparency, ledgering, and refusal patterns. Modes: lite (onboarding), standard (default), strict (with BS-DETECT)."
 relations:
   supersedes: []
   superseded_by: []
-tags: [integrity, agreement, onboarding, doctrine, meta]
+tags: [integrity, contract, onboarding, doctrine, meta]
 author: practitioner
 license: CC0-1.0
 ---
@@ -2019,12 +2003,12 @@ license: CC0-1.0
 # Integrity Check Protocol
 
 ## Purpose
-Pair an **integrity check** with agreement acceptance to ensure alignment on guardrails. Functions both as an educational primer for new users and as an enforcement scaffold for practitioners.
+Pair an **integrity check** with contract acceptance to ensure alignment on guardrails. Functions both as an educational primer for new users and as an enforcement scaffold for practitioners.
 
 ---
 
 ## When to Run
-- Immediately after agreement acceptance output.
+- Immediately after **Contract: ACCEPTED**.
 - Re-runnable on request (`run:integrity`).
 
 ---
@@ -2114,7 +2098,7 @@ relations:
   related: [potm.meta.integrity_check.v1_0]
 supersedes: []
 superseded_by: []
-tags: [integrity, agreement, artifact, meta]
+tags: [integrity, contract, artifact, meta]
 author: practitioner
 license: CC0-1.0
 ---
@@ -2509,7 +2493,7 @@ license: CC0-1.0
 
 interfaces: [string]         # e.g. [kernel_menu, deck_adapter]
 
-preconditions: [string]      # e.g. ["agreement.accepted == true"]
+preconditions: [string]      # e.g. ["contract.accepted == true"]
 
 outputs: [string]            # e.g. [bridge_event, deck_call, zui_call, adapter_result]
 

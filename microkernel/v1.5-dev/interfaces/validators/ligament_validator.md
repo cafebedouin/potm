@@ -8,7 +8,7 @@ lifecycle: canon
 version: 1.0
 status: active
 stability: stable
-summary: "Second-order validator for LIGAMENT outputs; fail-closed on contract violations."
+summary: "Second-order validator for LIGAMENT outputs; fail-closed on agreement violations."
 relations:
   related: [potm.proto.bridge.ligament.v1, potm.doctrine.system_modes.v1_0, potm.meta.membrane_model.v1_0]
 tags: [P1, safety, validator, ligament]

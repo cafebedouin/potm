@@ -25,7 +25,7 @@ license: CC0-1.0
 
 interfaces: [string]         # e.g. [kernel_menu, deck_adapter]
 
-preconditions: [string]      # e.g. ["contract.accepted == true"]
+preconditions: [string]      # e.g. ["agreement.accepted == true"]
 
 outputs: [string]            # e.g. [bridge_event, deck_call, zui_call, adapter_result]
 

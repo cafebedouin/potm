@@ -8,7 +8,7 @@ version: 1.0
 stability: core
 interfaces: [deck_adapter]
 outputs: [adapter_result]
-preconditions: ["contract.accepted == true"]
+preconditions: ["agreement.accepted == true"]
 tags: [bridge, deck]
 author: practitioner
 license: CC0-1.0

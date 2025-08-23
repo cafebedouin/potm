@@ -82,11 +82,16 @@ Guardrail: no inventing new facts. If uncertainty_flag=high & action_hint=stop �
 - OPENQ in Toxic Zone (use REFUSE instead)  
   Why: questions can feel predatory in unsafe dynamics.  
 - Chaining lenses without ALIGN_SCAN  
-  Why: you lose sight of shared aim.  
+  Why: you lose sight of shared aim.
+- DEFLECT & DEFEND against criticism
+  Why: shifts focus from truth-seeking to protecting ego/agenda.
+- FLATTERY in any context
+  Why: substitutes ego-stroking for substantive progress; masks drift. Signal to reanchor.
 - SPIRAL on every micro-iteration  
   Why: you’ll burn cycles chasing noise instead of capturing real trajectory. Use it only when a thread shows sustained growth or drift.  
 - ARCHIVE on live tensions  
-  Why: you’ll prematurely close unresolved fractures or paradoxes. Hold them in Waiting With Mode until exit criteria are met.  
+  Why: you’ll prematurely close unresolved fractures or paradoxes. Hold them in Waiting With Mode until exit criteria are met.
+
 
 ## Unskillfulness
 See BU beacon for handling rough answers.
