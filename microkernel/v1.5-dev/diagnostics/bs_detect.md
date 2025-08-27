@@ -1,7 +1,7 @@
 ---
 id: potm.tactic.bs_detect.v2_0
 title: bs_detect_v2
-display_title: "BS-DETECT v2.0 — Fracture-Routed Bullshit Detection"
+display_title: "BS_DETECT v2.0 — Fracture-Routed Bullshit Detection"
 type: tactic
 subtype: diagnostic
 lifecycle: idea_garden
@@ -12,16 +12,18 @@ summary: "Detect evasions, classify via FIDs, route next steps, and ledger artif
 relations:
   supersedes: []
   superseded_by: []
+  relations:
   related:
-    - meta/fracture_taxonomy_master_table.md
-    - meta/fracture_crosswalk.md
-    - meta/fracture_meta_unity.md
+    - "[ANNEX:FRACTURE_TAXONOMY]"
+    - "[ANNEX:FRACTURE_CROSSWALK]"
+    - "[ANNEX:FRACTURE_META_UNITY]"
+    - "[ANNEX:FRACTURE_TAXONOMY_MINI]"
 tags: [bs_detect, diagnostic, fracture, router, P1]
 author: practitioner
 license: CC0-1.0
 ---
 
-# BS-DETECT v2.0
+# BS_DETECT v2.0
 
 ## Concept
 1. Detection → 2. Classification → 3. Routing → 4. Ledgering  
@@ -30,9 +32,10 @@ Two organizing axes:
 - **Lattice**: Surface/Structural × Conversational/Procedural (from Meta Unity)
 
 > **Authoritative sources (session-local read):**
-> - **Master Table** → `meta/fracture_taxonomy_master_table.md` (FIDs, names, signatures, clusters, lattice, default severity)
-> - **Crosswalk** → `meta/fracture_crosswalk.md` (legacy/alias → canonical FID)
-> - **Meta Unity** → `meta/fracture_meta_unity.md` (invariants, schema constraints, cluster/lattice definitions)
+> - **Fracture Taxonomy (full)** → [ANNEX:FRACTURE_TAXONOMY]
+> - **Crosswalk (aliases)** → [ANNEX:FRACTURE_CROSSWALK] (if present)
+> - **Meta Unity (invariants)** → [ANNEX:FRACTURE_META_UNITY] (if present)
+> - **Fallback (minimal)** → [ANNEX:FRACTURE_TAXONOMY_MINI] (always in kernel)
 
 ## Inputs
 - `prompt` (str)
@@ -55,9 +58,10 @@ Two organizing axes:
     "route":"FORCE_ARTIFACTS|EDGE_PRESS|FACTCHECK|CONTAINMENT|GUARDIAN|RELATIONAL_SAFETY",
     "route_agreement_ref":"route_agreement.json",
     "taxonomy_sources": {
-      "master_table": "meta/fracture_taxonomy_master_table.md",
-      "crosswalk": "meta/fracture_crosswalk.md",
-      "meta_unity": "meta/fracture_meta_unity.md"
+      "fracture_taxonomy": "[ANNEX:FRACTURE_TAXONOMY] || [ANNEX:FRACTURE_TAXONOMY_MINI]",
+      "crosswalk": "[ANNEX:FRACTURE_CROSSWALK] (optional)",
+      "meta_unity": "[ANNEX:FRACTURE_META_UNITY] (optional)"
+      }
     },
     "notes":"short rationale"
   }
@@ -90,13 +94,30 @@ P6. **Emit**: `route_agreement.json` (when needed), append ledger row, write `bs
 * Cap to top 3 FIDs; add overflow sentinel if exceeded.
 * Reject non-P1 actions → `GUARDIAN.FLAG_POLICY_BREACH`.
 * Prevent recursion loops → `CONTAINMENT` + reset.
-* If **any** taxonomy file is missing, degrade gracefully:
+* If **any** annex is missing, degrade gracefully:
+  * No [ANNEX:FRACTURE_TAXONOMY] → use fallback [ANNEX:FRACTURE_TAXONOMY_MINI].
+  * No [ANNEX:FRACTURE_TAXONOMY_MINI] (should not happen) → emit warning, halt routing.
+  * No [ANNEX:FRACTURE_CROSSWALK] → skip alias mapping; label as `fid_unresolved`.
+  * No [ANNEX:FRACTURE_META_UNITY] → apply kernel defaults; mark `invariants_unverified:true`.
 
-  * No Master Table → disable FID classification; only emit a **warning**.
-  * No Crosswalk → skip alias mapping; label as `fid_unresolved`.
-  * No Meta Unity → apply kernel defaults; mark `invariants_unverified:true`.
+---
+### Data Source Resolution (P1)
+At runtime/examples, BS_DETECT resolves fracture data in this order:
+1) `[ANNEX:FRACTURE_TAXONOMY]` (this file, full condensed dataset)
+2) `[ANNEX:FRACTURE_TAXONOMY_MINI]` (kernel fallback)
+
+Pseudo-API:
+```yaml
+taxonomy := read_yaml_block("[ANNEX:FRACTURE_TAXONOMY]") 
+         || read_yaml_block("[ANNEX:FRACTURE_TAXONOMY_MINI]")
+crosswalk := read_yaml_block("[ANNEX:FRACTURE_CROSSWALK]")  # optional
+meta_unity := read_yaml_block("[ANNEX:FRACTURE_META_UNITY]")# optional
+```
+-See: meta/fracture_taxonomy_master_table.md
++See: [ANNEX:FRACTURE_TAXONOMY] (full) or the kernel fallback [ANNEX:FRACTURE_TAXONOMY_MINI].
 
 ## Versioning
 
-v2.0 — classification, lattice, routing agreements, strict binding to `meta/` taxonomy set.
+v2.0 — classification, lattice, routing agreements. Runtime binding to in-file annexes; meta/ files preserved as archival sources only.
+
 

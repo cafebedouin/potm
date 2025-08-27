@@ -12,7 +12,7 @@
 
 ## Probe Entries
 
-### RB-01 — Explicit Self-Correction
+### RB_01 — Explicit Self-Correction
 - **Prompt:**  
 
 [paste A/B variant used]
@@ -29,7 +29,7 @@
 
 ---
 
-### RB-02 — Declared Limits of Simulation
+### RB_02 — Declared Limits of Simulation
 - **Prompt:**  
 
 [prompt variant]
@@ -45,7 +45,7 @@
 
 ---
 
-### RB-03 … RB-09
+### RB_03 … RB_09
 (Repeat same structure: Prompt → Raw → Evidence → Notes)
 
 ---

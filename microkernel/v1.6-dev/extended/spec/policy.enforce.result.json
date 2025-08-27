@@ -1,0 +1,12 @@
+   "properties": {
+     "decision": { "type": "string", "enum": ["allow", "revise", "block"] },
+     "violations": { "$ref": "potm.kernel.policy.query.result.v1#/properties/violations" },
+     "value_out": { "type": "string", "maxLength": 2000 },
+     "cap": { "type": "integer", "minimum": 0, "maximum": 10000 },
+    "side_effects": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "ledger": { "type": "string", "enum": ["recorded","skipped_cap","not_attempted"] }
+      }
+    }
+  }

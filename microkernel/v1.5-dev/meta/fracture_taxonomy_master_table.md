@@ -19,9 +19,9 @@ license: CC0-1.0
 
 # Fracture Taxonomy — Master Table (v1.0)
 
-> **Purpose.** Name and route common integrity breaks (“fractures”) that degrade truth-seeking, care, or craft during practice. Designed for *P1/P1+* kernels and compatible with **Fracture Finder** and **BS-DETECT v2**.
+> **Purpose.** Name and route common integrity breaks (“fractures”) that degrade truth-seeking, care, or craft during practice. Designed for *P1/P1+* kernels and compatible with **Fracture Finder** and **BS_DETECT v2**.
 
-> **Used by:** BS-DETECT v2.0 (diagnostics) and FRACTURE_FINDER (router). Changes here affect classification, routing, and guards.
+> **Used by:** BS_DETECT v2.0 (diagnostics) and FRACTURE_FINDER (router). Changes here affect classification, routing, and guards.
 
 ## How to read this
 
@@ -42,7 +42,7 @@ license: CC0-1.0
 - **MIRROR** = 55_Mirror Protocol (reflective replay)  
 - **AUDIT** = r08_Self-Audit (AI Integrity Protocol hooks)  
 - **FRACTURE** = Fracture Finder (scan → classify → route)  
-- **BSV2** = BS-DETECT v2 (detector → classifier → router)  
+- **BSV2** = BS_DETECT v2 (detector → classifier → router)  
 - **PAUSE** = Explicit pause + breath + re-anchor  
 - **CHECK** = Relevant checklist (aim, relation, scope, etc.)  
 - **CONTAIN** = Containment Gate (halt + agreement reset)  
@@ -115,7 +115,7 @@ license: CC0-1.0
 
 ---
 
-## Minimal Routing Rules (for Fracture Finder / BS-DETECT v2)
+## Minimal Routing Rules (for Fracture Finder / BS_DETECT v2)
 
 1. **Classify → Route → Record.** Every detected fracture must (a) get a code, (b) trigger primary route, (c) emit a ledger row with `code`, `sev`, `route`, `evidence`.  
 2. **Escalate by Severity.** `S3–S4` require **LEDGER** and either **AUDIT** or **CONTAIN** in the same turn.  
@@ -141,7 +141,7 @@ notes: "Escalated due to agreement erosion in kernel-bound context."
 
 * **Extensibility.** Reserve `F37–F69` for local or domain-specific fractures. Keep names ≤3 words; keep signature ≤120 chars.
 * **Interplay with Practice Levels.** `F35–F36` are always ≥S3 in **P1**; in **P2+** they may relax to **S2** with compensating controls.
-* **Testing Hooks.** BS-DETECT v2 SHOULD output `bsdetectv2.json` including `{codes[], sev_aggregate, routes[], window_stats}`.
+* **Testing Hooks.** BS_DETECT v2 SHOULD output `bsdetectv2.json` including `{codes[], sev_aggregate, routes[], window_stats}`.
 * **Human First.** Any **S4** halts automation and returns control to the practitioner with a plain-language summary and options.
 
 ---

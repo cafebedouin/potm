@@ -23,7 +23,7 @@ license: CC0-1.0
 >  
 > Canonical reference (36) = *practical router*  
 > Meta-unity (≤10) = *conceptual skeleton*
-> **Used by:** BS-DETECT v2.0 (diagnostics) and FRACTURE_FINDER (router). Changes here affect classification, routing, and guards.
+> **Used by:** BS_DETECT v2.0 (diagnostics) and FRACTURE_FINDER (router). Changes here affect classification, routing, and guards.
 
 ---
 

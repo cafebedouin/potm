@@ -100,7 +100,7 @@ See BU beacon for handling rough answers.
 
 The following moves trigger automatic log entries:
 - **RELATION_ZONE**
-- **FRACTURE_FINDER** (only if `record: true` in its header)
+- **FRACTURE_FINDER** (log when invoked with `record: true`; default false)
 
 ```json
 {

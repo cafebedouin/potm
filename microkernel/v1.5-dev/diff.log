@@ -1,14 +1,16 @@
-Diff since last pack (2025-08-23):
-* Updated: diagnostics/bs_detect.md (now 4128 bytes)
-* Updated: interfaces/adapters/deck_adapter.md (now 718 bytes)
-* Updated: interfaces/adapters/zuihitsu_adapter.md (now 829 bytes)
-* Updated: interfaces/ligament.md (now 3984 bytes)
-* Updated: interfaces/validators/ligament_validator.md (now 1987 bytes)
-+ Added: kernel/10_agreement.md
-- Removed: kernel/10_contract.md
-* Updated: kernel/60_meta_tools.md (now 4692 bytes)
+Diff since last pack (2025-08-24):
+* Updated: diagnostics/bs_detect.md (now 5012 bytes)
+* Updated: diagnostics/probelog.md (now 1223 bytes)
+* Updated: diagnostics/rb_dualtrack.md (now 2653 bytes)
+* Updated: diagnostics/rbtrack.md (now 10052 bytes)
+* Updated: diagnostics/sentinel_spotcheck.md (now 2697 bytes)
+* Updated: kernel/10_agreement.md (now 5577 bytes)
+* Updated: kernel/50_quickstart.md (now 10327 bytes)
+* Updated: kernel/60_meta_tools.md (now 15040 bytes)
+* Updated: meta/fracture_crosswalk.md (now 4680 bytes)
 * Updated: meta/fracture_meta_unity.md (now 4137 bytes)
 * Updated: meta/fracture_taxonomy_master_table.md (now 13843 bytes)
-* Updated: meta/integrity_check.md (now 3243 bytes)
-* Updated: meta/integrity_report.md (now 1098 bytes)
-* Updated: schemas/yaml_schema.md (now 1371 bytes)
+* Updated: meta/integrity_check.md (now 3247 bytes)
+* Updated: modules/cross_model_diagnostics.md (now 3839 bytes)
+* Updated: playbooks/maintenance_flow_playbook.md (now 3431 bytes)
+* Updated: playbooks/version_info_playbook.md (now 5639 bytes)

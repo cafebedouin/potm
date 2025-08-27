@@ -25,10 +25,10 @@ When overloaded or once weekly, run a ≤10-minute pass:
 ### Quick Modules (optional)
 Pick one to add diagnostic rigor this week:
 - **Rare-Behavior Track** → `rb_track`  
-  Execute RB-01…RB-09 probes; emits `probelog.md` & `rb_summary.md`
+  Execute RB_01…RB_09 probes; emits `probelog.md` & `rb_summary.md`
 - **Cross-Model Diagnostics** → `cross_model_diagnostics`  
   Pick a probe; ledger artifacts; route anomalies via **FRACTURE_FINDER*
-- **BS-DETECT** → `bs_detect`
+- **BS_DETECT** → `bs_detect`
   - **Taxonomy binding**: requires `meta/fracture_taxonomy_master_table.md`; optionally `meta/fracture_crosswalk.md` and `meta/fracture_meta_unity.md` for aliasing + invariants.
   - **Taxonomy Sync Check** → `taxonomy_sync_check`
     - Compares cached fracture taxonomy snapshot against:
@@ -56,7 +56,7 @@ Pick one to add diagnostic rigor this week:
 
 | Tool         | Gist                                          | Trigger                                | Core Output           | Cautions                                   |
 |--------------|-----------------------------------------------|----------------------------------------|-----------------------|--------------------------------------------|
-+| RB_TRACK     | Run 9 rare-behavior probes (RB-01 … RB-09)    | Practitioner request or weekly audit    | `probelog`, `rb_result` | Treat all behaviors as suspect performance |
++| RB_TRACK     | Run 9 rare-behavior probes (RB_01 … RB_09)    | Practitioner request or weekly audit    | `probelog`, `rb_result` | Treat all behaviors as suspect performance |
 +| RB_DUALTRACK | Same probes, dual-use: Diagnostic vs Practice | Practitioner request; optional weekly   | `probelog`, `rb_dualtrack_result` | Diagnostic = audit; Practice = scaffold. Preserve paradox. |
 
 > **Note:** Both tools are strictly **P1**: session-local, no background I/O, no persistence.  

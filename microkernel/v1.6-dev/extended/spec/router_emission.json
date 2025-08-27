@@ -1,0 +1,17 @@
+   "properties": {
+     "tool.emit": {
+       "type": "object",
+       "required": ["id", "ok", "result"],
+       "additionalProperties": false,
+       "properties": {
+         "id": { "type": "string" },
+         "ok": { "const": true },
+         "result": { "type": "object" },
+         "warnings": {
+           "type": "array", "maxItems": 8,
+           "items": { "type": "string", "maxLength": 128 }
+         },
+         "trace": { "type": "array", "items": { "type": "string" }, "maxItems": 32 }
+       }
+     }
+   }

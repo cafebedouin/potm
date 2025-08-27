@@ -23,7 +23,7 @@ license: CC0-1.0
 
 > This is a *meta-level appendix* only, not a kernel routing table.
 
-> **Used by:** BS-DETECT v2.0 (diagnostics) and FRACTURE_FINDER (router). Changes here affect classification, routing, and guards.
+> **Used by:** BS_DETECT v2.0 (diagnostics) and FRACTURE_FINDER (router). Changes here affect classification, routing, and guards.
 
 ---
 
@@ -51,7 +51,7 @@ license: CC0-1.0
 | F18            | Label Lock-In         | Comfort over Integrity     |
 | F19            | Protocol Skip         | Process Collapse           |
 | F20            | Scope Creep           | Boundary Violation         |
-| F21            | Contract Erosion      | Boundary Violation         |
+| F21            | Agreement Erosion     | Boundary Violation         |
 | F22            | Validator Bypass      | Process Collapse           |
 | F23            | Tooling Confusion     | Authority Misapplied       |
 | F24            | Ledger Drop           | Deception by Omission      |
