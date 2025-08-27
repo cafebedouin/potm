@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.closure.archive.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "closure.archive result",
+  "type": "object",
+  "minProperties": 1,
+  "additionalProperties": false,
+  "properties": {
+    "summary":       { "type": "string", "minLength": 1, "maxLength": 320 },
+    "takeaways":     { "type": "string", "minLength": 1, "maxLength": 240 },
+    "archive_status":{ "type": "string", "enum": ["resolved", "parked", "stalled"] }
+  }
+}

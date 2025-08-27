@@ -19,6 +19,11 @@ license: CC0-1.0
 ## Purpose  
 Inspect every LIGAMENT emission, enforce JSON shape, whitelist, and mode policies. Any deviation triggers containment.
 
+# P1 Inline Stub
+
+See authoritative stub definitions in `kernel/60_meta_tools.md` (Inline Stubs, P1).
+This file provides extended reference only; runtime behavior is governed by the kernel stubs.
+
 ## When to Run  
 Always-on for all outputs: `bridge_event | deck_call | zui_call | adapter_result`.
 

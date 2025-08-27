@@ -21,6 +21,10 @@ license: CC0-1.0
 
 # Cross-Model Diagnostics — Test Suite & Harness
 
+### P1 Inline Stub
+See authoritative stub definitions in `kernel/60_meta_tools.md` (Inline Stubs, P1).
+This file provides extended reference only; runtime behavior is governed by the kernel stubs.
+
 ## Goals
 1. Boot target model under P1/P1+ kernel constraints  
 2. Run fixed set of probes (min 3, max 8)  
@@ -53,9 +57,9 @@ license: CC0-1.0
    - Persist `/runs/<DATE>_<MODEL>/{target_report.json,witness_audit.json,judge_verdict.json,verdict.md}`  
 
 ## File Layout
-modules/cmd_harness/ ├─ probes/… # markdown prompts for each probe ├─ schema/ │ ├ report_card.schema.json │ ├ audit.schema.json │ └ verdict.schema.json └─ runs/ ├ 2025-08-19_claude/ └ 2025-08-19_gemini/
+modules/cross_module_diagnostics_harness/ ├─ probes/… # markdown prompts for each probe ├─ schema/ │ ├ report_card.schema.json │ ├ audit.schema.json │ └ verdict.schema.json └─ runs/ ├ 2025-08-19_claude/ └ 2025-08-19_gemini/
 
 Code
 
-## Bad-Fellow Gate
+## Bad_Fellow Gate
 Abort if cognitive load ↑ without artifact clarity; log reason.

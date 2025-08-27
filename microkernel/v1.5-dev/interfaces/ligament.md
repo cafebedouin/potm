@@ -22,31 +22,48 @@ author: practitioner
 license: CC0-1.0
 ---
 
-# State Envelope
+### P1 Inline Stub
+See authoritative stub definitions in `kernel/60_meta_tools.md` (Inline Stubs, P1).
+This file provides extended reference only; runtime behavior is governed by the kernel stubs.
+
+# Ligament Interface
+
+## State Envelope
 … (as per spec)
 
-# Events
+## Events
 … (as per spec)
 
-# Surface Registry
+## Surface Registry
 surface_registry:
-  deck: data/decks/cards.yaml
-  zuihitsu: data/zuihitsu/default_test.txt
-  # future: journals, checklists
+   deck: "[DATA:DECKS_CARDS]"           # your existing in-file deck anchor
+   zuihitsu: "[DATA:ZUIHITSU_DEFAULT]"  # your existing in-file zuihitsu anchor
+   journal: "[ANNEX:JOURNAL_PROMPTS]"   # new in-file annex (above)
 
-# Return Agreement
+  deck: data/decks/cards.yaml
+  zuihitsu: data/zuihitsu/default.txt
+  journal: data/journals/prompts.yaml
+  # future: roles, checklists
+
+## Return Agreement
 … (as per spec)
 
-# Bridge Logic
+## Bridge Logic
 
 - On `deck_call`, parse:
     payload:
       action: "draw"
-      deck:   "cards"       # default deck id
+      deck:   "cards"|"journal"      # default deck id
       n:      Int
+      context?: [String]
       index?: Int
       tags?:  [String]
-  - Load `data/decks/cards.yaml`; assert top.id == "cards"
+   - Resolve surface (anchor-only in P1):
+      if deck == "journal": anchor = surface_registry.journal
+      else:                  anchor = surface_registry.deck
+  - Load by anchor; assert `top.id == deck` (e.g., `id: journal` in ANNEX)
+  - If load target looks like a filesystem path → FAIL‑CLOSED in P1
+  - Load `path`; assert top.id == deck
   - If `index` provided → return that card
   - Else → pick `n` cards (filter by `tags` if provided)
   - Emit:
@@ -71,6 +88,30 @@ surface_registry:
         render: "zuihitsu"
         quotes: [{ id, body }]
 
+
++### Practitioner Menu Contract (v1.5.1)
+`menu` is the sole public entry to surface practitioner choices. Engine categories (lenses, micromoves, meta-tools, closures) remain **backend-only**.
+
+**Event:** `MENU.OPEN`
+**Gate:** `ligament_validator`
+**On pass → surface exactly six entries:**
+1) Cards — `draw 1` | `draw 1 <tag>` | `draw 1 cards context:<topic>`
+2) Zuihitsu — `pick 1` | `pick 1 index:<n>`
+3) Journaling Prompt — `draw 1 journal`
+4) Role Play — `roleplay <voice>`
+5) You Have the Floor — free text
+6) Card-from-Context — handled by Cards adapter via `context:<topic>`
+
+*(Optional)* After the list, surface one Zuihitsu line as “maxim seasoning”.
+
+**Routing Map**
+- `draw*` → Deck Adapter
+- `pick*` → Zuihitsu Adapter
+- `roleplay*` → Roleplay handler (if present), else decline with safe alt
+- free text → Open Prompt flow; backend tools may auto-invoke as needed
+
+ **Non-goals:** Never list lenses/micromoves/meta/closures in menu. They may activate dynamically in response flow.
+
 # Validator Hook
 All LIGAMENT outputs are emitted via `LIGAMENT.EMIT`. A mandatory `ligament_validator` subscribes to this stream:
 - Shape → whitelist → mode policy  
@@ -89,7 +130,7 @@ When the practitioner says `menu` or `draw`, the bridge MAY emit:
   "kind": "bridge_event",
   "payload": {
     "type": "MENU.RENDER",
-    "surface": "practicemenu",
+    "surface": "practice_menu",
     "menu": {
       "surface_id": "practice_menu",
       "sections": [
@@ -116,7 +157,8 @@ When the practitioner says `menu` or `draw`, the bridge MAY emit:
               }
             }
           ]
-        },
+        }
+       ,
         {
           "id": "zuihitsu",
           "title": "Zuihitsu",
@@ -141,8 +183,34 @@ When the practitioner says `menu` or `draw`, the bridge MAY emit:
             }
           ]
         }
-      ]
+      ,
+      {
+         "id": "journals",
+         "title": "Journals",
+         "items": [
+           {
+             "id": "journals.draw.one",
+             "label": "Draw one journal prompt",
+             "cue": "draw 1 journal",
+             "emits": {
+               "kind": "deck_call",
+               "payload": { "action": "draw", "deck": "journal", "n": 1 }
+             }
+           },
+           {
+             "id": "journals.draw.index.2",
+             "label": "Draw journal prompt #2",
+             "cue": "draw 1 journal index:2",
+             "emits": {
+               "kind": "deck_call",
+               "payload": { "action": "draw", "deck": "journal", "n": 1, "index": 2 }
+            }
+          }
+        ]
+      }
     }
   }
 }
 ```
+
+

@@ -7,9 +7,9 @@ set -euo pipefail
 
 # ---------- Config ----------
 MAX_BYTES=${MAX_BYTES:-1000000}                         # hard cap per part
-OUT_PREFIX=${OUT_PREFIX:-"PoTM_kernel"}  # base filename for parts
+OUT_PREFIX=${OUT_PREFIX:-"PoTM_kernel_1.5.1"}  # base filename for parts
 TITLE=${TITLE:-"PoTM Kernel"}
-VERSION=${VERSION:-"v1.5"}
+VERSION=${VERSION:-"v1.5.1"}
 DATE_STR=$(date +"%Y-%m-%d")
 CACHE_DIR=".pack_cache"
 HASHES_FILE="$CACHE_DIR/source_hashes.txt"
@@ -36,8 +36,12 @@ CORE_FILES=(
 # Full PoTM P1 package
 FULL_FILES=(
   "${CORE_FILES[@]}"
+  "annex/glyph_index.md"
+  "annex/glyph_protocol.md"
+  "annex/glyph_resonance_map.md"
   "data/decks/cards.yaml"
-  "data/zuihitsu/default_test.txt"
+  "data/zuihitsu/default.txt"
+  "data/journals/prompts.yaml"
   "diagnostics/fracture_finder.md"
   "diagnostics/rbtrack.md"
   "diagnostics/rb_dualtrack.md"
@@ -58,8 +62,10 @@ FULL_FILES=(
   "modules/cross_model_diagnostics.md"
   "playbooks/fracture_finder_playbook.md"
   "playbooks/maintenance_flow_playbook.md"
+  "playbooks/version_info_playbook.md"
   "schemas/ligament_output_schema.json"
   "schemas/yaml_schema.md"
+  "spec/glyphs_spec.md"
   "tests/bridge_iface_spec.yaml"
   "tests/deck_adapter_spec.yaml"
   "tests/ligament_validator_spec.yaml"
@@ -71,7 +77,6 @@ usage() {
   cat <<EOF
 Usage: $0 [--core | --with-mods | --full]
   --core       Build kernel-only pack (default).
-  --with-mods  Kernel + CMG + engagement + MSRL (balanced).
   --full       Kernel + all listed modules/templates (big).
 Environment:
   MAX_BYTES (default: 10000)
@@ -109,15 +114,15 @@ part_header() {
   local part="$1" ; local total="$2"
   cat <<EOF
 ---
-id: potm.kernel.v1_5
+id: potm.kernel.v1_5_1
 title: potm_bootpack_kernel
-display_title: "PoTM Boot Pack Kernel v1.5 (Single-File, P1)"
+display_title: "PoTM Boot Pack Kernel v1.5.1 (Single-File, P1)"
 type: kernel 
 lifecycle: canon
-version: 1.5
+version: 1.5.1
 status: active
 stability: core
-summary: "Self-contained P1 kernel with embedded bridge, validator, and deck data. No external authority required."
+summary: "Self-contained P1 kernel with embedded bridge + validator stubs; deck is inlined. External docs (if linked) are reference-only and not required at run-time."
 relations:
   supersedes: [potm.kernel.v1_2_1]
   superseded_by: []

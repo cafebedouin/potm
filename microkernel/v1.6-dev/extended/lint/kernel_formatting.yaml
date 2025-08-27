@@ -1,0 +1,106 @@
+# File: lint/potm.kernel.formatting.yaml
+id: potm.kernel.formatting.v1
+title: "Kernel File Formatting Rules"
+version: 1.1
+status: spec
+type: lint
+audience: kernel maintainers
+
+lint:
+  - rule: required_front_matter
+    files:
+      - "kernel/**/*.md"
+    require_keys:
+      - "id"
+      - "title"
+      - "display_title"
+      - "type"
+      - "lifecycle"
+      - "version"
+      - "status"
+      - "stability"
+      - "summary"
+      - "author"
+      - "license"
+
+  - rule: no_duplicate_headings
+    files:
+      - "kernel/**/*.md"
+    pattern: '^##\s+(.+)$'
+    disallow_duplicates: true
+
+  - rule: blank_lines_around_blocks
+    files:
+      - "kernel/**/*.md"
+    checks:
+      before_heading: true
+      after_heading: true
+      before_code_block: true
+      after_code_block: true
+      before_table: true
+      after_table: true
+
+  - rule: code_block_language_required
+    files:
+      - "kernel/**/*.md"
+    pattern_unlabeled_fence: '^```\s*$'
+    message: "All fenced code blocks must declare a language (e.g., ```yaml)."
+
+  - rule: forbid_allcaps_tool_ids
+    files:
+      - "kernel/**/*.md"
+    pattern: '(^###\s+[A-Z0-9_]{3,}$)|(^\|\s*[A-Z0-9_]{3,}\s*\|)'
+    message: "Tool ids must be snake_case, not ALLCAPS."
+
+  - rule: namespaced_ids_snake_case
+    files:
+      - "kernel/**/*.md"
+    allow_pattern: '\b((lens|move|closure|beacon)\.[a-z0-9_]+|recap\.spec)\b'
+    message: "Use snake_case ids with a namespace."
+
+  - rule: emissions_allowlist
+    files:
+      - "kernel/**/*.md"
+    disallow_pattern: '\b(?!menu\.signal\b|tool\.call\b|tool\.result\b|beacon\.(check|optional)\b|error\.signal\b)[a-z]+\.[a-z0-9_]+\b'
+    message: "Only use: menu.signal, tool.call, tool.result, beacon.check, beacon.optional, error.signal."
+
+  - rule: lenses_catalog_columns
+    files:
+      - "kernel/30_lenses.md"
+    header_columns_exact:
+      - "id"
+      - "purpose"
+      - "trigger"
+      - "output artifact"
+
+  - rule: micromoves_catalog_columns
+    files:
+      - "kernel/35_micromoves.md"
+    header_columns_exact:
+      - "id"
+      - "purpose"
+      - "trigger condition"
+
+  - rule: beacons_catalog_columns
+    files:
+      - "kernel/20_beacons.md"
+    header_columns_exact:
+      - "id"
+      - "purpose"
+      - "trigger"
+      - "action"
+
+  - rule: output_artifact_word_limit
+    files:
+      - "kernel/30_lenses.md"
+    column: "output artifact"
+    max_words: 12
+
+  - rule: entry_tokens_literal
+    files:
+      - "kernel/10_entry_gate.md"
+      - "kernel/40_router.md"
+      - "kernel/20_beacons.md"
+    require_patterns:
+      - "[KERNEL_ENTRY]"
+      - "[KERNEL_EXIT]"

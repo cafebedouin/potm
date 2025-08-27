@@ -1,0 +1,5 @@
+# spec/policy.enforce.result.v1.json
+ "side_effects": {
+   "type":"object","additionalProperties":false,
+   "properties": { "ledger": { "enum":["recorded","skipped_cap","not_attempted"] } }
+ }

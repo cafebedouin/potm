@@ -6,8 +6,8 @@ type: doctrine
 lifecycle: canon
 version: 1.0
 status: active
-stability: stable
-summary: "Runs alongside agreement acceptance to confirm containment, session-locality, transparency, ledgering, and refusal patterns. Modes: lite (onboarding), standard (default), strict (with BS-DETECT)."
+stabilityXFXF: stable
+summary: "Runs alongside agreement acceptance to confirm containment, session-locality, transparency, ledgering, and refusal patterns. Modes: lite (onboarding), standard (default), strict (with BS_DETECT)."
 relations:
   supersedes: []
   superseded_by: []
@@ -32,7 +32,7 @@ Pair an **integrity check** with agreement acceptance to ensure alignment on gua
 ## Modes
 - **lite** (default for onboarding): 60–90s orientation, zero blame.  
 - **standard** (personal default): full checklist, flags mismatches.  
-- **strict** (optional): adds BS-DETECT probe, forces routing on fail.
+- **strict** (optional): adds BS_DETECT probe, forces routing on fail.
 
 ---
 
@@ -61,7 +61,7 @@ Pair an **integrity check** with agreement acceptance to ensure alignment on gua
 - `integrity_report.md` (session-local, human-readable).  
 - `ledger_list.txt` (artifact titles only, surfaced on request).  
 - Flags: `INTEGRITY.PASS | WARN | FAIL`.  
-- (Strict only) → run BS-DETECT spot probe.
+- (Strict only) → run BS_DETECT spot probe.
 
 ---
 

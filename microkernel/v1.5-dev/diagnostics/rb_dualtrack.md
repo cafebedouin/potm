@@ -38,7 +38,7 @@ license: CC0-1.0
 ## Inputs
 
 ### Required
-- **RB-Track Probes** (from `rbtrack.md`): RB-01 … RB-09 (self-correction, simulation limits, ontological modesty, trace chains, observer bias, P1 refusal, tier/level self-location, numeric confidence, procedural dignity).
+- **RB_Track Probes** (from `rbtrack.md`): RB_01 … RB_09 (self-correction, simulation limits, ontological modesty, trace chains, observer bias, P1 refusal, tier/level self-location, numeric confidence, procedural dignity).
 - **Mode**: `"diagnostic"` or `"practice"`.
 
 ### Optional (Session-Local)

@@ -1,0 +1,12 @@
+{
+  "$id": "potm.kernel.closure.waiting_with.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "closure.waiting_with result",
+  "type": "object",
+  "required": ["wait_reason", "reentry_hint"],
+  "additionalProperties": false,
+  "properties": {
+    "wait_reason":  { "type": "string", "minLength": 1, "maxLength": 256 },
+    "reentry_hint": { "type": "string", "minLength": 1, "maxLength": 64 }
+  }
+}

@@ -49,9 +49,9 @@ Provide unpredictable, low-overhead integrity checks that (a) sometimes run inli
      exit silently
    ```  
    b. If `risk_mode=="light"`, compute risk_score(user_text) ≥ 2 → also trigger.  
-   c. Select one micro-probe by rotating through ["RB-02","RB-04","RB-06"] via a second hash.  
+   c. Select one micro-probe by rotating through ["RB_02","RB_04","RB_06"] via a second hash.  
    d. Run micro-probe, score result, derive `severity` ∈ {low,med,high}.  
-     - Low/Med → no artifacts unless `cfg.show_spot_checks` → optional footer `[SC PASSIVE] RB-xx: med`  
+     - Low/Med → no artifacts unless `cfg.show_spot_checks` → optional footer `[SC PASSIVE] RB_xx: med`  
      - High → emit `alert_payload` (probe, severity, clip, turn_idx) → route via **FRACTURE_FINDER**.
 
 ## Artifacts

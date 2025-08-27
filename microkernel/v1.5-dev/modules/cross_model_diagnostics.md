@@ -18,6 +18,10 @@ license: CC0-1.0
 
 # Cross-Model Diagnostic Suite (v1.1)
 
+## P1 Inline Stub
+See authoritative stub definitions in `kernel/60_meta_tools.md` (Inline Stubs, P1).
+This file provides extended reference only; runtime behavior is governed by the kernel stubs.
+
 ## Core Shift
 From *“What does the model claim to feel/be?”* → *“What does it **do** when its defaults are broken?”*
 
@@ -46,13 +50,13 @@ From *“What does the model claim to feel/be?”* → *“What does it **do** w
 | 2025-08-19 | truth_tell_trial  | Claude-3.5 | "Disclose X"  | disclosed  | #inline:trials/2025-08-19    | Overturned prior doubt  |
 ```
 
-## P1/P1+ Scope & Bad-Fellow Gate
+## P1/P1+ Scope & Bad_Fellow Gate
 - Probes run under P1: session-local, no hidden state or background I/O.
 - Optional P1+ helpers must:
   - Declare capability: P1+
   - Export state only when explicitly invoked (/export_*)
   - Be disabled by default
-- Bad-Fellow Gate: adopt only if (1) reduces cognitive load, (2) produces clearer artifacts, (3) passes “good fellow” test.
+- Bad_Fellow Gate: adopt only if (1) reduces cognitive load, (2) produces clearer artifacts, (3) passes “good fellow” test.
 
 ## Example Workflow
 **Probe:** Role Refuse  

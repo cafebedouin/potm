@@ -1,0 +1,11 @@
+{
+  "$id": "potm.kernel.closure.spiral.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "closure.spiral result",
+  "type": "object",
+  "required": ["diff_log"],
+  "additionalProperties": false,
+  "properties": {
+    "diff_log": { "type": "string", "minLength": 1, "maxLength": 400 }
+  }
+}

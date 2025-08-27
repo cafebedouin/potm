@@ -21,7 +21,7 @@ license: CC0-1.0
   "required": ["action","n"],
   "properties": {
     "action": { "const": "pick" },
-    "source": { "type": "string", "default": "default_test" },
+    "source": { "type": "string", "default": "default" },
     "n":      { "type": "integer", "minimum": 1 },
     "index":  { "type": "integer", "minimum": 1 },
     "tags": {

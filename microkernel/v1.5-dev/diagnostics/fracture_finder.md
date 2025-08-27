@@ -19,6 +19,11 @@ record: true # optional extension; honored by kernel logging if enabled
 > *"There is a crack in everything. That's how the light gets in."*  
 > — Leonard Cohen  
 
+**FRACTURE_FINDER.stub (P1)**
+
+See authoritative stub definitions in `kernel/60_meta_tools.md` (Inline Stubs, P1).
+This file provides extended reference only; runtime behavior is governed by the kernel stubs.
+
 ---
 
 ## Purpose

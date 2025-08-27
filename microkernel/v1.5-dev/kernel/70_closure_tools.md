@@ -15,3 +15,17 @@
 - **Cautions:**
   - Don’t archive live tensions or paradoxes — hold them in `Waiting With Mode`
   - Use only when closure is safe
+
+### Waiting With Mode
+- **Definition:** An active containment state for unresolved paradoxes or tensions.  
+- **Purpose:** Prevents premature closure by holding material safely until re-entry criteria are met.  
+- **Outputs:** `wait_reason`, `reentry_hint`.  
+- **Cautions:** Do not treat as passive stalling; requires explicit re-entry signal.
+
+Note: Waiting With Mode is not passive; requires an explicit re‑entry signal (reentry_hint).
+
+## Data Annexes (Presence Summary)
+- Mini Taxonomy (kernel, required for P1-MIN): [ANNEX:FRACTURE_TAXONOMY_MINI]
+- Full Taxonomy (diagnostics, P1-ALL): [ANNEX:FRACTURE_TAXONOMY] (if present)
+- Crosswalk (optional): [ANNEX:FRACTURE_CROSSWALK] (if present)
+- Meta-Unity (optional): [ANNEX:FRACTURE_META_UNITY] (if present)
