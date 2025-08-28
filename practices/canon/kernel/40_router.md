@@ -305,6 +305,23 @@ tool.call:
 - Caps evasion → router enforces global caps before tool validation  
 - Ambiguous tool id → strict `id` pattern + allow-list  
 
+## Latency Validation Hook
+
+Before emitting any routed output, the router must invoke the validator’s
+latency check (see `60_validator.md`). This ensures contract (85) is enforced
+in-flow.
+
+```pseudo
+result = validator.latency_check()
+
+if result == error:
+    halt
+    emit kernel.error { code: "E_LATENCY_INVARIANT" }
+elif result == warning:
+    emit [LATENCY WARNING] + normal response
+else:
+    continue → normal emission
+
 ---
 
 ## Versioning & Change Log

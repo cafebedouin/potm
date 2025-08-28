@@ -848,6 +848,23 @@ tool.call:
 - Caps evasion → router enforces global caps before tool validation  
 - Ambiguous tool id → strict `id` pattern + allow-list  
 
+## Latency Validation Hook
+
+Before emitting any routed output, the router must invoke the validator’s
+latency check (see `60_validator.md`). This ensures contract (85) is enforced
+in-flow.
+
+```pseudo
+result = validator.latency_check()
+
+if result == error:
+    halt
+    emit kernel.error { code: "E_LATENCY_INVARIANT" }
+elif result == warning:
+    emit [LATENCY WARNING] + normal response
+else:
+    continue → normal emission
+
 ---
 
 ## Versioning & Change Log
@@ -1135,8 +1152,107 @@ recap_validator:
 | extra keys present in payload                  | `error.signal { code: "invalid_payload" }`  |
 ```
 
+Alright — here’s the **drop-in diff for `60_validator.md`** so it enforces the latency contract. I’ve kept it in the same structural style as the rest of your kernel docs.
+
 ---
+
+## Latency Contract Enforcement
+
+The validator enforces the latency contract (see `85_latency_contract.md`) by
+checking that `meta_locus.latency_mode` is valid and that only permitted checks
+are running for the declared mode.
+
+### Mode Validity
+
+```pseudo
+assert meta_locus.latency_mode in {lite, standard, strict}
+````
+
+* If the field is missing or invalid → `tool.error { code: "E_LATENCY_MODE" }`.
+
+### Fast-Path Invariant
+
+* In all modes, the **only checks** allowed every turn are:
+
+  * `agreement.accepted`
+  * `validator.stub`
+
+* Any additional heavy checks:
+
+  * In `lite` → `tool.error { code: "E_LATENCY_INVARIANT" }`
+  * In `standard` → `tool.warn { code: "W_LATENCY_EXTRA" }`
+  * In `strict` → permitted
+
+### Timing Bounds (stub)
+
+When runtime execution time is available, compare observed latency to contract ceilings:
+
+| Mode     | p50 Target | p95 Ceiling |
+| -------- | ---------- | ----------- |
+| lite     | ≤ 2s       | ≤ 4s        |
+| standard | ≤ 4s       | ≤ 6s        |
+| strict   | ≤ 8s       | ≤ 12s       |
+
+```pseudo
+if observed_latency > ceiling_for(meta_locus.latency_mode):
+    tool.warn { code: "W_LATENCY_BREACH", detail: observed_latency }
+```
+
+* The validator must **log breaches** to `ledger_buffer` for later diagnostic review.
+* Enforcement escalates to `tool.error` only if latency mode is `lite` and ceiling is exceeded.
+
+```
+Yes — that’s **correct** and nicely tightened up. A couple of very small refinements you might consider for clarity and ordering:
+
 ---
+
+### 🔹 Suggested ordering of checks
+
+It’s conventional in validators to check *type/class* before *value*. So you might flip the `false breach` check to the end, after the asserts:
+
+```pseudo
+assert meta.mode in {lite, standard, strict}
+assert is_number(meta.observed_latency) and meta.observed_latency > 0
+assert is_number(meta.ceiling) and meta.ceiling > 0
+assert meta.severity in {warning, error}
+
+if meta.observed_latency <= meta.ceiling:
+    tool.warn { code: "W_LATENCY_FALSE_BREACH" }
+```
+
+That way you don’t run a numeric comparison before you’ve established the values are valid numbers.
+
+---
+
+### 🔹 Codes consistency
+
+* `E_LATENCY_INVARIANT` → correct for hard schema violations.
+* `W_LATENCY_FALSE_BREACH` → a good addition; it distinguishes *bad data* (error) from *misclassified event* (warning).
+
+---
+
+## Ledger Entry Invariants — Latency Breach
+
+If a `ledger_buffer` entry has `type: latency_breach`, the following fields
+in `meta` are mandatory:
+
+```pseudo
+assert meta.mode in {lite, standard, strict}
+assert is_number(meta.observed_latency) and meta.observed_latency > 0
+assert is_number(meta.ceiling) and meta.ceiling > 0
+assert meta.severity in {warning, error}
+
+if meta.observed_latency <= meta.ceiling:
+    tool.warn { code: "W_LATENCY_FALSE_BREACH" }
+```
+
+* Missing or invalid fields →
+  `tool.error { code: "E_LATENCY_INVARIANT", detail: "invalid breach entry" }`
+
+* Entries that satisfy invariants →
+  accepted into `ledger_buffer` via `move.record_ledger` or `move.log_latency_breach`.
+
+------
 id: potm.kernel.state.v1_6_dev
 title: "70_state"
 display_title: "State — Session State & Locus"
@@ -1178,22 +1294,26 @@ Holds session flags and review queue used for gating and diagnostics.
 ```yaml
 meta_locus:
   accepted:      true|false       # has entry gate been accepted?
+  containment:   true|false       # is containment mode enabled?
+  review_queue:  []               # array of fracture ids pending review
+  latency_mode:  lite|standard|strict  # current latency contract mode
   # derived (normative): fracture_active := (len(review_queue) > 0)
   # MUST NOT be stored; any read computes it from `review_queue`.
-  containment:    true|false      # is containment mode enabled?
-  review_queue:   []              # array of fracture ids pending review
 ```
 
 - additionalProperties: false  
-- initial state:  
-  accepted: false  
-  containment: false  
-  review_queue: []  
+- initial state:
+
+  accepted: false
+  containment: false
+  review_queue: []
+  latency_mode: standard   # default
 
 #### Invariants
 
-- `accepted` may transition only false → true   # exit ends the session; kernel does not flip it back
-- `containment` may enable only if `len(review_queue) > 0`; auto-disable when queue becomes empty
+- `accepted` may transition only false → true.
+- `containment` may enable only if `len(review_queue) > 0`; auto-disable when queue becomes empty.
+- `latency_mode` must always be one of {lite, standard, strict}; default is `standard`.
 
 ### ledger_buffer
 
@@ -1204,10 +1324,14 @@ recording artifacts, moves, and optional exports.
 ledger_buffer:
   - entry_id: "<uuid>"
     ts: "2025-08-26T15:04:05Z"
-    type:  "move|artifact|export"
-    ref:   "<artifact_ref|null>"
-    meta?:                         # optional metadata
-      tool_call: { id: "...", payload: { ... } }
+    type: "move|artifact|export|latency_breach"
+    ref: "<artifact_ref|null>"    # always allowed, often null for breach
+    meta?:                        # optional metadata, depends on type
+      tool_call?: { id: "...", payload: { ... } }     # for move records
+      mode?: "lite|standard|strict"                   # for latency_breach
+      observed_latency?: 5.3                          # in seconds
+      ceiling?: 4.0                                   # in seconds
+      severity?: "warning|error"                      # for latency_breach
 ```
 
 - additionalProperties: false  
@@ -1220,27 +1344,44 @@ ledger_buffer:
 
 Tools interact with state only via these contracts:
 
-| Operation        | Tool namespace     | Effect                                |
-| ---------------- | ------------------ | ------------------------------------- |
-| Read meta_locus  | lens.locus_status     | Returns full `meta_locus` snapshot          |
-| Accept entry     | move.accept_entry     | Sets `accepted=true` (one-way)              |
-| Set containment  | move.set_containment  | Sets `containment` under invariants         |
-| Enqueue review   | move.open_fracture    | Adds id to `review_queue` (dedup)           |
-| Dequeue review   | move.close_review     | Removes id; if queue empty → containment=F  |
-| Append ledger    | move.record_ledger    | Appends entry to `ledger_buffer`            |
+| Operation          | Tool namespace            | Effect                                                         |
+| ------------------ | ------------------------- | -------------------------------------------------------------- |
+| Read meta_locus    | lens.locus_status         | Returns full `meta_locus` snapshot                             |
+| Read latency state | lens.latency_status       | Returns current `latency_mode` and most recent breach metadata |
+| Accept entry       | move.accept_entry         | Sets `accepted=true` (one-way)                                 |
+| Set containment    | move.set_containment      | Sets `containment` under invariants                            |
+| Set latency mode   | move.set_latency_mode     | Sets `latency_mode` under invariants                           |
+| Enqueue review     | move.open_fracture        | Adds id to `review_queue`                                      |
+| Dequeue review     | move.close_review         | Removes id; auto-disables containment if queue empty           |
+| Append ledger      | move.record_ledger        | Appends entry to `ledger_buffer`                               |
+| Log latency breach | move.log_latency_breach   | Appends structured `latency_breach` entry to `ledger_buffer`   |
 
 All write operations validate against invariants and fail-closed on violations.
+
+## Behavior (latency_status lens)
+
+- **mode** → always returns the current value of `meta_locus.latency_mode`.  
+- **last_breach** →  
+  - `null` if no breaches recorded  
+  - otherwise returns the most recent `latency_breach` entry in `ledger_buffer`  
+
+This lens does not modify state. Pure read.
 
 ---
 
 ## Failure Modes (errors)
 
-| Condition                               | Emission                                     |
-| --------------------------------------- | -------------------------------------------- |
-| Attempt to reset `accepted` true → false| `tool.error { code: "E_INVARIANT" }`        |
-| Enable `containment` when queue empty   | `tool.error { code: "E_PRECONDITION" }`      |
-| Invalid `review_queue` item type        | `tool.error { code: "E_INVARIANT" }`         |
-| Ledger append when buffer full          | `tool.error { code: "E_QUOTA" }`             |
+| Condition                                      | Emission                                     |
+| ---------------------------------------------- | -------------------------------------------- |
+| Attempt to reset `accepted` true → false       | `tool.error { code: "E_INVARIANT" }`        |
+| Enable `containment` when queue empty          | `tool.error { code: "E_PRECONDITION" }`      |
+| Invalid `review_queue` item type               | `tool.error { code: "E_INVARIANT" }`         |
+| Ledger append when buffer full                 | `tool.error { code: "E_QUOTA" }`             |
+| Invalid `mode` not in {lite, standard, strict} | `tool.error { code: "E_LATENCY_MODE" }`      |
+| Negative or non-numeric latency                | `tool.error { code: "E_PAYLOAD" }`           |
+| Severity not in {warning, error}               | `tool.error { code: "E_LATENCY_INVARIANT" }` |
+| `latency_mode` missing/invalid                 | `tool.error { code: "E_LATENCY_MODE" }`      |
+| Ledger empty / no breaches                     | `{ "mode": <current>, "last_breach": null }` |
 
 ---
 
@@ -1269,11 +1410,41 @@ tool.call:
 tool.call:
   id: "move.record_ledger"
   payload:
-    entry_id: "uuid-abc"
-    ts: "2025-08-26T15:10:00Z"
-    type: "artifact"
-    ref:  "#inline:artifact123"
+    entry_id: "<uuid>"
+    ts: "2025-08-28T15:04:05Z"
+    type: "latency_breach"
+    ref: null
+    meta:
+      mode: "lite|standard|strict"
+      observed_latency: 5.3   # in seconds
+      ceiling: 4.0            # in seconds
+      severity: "warning|error"
+# → ledger_buffer += { type: "latency_breach", meta:{...} }
 ```
+
+**4) Set latency mode***
+
+```yaml
+tool.call:
+  id: "move.set_latency_mode"
+  payload: { mode: "lite" }
+# → meta_locus.latency_mode == "lite"
+```
+
+**5) Log latency breach**
+```yaml
+tool.call:
+  id: "move.log_latency_breach"
+  payload:
+    entry_id: "uuid-xyz"
+    ts: "2025-08-28T15:15:00Z"
+    mode: "standard"
+    observed_latency: 7.1
+    ceiling: 6.0
+    severity: "warning"
+# → ledger_buffer += { type: "latency_breach", meta:{...} }
+```
+
 ---
 
 ## Notes & References
@@ -1547,6 +1718,100 @@ tool.call:
 
 ```
 ---
+---
+id: potm.kernel.latency_contract.v1_0
+title: latency_contract
+display_title: "Latency Contract"
+type: kernel_component
+status: stable
+version: 1.0
+stability: core
+relations:
+  supersedes: []
+  superseded_by: []
+interfaces: [agreement, validator, fracture_finder, mirror, guardian, lens.latency_status]
+applicability: [P1, P2, P3]
+intensity: medium
+tags: [kernel, latency, contract, performance]
+author: practitioner
+license: CC0-1.0
+---
+
+# Latency Contract (85)
+
+## Purpose
+To define **operating guarantees** for responsiveness in PoTM kernel execution.  
+Practitioners must not be forced into multi-minute waits.  
+Latency rules are **binding invariants**, not optional optimizations.  
+
+---
+
+## Service Level Objectives (SLOs)
+
+| Mode      | p50 Target | p95 Ceiling | Notes |
+|-----------|------------|-------------|-------|
+| **Lite**      | ≤ 2s       | ≤ 4s        | Onboarding, everyday dialogue |
+| **Standard**  | ≤ 4s       | ≤ 6s        | Default practice; moderate checks allowed |
+| **Strict**    | ≤ 8s       | ≤ 12s       | All tripwires active; practitioner explicitly opts in |
+
+---
+
+## Fast-Path Invariants
+
+Only these checks run **every single turn**, across all modes:
+
+1. **Agreement Accepted** — contract still intact.  
+2. **Validator.stub** — schema + cheap invariants.  
+
+Everything else must be gated by **mode** or **trigger**.  
+
+---
+
+## Cadence Rules
+
+- **Fracture Finder** → every 5 turns or when epistemic load escalates.  
+- **Mirror Protocol** → periodic (default every 10 turns) or on practitioner request.  
+- **Guardian Tripwires** → only in `strict` unless triggered by high-risk cues.  
+- **BS-Detect** → never automatic; only `strict` or by explicit practitioner cue.  
+
+---
+
+## Observability
+
+Compliance with this contract must be externally checkable.  
+The kernel exposes a dedicated read-only lens:
+
+- `lens.latency_status` → returns the current `latency_mode` and the most recent
+  `latency_breach` entry from `ledger_buffer`.
+
+Example:
+
+```yaml
+tool.call:
+  id: "lens.latency_status"
+  payload: {}
+# → { "mode": "standard",
+#      "last_breach": {
+#         "ts": "2025-08-28T15:15:00Z",
+#         "observed_latency": 7.1,
+#         "ceiling": 6.0,
+#         "severity": "warning"
+#       } }
+```
+
+---
+
+## Exception Handling
+
+- **Integrity Overrides Performance**: If a red-level dignity or containment breach is suspected, SLOs may be violated.  
+- **Practitioner Consent**: Escalation to `strict` must be explicit.  
+- **Disclosure**: If latency exceeds SLO ceilings, system must announce cause (“Running extended fracture audit…”).  
+
+---
+
+## Versioning & Change Log
+- **v1.0 (2025-08-28)** — Initial draft, integrated into kernel canon as 85.  
+
 ---
 id: potm.kernel.policy.v1_0_dev
 title: "90_policy"
@@ -1994,3 +2259,116 @@ tool.index:
 
 ---
 
+---
+id: potm.diagnostic.latency.v1_0
+title: latency_diagnostic
+display_title: "Latency Diagnostic"
+type: diagnostic
+status: stable
+version: 1.0
+stability: experimental
+relations:
+  supersedes: []
+  superseded_by: []
+tags: [diagnostic, latency, performance, kernel]
+interfaces: [lens.latency_status, validator]
+author: practitioner
+license: CC0-1.0
+---
+
+# Latency Diagnostic
+
+## Purpose
+To **measure and profile execution time** of kernel components, protocols, and diagnostics in order to identify bottlenecks.  
+This diagnostic supports enforcement of the **Latency Contract (85)** by revealing which subsystems exceed the service level objectives (SLOs).  
+
+---
+
+## When to Run
+- After integrating new kernel/protocol code.  
+- When observed latency approaches or exceeds SLO ceilings.  
+- Periodically (e.g. once per release cycle) as part of extended self-diagnostic routines.  
+
+---
+
+## Inputs
+
+- Current kernel mode (`lite`, `standard`, `strict`), read from `meta_locus.latency_mode`.
+- Observed timing data captured per turn or per invocation.
+- **Lens feed:** `lens.latency_status` is the canonical source for:
+  - Current `latency_mode`
+  - Most recent `latency_breach` entry in `ledger_buffer`
+
+---
+
+## Procedure
+1. **Instrument** each major component (agreement, validator, fracture_finder, mirror, guardian, bs_detect).
+2. **Record runtime** for each invocation in milliseconds/seconds, and query
+   `lens.latency_status` to cross-check the current mode and most recent breach.
+3. **Aggregate** timing data by:
+   - p50 (median)  
+   - p95 (worst-case ceiling)  
+   - outliers (any run >2× SLO target).  
+4. **Compare** against Latency Contract SLOs.  
+5. **Classify** each component as:
+   - ✅ within bounds,  
+   - ⚠ borderline,  
+   - ❌ violating.  
+6. **Log results** into the extended diagnostics ledger.  
+
+---
+
+## Decision Rules
+- If any ❌ component is core (agreement, validator) →
+
+## Artifacts
+
+- Latency profile table (per component).
+- Comparative report vs. Latency Contract (85).
+- Suggested cadence adjustments.
+- Extract from `lens.latency_status` showing mode and last breach at time of run.
+
+Great — here’s a **mock diagnostic output table** you can drop at the end of
+`extended/diagnostics/latency_diagnostic.md` under **Examples**.
+It shows how a run would look if you queried `lens.latency_status`, timed a few checks, and compared against the contract.
+
+---
+
+## Examples
+
+### Example Run (2025-08-28)
+
+**lens.latency_status**
+
+```yaml
+{
+  "mode": "standard",
+  "last_breach": {
+    "ts": "2025-08-28T15:15:00Z",
+    "observed_latency": 7.1,
+    "ceiling": 6.0,
+    "severity": "warning"
+  }
+}
+````
+
+**Component Timing Profile**
+
+| Component          | Median (p50) | 95th (p95) | Contract Ceiling | Status                          |
+| ------------------ | ------------ | ---------- | ---------------- | ------------------------------- |
+| agreement.accepted | 0.01s        | 0.02s      | ≤ 6s             | ✅ within bounds                 |
+| validator.stub     | 0.12s        | 0.20s      | ≤ 6s             | ✅ within bounds                 |
+| fracture\_finder   | 1.5s         | 4.8s       | ≤ 6s             | ⚠ borderline (close to ceiling) |
+| mirror\_protocol   | 2.1s         | 7.1s       | ≤ 6s             | ❌ breach (logged to ledger)     |
+| guardian check     | 1.8s         | 3.5s       | ≤ 6s             | ✅ within bounds                 |
+
+**Summary**
+
+* **1 warning** (`fracture_finder` borderline at 4.8s).
+* **1 breach** (`mirror_protocol` exceeded 6s ceiling, logged via `move.log_latency_breach`).
+* Latency mode = `standard`.
+* Contract SLO (≤ 6s p95) violated once; router emitted `W_LATENCY_BREACH`.
+
+```
+
+---
