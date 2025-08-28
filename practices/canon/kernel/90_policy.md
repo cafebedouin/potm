@@ -48,13 +48,34 @@ These caps are enforced by `policy.*` tools and referenced by other specs.
 
 ```yaml
 policy.cap:
-  ledger_max:         512   # max entries in ledger_buffer
-  diff_log_max:       400   # chars for closure.spiral.result.diff_log
-  summary_max:        320   # chars for closure.archive.result.summary
-  takeaways_max:      240   # chars for closure.archive.result.takeaways
-  wait_reason_max:    256   # chars for closure.waiting_with.payload.wait_reason
-  reentry_hint_max:    64   # chars for closure.waiting_with.payload.reentry_hint
+  ledger_max:         512
+  diff_log_max:       400
+  summary_max:        320
+  takeaways_max:      240
+  wait_reason_max:    256
+  reentry_hint_max:    64
+
+  recap:
+    max_items:        10    # hard cap; default 5
+    max_words_line:   32    # hard cap; default 24
+
+  latency:
+    lite:     { p50: 2, p95: 4 }
+    standard: { p50: 4, p95: 6 }
+    strict:   { p50: 8, p95: 12 }
+
 ```
+---
+
+## Cap Resolver (pure helper)
+
+Resolves latency ceilings (and other numeric caps) from `policy.cap`.  
+Not a tool, but a deterministic internal function used by validators.
+
+```pseudo
+function ceiling_for(mode: string) -> number:
+    assert mode in {"lite","standard","strict"}
+    return policy.cap.latency[mode].p95
 
 ---
 
@@ -80,8 +101,9 @@ policy.targets:
   - "archive.archive_status"
   - "waiting_with.wait_reason"
   - "waiting_with.reentry_hint"
-  - "ledger.append"          # capacity check (no value needed)
-  - "export.request"         # always blocked in-kernel
+  - "ledger.append"
+  - "export.request"
+  - "recap.export"        # recap packets are blocked unless explicit override
 ```
 
 ---
@@ -174,11 +196,23 @@ policy.targets:
 
 ## Failure Modes (router-aligned)
 
-| condition                               | emission code    |
-| --------------------------------------- | ---------------- |
-| payload fails schema                    | `E_PAYLOAD`      |
-| precondition not met (`accepted=false`) | `E_PRECONDITION` |
-| ledger append during enforce hits cap   | `E_QUOTA`        |
+| condition                               | emission code            |
+| --------------------------------------- | ------------------------ |
+| payload fails schema                    | `E_PAYLOAD`              |
+| precondition not met (`accepted=false`) | `E_PRECONDITION`         |
+| ledger append during enforce hits cap   | `E_QUOTA`                |
+| invalid or missing `latency_mode`       | `E_LATENCY_MODE`         |
+| latency contract invariant violation    | `E_LATENCY_INVARIANT`    |
+| extra heavy checks in standard mode     | `W_LATENCY_EXTRA`        |
+| observed latency exceeded mode ceiling  | `W_LATENCY_BREACH`       |
+| false breach (latency ≤ ceiling)        | `W_LATENCY_FALSE_BREACH` |
+
+Notes:
+
+* Router errors (E_BAD_ENVELOPE, E_UNKNOWN_ID) never come from validators or policy.
+* Validators enforce payload schema only → E_PAYLOAD, E_INVARIANT.
+* Policy raises V_* codes and advisory decision outcomes.
+* Export guard for recap is unified under policy.targets: recap.export.
 
 ---
 
@@ -411,7 +445,11 @@ policy.cap.table:
   archive.takeaways:         { cap_key: takeaways_max,    rule: clamp }
   archive.archive_status:    { cap_key: null,             rule: enum }       # enum handled by caller
   waiting_with.wait_reason:  { cap_key: wait_reason_max,  rule: clamp }
-  waiting_with.reentry_hint:
+  waiting_with.reentry_hint: { cap_key: reentry_hint_max, rule: clamp }
+  recap.include:             { cap_key: null,             rule: enum }   # six known fields only
+  recap.max_items:           { cap_key: recap.max_items,  rule: range }  # ≤10
+  recap.max_words_line:      { cap_key: recap.max_words_line, rule: range } # ≤32
+  recap.export:              { cap_key: null,             rule: block }
 
 ---
 
