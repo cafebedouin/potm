@@ -1,0 +1,24 @@
+{
+  "$id": "potm.kernel.canary.report.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "canary.report — Payload",
+  "type": "object",
+  "required": ["signal", "severity"],
+  "additionalProperties": false,
+  "properties": {
+    "signal": {
+      "type": "string",
+      "enum": ["schema_near_miss", "unusual_latency", "drift_pattern", "unknown"],
+      "description": "Category of anomaly detected"
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["warning", "error"],
+      "description": "Severity classification of the anomaly"
+    },
+    "details": {
+      "type": "string",
+      "description": "Optional freeform detail about the anomaly"
+    }
+  }
+}

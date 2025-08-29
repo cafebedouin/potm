@@ -1,0 +1,41 @@
+{
+  "$id": "potm.kernel.lens.escalation_status.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens.escalation_status — Result",
+  "type": "object",
+  "required": ["last_source", "last_tier", "last_action", "mode_profile", "last_change", "history_count"],
+  "additionalProperties": false,
+  "properties": {
+    "last_source": {
+      "type": ["string", "null"],
+      "enum": ["validator", "latency", "canary", "policy", "other", null],
+      "description": "Most recent escalation trigger, or null if none"
+    },
+    "last_tier": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Most recent gate tier reached, or null if none"
+    },
+    "last_action": {
+      "type": ["string", "null"],
+      "enum": ["none", "escalate_profile", "fracture_trigger", "containment", null],
+      "description": "Most recent action taken, or null if none"
+    },
+    "mode_profile": {
+      "type": "string",
+      "enum": ["lite", "standard", "strict"],
+      "description": "Mode profile active after the last escalation event"
+    },
+    "last_change": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of the last escalation event"
+    },
+    "history_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of escalation events recorded this session"
+    }
+  }
+}

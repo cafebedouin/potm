@@ -1,0 +1,34 @@
+{
+  "$id": "potm.kernel.canary.report.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "canary.report — Result",
+  "type": "object",
+  "required": ["signal", "severity", "mode_profile", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "signal": {
+      "type": "string",
+      "enum": ["schema_near_miss", "unusual_latency", "drift_pattern", "unknown"],
+      "description": "Anomaly category echoed back"
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["warning", "error"],
+      "description": "Severity echoed back"
+    },
+    "mode_profile": {
+      "type": "string",
+      "enum": ["lite", "standard", "strict"],
+      "description": "Mode profile active at time of canary emission"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of the canary event"
+    },
+    "ledger_entry_id": {
+      "type": "string",
+      "description": "UUID of the corresponding ledger entry"
+    }
+  }
+}

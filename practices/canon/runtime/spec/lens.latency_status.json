@@ -1,0 +1,13 @@
+tool.call:
+  id: "lens.latency_status"
+  payload: {}
+# → returns
+{
+  "mode": "standard",
+  "last_breach": {
+    "ts": "2025-08-28T15:15:00Z",
+    "observed_latency": 7.1,
+    "ceiling": 6.0,
+    "severity": "warning"
+  }
+}

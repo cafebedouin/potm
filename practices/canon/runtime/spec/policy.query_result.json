@@ -1,0 +1,43 @@
+{
+  "$id": "potm.kernel.policy.query.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "policy.query result",
+  "type": "object",
+  "required": ["decision", "violations"],
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": ["allow", "revise", "block"]
+    },
+    "violations": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["code", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "V_FIELD_TOO_LONG",
+              "V_LEDGER_CAP",
+              "V_EXPORT_DISABLED",
+              "V_UNKNOWN_TARGET",
+              "V_UNSAFE_ACTION"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 256
+          }
+        }
+      }
+    },
+    "suggest": {
+      "type": "string",
+      "maxLength": 2000
+    }
+  }
+}

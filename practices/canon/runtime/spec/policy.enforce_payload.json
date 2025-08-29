@@ -1,0 +1,17 @@
+{
+  "$id": "potm.kernel.policy.enforce.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "policy.enforce payload",
+  "type": "object",
+  "required": ["target"],
+  "additionalProperties": false,
+  "properties": {
+    "target": {
+      "$ref": "potm.kernel.policy.query.payload.v1#/properties/target"
+    },
+    "value": {
+      "type": "string",
+      "maxLength": 2000
+    }
+  }
+}
