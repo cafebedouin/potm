@@ -1,0 +1,35 @@
+{
+  "$id": "potm.kernel.lens.canary_status.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens.canary_status — Result",
+  "type": "object",
+  "required": ["last_signal", "last_severity", "mode_profile", "last_change"],
+  "additionalProperties": false,
+  "properties": {
+    "last_signal": {
+      "type": ["string", "null"],
+      "enum": ["schema_near_miss", "unusual_latency", "drift_pattern", "unknown", null],
+      "description": "Most recent canary anomaly detected, or null if none"
+    },
+    "last_severity": {
+      "type": ["string", "null"],
+      "enum": ["warning", "error", null],
+      "description": "Severity of the last canary anomaly, or null if none"
+    },
+    "mode_profile": {
+      "type": "string",
+      "enum": ["lite", "standard", "strict"],
+      "description": "Mode profile active when the last anomaly was detected"
+    },
+    "last_change": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of the most recent canary emission"
+    },
+    "history_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of canary events recorded this session"
+    }
+  }
+}

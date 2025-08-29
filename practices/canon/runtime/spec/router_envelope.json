@@ -1,0 +1,34 @@
+{
+  "$id": "potm.kernel.router.envelope.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "router envelope",
+  "type": "object",
+  "required": ["tool.call"],
+  "additionalProperties": false,
+  "properties": {
+    "tool.call": {
+      "type": "object",
+      "required": ["id", "payload"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "request_id": { "type": "string", "format": "uuid" },
+            "trace": { "type": "boolean", "default": false },
+            "origin": { "type": "string", "maxLength": 64 }
+          }
+        }
+      }
+    }
+  }
+}

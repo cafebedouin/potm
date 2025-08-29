@@ -1,0 +1,14 @@
+{
+  "$id": "potm.kernel.policy.report.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "policy.report payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scope": {
+      "type": "string",
+      "enum": ["session"],
+      "default": "session"
+    }
+  }
+}

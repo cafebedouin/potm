@@ -1,0 +1,34 @@
+{
+  "$id": "potm.kernel.recap.validator.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "recap.validator payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "include": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "summary",
+          "open_questions",
+          "next_hints",
+          "last_moves",
+          "flags",
+          "ledger_refs"
+        ]
+      },
+      "maxItems": 10
+    },
+    "max_items": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "max_words_line": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 32
+    }
+  }
+}

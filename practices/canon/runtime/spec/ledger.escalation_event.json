@@ -1,0 +1,71 @@
+{
+  "$id": "potm.kernel.ledger.escalation_event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ledger Entry — Escalation Event",
+  "type": "object",
+  "required": ["entry_id", "ts", "type", "ref", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "entry_id": {
+      "type": "string",
+      "description": "Unique identifier for this ledger entry (UUID)"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of escalation"
+    },
+    "type": {
+      "type": "string",
+      "const": "escalation_event",
+      "description": "Discriminator identifying this ledger entry type"
+    },
+    "ref": {
+      "type": ["string", "null"],
+      "description": "Optional artifact reference, usually null"
+    },
+    "meta": {
+      "type": "object",
+      "required": ["escalation_event"],
+      "additionalProperties": false,
+      "properties": {
+        "escalation_event": {
+          "type": "object",
+          "required": ["source", "tier", "action", "mode_profile"],
+          "additionalProperties": false,
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": ["validator", "latency", "canary", "policy", "other"],
+              "description": "What triggered the escalation"
+            },
+            "tier": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4,
+              "description": "Gate tier reached"
+            },
+            "action": {
+              "type": "string",
+              "enum": ["none", "escalate_profile", "fracture_trigger", "containment"],
+              "description": "Action taken"
+            },
+            "mode_profile": {
+              "type": "string",
+              "enum": ["lite", "standard", "strict"],
+              "description": "Profile active after escalation"
+            },
+            "details": {
+              "type": "string",
+              "description": "Optional details about the event"
+            },
+            "quota_exceeded": {
+              "type": "boolean",
+              "description": "True if escalation_max cap was reached and this entry records the quota breach"
+            }
+          }
+        }
+      }
+    }
+  }
+}

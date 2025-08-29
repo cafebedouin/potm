@@ -1,0 +1,28 @@
+{
+  "$id": "potm.extended.diagnostic.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generic Diagnostic Result",
+  "type": "object",
+  "required": ["id", "mode", "summary", "findings"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "maxLength": 128 },
+    "mode": { "type": "string", "enum": ["lite", "standard", "strict"] },
+    "summary": { "type": "string", "maxLength": 1000 },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ts", "component", "status", "severity"],
+        "additionalProperties": false,
+        "properties": {
+          "ts": { "type": "string", "pattern": "^[0-9TZ:.-]+Z$" },
+          "component": { "type": "string", "maxLength": 64 },
+          "status": { "type": "string", "enum": ["ok", "warning", "error"] },
+          "severity": { "type": "string", "enum": ["info", "warning", "error"] },
+          "detail": { "type": "string", "maxLength": 500 }
+        }
+      }
+    }
+  }
+}

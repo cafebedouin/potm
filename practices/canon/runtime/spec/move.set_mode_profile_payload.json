@@ -1,0 +1,15 @@
+{
+  "$id": "potm.kernel.move.set_mode_profile.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.set_mode_profile — Payload",
+  "type": "object",
+  "required": ["mode"],
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": ["lite", "standard", "strict"],
+      "description": "Desired mode profile"
+    }
+  }
+}

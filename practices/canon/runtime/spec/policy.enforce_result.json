@@ -1,0 +1,28 @@
+
+{
+  "$id": "potm.kernel.policy.enforce.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "policy.enforce result",
+  "type": "object",
+  "required": ["decision", "violations"],
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": ["allow", "revise", "block"]
+    },
+    "violations": {
+      "$ref": "potm.kernel.policy.query.result.v1#/properties/violations"
+    },
+    "value_out": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "cap": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000
+    }
+  }
+}
+

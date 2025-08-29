@@ -1,0 +1,30 @@
+{
+  "$id": "potm.kernel.escalation.event.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "escalation.event — Payload",
+  "type": "object",
+  "required": ["source", "tier", "action"],
+  "additionalProperties": false,
+  "properties": {
+    "source": {
+      "type": "string",
+      "enum": ["validator", "latency", "canary", "policy", "other"],
+      "description": "What triggered the escalation evaluation"
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Gate tier reached (1=accumulation, 4=containment)"
+    },
+    "action": {
+      "type": "string",
+      "enum": ["none", "escalate_profile", "fracture_trigger", "containment"],
+      "description": "Action taken by the gate"
+    },
+    "details": {
+      "type": "string",
+      "description": "Optional freeform description of the triggering condition"
+    }
+  }
+}

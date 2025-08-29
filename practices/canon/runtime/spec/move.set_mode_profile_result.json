@@ -1,0 +1,25 @@
+{
+  "$id": "potm.kernel.move.set_mode_profile.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.set_mode_profile — Result",
+  "type": "object",
+  "required": ["mode", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": ["lite", "standard", "strict"],
+      "description": "Mode profile now active in meta_locus"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of mode switch"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["handshake", "manual", "escalation"],
+      "description": "What triggered the profile change"
+    }
+  }
+}
