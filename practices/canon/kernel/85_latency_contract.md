@@ -1,105 +1,141 @@
+Perfect — here’s a clean **`85_latency_validator.md v1.0.0`** that pulls the latency enforcement logic out of the corrupted `60_recap_validator.md` and gives it its own stable home. It follows the same kernel doc style you’ve used elsewhere.
+
 ---
-id: potm.kernel.latency_contract.v1_0
-title: latency_contract
-display_title: "Latency Contract"
-type: kernel_component
-status: stable
-version: 1.0
-stability: core
-relations:
-  supersedes: []
-  superseded_by: []
-interfaces: [agreement, validator, fracture_finder, mirror, guardian, lens.latency_status]
-applicability: [P1, P2, P3]
-intensity: medium
-tags: [kernel, latency, contract, performance]
+
+````markdown
+---
+id: potm.kernel.latency_validator.v1_0
+title: "85_latency_validator"
+display_title: "Latency — Contract Validator (P1)"
+type: kernel
+lifecycle: canon
+version: 1.0.0
+status: active
+stability: stable
+summary: >-
+  Validates adherence to latency mode contract. Ensures mode is valid,
+  checks permitted checks per mode, and enforces p50/p95 ceilings
+  from `policy.cap.latency`.
 author: practitioner
 license: CC0-1.0
 ---
 
-# Latency Contract (85)
+## Overview
 
-## Purpose
-To define **operating guarantees** for responsiveness in PoTM kernel execution.  
-Practitioners must not be forced into multi-minute waits.  
-Latency rules are **binding invariants**, not optional optimizations.  
+This validator enforces the **latency contract** across all kernel turns.
 
----
-
-## Service Level Objectives (SLOs)
-
-| Mode      | p50 Target | p95 Ceiling | Notes |
-|-----------|------------|-------------|-------|
-| **Lite**      | ≤ `policy.cap.latency.lite.p50` (2s)  | ≤ `policy.cap.latency.lite.p95` (4s)   | Onboarding, everyday dialogue |
-| **Standard**  | ≤ `policy.cap.latency.standard.p50` (4s) | ≤ `policy.cap.latency.standard.p95` (6s) | Default practice; moderate checks allowed |
-| **Strict**    | ≤ `policy.cap.latency.strict.p50` (8s) | ≤ `policy.cap.latency.strict.p95` (12s) | All tripwires active; practitioner explicitly opts in |
+- scope: session-local only  
+- side effects: logs breaches to `ledger_buffer` via `move.log_latency_breach`  
+- failure mode: fail-closed (router halts dispatch on error)  
 
 ---
 
-## Fast-Path Invariants
+## Invocation (router contract)
 
-Only these checks run **every single turn**, across all modes:
-
-1. **Agreement Accepted** — contract still intact.  
-2. **Validator.stub** — schema + cheap invariants.  
-
-Everything else must be gated by **mode** or **trigger**.  
+Payload/Result schemas externalized:
+- `runtime/spec/latency.validator.payload.json`
+- `runtime/spec/latency.validator.result.json`
 
 ---
 
-## Cadence Rules
+## Schema (`latency_validator`)
 
-- **Fracture Finder** → every 5 turns or when epistemic load escalates.  
-- **Mirror Protocol** → periodic (default every 10 turns) or on practitioner request.  
-- **Guardian Tripwires** → only in `strict` unless triggered by high-risk cues.  
-- **BS-Detect** → never automatic; only `strict` or by explicit practitioner cue.  
+See `runtime/spec/latency.validator.payload.json`.
+
+* `latency_mode` must be valid.
+* `observed_latency` and `ceiling` must be positive numbers.
+* `severity` distinguishes warning vs. error handling.
+* Ceilings are resolved from `policy.cap.latency` (p95 per mode).
 
 ---
 
-## Observability
+## Contract Rules
 
-Compliance with this contract must be externally checkable.  
-The kernel exposes a dedicated read-only lens:
+### 1. Mode validity
 
-- `lens.latency_status` → returns the current `latency_mode` and the most recent
-  `latency_breach` entry from `ledger_buffer`.
+```pseudo
+assert meta_locus.latency_mode in {lite, standard, strict}
+```
 
-Example:
+If invalid →
+`tool.error { code: "E_LATENCY_MODE" }`
 
-```yaml
-tool.call:
-  id: "lens.latency_status"
-  payload: {}
-# → { "mode": "standard",
-#      "last_breach": {
-#         "ts": "2025-08-28T15:15:00Z",
-#         "observed_latency": 7.1,
-#         "ceiling": 6.0,
-#         "severity": "warning"
-#       } }
+---
+
+### 2. Fast-path invariant
+
+* In all modes, only these checks are always allowed:
+
+  * `agreement.accepted`
+  * `validator.stub`
+
+* Heavy checks:
+
+  * `lite` → forbidden → `tool.error { code: "E_LATENCY_INVARIANT" }`
+  * `standard` → discouraged → `tool.warn { code: "W_LATENCY_EXTRA" }`
+  * `strict` → permitted
+
+---
+
+### 3. Timing bounds
+
+```pseudo
+ceiling = policy.cap.latency[latency_mode].p95
+
+if observed_latency > ceiling:
+    if latency_mode == "lite":
+        tool.error { code: "E_LATENCY_INVARIANT", detail: observed_latency }
+        move.log_latency_breach { ts, mode: latency_mode,
+                                  observed_latency, ceiling, severity:"error" }
+    else:
+        tool.warn { code: "W_LATENCY_BREACH", detail: observed_latency }
+        move.log_latency_breach { ts, mode: latency_mode,
+                                  observed_latency, ceiling, severity:"warning" }
 ```
 
 ---
 
-## Exception Handling
+## Ledger Invariants — Latency Breach
 
-**Integrity Overrides Performance**: If a red-level dignity or containment breach is suspected, SLOs may be violated.  
+If a `ledger_buffer` entry has `type: latency_breach`, its `meta` must include:
 
-**Practitioner Consent**: Escalation to `strict` must be explicit.  
+```pseudo
+assert mode in {lite, standard, strict}
+assert is_number(observed_latency) and observed_latency > 0
+assert is_number(ceiling) and ceiling > 0
+assert severity in {warning, error}
+```
 
-**Disclosure**: If latency exceeds SLO ceilings, system must announce cause (“Running extended fracture audit…”).  
+If `observed_latency <= ceiling`:
+`tool.warn { code: "W_LATENCY_FALSE_BREACH" }`
 
-**Lite Mode Breaches**:  
-- In `lite`, any p95 exceedance is treated as a **hard error** (`E_LATENCY_INVARIANT`).  
-- The breach is logged in `ledger_buffer` with `severity:"error"`.  
-- Emission halts until the practitioner resets or escalates mode.  
+Invalid entries →
+`tool.error { code: "E_LATENCY_INVARIANT", detail:"invalid breach entry" }`
 
-**Standard/Strict Breaches**:  
-- In `standard` or `strict`, exceedances raise warnings (`W_LATENCY_BREACH`).  
-- Breaches are logged with `severity:"warning"`, but emission continues. 
+Valid entries →
+accepted into `ledger_buffer` via `move.log_latency_breach`.
 
 ---
 
-## Versioning & Change Log
-- **v1.0 (2025-08-28)** — Initial draft, integrated into kernel canon as 85.  
+## Failure Modes (router-aligned)
 
+| condition                             | emission code            |
+| ------------------------------------- | ------------------------ |
+| invalid or missing `latency_mode`     | `E_LATENCY_MODE`         |
+| invariant violated in `lite` mode     | `E_LATENCY_INVARIANT`    |
+| heavy check in `standard` mode        | `W_LATENCY_EXTRA`        |
+| latency ceiling exceeded (warn modes) | `W_LATENCY_BREACH`       |
+| false breach (≤ ceiling)              | `W_LATENCY_FALSE_BREACH` |
+| invalid ledger breach entry           | `E_LATENCY_INVARIANT`    |
+
+---
+
+## Notes
+
+* Ceilings are authoritative in `policy.cap.latency`.
+* Severity escalates only in `lite` mode.
+* Logging is mandatory for transparency; every breach must yield a ledger entry.
+
+```
+
+---

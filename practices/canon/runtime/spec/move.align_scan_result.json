@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.move.align_scan.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.align_scan result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "misalignment": { "type": "string", "maxLength": 2000 },
+    "suggestion": { "type": "string", "maxLength": 2000 }
+  },
+  "required": ["misalignment", "suggestion"]
+}
+

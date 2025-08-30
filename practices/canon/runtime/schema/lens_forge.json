@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_forge",
+  "description": "Schema for the Forge lens. Crafts new synthesis or candidate formulations.",
+  "type": "object",
+  "properties": {
+    "materials": {
+      "description": "Inputs or fragments to forge into a new synthesis.",
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["materials"],
+  "additionalProperties": false
+}

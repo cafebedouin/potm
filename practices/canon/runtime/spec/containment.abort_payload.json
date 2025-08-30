@@ -1,0 +1,24 @@
+{
+  "$id": "potm.kernel.containment.abort.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "containment.abort — Payload",
+  "description": "Abort containment mode under defined conditions.",
+  "type": "object",
+  "required": ["reason", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "reason": {
+      "type": "string",
+      "enum": [
+        "quota_exceeded",
+        "relational_drift",
+        "epistemic_drift",
+        "safety_risk",
+        "operator_revoked"
+      ]
+    },
+    "ts": { "type": "string", "format": "date-time" },
+    "details": { "type": "string" }
+  }
+}
+

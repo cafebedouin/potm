@@ -1,0 +1,10 @@
+{
+  "tool.call": {
+    "id": "policy.query",
+    "payload": {
+      "target": "archive.summary",
+      "value": "Short and sweet."
+    }
+  }
+}
+

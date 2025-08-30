@@ -1,0 +1,18 @@
+{
+  "$id": "potm.kernel.move.contrast.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.contrast result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "differences": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 2000 },
+      "minItems": 1,
+      "maxItems": 16
+    },
+    "key_point": { "type": "string", "maxLength": 2000 }
+  },
+  "required": ["differences", "key_point"]
+}
+

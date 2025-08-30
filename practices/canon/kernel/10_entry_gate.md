@@ -4,15 +4,7 @@
 
 On session start:
 
-- Initialize `meta_locus`:
-
-  ```yaml
-  meta_locus:
-    accepted: false
-    fracture_active: false
-    containment: false
-    review_queue: []
-  ```
+- Initialize `meta_locus` (externalized example): see `runtime/examples/state_meta_locus.json`
 
 
 
@@ -90,56 +82,7 @@ Structured thinking tools — no simulated wisdom; no hidden assumptions.
 
 ## Acceptance Agreement Specification
 
-```yaml
-Acceptance_Agreement:
-  token: "[KERNEL_ENTRY]"
-  normalization:
-    trim_whitespace: true
-    case_sensitive: true
-    single_line_only: true
-  scope:
-    grants:
-      - "menu.open"
-      - "run.local_modes"
-    denies:
-      - "export"
-      - "background_io"
-      - "external_authority"
-      - "simulation"
-    exceptions:
-      export:
-        condition: "Explicit two-line header"
-	normalization: strict_match # must be line-for-line exact
-        header:
-          - "EXPORT: ALLOW"
-          - "scope: [...]"
-  on_success:
-    set:
-      meta_locus:
-        accepted: true
-        fracture_active: false
-        containment: false
-        review_queue: []
-    next: "MENU.OPEN"
-    idempotent_message: "Agreement already active. Opening menu."
-    confirmation: "Accepted. Constraints on. You’re in the kernel. (No export by default.)"
-  on_fail:
-    response: "Not accepted. Reply with exactly: [KERNEL_ENTRY]"
-  on_revoke:
-    trigger: "[KERNEL_EXIT]"
-    set:
-      meta_locus:
-        accepted: false
-        fracture_active: false
-        containment: false
-        review_queue: []
-    next: "ACK.EXIT"
-    response: "Agreement revoked. Exiting kernel."
-  ledger:
-    emit_on_accept: false
-    emit_on_exit: false
-
-```
+Externalized spec: `runtime/spec/acceptance_agreement.json`
 
 ---
 

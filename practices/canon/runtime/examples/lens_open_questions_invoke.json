@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "lens.open_questions",
+    "payload": {
+      "topic": "fracture handling",
+      "max_items": 3
+    }
+  }
+}

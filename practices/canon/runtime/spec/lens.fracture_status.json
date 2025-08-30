@@ -1,0 +1,32 @@
+{
+  "$id": "potm.kernel.lens.fracture_status.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens.fracture_status — Result",
+  "type": "object",
+  "required": ["reviewQueueIds", "openCount", "containment"],
+  "additionalProperties": false,
+  "properties": {
+    "reviewQueueIds": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Current fracture ids in the review queue (id-only)",
+      "maxItems": 64,
+      "default": []
+    },
+    "openCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Count of ids in the review queue"
+    },
+    "containment": {
+      "type": "boolean",
+      "description": "Whether containment mode is currently active"
+    },
+    "lastOpen": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp of the most recent fracture entry (if available)"
+    }
+  }
+}
+

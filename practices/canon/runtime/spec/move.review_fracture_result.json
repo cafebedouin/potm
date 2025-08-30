@@ -1,0 +1,14 @@
+{
+  "$id": "potm.kernel.move.review_fracture.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.review_fracture — Result",
+  "description": "Confirmation that a fracture entry is now in review state.",
+  "type": "object",
+  "required": ["status", "fracture_id", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "status": { "type": "string", "const": "review", "description": "Entry moved to review" },
+    "fracture_id": { "type": "string", "description": "Fracture identifier" },
+    "ts": { "type": "string", "format": "date-time", "description": "Operation timestamp" }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "move.close_review",
+    "payload": {
+      "fracture_id": "fxr-001",
+      "ts": "2025-08-29T03:30:00Z"
+    }
+  }
+}

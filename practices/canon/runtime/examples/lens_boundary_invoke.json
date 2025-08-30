@@ -1,0 +1,8 @@
+{
+  "tool.call": {
+    "id": "lens.boundary",
+    "payload": {
+      "topic": "latency thresholds"
+    }
+  }
+}

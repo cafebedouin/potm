@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.move.drift_check.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.drift_check result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "drift_description": { "type": "string", "maxLength": 2000 },
+    "severity": { "type": "string", "enum": ["low", "med", "high"] }
+  },
+  "required": ["drift_description", "severity"]
+}
+

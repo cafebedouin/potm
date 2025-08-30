@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "policy.query",
+    "payload": {
+      "target": "ledger.append"
+    }
+  }
+}
+

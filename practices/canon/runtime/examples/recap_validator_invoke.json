@@ -1,0 +1,11 @@
+{
+  "tool.validate": {
+    "id": "recap.validator",
+    "payload_schema": "recap_validator",
+    "payload": {
+      "include": ["summary", "open_questions"],
+      "max_items": 5,
+      "max_words_line": 24
+    }
+  }
+}

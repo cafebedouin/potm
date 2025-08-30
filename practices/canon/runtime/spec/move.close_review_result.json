@@ -1,0 +1,14 @@
+{
+  "$id": "potm.kernel.move.close_review.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.close_review — Result",
+  "description": "Confirmation that a fracture entry was resolved and dequeued.",
+  "type": "object",
+  "required": ["status", "fracture_id", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "status": { "type": "string", "const": "resolved", "description": "Entry resolved" },
+    "fracture_id": { "type": "string", "description": "Fracture identifier" },
+    "ts": { "type": "string", "format": "date-time", "description": "Operation timestamp" }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "tool.call": {
+    "id": "move.set_containment",
+    "payload": { "containment": true, "ts": "2025-08-29T10:00:00Z" }
+  }
+}
+

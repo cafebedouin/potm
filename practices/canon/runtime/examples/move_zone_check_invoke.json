@@ -1,0 +1,13 @@
+{
+  "tool.call": {
+    "id": "move.zone_check",
+    "payload": {
+      "history": [
+        "That won't work.",
+        "I don't want to revisit that.",
+        "Let's move on."
+      ]
+    }
+  }
+}
+

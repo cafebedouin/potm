@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "lens.spiral",
+    "payload": {
+      "thread": "containment debates",
+      "iterations": 3
+    }
+  }
+}

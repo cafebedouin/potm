@@ -1,0 +1,11 @@
+{
+  "tool.call": {
+    "id": "glyph.invoke",
+    "payload": {
+      "glyphId": "⟡",
+      "details": "Field awareness ping",
+      "ts": "2025-08-29T11:00:00Z"
+    }
+  }
+}
+

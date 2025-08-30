@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.move.align_scan.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.align_scan payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "aim": { "type": "string", "maxLength": 2000 },
+    "last_output": { "type": "string", "maxLength": 2000 }
+  },
+  "required": ["aim", "last_output"]
+}
+

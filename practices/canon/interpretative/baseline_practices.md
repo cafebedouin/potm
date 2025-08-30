@@ -3,7 +3,7 @@ id: potm.practice.anchors.v1
 title: baseline_practices
 display_title: "Baseline Practices"
 type: practitioner_protocol
-status: stable
+status: archival_guideline
 version: 1.0
 stability: core
 relations:
@@ -11,7 +11,7 @@ relations:
   agent_protocol: null
   practitioner_doc: null
   supersedes: []
-  superseded_by: []
+  superseded_by: [onboarding_kernel.md]
 interfaces: []
 applicability: [P0, P1, P2, P3, P4]
 intensity: gentle|medium

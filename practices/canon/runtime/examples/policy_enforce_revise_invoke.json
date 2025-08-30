@@ -1,0 +1,10 @@
+{
+  "tool.call": {
+    "id": "policy.enforce",
+    "payload": {
+      "target": "spiral.diff_log",
+      "value": "<405 chars ...>"
+    }
+  }
+}
+

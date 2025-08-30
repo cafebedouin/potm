@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.move.fracture.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.fracture result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "fracture_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 8 },
+    "route_hint": { "type": "string", "enum": ["continue", "stop", "openq", "redteam"] }
+  },
+  "required": ["fracture_ids", "route_hint"]
+}
+

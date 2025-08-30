@@ -1,0 +1,12 @@
+{
+  "tool.call": {
+    "id": "lens.synth",
+    "payload": {
+      "inputs": [
+        "fracture taxonomy",
+        "escalation logs",
+        "self-audit notes"
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_spiral",
+  "description": "Schema for the Spiral lens. Maps growth or drift across iterations.",
+  "type": "object",
+  "properties": {
+    "thread": {
+      "description": "The thread or topic to spiral-map.",
+      "type": "string"
+    },
+    "iterations": {
+      "description": "Optional number of iterations to map.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    }
+  },
+  "required": ["thread"],
+  "additionalProperties": false
+}

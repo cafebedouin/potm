@@ -1,0 +1,17 @@
+{
+  "$id": "potm.kernel.move.contrast.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.contrast payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 2000 },
+      "minItems": 2,
+      "maxItems": 8
+    }
+  },
+  "required": ["items"]
+}
+

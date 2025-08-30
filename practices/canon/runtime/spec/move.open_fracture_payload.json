@@ -1,0 +1,15 @@
+{
+  "$id": "potm.kernel.move.open_fracture.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.open_fracture — Payload",
+  "description": "Create a new fracture entry (record in fracture_log) and append its id to review_queue. Quota bound by policy.cap.fracture_max.",
+  "type": "object",
+  "required": ["fracture_id", "origin"],
+  "additionalProperties": false,
+  "properties": {
+    "fracture_id": { "type": "string", "description": "Identifier for the fracture (string)" },
+    "origin": { "type": "string", "enum": ["validator", "latency", "policy", "manual"], "description": "Origin of the fracture trigger" },
+    "details": { "type": "string", "description": "Optional context for the fracture" },
+    "ts": { "type": "string", "format": "date-time", "description": "ISO-8601 timestamp for creation" }
+  }
+}

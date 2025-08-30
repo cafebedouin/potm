@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.move.fracture.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.fracture payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "beacon_id": { "type": "string", "maxLength": 128 },
+    "context": { "type": "string", "maxLength": 2000 }
+  },
+  "required": ["beacon_id", "context"]
+}
+

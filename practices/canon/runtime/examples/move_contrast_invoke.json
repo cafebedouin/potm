@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "move.contrast",
+    "payload": {
+      "items": ["Option A", "Option B"]
+    }
+  }
+}
+

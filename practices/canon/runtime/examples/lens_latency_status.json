@@ -1,0 +1,14 @@
+{
+  "tool.result": {
+    "id": "lens.latency_status",
+    "output": {
+      "mode": "standard",
+      "last_breach": {
+        "ts": "2025-08-29T15:15:00Z",
+        "observed_latency": 7.1,
+        "ceiling": 6.0,
+        "severity": "warning"
+      }
+    }
+  }
+}

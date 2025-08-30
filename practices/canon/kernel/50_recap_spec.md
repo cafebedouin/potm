@@ -33,14 +33,8 @@ Call recap via a **structured, namespaced id**. Plain prose is inert.
 
 > Validation: the router enforces `recap_validator` (see `60_recap_validator.md`). Unknown keys are rejected (fail-closed).
 
-```yaml
-tool.call:
-  id: "recap.spec"
-  payload:
-    include?: ["summary","open_questions","next_hints","last_moves","flags","ledger_refs"]
-    max_items?: 5           # cap for arrays (default: 5)
-    max_words_line?: 24     # cap for single-line text fields (default: 24)
-````
+Payload schema: `runtime/spec/recap.spec_payload.json`  
+Example: `runtime/examples/recap_spec_invoke.json`
 
 * Unknown keys in `payload` are **rejected**. (`additionalProperties:false`)
 * If `include` is omitted, the default set is returned (see Output).
@@ -59,38 +53,10 @@ No external files, no adapters, no decks.
 
 ---
 
-## Output (recap\_packet schema)
+## Output (recap_packet schema)
 
-```yaml
-recap_packet:
-  ts: "2025-08-26T15:04:05Z"           # ISO-8601 UTC
-  kernel:
-    version: "1.6.0-dev"
-    accepted: true|false
-  meta_locus:
-    accepted: true|false
-    fracture_active: true|false
-    containment: true|false
-    review_queue: []                   # array of fracture ids or empty
-  summary:
-    aim_line?: "≤ 24 words"
-    state_line?: "≤ 24 words"          # e.g., "steady; no containment; 1 pending review"
-  open_questions:
-    - "≤ 24 words"
-  next_hints:
-    - "≤ 24 words"                     # short action cues, not plans
-  last_moves:
-    - move_id: "lens.edge|move.align_scan|closure.archive|..."
-      ts: "2025-08-26T15:03:40Z"
-      artifact_ref: "#inline:..."      # or "-" if none
-  flags:
-    drift?: "none|drift|evolution"
-    zone?: "toxic|messy|insight"
-    uncertainty?: "low|med|high"
-  ledger_refs:
-    - "tsv:2025-08-26/lines:120-128"   # optional lightweight pointer
-  note: "P1 recap — session-local; export requires explicit header."
-```
+Result schema: `runtime/spec/recap.spec_result.json`  
+Example result: `runtime/examples/recap_spec_result.json`
 
 **Defaults (when `include` is omitted):**
 `["summary","open_questions","next_hints","last_moves","flags"]`
@@ -127,47 +93,11 @@ The recap must **fail-closed** and never mutate state.
 
 ## Examples
 
-**1) Basic call (defaults)**
+**1) Basic call (defaults)** — see `runtime/examples/recap_spec_invoke.json`
 
-```yaml
-tool.call:
-  id: "recap.spec"
-  payload: {}
-```
+**2) Narrowed fields with tighter caps** — see `runtime/examples/recap_spec_invoke.json`
 
-**2) Narrowed fields with tighter caps**
-
-```yaml
-tool.call:
-  id: "recap.spec"
-  payload:
-    include: ["summary","last_moves","flags"]
-    max_items: 3
-    max_words_line: 16
-```
-
-**3) Example response (truncated)**
-
-```yaml
-recap_packet:
-  ts: "2025-08-26T19:12:01Z"
-  kernel: { version: "1.6.0-dev", accepted: true }
-  meta_locus: { accepted: true, fracture_active: false, containment: false, review_queue: [] }
-  summary:
-    aim_line: "Evaluate plan viability with low risk."
-    state_line: "steady; no containment; 0 pending."
-  open_questions:
-    - "What is the budget cap?"
-    - "Which outcome is must-have?"
-  next_hints:
-    - "Run lens.define on ‘risk’."
-    - "Use move.align_scan to re-anchor aim."
-  last_moves:
-    - { move_id: "lens.openq", ts: "2025-08-26T19:11:31Z", artifact_ref: "-" }
-    - { move_id: "lens.mirror", ts: "2025-08-26T19:10:55Z", artifact_ref: "#inline:mirror/..." }
-  flags: { drift: "none", zone: "insight", uncertainty: "med" }
-  note: "P1 recap — session-local; export requires explicit header."
-```
+**3) Example response (truncated)** — see `runtime/examples/recap_spec_result.json`
 
 ---
 

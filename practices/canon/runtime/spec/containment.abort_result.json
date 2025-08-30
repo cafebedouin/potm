@@ -1,0 +1,24 @@
+{
+  "$id": "potm.kernel.containment.abort.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "containment.abort — Result",
+  "description": "Confirmation that containment was aborted.",
+  "type": "object",
+  "required": ["status", "reason", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "status": { "type": "string", "const": "aborted" },
+    "reason": {
+      "type": "string",
+      "enum": [
+        "quota_exceeded",
+        "relational_drift",
+        "epistemic_drift",
+        "safety_risk",
+        "operator_revoked"
+      ]
+    },
+    "ts": { "type": "string", "format": "date-time" }
+  }
+}
+

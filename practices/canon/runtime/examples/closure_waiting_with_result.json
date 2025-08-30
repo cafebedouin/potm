@@ -1,0 +1,11 @@
+{
+  "tool.result": {
+    "id": "closure.waiting_with",
+    "output": {
+      "note": "Holding containment while fracture review is pending.",
+      "tags": ["containment", "pending_review"],
+      "containment": true,
+      "status": "active"
+    }
+  }
+}

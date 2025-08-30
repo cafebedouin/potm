@@ -1,0 +1,11 @@
+{
+  "tool.call": {
+    "id": "recap.spec",
+    "payload": {
+      "include": ["summary", "last_moves", "flags"],
+      "max_items": 3,
+      "max_words_line": 16
+    }
+  }
+}
+

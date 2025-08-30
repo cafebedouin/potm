@@ -1,0 +1,13 @@
+{
+  "tool.result": {
+    "id": "lens.boundary",
+    "output": {
+      "topic": "latency thresholds",
+      "limits": {
+        "lite": "p95=4s",
+        "standard": "p95=6s",
+        "strict": "p95=12s"
+      }
+    }
+  }
+}

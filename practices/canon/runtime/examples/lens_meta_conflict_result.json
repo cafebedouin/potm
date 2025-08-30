@@ -1,0 +1,9 @@
+{
+  "tool.result": {
+    "id": "lens.meta_conflict",
+    "output": {
+      "pattern": "Repeated escalation from latent tension to rupture without intermediate repair.",
+      "recommendation": "Introduce REFUSE or WAIT earlier in the sequence."
+    }
+  }
+}

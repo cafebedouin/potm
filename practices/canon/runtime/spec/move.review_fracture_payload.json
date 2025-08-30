@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.move.review_fracture.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.review_fracture — Payload",
+  "description": "Mark an existing fracture entry as under review (status: review) in fracture_log.",
+  "type": "object",
+  "required": ["fracture_id"],
+  "additionalProperties": false,
+  "properties": {
+    "fracture_id": { "type": "string", "description": "Fracture identifier to transition" },
+    "ts": { "type": "string", "format": "date-time", "description": "Operation timestamp" }
+  }
+}

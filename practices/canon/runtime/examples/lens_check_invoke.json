@@ -1,0 +1,8 @@
+{
+  "tool.call": {
+    "id": "lens.check",
+    "payload": {
+      "assumption": "All fractures can be resolved immediately."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_archive",
+  "description": "Schema for the Archive lens. Summarizes or closes a thread.",
+  "type": "object",
+  "properties": {
+    "thread": {
+      "description": "The thread or topic to archive.",
+      "type": "string"
+    },
+    "status": {
+      "description": "Archival state.",
+      "type": "string",
+      "enum": ["complete", "partial", "aborted"]
+    }
+  },
+  "required": ["thread"],
+  "additionalProperties": false
+}

@@ -73,16 +73,12 @@ relaxing schemas or router invariants.
 - Optional beacons emit `beacon.optional` events; they log but do not enforce containment.  
 - All beacon events record to the ledger with timestamp, id, and context.
 
-### Beacon Event Schema (P1, session-local)
+## Beacon Event Schema
 
-```yaml
-beacon_event:
-  ts: "2025-08-25T12:00:00Z"   # ISO-8601 UTC
-  beacon_id: "precision_over_certainty"
-  trigger: "claim: 'X is true'"
-  context: "confidence=low"
-  note: "P1 beacon check — no export unless explicit header"
-````
+Defined externally in:
+
+- `runtime/schema/beacon_event.json`
+- `runtime/examples/beacon_event.json`
 
 ---
 

@@ -1,0 +1,15 @@
+{
+  "policy.cap.table": {
+    "spiral.diff_log": { "cap_key": "diff_log_max", "rule": "clamp" },
+    "archive.summary": { "cap_key": "summary_max", "rule": "clamp" },
+    "archive.takeaways": { "cap_key": "takeaways_max", "rule": "clamp" },
+    "archive.archive_status": { "cap_key": null, "rule": "enum" },
+    "waiting_with.wait_reason": { "cap_key": "wait_reason_max", "rule": "clamp" },
+    "waiting_with.reentry_hint": { "cap_key": "reentry_hint_max", "rule": "clamp" },
+    "recap.include": { "cap_key": null, "rule": "enum" },
+    "recap.max_items": { "cap_key": "recap.max_items", "rule": "range" },
+    "recap.max_words_line": { "cap_key": "recap.max_words_line", "rule": "range" },
+    "recap.export": { "cap_key": null, "rule": "block" }
+  }
+}
+

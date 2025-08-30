@@ -1,0 +1,12 @@
+{
+  "$id": "potm.kernel.move.quick_ref.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.quick_ref result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "summary": { "type": "string", "maxLength": 2000 }
+  },
+  "required": ["summary"]
+}
+

@@ -1,0 +1,24 @@
+{
+  "ledger_buffer": [
+    {
+      "entry_id": "uuid-606",
+      "ts": "2025-08-29T19:20:00Z",
+      "type": "escalation_event",
+      "ref": null,
+      "meta": {
+        "escalation_event": {
+          "source": "canary",
+          "tier": 2,
+          "action": "escalate_profile",
+          "mode_profile": "strict",
+          "details": "Escalation quota exceeded",
+          "quota_exceeded": true
+        }
+      }
+    }
+  ],
+  "error": {
+    "code": "E_ESCALATION_QUOTA",
+    "message": "Escalation quota exceeded for escalation_event entries"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "potm.kernel.externalist.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "externalist.result — Result",
+  "description": "Result of an Externalist run.",
+  "type": "object",
+  "required": ["status", "mode", "reframed_question", "limiter", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "status": { "type": "string", "const": "ok" },
+    "mode": { "type": "string" },
+    "reframed_question": { "type": "string" },
+    "limiter": { "type": "string" },
+    "ts": { "type": "string", "format": "date-time" },
+    "details": { "type": "string" }
+  }
+}
+

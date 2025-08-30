@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.move.close_review.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.close_review — Payload",
+  "description": "Resolve a fracture entry (status: resolved) and dequeue its id from review_queue.",
+  "type": "object",
+  "required": ["fracture_id"],
+  "additionalProperties": false,
+  "properties": {
+    "fracture_id": { "type": "string", "description": "Fracture identifier to resolve" },
+    "ts": { "type": "string", "format": "date-time", "description": "Operation timestamp" }
+  }
+}

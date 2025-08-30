@@ -1,0 +1,14 @@
+{
+  "$id": "potm.kernel.move.sandbox.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.sandbox result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "outcome": { "type": "string", "maxLength": 2000 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "mode": { "type": "string", "enum": ["normal", "fail_soft"] }
+  },
+  "required": ["outcome", "confidence", "mode"]
+}
+

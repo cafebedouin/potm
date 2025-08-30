@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "closure_spiral",
+  "description": "Schema for closure.spiral tool payload. Summarizes drift vs evolution at end of session or cycle.",
+  "type": "object",
+  "properties": {
+    "diff_log": {
+      "description": "Optional operator-provided notes for drift vs evolution summary (will be clipped to cap).",
+      "type": "string",
+      "maxLength": 400
+    },
+    "tags": {
+      "description": "Optional array of tags to classify spiral context.",
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 10
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

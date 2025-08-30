@@ -120,4 +120,22 @@ Use Pal invocations to set stance with minimal friction:
 
 ---
 
+## Kernel Subsystems
+
+- Lenses → see `kernel/30_lenses.md`  
+- Micromoves → see `kernel/35_micromoves.md`  
+- Fracture Queue → see `kernel/75_fracture.md`  
+  - Diagnostics & Playbooks → `extended/diagnostics/fracture/fracture_finder.md`,  
+    `extended/diagnostics/fracture/fracture_finder_playbook.md`,  
+    `extended/diagnostics/fracture/fracture_crosswalk.md`, `meta/fracture_meta`  
+- Containment Mode → see `kernel/76_containment_mode.md`  
+- Grace Path → see `kernel/77_grace_path.md`  
+- Glyphs (context/protocol) → see `extended/glyphs/glyph_protocol.md`, `extended/glyphs/glyph_index.md`, `extended/glyphs/glyph_resonance_map.md`  
+ - Guardian (sentinel overlay) → see `kernel/78_guardian_mode.md`; background:  
+   `kernel/guardian/integrity_guardian_subsystem_v1.0.md`,  
+   `kernel/guardian/guardian_trigger_conditions_v1.0.md`,  
+   `kernel/guardian/discernment_integrity_protocol.md`  
+
+---
+
 *This index is intentionally brief—an orientation hub, not another essay. If a section grows heavy, promote details into a dedicated doc and keep this page lean.*

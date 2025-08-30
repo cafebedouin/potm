@@ -1,0 +1,17 @@
+{
+  "recap_packet": {
+    "ts": "2025-08-26T19:12:01Z",
+    "kernel": { "version": "1.6.0-dev", "accepted": true },
+    "meta_locus": { "accepted": true, "fracture_active": false, "containment": false, "review_queue": [] },
+    "summary": {
+      "aim_line": "Evaluate plan viability with low risk.",
+      "state_line": "steady; no containment; 0 pending."
+    },
+    "last_moves": [
+      { "move_id": "lens.openq", "ts": "2025-08-26T19:11:31Z", "artifact_ref": "-" }
+    ],
+    "flags": { "drift": "none", "zone": "insight", "uncertainty": "med" },
+    "note": "P1 recap — session-local; export requires explicit header."
+  }
+}
+

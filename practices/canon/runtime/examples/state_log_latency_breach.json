@@ -1,0 +1,25 @@
+{
+  "ledger_buffer": [
+    {
+      "entry_id": "uuid-456",
+      "ts": "2025-08-29T15:15:00Z",
+      "type": "latency_breach",
+      "ref": null,
+      "meta": {
+        "mode": "standard",
+        "observed_latency": 7.1,
+        "ceiling": 6.0,
+        "severity": "warning"
+      }
+    }
+  ],
+  "latency_status": {
+    "mode": "standard",
+    "last_breach": {
+      "ts": "2025-08-29T15:15:00Z",
+      "observed_latency": 7.1,
+      "ceiling": 6.0,
+      "severity": "warning"
+    }
+  }
+}

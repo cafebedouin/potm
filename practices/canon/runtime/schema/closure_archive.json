@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "closure_archive",
+  "description": "Schema for closure.archive tool payload. Captures final session snapshot (summary, takeaways, archive_status).",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "description": "Optional final recap or summary text.",
+      "type": "string",
+      "maxLength": 500
+    },
+    "takeaways": {
+      "description": "Optional array of key takeaways.",
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 10
+    },
+    "archive_status": {
+      "description": "Optional operator note on archival state.",
+      "type": "string",
+      "enum": ["complete", "partial", "aborted"]
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

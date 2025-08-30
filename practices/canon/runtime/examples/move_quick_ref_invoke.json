@@ -1,0 +1,11 @@
+{
+  "tool.call": {
+    "id": "move.quick_ref",
+    "payload": {
+      "session_log": [
+        { "type": "tool.result", "id": "lens.check" }
+      ]
+    }
+  }
+}
+

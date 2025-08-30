@@ -1,0 +1,8 @@
+{
+  "decision": "block",
+  "violations": [{
+    "code": "V_EXPORT_DISABLED",
+    "reason": "kernel export not permitted"
+  }]
+}
+

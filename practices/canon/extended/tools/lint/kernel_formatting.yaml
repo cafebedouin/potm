@@ -1,7 +1,7 @@
 # File: lint/potm.kernel.formatting.yaml
 id: potm.kernel.formatting.v1
 title: "Kernel File Formatting Rules"
-version: 1.1
+version: 1.2
 status: spec
 type: lint
 audience: kernel maintainers
@@ -9,7 +9,7 @@ audience: kernel maintainers
 lint:
   - rule: required_front_matter
     files:
-      - "kernel/**/*.md"
+      - "~/bin/potm/practices/canon/kernel/**/*.md"
     require_keys:
       - "id"
       - "title"
@@ -104,3 +104,27 @@ lint:
     require_patterns:
       - "[KERNEL_ENTRY]"
       - "[KERNEL_EXIT]"
+
+  - rule: no_inline_json_schema
+    files:
+      - "kernel/**/*.md"
+    pattern: '^\s*[{[]\s*"\$schema"\s*:'
+    message: "Kernel docs must not embed JSON schemas; use runtime/spec/*.json instead."
+
+  - rule: no_inline_json_id
+    files:
+      - "kernel/**/*.md"
+    pattern: '^\s*"\$id"\s*:'
+    message: "Kernel docs must not embed $id blocks; use runtime/spec/*.json instead."
+
+  - rule: tool_index_schema_files_exist
+    files:
+      - "kernel/40_router.md"
+    check_tool_index_schemas: true
+    message: "Each tool.index payload_schema_ref/result_schema_ref must point to an existing file in runtime/spec/."
+
+  - rule: no_orphan_schema_files
+    files:
+      - "runtime/spec/*.json"
+    check_orphan_schemas: true
+    message: "Schema file in runtime/spec/ is not referenced in kernel/40_router.md."

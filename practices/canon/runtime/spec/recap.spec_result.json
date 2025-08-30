@@ -1,0 +1,79 @@
+{
+  "$id": "potm.kernel.recap.spec.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "recap.spec result (recap_packet)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ts": { "type": "string", "format": "date-time" },
+    "kernel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": { "type": "string", "maxLength": 32 },
+        "accepted": { "type": "boolean" }
+      },
+      "required": ["version", "accepted"]
+    },
+    "meta_locus": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accepted": { "type": "boolean" },
+        "fracture_active": { "type": "boolean" },
+        "containment": { "type": "boolean" },
+        "review_queue": { "type": "array", "items": { "type": "string" }, "maxItems": 32 }
+      },
+      "required": ["accepted", "containment", "review_queue"]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aim_line": { "type": "string", "maxLength": 256 },
+        "state_line": { "type": "string", "maxLength": 256 }
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 256 },
+      "maxItems": 10
+    },
+    "next_hints": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 256 },
+      "maxItems": 10
+    },
+    "last_moves": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "move_id": { "type": "string", "maxLength": 64 },
+          "ts": { "type": "string", "format": "date-time" },
+          "artifact_ref": { "type": "string", "maxLength": 2000 }
+        },
+        "required": ["move_id", "ts", "artifact_ref"]
+      },
+      "maxItems": 10
+    },
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "drift": { "type": "string", "enum": ["none", "drift", "evolution"] },
+        "zone": { "type": "string", "enum": ["toxic", "messy", "insight"] },
+        "uncertainty": { "type": "string", "enum": ["low", "med", "high"] }
+      }
+    },
+    "ledger_refs": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 128 },
+      "maxItems": 10
+    },
+    "note": { "type": "string", "maxLength": 256 }
+  },
+  "required": ["ts", "kernel", "meta_locus", "note"]
+}
+

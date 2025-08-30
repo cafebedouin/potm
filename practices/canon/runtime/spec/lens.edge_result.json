@@ -1,0 +1,17 @@
+{
+  "$id": "potm.kernel.lens.edge.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens.edge result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "edges": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 2000 },
+      "minItems": 1,
+      "maxItems": 10
+    }
+  },
+  "required": ["edges"]
+}
+

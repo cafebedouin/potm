@@ -1,59 +1,73 @@
----
-id: potm.guide.general.readme.v1
-title: README
-type: guideline
-status: stable
-version: '1.0'
-stability: core
-relations:
-  relation_to_agent_protocol: none
-  supersedes: []
-  superseded_by: []
-interfaces: []
-applicability:
-- P0
-intensity: gentle
-preconditions: []
-outputs: []
-cadence: []
-entry_cues: []
-safety_notes: []
-tags: []
-author: Sean + models
-license: CC0-1.0
----
-# PoTM Core
+# PoTM Canon — Directory Map
 
-This directory contains the **minimum viable kernel** of *Pilates of the Mind* —  
-the files and protocols required for the system to function in its intended form.
-
-## Purpose
-
-The core exists to:
-
-- Preserve the essential **constraints**, **protocols**, and **framework** that define PoTM.
-- Provide a stable reference set that will survive repository reorganizations and feature experiments.
-- Serve as the **loadable kernel** for Custom GPT or other implementations.
-
-Anything not required for immediate operation has been moved to:
-- [`/experimental`](../experimental/) — ideas, drafts, or modules in development.
-- [`/deprecated`](../deprecated/) — retired, obsolete, or superseded material retained for archival reference.
-
-## Structure
-
-- **coordination/** — Operational logic for kernel mode and self-diagnostics.
-- **diagnostics/** — Core epistemic integrity checks and relational filters.
-- **docs/** — Manifest, onboarding guides, and quick-start references.
-- **frameworks/** — The PoTM conceptual framework.
-- **guardian/** — Boundary and discernment protocols.
-- **guidelines/** — Upgrade and maintenance procedures.
-- **practices/protocols/** — Essential interaction and refusal protocols.
-
-## Notes
-
-- This core is intentionally **minimal**.  
-- Modules, banks, menus, and other optional features live outside of `core/`.
-- Updates to `core/` should be conservative: changes here affect the stability of the entire system.
+The Pilates of the Mind (PoTM) canon is organized into **five tiers**:  
+**kernel / extended / interpretative / meta / runtime**.  
+Each has a distinct role and scope.  
 
 ---
-**License:** CC0 1.0 — No rights reserved.
+
+## 🌑 kernel/
+**Purpose:** Core invariants, protocols, and non-negotiable structures.  
+This is the *microkernel* — everything else builds on it.  
+
+- `00_preamble.md` … `90_policy.md` → sequential spine of the kernel.  
+- `protocols/` → executable procedures (e.g. suspicion_first, mirror, ai_integrity).  
+- `lenses/` → epistemic stances (e.g. externalist diagnostic modes).  
+- `guardian/` → integrity tripwires and filters.  
+- `index.md` → canonical manifest.  
+- `combined_kernel.md` → full compiled view.  
+
+---
+
+## 🌒 extended/
+**Purpose:** Applied tools and add-ons that extend the kernel.  
+
+- `diagnostics/` → evaluators (drift sensors, relational filters, structural audits).  
+- `coordination/` → orchestration utilities for multi-module interaction.  
+- `logs/` → fracture log and other running records.  
+- `tools/` → repo tooling (e.g. lineage builder, lint rules).  
+
+---
+
+## 🌓 interpretative/
+**Purpose:** Human-facing framing, practice guides, and doctrine.  
+
+- `baseline_practices.md` → meatspace reference (archival guideline).  
+- `doctrines/` → interpretive layers between principles and strategy.  
+- `frameworks/` → large-scale schema (e.g. PoTM Framework).  
+- `guidelines/` → checklists and upgrade guides.  
+- `glossary.md` → vocabulary reference.  
+- `adapter_checklist.md` → translation aid for practitioners.  
+
+---
+
+## 🌔 meta/
+**Purpose:** Documents *about* the system itself.  
+
+- `design_notes.md` → architectural or experimental reflections.  
+- `lineage_index.yaml` → forge/spiral provenance map.  
+
+---
+
+## 🌕 runtime/
+**Purpose:** Execution artifacts and traces (not canon).  
+
+- `spec/` → closure payloads/results, router outputs, enforcement traces.  
+- Example: `closure.archive_result.json`, `router_error.md`.  
+
+---
+
+## 📌 Other Top-Level Files
+- `onboarding_kernel.md` → guided entry path.  
+- `README.md` (this file).  
+
+---
+
+## 🧭 Orientation Principle
+- **kernel** = non-negotiable core  
+- **extended** = applied evaluators and utilities  
+- **interpretative** = meaning, guidance, doctrine  
+- **meta** = about-the-system notes and lineage  
+- **runtime** = execution traces  
+
+This structure keeps PoTM legible, evolvable, and free of bloat.  

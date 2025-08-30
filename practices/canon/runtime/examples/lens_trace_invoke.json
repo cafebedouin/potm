@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "lens.trace",
+    "payload": {
+      "claim": "Containment is always harmful.",
+      "depth": 3
+    }
+  }
+}

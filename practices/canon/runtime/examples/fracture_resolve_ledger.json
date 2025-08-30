@@ -1,0 +1,14 @@
+{
+  "entry_id": "uuid-1003",
+  "ts": "2025-08-29T12:20:00Z",
+  "type": "fracture_event",
+  "ref": "fxr-001",
+  "meta": {
+    "fracture_event": {
+      "fracture_id": "fxr-001",
+      "action": "resolve",
+      "details": "Resolved after review"
+    }
+  }
+}
+

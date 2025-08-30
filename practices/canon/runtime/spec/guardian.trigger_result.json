@@ -1,0 +1,16 @@
+{
+  "$id": "potm.kernel.guardian.trigger.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "guardian.trigger — Result",
+  "description": "Confirmation that Guardian accepted the trigger.",
+  "type": "object",
+  "required": ["status", "triggerId", "severity", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "status": { "type": "string", "const": "accepted" },
+    "triggerId": { "type": "string" },
+    "severity": { "type": "string", "enum": ["soft", "hard"] },
+    "ts": { "type": "string", "format": "date-time" }
+  }
+}
+

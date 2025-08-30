@@ -35,50 +35,11 @@ idempotency. Implementations MAY store `digest` alongside `request_id`.
 
 > The router **strips unknown keys inside `tool.call.meta`** prior to envelope
 > validation to prevent adapter meta-leakage. All other unknown fields fail-closed.
+>
+> The full envelope schema is externalized:  
+> **see `runtime/spec/router_envelope.json`**
 
-```json
-{
-  "$id": "potm.kernel.router.envelope.v1",
-  "type": "object",
-  "required": ["tool.call"],
-  "additionalProperties": false,
-  "properties": {
-    "tool.call": {
-      "type": "object",
-      "required": ["id", "payload"],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"
-        },
-        "payload": {
-          "type": "object",
-          "additionalProperties": true
-        },
-        "meta": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "request_id": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "trace": {
-              "type": "boolean",
-              "default": false
-            },
-            "origin": {
-              "type": "string",
-              "maxLength": 64
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
+The router validates every call against this schema before further dispatch.
 
 ---
 
@@ -100,6 +61,8 @@ move.*       # atomic micro-moves
 closure.*    # closure tools
 recap.*      # recap.spec
 policy.*     # policy.query / enforce / report
+glyph.*      # glyph invocations
+guardian.*   # guardian triggers
 ```
 
 > **Out of kernel (interpretive/adapters):** `menu.*`, `ack.*`, exporters.  
@@ -111,68 +74,9 @@ policy.*     # policy.query / enforce / report
 
 Router dispatches only to tools registered here. Missing → `tool.error` `{ code: "E_TOOL" }`.
 
-```yaml
-tool.index:
-  - id: lens.edge
-    payload_schema_ref: "spec/lens.edge.payload.v1.json"
-    result_schema_ref:  "spec/lens.edge.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
+Externalized registry: `runtime/spec/tool.index.json`
 
-  - id: move.align_scan
-    payload_schema_ref: "spec/move.align_scan.payload.v1.json"
-    result_schema_ref:  "spec/move.align_scan.result.v1.json"
-
-  - id: closure.spiral
-    payload_schema_ref: "spec/closure.spiral.payload.v1.json"
-    result_schema_ref:  "spec/closure.spiral.result.v1.json"
-
-  - id: closure.archive
-    payload_schema_ref: "spec/closure.archive.payload.v1.json"
-    result_schema_ref:  "spec/closure.archive.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
-      - "len(meta_locus.review_queue) == 0"
-    quota:
-      ledger_append: "policy.cap.ledger_max"
-
-  - id: closure.waiting_with
-    payload_schema_ref: "spec/closure.waiting_with.payload.v1.json"
-    result_schema_ref:  "spec/closure.waiting_with.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
-      - "len(meta_locus.review_queue) > 0"
-    quota:
-      ledger_append: "policy.cap.ledger_max"
-
-  - id: policy.query
-    payload_schema_ref: "spec/policy.query.payload.v1.json"
-    result_schema_ref:  "spec/policy.query.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
-
-  - id: policy.enforce
-    payload_schema_ref: "spec/policy.enforce.payload.v1.json"
-    result_schema_ref:  "spec/policy.enforce.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
-    quota:
-      ledger_append: "policy.cap.ledger_max"
-
-  - id: policy.report
-    payload_schema_ref: "spec/policy.report.payload.v1.json"
-    result_schema_ref:  "spec/policy.report.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
-
-  - id: recap.spec
-    payload_schema_ref: "spec/recap.spec.payload.v1.json"
-    result_schema_ref:  "spec/recap.spec.result.v1.json"
-    validator:
-      payload_schema_ref: "spec/recap.validator.payload.v1.json"
-      result_schema_ref:  "spec/recap.validator.result.v1.json"
-      mode: "fail_closed"
-```
+Fracture moves (registered): `move.open_fracture`, `move.review_fracture`, `move.close_review`.
 
 Each payload/result schema must set `additionalProperties:false` and define numeric/string caps. `tool.index` is immutable for the session.
 
@@ -183,16 +87,35 @@ Each payload/result schema must set `additionalProperties:false` and define nume
 1. Validate envelope against `potm.kernel.router.envelope.v1`.  
 2. Split `id` → `{namespace, name}`; verify namespace in allow-list.  
 3. Lookup full `id` in `tool.index`.  
-4. Validate `payload` against tool’s schema; enforce global caps.  
-5. Check preconditions (session flags like `agreement.accepted`).
-6. Idempotency:
+
+4. **Run validator chain (P1):**
+   - **latency.validator** (always)
+     * Ensures `meta_locus.latency_mode` is valid.
+     * Enforces fast-path invariant per mode.
+     * Checks observed latency against `policy.cap.latency[mode].p95`.
+     * Emits `E_LATENCY_MODE`, `E_LATENCY_INVARIANT`, `W_LATENCY_EXTRA`, `W_LATENCY_BREACH`, or `W_LATENCY_FALSE_BREACH`.
+
+   - **recap.validator** (only when `id == recap.spec`)
+     * Enforces recap payload schema (`include`, `max_items`, `max_words_line`).
+     * Caps checked against `policy.cap.recap`.
+     * Emits `E_PAYLOAD` on any schema violation.
+     * Export guard is handled by `policy.targets: recap.export`.
+
+   > Ordering is strict: latency first, then tool-specific validators, then the tool itself.  
+   > If any validator fails, dispatch halts and only the first error is emitted.  
+
+5. Validate `payload` against the tool’s schema; enforce global caps.  
+6. Check preconditions (session flags like `agreement.accepted`).  
+7. Idempotency:
    - Compute `digest := SHA256(canonical(id,payload))` where `canonical`:
-     • lowercases namespace/name; • sorts object keys lexicographically at all depths;
+     • lowercases namespace/name; • sorts object keys lexicographically at all depths;  
      • strips insignificant whitespace; • preserves array order.
-   - If `request_id` seen with *same* `digest` → return cached emission.
-   - If `request_id` seen with *different* `digest` → `tool.error { code:"E_INVARIANT", reason:"request_id_reuse_mismatch" }`.
-7. Execute tool (pure, no side-effects).  
-8. Emit `tool.emit` or `tool.error` (see Emissions Contract).
+   - If `request_id` seen with *same* `digest` → return cached emission.  
+   - If `request_id` seen with *different* `digest` →  
+     `tool.error { code:"E_INVARIANT", reason:"request_id_reuse_mismatch" }`.  
+
+8. Execute tool (pure, no side-effects).  
+9. Emit `tool.emit` or `tool.error` (see Emissions Contract).  
 
 `meta.trace` does not affect behavior, only whether debug frames appear in the emission.
 
@@ -200,100 +123,59 @@ Each payload/result schema must set `additionalProperties:false` and define nume
 
 ## Emissions Contract
 
-> JSON Schema (draft 2020-12). All unspecified fields are rejected.
+> The full emissions schema is externalized:  
+> **see `runtime/spec/router_emission.json`**
 
-```json
-{
-  "$id": "potm.kernel.router.emission.v1",
-  "type": "object",
-  "oneOf": [
-    {
-      "required": ["tool.emit"],
-      "properties": {
-        "tool.emit": {
-          "type": "object",
-          "required": ["id", "ok", "result"],
-          "additionalProperties": false,
-          "properties": {
-            "id": { "type": "string" },
-            "ok": { "const": true },
-            "result": { "type": "object" },
-            "trace": {
-              "type": "array",
-              "items": { "type": "string" },
-              "maxItems": 32
-            }
-          }
-        }
-      }
-    },
-    {
-      "required": ["tool.error"],
-      "properties": {
-        "tool.error": {
-          "type": "object",
-          "required": ["id", "ok", "code", "reason"],
-          "additionalProperties": false,
-          "properties": {
-            "id": { "type": "string" },
-            "ok": { "const": false },
-            "code": {
-              "type": "string",
-              "enum": [
-                "E_NAMESPACE",
-                "E_TOOL",
-                "E_PAYLOAD",
-                "E_PRECONDITION",
-                "E_QUOTA",
-                "E_DISABLED",
-                "E_INVARIANT"
-              ]
-            },
-            "reason": {
-              "type": "string",
-              "maxLength": 512
-            },
-            "trace": {
-              "type": "array",
-              "items": { "type": "string" },
-              "maxItems": 32
-            }
-          }
-        }
-      }
-    }
-  ],
-  "additionalProperties": false
-}
-```
+Router emissions must conform exactly; unspecified fields are rejected.
 
 ---
 
 ## Examples
 
-**Valid call**
+**Valid call** — see `runtime/examples/recap_spec_invoke.json`
 
-```yaml
-tool.call:
-  id: "recap.spec"
-  payload:
-    include: ["last_moves","flags"]
-    max_items: 5
-  meta:
-    request_id: "9f1f3f0c-9e6d-4d5b-9a1d-9d9f2c1a8a77"
-    trace: false
-```
+**Fracture moves** — router calls:  
+- Open: `runtime/examples/fracture_open.json`  
+- Review: `runtime/examples/fracture_review.json`  
+- Resolve: `runtime/examples/fracture_resolve.json`
 
-**Rejected (unknown namespace)**
+**Glyphs** — router call & result:  
+- Invoke: `runtime/examples/glyph_invoke.json`  
+- Result: `runtime/examples/glyph_result.json`
+  
+Ledger (glyph events):  
+- `runtime/examples/glyph_invoke_ledger.json`  
+- `runtime/examples/glyph_result_ledger.json`  
+- `runtime/examples/glyph_map_ledger.json`
 
-```yaml
-tool.call:
-  id: "cards.draw"      # not in allow-list
-  payload: { n: 3 }
-# -> tool.error:
-#    code: "E_NAMESPACE"
-#    reason: "namespace 'cards' not allowed"
-```
+**Guardian** — router call & result:  
+- Trigger (soft): `runtime/examples/guardian_trigger_soft.json`  
+- Trigger (hard): `runtime/examples/guardian_trigger_hard.json`  
+- Result: `runtime/examples/guardian_trigger_result.json`  
+  
+Ledger (guardian events):  
+- `runtime/examples/guardian_soft_ledger.json`  
+- `runtime/examples/guardian_hard_ledger.json`
+
+**Externalist** — router call & result:
+- Invoke: `runtime/examples/externalist_invoke.json`  
+- Result: `runtime/examples/externalist_result.json`  
+  
+Ledger (externalist events):  
+- `runtime/examples/externalist_ledger.json`
+
+---
+
+## Router Notes
+
+- Glyph actions (invoke, result, map) MUST log a `glyph_event` ledger entry.  
+  Schema: `runtime/spec/ledger.glyph_event.json` (capacity bound by `policy.cap.ledger_max`).
+
+- Fracture diagnostics ("Fracture Finder" workflows) live under `extended/diagnostics/fracture/`  
+  and are practitioner-facing protocols, not router tools. Router exposes only  
+  the fracture queue moves (e.g., `move.open_fracture`, `move.review_fracture`, `move.close_review`).
+
+**Rejected (unknown namespace)** — see `id` pattern in `runtime/spec/router_envelope.json`
 
 ---
 

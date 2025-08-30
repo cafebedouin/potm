@@ -1,0 +1,14 @@
+{
+  "entry_id": "uuid-5001",
+  "ts": "2025-08-29T11:00:00Z",
+  "type": "glyph_event",
+  "ref": "⟡",
+  "meta": {
+    "glyph_event": {
+      "glyph_id": "⟡",
+      "action": "invoke",
+      "details": "Invoked field awareness"
+    }
+  }
+}
+

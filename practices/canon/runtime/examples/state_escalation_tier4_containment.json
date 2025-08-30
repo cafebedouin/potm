@@ -1,0 +1,26 @@
+{
+  "meta_locus": {
+    "accepted": true,
+    "containment": true,
+    "review_queue": ["fxr-001"],
+    "latency_mode": "standard",
+    "mode_profile": "strict"
+  },
+  "ledger_buffer": [
+    {
+      "entry_id": "uuid-505",
+      "ts": "2025-08-29T18:40:00Z",
+      "type": "escalation_event",
+      "ref": null,
+      "meta": {
+        "escalation_event": {
+          "source": "policy",
+          "tier": 4,
+          "action": "containment",
+          "mode_profile": "strict",
+          "details": "Catastrophic cap violation"
+        }
+      }
+    }
+  ]
+}

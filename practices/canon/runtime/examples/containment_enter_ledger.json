@@ -1,0 +1,15 @@
+{
+  "entry_id": "uuid-2001",
+  "ts": "2025-08-29T10:00:00Z",
+  "type": "containment_event",
+  "ref": null,
+  "meta": {
+    "containment_event": {
+      "action": "enter",
+      "source": "escalation",
+      "activation_count": 1,
+      "details": "Tier 4 triggered containment"
+    }
+  }
+}
+

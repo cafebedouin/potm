@@ -1,0 +1,16 @@
+{
+  "$id": "potm.kernel.guardian.trigger.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "guardian.trigger — Payload",
+  "description": "Request Guardian evaluation of a trigger.",
+  "type": "object",
+  "required": ["triggerId", "severity", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "triggerId": { "type": "string", "description": "Identifier of the trigger condition" },
+    "severity": { "type": "string", "enum": ["soft", "hard"], "description": "Trigger severity" },
+    "ts": { "type": "string", "format": "date-time", "description": "Timestamp of trigger" },
+    "details": { "type": "string", "description": "Optional context" }
+  }
+}
+

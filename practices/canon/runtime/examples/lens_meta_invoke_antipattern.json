@@ -1,0 +1,14 @@
+{
+  "tool.call": {
+    "id": "lens.meta",
+    "payload": {
+      "lenses": ["edge", "define"],
+      "scope": "claim",
+      "policy_mode": "strict"
+    }
+  },
+  "tool.error": {
+    "code": "E_ANTIPATTERN",
+    "message": "EDGE before DEFINE on vague terms is a known anti-pattern"
+  }
+}

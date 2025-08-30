@@ -1,0 +1,10 @@
+{
+  "tool.result": {
+    "id": "closure.spiral",
+    "output": {
+      "diff_log": "Exploration drifted into meta-level; stabilized with recap.",
+      "status": "completed",
+      "tags": ["drift", "recap"]
+    }
+  }
+}
