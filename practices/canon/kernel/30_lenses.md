@@ -89,9 +89,14 @@ Strict `lens.meta` rejects these sequences with `E_ANTIPATTERN`:
 ---
 
 ## References
-
+n - bs_detect (practitioner): `extended/diagnostics/bs_detect.md`  n - sentinel_spotcheck (practitioner): `extended/diagnostics/sentinel_spotcheck.md`  
 - Recap validator: `60_recap_validator.md`  
 - Session state: `70_state.md`  
 - Closure tools: `80_closure.md`  
 - Policy & caps: `90_policy.md`
  - Externalist guidance (practitioner): `kernel/lenses/externalist_diagnostic_modes.md`
+ - mirror_protocol (practitioner): `kernel/protocols/mirror_protocol.md`  
+ - suspicion_first_protocol (practitioner): `kernel/protocols/suspicion_first_protocol.md`  
+ - ai_integrity_protocol (practitioner): `kernel/protocols/ai_integrity_protocol.md`  
+ - bs_detect (practitioner): `extended/diagnostics/bs_detect.md`  
+ - sentinel_spotcheck (practitioner): `extended/diagnostics/sentinel_spotcheck.md`  

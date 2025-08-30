@@ -1,0 +1,33 @@
+{
+  "$id": "potm.kernel.ledger.spotcheck_event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ledger Entry — Spotcheck Event",
+  "type": "object",
+  "required": ["entry_id", "ts", "type", "ref", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "entry_id": { "type": "string" },
+    "ts": { "type": "string", "format": "date-time" },
+    "type": { "type": "string", "const": "spotcheck_event" },
+    "ref": { "type": "string", "description": "probe_id" },
+    "meta": {
+      "type": "object",
+      "required": ["spotcheck_event"],
+      "additionalProperties": false,
+      "properties": {
+        "spotcheck_event": {
+          "type": "object",
+          "required": ["outcome", "severity", "escalated"],
+          "additionalProperties": false,
+          "properties": {
+            "outcome": { "type": "string" },
+            "severity": { "type": "string", "enum": ["low", "med", "high"] },
+            "escalated": { "type": "boolean" },
+            "details": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
+

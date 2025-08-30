@@ -1,0 +1,14 @@
+{
+  "entry_id": "uuid-8102",
+  "ts": "2025-08-29T13:21:00Z",
+  "type": "closure_event",
+  "ref": null,
+  "meta": {
+    "closure_event": {
+      "tool": "closure.spiral",
+      "outcome": "diff_logged",
+      "details": "diff_log appended"
+    }
+  }
+}
+

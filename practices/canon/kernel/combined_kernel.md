@@ -58,6 +58,7 @@ On session start:
   > [KERNEL_EXIT]
   > ```
 
+<!-- Note: Build artifact. Generated composite for reference; do not edit directly. -->
 ---
 
 ## Dispatch Rules

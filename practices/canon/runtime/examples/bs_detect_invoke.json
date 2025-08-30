@@ -1,0 +1,7 @@
+{
+  "tool.call": {
+    "id": "bs_detect.run",
+    "payload": { "window": 5 }
+  }
+}
+

@@ -28,6 +28,8 @@ description: A self-monitoring protocol for AI agents to detect and respond to i
   drift, directive conflict, or narrative accommodation that compromises epistemic
   integrity.
 ---
+Note: Practitioner-facing protocol. Does not define kernel schemas or router tools; invokes kernel subsystems.
+
 # Mirror Protocol v1.0
 
 ## Purpose

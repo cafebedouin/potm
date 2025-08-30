@@ -115,6 +115,10 @@ Invalid entries →
 Valid entries →
 accepted into `ledger_buffer` via `move.log_latency_breach`.
 
+Schema & example:  
+- `runtime/spec/ledger.latency_breach.json`  
+- `runtime/examples/latency_breach_ledger.json`
+
 ---
 
 ## Failure Modes (router-aligned)

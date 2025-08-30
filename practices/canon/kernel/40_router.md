@@ -175,6 +175,11 @@ Ledger (externalist events):
   and are practitioner-facing protocols, not router tools. Router exposes only  
   the fracture queue moves (e.g., `move.open_fracture`, `move.review_fracture`, `move.close_review`).
 
+- BS-Detect and Sentinel Spotcheck are practitioner diagnostics (session-local) and not router tools.  
+  Results and ledger entries are documented under:  
+  - `runtime/spec/bs_detect_result.json`, `runtime/spec/ledger.bs_detect_event.json`  
+  - `runtime/spec/sentinel_spotcheck.json`, `runtime/spec/ledger.spotcheck_event.json`
+
 **Rejected (unknown namespace)** — see `id` pattern in `runtime/spec/router_envelope.json`
 
 ---

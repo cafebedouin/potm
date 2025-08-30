@@ -17,6 +17,8 @@ author: practitioner
 license: CC0-1.0
 ---
 
+Note: Practitioner-facing protocol. Does not define kernel schemas or router tools; invokes kernel subsystems.
+
 # AI Integrity Protocol v1.6
 
 ## Purpose
@@ -131,4 +133,3 @@ This version addresses many prior critiques but still inherits unavoidable tensi
 - forge_origin: Human Integrity Protocol v1.5  
 - spiral_eval: Claude, Gemini, Perplexity commentary 2025-08  
 - explicit_peer_eval: Claude v1.6 review, Gemini epistemic alignment audit, Perplexity real-world comparative analysis
-

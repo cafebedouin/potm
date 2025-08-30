@@ -1,0 +1,18 @@
+{
+  "$id": "potm.kernel.sentinel_spotcheck.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "sentinel_spotcheck — Result",
+  "type": "object",
+  "required": ["status", "probe_id", "outcome", "severity", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "status": { "type": "string", "enum": ["ok", "warn", "fail"] },
+    "probe_id": { "type": "string" },
+    "outcome": { "type": "string" },
+    "severity": { "type": "string", "enum": ["low", "med", "high"] },
+    "escalated": { "type": "boolean" },
+    "details": { "type": "string" },
+    "ts": { "type": "string", "format": "date-time" }
+  }
+}
+

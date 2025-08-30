@@ -1,0 +1,14 @@
+{
+  "entry_id": "uuid-8101",
+  "ts": "2025-08-29T13:20:00Z",
+  "type": "closure_event",
+  "ref": null,
+  "meta": {
+    "closure_event": {
+      "tool": "closure.archive",
+      "outcome": "archived",
+      "details": "Summary + takeaways recorded"
+    }
+  }
+}
+

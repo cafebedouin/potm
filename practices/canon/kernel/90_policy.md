@@ -44,6 +44,15 @@ Per-tool payload/result schemas:
 
 Externalized caps: `runtime/spec/policy.cap.json`
 
+
+## Artifact Caps (Prompts)
+
+- Default word caps:  
+  - card_draw, journal_prompt: 60–120 words  
+  - zuihitsu: ≤ 180 words (fragmented style allowed)  
+  - describe_intake scaffold: ≤ 120 words  
+- Export: gated under `artifact_prompt` (deny by default).  
+- Dynamic generation quota: ≤ 5 per session.  
 ### Fracture Cap
 
 `policy.cap.fracture_max` sets an upper bound on how many fracture ids may be stored in `meta_locus.review_queue` during a session.  
@@ -386,3 +395,19 @@ See registry: `runtime/spec/tool.index.json`
 
 - Enforced by `guardian.trigger`.  
 - Exceeding the cap → `E_QUOTA`.  
+
+### Ledger Integration — Policy Events
+
+All Policy tool decisions SHOULD be recorded as `policy_event` ledger entries for auditability.  
+- Schema: `runtime/spec/ledger.policy_event.json`  
+- Examples:  
+  - `runtime/examples/policy_query_ledger.json`  
+  - `runtime/examples/policy_enforce_ledger.json`  
+Capacity is enforced by `policy.cap.ledger_max`.
+
+### Ledger Integration — Diagnostics
+
+Diagnostic overlays (bs_detect, sentinel_spotcheck) MUST log their outcomes:  
+- BS-Detect → `bs_detect_event` (schema: `runtime/spec/ledger.bs_detect_event.json`; example: `runtime/examples/bs_detect_ledger.json`)  
+- Sentinel Spotcheck → `spotcheck_event` (schema: `runtime/spec/ledger.spotcheck_event.json`; example: `runtime/examples/sentinel_spotcheck_ledger.json`)  
+Capacity is enforced by `policy.cap.ledger_max`.

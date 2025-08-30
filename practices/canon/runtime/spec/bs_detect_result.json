@@ -1,0 +1,16 @@
+{
+  "$id": "potm.kernel.bs_detect.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "bs_detect — Result",
+  "type": "object",
+  "required": ["status", "fracture_id", "classification", "details", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "status": { "type": "string", "enum": ["ok", "fail"] },
+    "fracture_id": { "type": "string" },
+    "classification": { "type": "string" },
+    "details": { "type": "string" },
+    "ts": { "type": "string", "format": "date-time" }
+  }
+}
+

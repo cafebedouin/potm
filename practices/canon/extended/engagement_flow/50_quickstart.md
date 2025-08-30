@@ -43,11 +43,15 @@ Ligament calls VALIDATOR.stub before dispatch.
 4. **Menu choices** (select one practitioner-facing entryway):  
    - **Cards** → `draw 1` or `draw 1 <tag>`  
    - **Zuihitsu** → `pick 1` or `pick 1 index:<n>`
-   - **Journaling Prompt** → draw 1 journal
-     P1 note: journaling is session-local; export requires an explicit EXPORT: header in the entry.
+   - **Journaling Prompt** → draw 1 journal  
+     P1 note: journaling is session-local; export requires an explicit EXPORT: header in the entry.  
    - **Role Play** → `roleplay <voice>` (e.g., Trickster, Reflector, Neighbor)  
    - **You Have the Floor** → type any topic to explore  
-   - **Card-from-Context** → `draw 1 cards context:<topic>`
+   - **Card-from-Context** → `draw 1 cards context:<topic>`  
+   - **Generative draw** → `generate <cards|journal|maxim> [context:<topic>]`  
+     (Produces a fresh, context-tuned variant when helpful.)  
+   - **Favorites** → `menu favorites` (pin/list/recall session favorites)  
+   - **Re-roll** → `draw again` (redraw within same category)
 
    *(Optional: a Zuihitsu line may appear here as a “maxim” for seasoning. Type `menu help` for one-line descriptions.)*
 
@@ -55,8 +59,16 @@ Ligament calls VALIDATOR.stub before dispatch.
 
 5. **Engage with your chosen entryway**  
    
-   The kernel delivers the prompt, card, or vignette.  
-   Deeper diagnostics and lenses auto-invoke as needed—without cluttering your menu.
+The kernel delivers the prompt, card, or vignette.  
+Deeper diagnostics and lenses auto-invoke as needed—without cluttering your menu.
+
+Data sources (static):  
+- Cards: `interpretative/data/cards/combined_cards.yaml`  
+- Journaling: `interpretative/data/journaling/prompts.yaml`  
+- Zuihitsu: `interpretative/data/zuihitsu/zuihitsu_combined.txt`  
+
+Contextual modifier: add `context:<topic>` to bias the draw or to request a generative variant when no relevant static match is available.  
+Fail-closed behavior: if a static dataset is missing, the kernel falls back to a **Generative draw** with a minimal note.
 
 ---
 
@@ -65,6 +77,17 @@ Ligament calls VALIDATOR.stub before dispatch.
    - To explore more, call `menu` again
 
 ---
+
+## Generative Content
+
+Generative draws are ephemeral, session-local artifacts that can be tuned to the current conversation state (`context:<topic>`).  
+They respect kernel constraints (beacons, lenses, micromoves) and are never exported by default.  
+Use them when static options feel off-frame or when a parity check suggests reframing.
+
+### Favorites & Re-rolls
+
+- **Favorites**: `menu favorites` lets you pin surfaced items (cards, prompts, maxims) for quick recall within the same session. Favorites are session-local unless explicitly exported.  
+- **Re-roll**: `draw again` redraws within the current category. Use sparingly—one re-roll per category is the default etiquette.
 
 7. **Escalate if stuck** (auto-invoked)  
    - Zone friction → RELATION_ZONE  
@@ -126,13 +149,25 @@ When you type `menu`, the kernel lists available modes:
 5. **You Have the Floor** — Open, unstructured space; kernel may surface 1–2 pending questions.  
 6. **Card-from-Context** — Draw a card matched to the current conversation context.  
    _(May surface a Maxim, e.g., “Count backwards from 100 by threes.”)_
+7. **Generative draw** — Generate a fresh card, journal prompt, or maxim tuned to `context:<topic>`.  
+8. **Favorites** — Pin/list/recall session favorites: `menu favorites`.  
+9. **Re-roll** — Redraw once within the current category: `draw again`.
 
 ---
 
 ## Quick Reminders
 - All draws are **stateless** unless you explicitly save or export.  
 - Use `menu` anytime to return here.  
-- Maxims are optional; they appear inline when contextually drawn.
+- Maxims are optional; they appear inline when contextually drawn.  
+- Favorites are session-local unless exported.
+
+### Notes on Data & Context
+
+- Cards source: `interpretative/data/cards/combined_cards.yaml`  
+- Journaling prompts: `interpretative/data/journaling/prompts.yaml`  
+- Zuihitsu text: `interpretative/data/zuihitsu/zuihitsu_combined.txt`  
+- If any dataset is unavailable, the menu fails closed into a **Generative draw** with a brief note.  
+- Add `context:<topic>` to nudge selection or generation.
 
 
 # Glossary
@@ -258,5 +293,4 @@ It supersedes glossary v1.2.1, incorporating all new terms and expansions.
 * **zuihitsu:** A collection of fragmentary philosophical insights, life lessons, quotes and other miscellaneous ideas.
 
 ---
-
 

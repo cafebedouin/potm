@@ -55,6 +55,10 @@ See:
 - `runtime/examples/closure_spiral_invoke.json`  
 - `runtime/examples/closure_spiral_result.json`
 
+Ledger: `closure_event`
+- Schema: `runtime/spec/ledger.closure_event.json`
+- Example: `runtime/examples/closure_spiral_ledger.json`
+
 ---
 
 ### 2) `closure.archive` — final snapshot of a cycle
@@ -66,6 +70,10 @@ See:
 See:  
 - `runtime/examples/closure_archive_invoke.json`  
 - `runtime/examples/closure_archive_result.json`
+
+Ledger: `closure_event`
+- Schema: `runtime/spec/ledger.closure_event.json`
+- Example: `runtime/examples/closure_archive_ledger.json`
 
 ---
 
@@ -79,12 +87,21 @@ See:
 - `runtime/examples/closure_waiting_with_invoke.json`  
 - `runtime/examples/closure_waiting_with_result.json`
 
+Ledger: `closure_event`
+- Schema: `runtime/spec/ledger.closure_event.json`
+- Example: `runtime/examples/closure_waiting_with_ledger.json`
+
 ---
 
 ## Data Annexes (read-only, optional)
 
 * `ANNEX:FRACTURE_TAXONOMY_MINI` (P1-MIN; improves spiral wording)  
-* `ANNEX:FRACTURE_TAXONOMY` (P1-ALL, if present)  
+
+Ledger: `closure_event`
+- Schema: `runtime/spec/ledger.closure_event.json`
+- Example: `runtime/examples/closure_archive_ledger.json`
+
+* Fracture Taxonomy (master): `extended/diagnostics/fracture/fracture_taxonomy_master_table.md`  
 * `ANNEX:FRACTURE_CROSSWALK` (optional)  
 * `ANNEX:FRACTURE_META_UNITY` (optional)  
 

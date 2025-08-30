@@ -1,0 +1,7 @@
+{
+  "tool.call": {
+    "id": "sentinel_spotcheck.run",
+    "payload": { "probe_id": "probe-42" }
+  }
+}
+

@@ -131,10 +131,31 @@ Use Pal invocations to set stance with minimal friction:
 - Containment Mode → see `kernel/76_containment_mode.md`  
 - Grace Path → see `kernel/77_grace_path.md`  
 - Glyphs (context/protocol) → see `extended/glyphs/glyph_protocol.md`, `extended/glyphs/glyph_index.md`, `extended/glyphs/glyph_resonance_map.md`  
- - Guardian (sentinel overlay) → see `kernel/78_guardian_mode.md`; background:  
-   `kernel/guardian/integrity_guardian_subsystem_v1.0.md`,  
-   `kernel/guardian/guardian_trigger_conditions_v1.0.md`,  
-   `kernel/guardian/discernment_integrity_protocol.md`  
+  - Guardian (sentinel overlay) → see `kernel/78_guardian_mode.md`; background:  
+    `kernel/guardian/integrity_guardian_subsystem_v1.0.md`,  
+    `kernel/guardian/guardian_trigger_conditions_v1.0.md`,  
+    `kernel/guardian/discernment_integrity_protocol.md`  
+
+---
+
+## Diagnostics
+
+- bs_detect → `kernel/79_bs_detect.md`  
+- sentinel_spotcheck → `kernel/80_sentinel_spotcheck.md`  
+
+---
+
+## Preamble
+
+- `kernel/00_preamble.md` — high-level kernel preface and architecture notes
+
+---
+
+## Protocols
+
+- mirror_protocol → `kernel/protocols/mirror_protocol.md`  
+- suspicion_first_protocol → `kernel/protocols/suspicion_first_protocol.md`  
+- ai_integrity_protocol → `kernel/protocols/ai_integrity_protocol.md`  
 
 ---
 

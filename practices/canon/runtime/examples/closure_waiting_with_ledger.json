@@ -1,0 +1,14 @@
+{
+  "entry_id": "uuid-8103",
+  "ts": "2025-08-29T13:22:00Z",
+  "type": "closure_event",
+  "ref": null,
+  "meta": {
+    "closure_event": {
+      "tool": "closure.waiting_with",
+      "outcome": "contained",
+      "details": "Containment engaged while review_queue>0"
+    }
+  }
+}
+

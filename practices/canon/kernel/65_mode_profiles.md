@@ -83,6 +83,13 @@ Profiles can be changed in three ways:
 
 ---
 
+### Ledger Integration
+
+All mode profile changes MUST be recorded in the ledger as `mode_profile_change` entries.  
+- Schema: `runtime/spec/ledger.mode_profile_change.json`  
+- Example: `runtime/examples/mode_profile_change_ledger.json`  
+
+
 ## Profile Effects — Mapping Table
 
 | Component         | Lite                          | Standard                          | Strict                          |
@@ -132,4 +139,3 @@ See **Failure Modes (errors)** in `70_state.md` for the canonical table.
 
 * **1.0.0** — Initial spec. Introduces Lite/Standard/Strict profiles,  
   switching logic, mapping table, and escalation rules.
-

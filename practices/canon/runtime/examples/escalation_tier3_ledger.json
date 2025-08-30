@@ -1,0 +1,16 @@
+{
+  "entry_id": "uuid-4003",
+  "ts": "2025-08-29T10:10:00Z",
+  "type": "escalation_event",
+  "ref": "tier3",
+  "meta": {
+    "escalation_event": {
+      "source": "validator",
+      "tier": 3,
+      "action": "fracture_trigger",
+      "mode_profile": "strict",
+      "details": "Validator failure triggered Tier 3; fracture opened"
+    }
+  }
+}
+
