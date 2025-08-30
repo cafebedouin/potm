@@ -1,0 +1,17 @@
+{
+  "entry_id": "uuid-8202",
+  "ts": "2025-08-29T13:26:00Z",
+  "type": "policy_event",
+  "ref": null,
+  "meta": {
+    "policy_event": {
+      "tool": "policy.enforce",
+      "action": "apply",
+      "target": "spiral.diff_log",
+      "decision": "revise",
+      "violations": 1,
+      "details": "Trimmed to 400 chars"
+    }
+  }
+}
+

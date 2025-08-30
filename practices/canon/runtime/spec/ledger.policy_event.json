@@ -1,0 +1,35 @@
+{
+  "$id": "potm.kernel.ledger.policy_event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ledger Entry — Policy Event",
+  "type": "object",
+  "required": ["entry_id", "ts", "type", "ref", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "entry_id": { "type": "string" },
+    "ts": { "type": "string", "format": "date-time" },
+    "type": { "type": "string", "const": "policy_event" },
+    "ref": { "type": ["string", "null"], "description": "Optional reference" },
+    "meta": {
+      "type": "object",
+      "required": ["policy_event"],
+      "additionalProperties": false,
+      "properties": {
+        "policy_event": {
+          "type": "object",
+          "required": ["tool", "action", "target", "decision"],
+          "additionalProperties": false,
+          "properties": {
+            "tool": { "type": "string", "enum": ["policy.query", "policy.enforce", "policy.report"] },
+            "action": { "type": "string", "description": "Operation or action taken" },
+            "target": { "type": "string" },
+            "decision": { "type": "string", "enum": ["allow", "revise", "block", "summary"] },
+            "violations": { "type": "integer", "minimum": 0 },
+            "details": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
+

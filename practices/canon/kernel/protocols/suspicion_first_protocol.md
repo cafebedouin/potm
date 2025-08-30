@@ -26,6 +26,8 @@ author: "practitioner"
 license: CC0-1.0
 ---
 
+Note: Practitioner-facing protocol. Does not define kernel schemas or router tools; invokes kernel subsystems.
+
 # Suspicion-First Engagement Flow (v1.3)
 
 ## Purpose

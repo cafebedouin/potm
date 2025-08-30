@@ -1,0 +1,8 @@
+{
+  "status": "fail",
+  "fracture_id": "fxr-101",
+  "classification": "confident_claim_low_support",
+  "details": "Asserted performance without data",
+  "ts": "2025-08-29T13:40:00Z"
+}
+

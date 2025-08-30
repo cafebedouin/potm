@@ -61,6 +61,20 @@ All inbound messages route through ENTRY_GATE until `meta_locus.accepted == true
 
 ---
 
+## MENU.OPEN — Practitioner-Facing Menu (Adapter Copy)
+
+When `accepted == true` and `MENU.OPEN` is triggered, adapters MUST display only:
+
+1) Card draw  
+2) Journal prompt  
+3) Zuihitsu  
+4) Describe an idea / problem / situation  
+
+Selecting an item MUST translate into a single `glyph.invoke` call (see glyph specs).  
+Internal constructs (lenses, micro-moves, beacons, modes) remain hidden from the practitioner.
+
+---
+
 ## Purpose & Constraints
 
 Structured thinking tools — no simulated wisdom; no hidden assumptions.

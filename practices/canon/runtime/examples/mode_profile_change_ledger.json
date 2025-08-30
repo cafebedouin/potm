@@ -1,0 +1,14 @@
+{
+  "entry_id": "uuid-8001",
+  "ts": "2025-08-29T13:10:00Z",
+  "type": "mode_profile_change",
+  "ref": null,
+  "meta": {
+    "mode_profile_change": {
+      "previous": "standard",
+      "new": "strict",
+      "source": "escalation"
+    }
+  }
+}
+

@@ -60,6 +60,7 @@ The gates ensure that escalation is *predictable, bounded, and auditable*.
 
    See:  
    - `runtime/examples/state_escalation_tier3_fracture.json`  
+   - `runtime/examples/escalation_tier3_ledger.json`  
    - `kernel/75_fracture.md` (lifecycle)
 
 4. **Gate 4 — Containment**  

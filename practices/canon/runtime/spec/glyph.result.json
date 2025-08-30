@@ -4,13 +4,31 @@
   "title": "glyph.result — Result",
   "description": "Result of a glyph invocation.",
   "type": "object",
-  "required": ["glyphId", "status", "ts"],
   "additionalProperties": false,
   "properties": {
-    "glyphId": { "type": "string", "description": "Identifier of the glyph" },
-    "status": { "type": "string", "enum": ["ok", "error"], "description": "Outcome status" },
-    "ts": { "type": "string", "format": "date-time", "description": "Completion timestamp" },
-    "details": { "type": "string", "description": "Optional result note" }
-  }
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string", "enum": ["card_draw","journal_prompt","zuihitsu","describe_intake"] },
+        "content": { "type": "string", "maxLength": 1200 },
+        "source": { "type": "string", "pattern": "^(pack:[^\\s/]+/[^\\s/]+|generated)$" }
+      },
+      "required": ["type","content","source"]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "inputs": { "type": "array", "items": { "type": "string" }, "maxItems": 8 },
+        "model": { "type": "string" },
+        "time": { "type": "string", "format": "date-time" },
+        "signals": { "type": "array", "items": { "type": "string" }, "maxItems": 8 }
+      },
+      "required": ["time"]
+    },
+    "why_this": { "type": "string", "maxLength": 200 },
+    "fit_confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+  },
+  "required": ["artifact","provenance","why_this","fit_confidence"]
 }
-

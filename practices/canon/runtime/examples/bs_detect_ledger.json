@@ -1,0 +1,15 @@
+{
+  "entry_id": "uuid-9001",
+  "ts": "2025-08-29T13:40:01Z",
+  "type": "bs_detect_event",
+  "ref": "fxr-101",
+  "meta": {
+    "bs_detect_event": {
+      "classification": "confident_claim_low_support",
+      "severity": "med",
+      "outcome": "fracture_opened",
+      "details": "Routed to fracture queue"
+    }
+  }
+}
+

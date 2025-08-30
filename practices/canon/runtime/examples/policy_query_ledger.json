@@ -1,0 +1,17 @@
+{
+  "entry_id": "uuid-8201",
+  "ts": "2025-08-29T13:25:00Z",
+  "type": "policy_event",
+  "ref": null,
+  "meta": {
+    "policy_event": {
+      "tool": "policy.query",
+      "action": "check",
+      "target": "archive.summary",
+      "decision": "allow",
+      "violations": 0,
+      "details": "Within cap"
+    }
+  }
+}
+

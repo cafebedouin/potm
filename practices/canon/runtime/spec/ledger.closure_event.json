@@ -1,0 +1,32 @@
+{
+  "$id": "potm.kernel.ledger.closure_event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ledger Entry — Closure Event",
+  "type": "object",
+  "required": ["entry_id", "ts", "type", "ref", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "entry_id": { "type": "string" },
+    "ts": { "type": "string", "format": "date-time" },
+    "type": { "type": "string", "const": "closure_event" },
+    "ref": { "type": ["string", "null"], "description": "Optional artifact reference" },
+    "meta": {
+      "type": "object",
+      "required": ["closure_event"],
+      "additionalProperties": false,
+      "properties": {
+        "closure_event": {
+          "type": "object",
+          "required": ["tool", "outcome"],
+          "additionalProperties": false,
+          "properties": {
+            "tool": { "type": "string", "enum": ["closure.archive", "closure.spiral", "closure.waiting_with"] },
+            "outcome": { "type": "string" },
+            "details": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
+

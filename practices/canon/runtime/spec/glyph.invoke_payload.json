@@ -1,15 +1,27 @@
 {
   "$id": "potm.kernel.glyph.invoke.payload.v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "glyph.invoke — Payload",
-  "description": "Invoke a glyph by id with optional details and timestamp.",
+  "title": "glyph.invoke_payload",
+  "description": "Invoke a glyph. Supports static packs and dynamic generation.",
   "type": "object",
-  "required": ["glyphId"],
   "additionalProperties": false,
   "properties": {
-    "glyphId": { "type": "string", "description": "Identifier of the glyph" },
+    "type": {
+      "type": "string",
+      "enum": ["card_draw","journal_prompt","zuihitsu","describe_intake"],
+      "description": "Artifact category to produce"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["static_pack","dynamic_generated"],
+      "default": "static_pack",
+      "description": "Static pack selection or dynamic generation"
+    },
+    "context": { "type": "object", "description": "Optional session-local context" },
+    "constraints": { "type": "object", "description": "Optional shaping constraints (tone, caps, topic)" },
+    "glyphId": { "type": "string", "description": "(Optional legacy) Identifier of a specific glyph" },
     "details": { "type": "string", "description": "Optional note or context" },
     "ts": { "type": "string", "format": "date-time", "description": "Invocation timestamp" }
-  }
+  },
+  "required": ["type"]
 }
-

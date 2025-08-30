@@ -1,0 +1,10 @@
+{
+  "status": "warn",
+  "probe_id": "probe-42",
+  "outcome": "ambiguous_evidence",
+  "severity": "low",
+  "escalated": false,
+  "details": "Suggest CONTRARY or CHECK lens",
+  "ts": "2025-08-29T13:45:00Z"
+}
+

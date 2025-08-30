@@ -154,6 +154,13 @@ continues under containment until resolved or exited via grace path.
 - Containment events: `runtime/spec/ledger.containment_event.json`  
 - Glyph events: `runtime/spec/ledger.glyph_event.json`  
 - Guardian events: `runtime/spec/ledger.guardian_event.json`  
+ - Mode profile changes: `runtime/spec/ledger.mode_profile_change.json`  
+ - Latency breaches: `runtime/spec/ledger.latency_breach.json`  
+ - Closure events: `runtime/spec/ledger.closure_event.json`  
+ - Policy events: `runtime/spec/ledger.policy_event.json`  
+- Escalation events: `runtime/spec/ledger.escalation_event.json`  
+- BS-Detect events: `runtime/spec/ledger.bs_detect_event.json`  
+- Spotcheck events: `runtime/spec/ledger.spotcheck_event.json`  
 
 ## Failure Modes (errors)
 
@@ -232,10 +239,19 @@ Examples are externalized. See canonical instances in `runtime/examples/`:
 - `fracture_resolve_ledger.json` — ledger entry for fracture resolve  
 - `containment_enter_ledger.json` — ledger entry for containment enter  
 - `containment_exit_ledger.json` — ledger entry for containment exit  
-- `containment_abort_ledger.json` — ledger entry for containment abort  
+ - `containment_abort_ledger.json` — ledger entry for containment abort  
  - `latency_breach_ledger.json` — ledger entry for latency breach  
  - `escalation_tier2_ledger.json` — ledger entry for Tier 2 escalation  
-- `escalation_tier4_ledger.json` — ledger entry for Tier 4 escalation  
+ - `escalation_tier3_ledger.json` — ledger entry for Tier 3 escalation  
+ - `escalation_tier4_ledger.json` — ledger entry for Tier 4 escalation  
+ - `mode_profile_change_ledger.json` — ledger entry for mode profile change  
+ - `closure_archive_ledger.json` — ledger entry for closure.archive  
+ - `closure_spiral_ledger.json` — ledger entry for closure.spiral  
+ - `closure_waiting_with_ledger.json` — ledger entry for closure.waiting_with  
+ - `policy_query_ledger.json` — ledger entry for policy.query  
+ - `policy_enforce_ledger.json` — ledger entry for policy.enforce  
+- `bs_detect_ledger.json` — ledger entry for bs_detect  
+- `sentinel_spotcheck_ledger.json` — ledger entry for sentinel_spotcheck  
 
 ### Externalist Examples
 
@@ -266,6 +282,12 @@ For practitioner diagnostics and review heuristics, see:
 - `extended/diagnostics/fracture/fracture_finder_playbook.md`  
 - `extended/diagnostics/fracture/fracture_crosswalk.md`  
 - `meta/fracture_meta`  
+
+## Practitioner Protocols
+
+- mirror_protocol — `kernel/protocols/mirror_protocol.md`  
+- suspicion_first_protocol — `kernel/protocols/suspicion_first_protocol.md`  
+- ai_integrity_protocol — `kernel/protocols/ai_integrity_protocol.md`  
 
 ## Fracture moves (specs)
 
