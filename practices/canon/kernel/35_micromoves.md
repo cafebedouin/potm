@@ -51,156 +51,69 @@ Micro-moves perform no I/O, mutate only `meta_locus`, and emit a single `tool.re
 ### align_scan
 
 - **trigger:** practitioner aim differs from last kernel output  
-- **input:**  
-  ```yaml
-  {
-    aim: "string",
-    last_output: "string"
-  }
-````
-
-* **output:**
-
-  ```yaml
-  {
-    misalignment: "description",
-    suggestion: "phrase or question"
-  }
-  ```
-* **emit:** `tool.result { id: "move.align_scan", output: {...} }`
+- **payload schema:** `runtime/spec/move.align_scan_payload.json`  
+- **result schema:** `runtime/spec/move.align_scan_result.json`  
+- **examples:** `runtime/examples/move_align_scan_invoke.json`, `runtime/examples/move_align_scan_result.json`  
+- **emit:** `tool.result { id: "move.align_scan", output: {...} }`
 
 ---
 
 ### zone\_check
 
-* **trigger:** three or more consecutive deflect/defend signals
-* **input:**
-
-  ```yaml
-  {
-    history: [ "...", "...", "..." ]
-  }
-  ```
-* **output:**
-
-  ```yaml
-  {
-    zone_label: "toxic"|"messy"|"insight",
-    score: 0–100
-  }
-  ```
+* **trigger:** three or more consecutive deflect/defend signals  
+* **payload schema:** `runtime/spec/move.zone_check_payload.json`  
+* **result schema:** `runtime/spec/move.zone_check_result.json`  
+* **examples:** `runtime/examples/move_zone_check_invoke.json`, `runtime/examples/move_zone_check_result.json`  
 * **emit:** `tool.result { id: "move.zone_check", output: {...} }`
 
 ---
 
 ### drift_check
 
-* **trigger:** topic shift detected against `meta_locus.aim`
-* **input:**
-
-  ```yaml
-  {
-    aim: "string",
-    thread: [ "...", "..." ]
-  }
-  ```
-* **output:**
-
-  ```yaml
-  {
-    drift_description: "string",
-    severity: "low"|"med"|"high"
-  }
-  ```
+* **trigger:** topic shift detected against `meta_locus.aim`  
+* **payload schema:** `runtime/spec/move.drift_check_payload.json`  
+* **result schema:** `runtime/spec/move.drift_check_result.json`  
+* **examples:** `runtime/examples/move_drift_check_invoke.json`, `runtime/examples/move_drift_check_result.json`  
 * **emit:** `tool.result { id: "move.drift_check", output: {...} }`
 
 ---
 
 ### fracture
 
-* **trigger:** any core beacon failure
-* **input:**
-
-  ```yaml
-  {
-    beacon_id: "string",
-    context: "string"
-  }
-  ```
-* **output:**
-
-  ```yaml
-  {
-    fracture_ids: ["F#","F#"],
-    route_hint: "continue"|"stop"|"openq"|"redteam"
-  }
-  ```
+* **trigger:** any core beacon failure  
+* **payload schema:** `runtime/spec/move.fracture_payload.json`  
+* **result schema:** `runtime/spec/move.fracture_result.json`  
+* **examples:** `runtime/examples/move_fracture_invoke.json`, `runtime/examples/move_fracture_result.json`  
 * **emit:** `tool.result { id: "move.fracture", output: {...} }`
 
 ---
 
 ### quick\_ref
 
-* **trigger:** explicit `recap` request or after closure
-* **input:**
-
-  ```yaml
-  {
-    session_log: [ {...}, {...} ]
-  }
-  ```
-* **output:**
-
-  ```yaml
-  {
-    summary: "string"
-  }
-  ```
+* **trigger:** explicit `recap` request or after closure  
+* **payload schema:** `runtime/spec/move.quick_ref_payload.json`  
+* **result schema:** `runtime/spec/move.quick_ref_result.json`  
+* **examples:** `runtime/examples/move_quick_ref_invoke.json`, `runtime/examples/move_quick_ref_result.json`  
 * **emit:** `tool.result { id: "move.quick_ref", output: {...} }`
 
 ---
 
 ### contrast
 
-* **trigger:** two or more items provided for comparison
-* **input:**
-
-  ```yaml
-  {
-    items: [ "A", "B", "C" ]
-  }
-  ```
-* **output:**
-
-  ```yaml
-  {
-    differences: [ "A vs B", "B vs C" ],
-    key_point: "string"
-  }
-  ```
+* **trigger:** two or more items provided for comparison  
+* **payload schema:** `runtime/spec/move.contrast_payload.json`  
+* **result schema:** `runtime/spec/move.contrast_result.json`  
+* **examples:** `runtime/examples/move_contrast_invoke.json`, `runtime/examples/move_contrast_result.json`  
 * **emit:** `tool.result { id: "move.contrast", output: {...} }`
 
 ---
 
 ### sandbox
 
-* **trigger:** practitioner requests hypothetical exploration
-* **input:**
-
-  ```yaml
-
-    scenario: "string",
-    constraints: { fail_soft?: true, word_cap?: 48 }
-  }  
-  ```
-* **output:**
-
-  ```yaml
-  {
-    outcome: "string",
-    confidence: 0–1, mode: "normal"|"fail_soft" }
-  }
-  ```
+* **trigger:** practitioner requests hypothetical exploration  
+* **payload schema:** `runtime/spec/move.sandbox_payload.json`  
+* **result schema:** `runtime/spec/move.sandbox_result.json`  
+* **examples:** `runtime/examples/move_sandbox_invoke.json`, `runtime/examples/move_sandbox_result.json`  
 * **emit:** `tool.result { id: "move.sandbox", output: {...} }`
 
 ---

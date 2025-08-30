@@ -1,0 +1,15 @@
+{
+  "closure_record": {
+    "when": "2025-08-26T20:00:00Z",
+    "thread": "feature-x-triage",
+    "done_definition": "MVP scope fixed; blockers listed",
+    "loose_ends": ["QA plan — alex@2025-08-30"],
+    "dissent_or_unease": "none",
+    "consensus_outcome": "consensus",
+    "center_alignment": "aligned",
+    "decisions": ["Ship reduced scope MVP — pm"],
+    "risks": ["Timeline slip — mitigation: narrow acceptance criteria"],
+    "next_trigger": "retro after first cohort"
+  }
+}
+

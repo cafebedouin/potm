@@ -1,0 +1,9 @@
+{
+  "meta_locus": {
+    "accepted": true,
+    "containment": false,
+    "review_queue": ["fxr-001"],
+    "latency_mode": "standard",
+    "mode_profile": "standard"
+  }
+}

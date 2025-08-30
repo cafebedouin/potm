@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_open_questions",
+  "description": "Surface open questions relevant to a topic or fracture.",
+  "type": "object",
+  "properties": {
+    "topic": {
+      "description": "Topic to guide open questions.",
+      "type": "string"
+    },
+    "max_count": {
+      "description": "Maximum number of questions to surface (hint-level).",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    }
+  },
+  "required": ["topic"],
+  "additionalProperties": false
+}
+

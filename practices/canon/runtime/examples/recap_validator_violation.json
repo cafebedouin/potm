@@ -1,0 +1,6 @@
+{
+  "include": ["summary", "nonsense_field"],
+  "max_items": 12,
+  "max_words_line": 60,
+  "extra_key": true
+}

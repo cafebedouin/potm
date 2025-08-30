@@ -1,0 +1,17 @@
+{
+  "$id": "potm.kernel.move.quick_ref.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.quick_ref payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "session_log": {
+      "type": "array",
+      "items": { "type": "object" },
+      "minItems": 1,
+      "maxItems": 64
+    }
+  },
+  "required": ["session_log"]
+}
+

@@ -1,0 +1,30 @@
+{
+  "$id": "potm.kernel.externalist.invoke.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "externalist.invoke — Payload",
+  "description": "Invoke an Externalist diagnostic mode.",
+  "type": "object",
+  "required": ["mode", "frame", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": [
+        "contrary_corner",
+        "frame_inversion",
+        "counterfactual_swap",
+        "principle_dilution",
+        "scale_shift",
+        "unbundling",
+        "modality_recast",
+        "value_reassignment"
+      ],
+      "description": "One of the 8 Externalist modes"
+    },
+    "frame": { "type": "string", "description": "One-line name of the offered frame" },
+    "ts": { "type": "string", "format": "date-time" },
+    "limiter": { "type": "string", "description": "Limiter provided or requested by the mode" },
+    "details": { "type": "string", "description": "Optional context or neutral-domain prompt" }
+  }
+}
+

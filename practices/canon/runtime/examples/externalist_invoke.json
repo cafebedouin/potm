@@ -1,0 +1,13 @@
+{
+  "tool.call": {
+    "id": "externalist.invoke",
+    "payload": {
+      "mode": "contrary_corner",
+      "frame": "Policy fairness claim",
+      "limiter": "scope: procurement only",
+      "details": "Use sports draft as neutral domain",
+      "ts": "2025-08-29T13:00:00Z"
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+{
+  "meta_locus": {
+    "accepted": true,
+    "containment": false,
+    "review_queue": [],
+    "latency_mode": "standard",
+    "mode_profile": "strict"
+  },
+  "ledger_buffer": [
+    {
+      "entry_id": "uuid-789",
+      "ts": "2025-08-29T16:30:00Z",
+      "type": "mode_profile_change",
+      "ref": null,
+      "meta": {
+        "mode_profile_change": {
+          "previous": "standard",
+          "new": "strict",
+          "source": "manual"
+        }
+      }
+    }
+  ]
+}

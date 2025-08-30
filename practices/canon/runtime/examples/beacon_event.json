@@ -1,0 +1,7 @@
+{
+  "ts": "2025-08-29T12:30:00Z",
+  "source": "validator",
+  "signal": "schema_near_miss",
+  "severity": "warning",
+  "details": "Optional field repeatedly missing from recap payload"
+}

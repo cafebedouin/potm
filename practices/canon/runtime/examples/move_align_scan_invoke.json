@@ -1,0 +1,10 @@
+{
+  "tool.call": {
+    "id": "move.align_scan",
+    "payload": {
+      "aim": "Clarify the plan viability",
+      "last_output": "Proposed steps without validation"
+    }
+  }
+}
+

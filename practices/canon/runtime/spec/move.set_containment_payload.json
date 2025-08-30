@@ -1,0 +1,15 @@
+{
+  "$id": "potm.kernel.move.set_containment.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.set_containment — Payload",
+  "description": "Enter/exit containment mode.",
+  "type": "object",
+  "required": ["containment", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "containment": { "type": "boolean" },
+    "ts": { "type": "string", "format": "date-time" },
+    "source": { "type": "string", "enum": ["escalation", "manual"] }
+  }
+}
+

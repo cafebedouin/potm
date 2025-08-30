@@ -1,0 +1,11 @@
+{
+  "tool.result": {
+    "id": "lens.facts",
+    "output": {
+      "facts": [
+        "Fractures must be reviewed before closure.",
+        "Containment only activates when review_queue is non-empty."
+      ]
+    }
+  }
+}

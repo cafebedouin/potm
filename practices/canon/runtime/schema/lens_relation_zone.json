@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_relation_zone",
+  "description": "Schema for the Relation Zone lens. Detects and reports shifts between relational zones (green, yellow, red).",
+  "type": "object",
+  "properties": {
+    "previous": {
+      "description": "The previous relational zone.",
+      "type": "string",
+      "enum": ["green", "yellow", "red"]
+    },
+    "new": {
+      "description": "The new relational zone detected.",
+      "type": "string",
+      "enum": ["green", "yellow", "red"]
+    },
+    "trigger": {
+      "description": "Event that caused the zone shift.",
+      "type": "string",
+      "enum": ["boundary_violation", "cooperation_gain", "cooperation_loss", "rupture", "repair", "other"]
+    },
+    "details": {
+      "description": "Optional freeform description of the detected shift.",
+      "type": "string",
+      "maxLength": 300
+    }
+  },
+  "required": ["previous", "new", "trigger"],
+  "additionalProperties": false
+}

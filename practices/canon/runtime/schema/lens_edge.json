@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_edge",
+  "description": "Surface edge cases & contradictions for a statement or topic.",
+  "type": "object",
+  "properties": {
+    "statement": {
+      "description": "The statement or claim to stress-test.",
+      "type": "string"
+    },
+    "topic": {
+      "description": "Optional topic to scope the edge scan.",
+      "type": "string"
+    }
+  },
+  "required": ["statement"],
+  "additionalProperties": false
+}
+

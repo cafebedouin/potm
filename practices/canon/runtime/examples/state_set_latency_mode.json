@@ -1,0 +1,9 @@
+{
+  "meta_locus": {
+    "accepted": true,
+    "containment": false,
+    "review_queue": [],
+    "latency_mode": "lite",
+    "mode_profile": "standard"
+  }
+}

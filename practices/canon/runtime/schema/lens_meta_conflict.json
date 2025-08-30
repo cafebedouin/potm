@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_meta_conflict",
+  "description": "Schema for the Meta-Conflict lens. Analyzes patterns across conflicts.",
+  "type": "object",
+  "properties": {
+    "cases": {
+      "description": "List of conflict cases to meta-analyze.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "focus": {
+      "description": "Optional dimension of focus (values, tactics, escalation).",
+      "type": "string"
+    }
+  },
+  "required": ["cases"],
+  "additionalProperties": false
+}

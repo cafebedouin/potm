@@ -1,0 +1,16 @@
+{
+  "$id": "potm.kernel.glyph.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "glyph.result — Result",
+  "description": "Result of a glyph invocation.",
+  "type": "object",
+  "required": ["glyphId", "status", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "glyphId": { "type": "string", "description": "Identifier of the glyph" },
+    "status": { "type": "string", "enum": ["ok", "error"], "description": "Outcome status" },
+    "ts": { "type": "string", "format": "date-time", "description": "Completion timestamp" },
+    "details": { "type": "string", "description": "Optional result note" }
+  }
+}
+

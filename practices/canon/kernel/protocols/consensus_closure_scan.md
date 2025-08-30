@@ -48,17 +48,6 @@ license: CC0-1.0
 - Ethical heat, material risk, relational breach, or center-misalignment → run `values_integrity_audit` and/or `guardian/discernment_integrity_protocol`.
 
 ## Closure Record (paste to meta log)
-```yaml
-closure_record:
-  when: <UTC timestamp>
-  thread: "<short handle>"
-  done_definition: "<what counted as done>"
-  loose_ends: ["<item> — <owner>@<date>"]
-  dissent_or_unease: "<none|summary>"
-  consensus_outcome: "<consensus|defer|escalate|split>"
-  center_alignment: "<aligned|misaligned|skipped>"
-  decisions: ["<decision> — <owner>"]
-  risks: ["<risk> — mitigation:<plan>"]
-  next_trigger: "<date/event|none>"
 
-::contentReference[oaicite:0]{index=0}
+Schema: `runtime/schema/closure_record.json`  
+Example: `runtime/examples/closure_record.json`

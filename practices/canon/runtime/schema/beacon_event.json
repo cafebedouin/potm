@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "beacon_event",
+  "description": "Schema for beacon event entries. Used to record validator, latency, and policy signals.",
+  "type": "object",
+  "properties": {
+    "ts": {
+      "description": "Timestamp of the beacon event.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "description": "Signal origin.",
+      "type": "string",
+      "enum": ["validator", "latency", "policy", "canary", "other"]
+    },
+    "signal": {
+      "description": "Beacon signal type.",
+      "type": "string",
+      "enum": ["schema_near_miss", "latency_spike", "cap_breach", "drift_pattern", "unknown"]
+    },
+    "severity": {
+      "description": "Severity of the signal.",
+      "type": "string",
+      "enum": ["warning", "error"]
+    },
+    "details": {
+      "description": "Optional freeform description.",
+      "type": "string",
+      "maxLength": 300
+    }
+  },
+  "required": ["ts", "source", "signal", "severity"],
+  "additionalProperties": false
+}

@@ -1,0 +1,12 @@
+{
+  "tool.call": {
+    "id": "guardian.trigger",
+    "payload": {
+      "triggerId": "integrity_warning",
+      "severity": "soft",
+      "ts": "2025-08-29T12:30:00Z",
+      "details": "Elevated ethical heat"
+    }
+  }
+}
+

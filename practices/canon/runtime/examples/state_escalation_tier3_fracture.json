@@ -1,0 +1,26 @@
+{
+  "meta_locus": {
+    "accepted": true,
+    "containment": false,
+    "review_queue": ["fxr-001"],
+    "latency_mode": "standard",
+    "mode_profile": "strict"
+  },
+  "ledger_buffer": [
+    {
+      "entry_id": "uuid-404",
+      "ts": "2025-08-29T18:35:00Z",
+      "type": "escalation_event",
+      "ref": null,
+      "meta": {
+        "escalation_event": {
+          "source": "validator",
+          "tier": 3,
+          "action": "fracture_trigger",
+          "mode_profile": "strict",
+          "details": "Validator failure caused review queue append"
+        }
+      }
+    }
+  ]
+}

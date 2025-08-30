@@ -1,0 +1,16 @@
+{
+  "entry_id": "uuid-4001",
+  "ts": "2025-08-29T10:05:00Z",
+  "type": "escalation_event",
+  "ref": null,
+  "meta": {
+    "escalation_event": {
+      "source": "latency",
+      "tier": 2,
+      "action": "escalate_profile",
+      "mode_profile": "standard",
+      "details": "Repeated latency warnings"
+    }
+  }
+}
+

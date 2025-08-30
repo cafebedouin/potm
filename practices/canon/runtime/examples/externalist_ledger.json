@@ -1,0 +1,16 @@
+{
+  "entry_id": "uuid-7001",
+  "ts": "2025-08-29T13:00:05Z",
+  "type": "externalist_event",
+  "ref": "contrary_corner",
+  "meta": {
+    "externalist_event": {
+      "mode": "contrary_corner",
+      "frame": "Policy fairness claim",
+      "limiter": "scope: procurement only",
+      "outcome": "parity_fail",
+      "details": "Neutral domain parity test failed"
+    }
+  }
+}
+

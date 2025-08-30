@@ -1,0 +1,19 @@
+{
+  "ledger_buffer": [
+    {
+      "entry_id": "uuid-303",
+      "ts": "2025-08-29T18:30:00Z",
+      "type": "escalation_event",
+      "ref": null,
+      "meta": {
+        "escalation_event": {
+          "source": "canary",
+          "tier": 2,
+          "action": "escalate_profile",
+          "mode_profile": "strict",
+          "details": "Two consecutive canary chirps detected"
+        }
+      }
+    }
+  ]
+}

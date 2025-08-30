@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "closure.waiting_with",
+    "payload": {
+      "note": "Holding containment while fracture review is pending.",
+      "tags": ["containment", "pending_review"]
+    }
+  }
+}

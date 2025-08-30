@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_check",
+  "description": "Schema for the Check lens. Validates assumptions or premises for consistency.",
+  "type": "object",
+  "properties": {
+    "assumption": {
+      "description": "The assumption or premise to validate.",
+      "type": "string"
+    }
+  },
+  "required": ["assumption"],
+  "additionalProperties": false
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_facts",
+  "description": "Schema for the Facts lens. Surfaces agreed-upon facts relevant to a claim or session.",
+  "type": "object",
+  "properties": {
+    "topic": {
+      "description": "Optional topic or scope to filter facts.",
+      "type": "string"
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

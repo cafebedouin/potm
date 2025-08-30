@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "lens.meta_conflict",
+    "payload": {
+      "cases": ["case_1", "case_2", "case_3"],
+      "focus": "escalation"
+    }
+  }
+}

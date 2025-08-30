@@ -1,0 +1,10 @@
+{
+  "tool.result": {
+    "id": "lens.check",
+    "output": {
+      "assumption": "All fractures can be resolved immediately.",
+      "status": "invalid",
+      "reason": "Fractures may persist until review; containment required if unresolved."
+    }
+  }
+}

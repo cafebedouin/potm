@@ -1,0 +1,20 @@
+{
+  "$id": "potm.kernel.move.sandbox.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.sandbox payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scenario": { "type": "string", "maxLength": 2000 },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fail_soft": { "type": "boolean" },
+        "word_cap": { "type": "integer", "minimum": 1, "maximum": 48 }
+      }
+    }
+  },
+  "required": ["scenario"]
+}
+

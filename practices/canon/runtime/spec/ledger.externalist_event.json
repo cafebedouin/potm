@@ -1,0 +1,34 @@
+{
+  "$id": "potm.kernel.ledger.externalist_event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ledger Entry — Externalist Event",
+  "type": "object",
+  "required": ["entry_id", "ts", "type", "ref", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "entry_id": { "type": "string" },
+    "ts": { "type": "string", "format": "date-time" },
+    "type": { "type": "string", "const": "externalist_event" },
+    "ref": { "type": "string", "description": "Externalist mode id" },
+    "meta": {
+      "type": "object",
+      "required": ["externalist_event"],
+      "additionalProperties": false,
+      "properties": {
+        "externalist_event": {
+          "type": "object",
+          "required": ["mode", "frame", "limiter", "outcome"],
+          "additionalProperties": false,
+          "properties": {
+            "mode": { "type": "string" },
+            "frame": { "type": "string" },
+            "limiter": { "type": "string" },
+            "outcome": { "type": "string" },
+            "details": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
+

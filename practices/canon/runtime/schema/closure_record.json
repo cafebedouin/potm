@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "closure_record",
+  "description": "Consensus closure scan record for meta log.",
+  "type": "object",
+  "properties": {
+    "when": { "type": "string", "format": "date-time" },
+    "thread": { "type": "string" },
+    "done_definition": { "type": "string" },
+    "loose_ends": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 20
+    },
+    "dissent_or_unease": { "type": "string" },
+    "consensus_outcome": { "type": "string", "enum": ["consensus", "defer", "escalate", "split"] },
+    "center_alignment": { "type": "string", "enum": ["aligned", "misaligned", "skipped"] },
+    "decisions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 20
+    },
+    "risks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 20
+    },
+    "next_trigger": { "type": "string" }
+  },
+  "required": ["when", "thread", "done_definition", "consensus_outcome", "center_alignment"],
+  "additionalProperties": false
+}
+

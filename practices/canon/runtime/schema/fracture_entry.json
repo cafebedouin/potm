@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "fracture_entry",
+  "description": "Schema for fracture entries queued in meta_locus.review_queue.",
+  "type": "object",
+  "properties": {
+    "fracture_id": {
+      "description": "Unique identifier for the fracture (string).",
+      "type": "string"
+    },
+    "status": {
+      "description": "Lifecycle status of the fracture entry.",
+      "type": "string",
+      "enum": ["open", "review", "resolved"]
+    },
+    "origin": {
+      "description": "Origin of the fracture event.",
+      "type": "string",
+      "enum": ["validator", "latency", "policy", "manual"]
+    },
+    "details": {
+      "description": "Optional diagnostic context or note.",
+      "type": "string"
+    },
+    "ts": {
+      "description": "ISO 8601 timestamp of when the fracture was recorded.",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["fracture_id", "status", "origin"],
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_define",
+  "description": "Provide contextual definition of a term.",
+  "type": "object",
+  "properties": {
+    "term": {
+      "description": "The term to define in context.",
+      "type": "string"
+    },
+    "context": {
+      "description": "Optional short context to ground the definition.",
+      "type": "string"
+    }
+  },
+  "required": ["term"],
+  "additionalProperties": false
+}
+

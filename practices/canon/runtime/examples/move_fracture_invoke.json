@@ -1,0 +1,10 @@
+{
+  "tool.call": {
+    "id": "move.fracture",
+    "payload": {
+      "beacon_id": "no_deception",
+      "context": "Claim contradicted earlier definition without acknowledgment."
+    }
+  }
+}
+

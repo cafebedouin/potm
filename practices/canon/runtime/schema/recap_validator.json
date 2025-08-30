@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "recap_validator",
+  "description": "Schema for validating recap.spec payloads against allowed fields and policy caps.",
+  "type": "object",
+  "properties": {
+    "include": {
+      "description": "Array of sections to include in recap output.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["summary", "open_questions", "next_hints", "last_moves", "flags"]
+      },
+      "uniqueItems": true
+    },
+    "max_items": {
+      "description": "Maximum number of recap items to include.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "max_words_line": {
+      "description": "Maximum words per recap line.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50
+    }
+  },
+  "required": ["include"],
+  "additionalProperties": false
+}

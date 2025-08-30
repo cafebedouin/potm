@@ -1,0 +1,8 @@
+{
+  "tool.call": {
+    "id": "lens.edge",
+    "payload": {
+      "claim": "All fractures are harmful."
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$id": "potm.kernel.ledger.containment_event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ledger Entry — Containment Event",
+  "type": "object",
+  "required": ["entry_id", "ts", "type", "ref", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "entry_id": {
+      "type": "string",
+      "description": "Unique identifier for this ledger entry (UUID)"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of the containment event"
+    },
+    "type": {
+      "type": "string",
+      "const": "containment_event",
+      "description": "Discriminator identifying this ledger entry type"
+    },
+    "ref": {
+      "type": ["string", "null"],
+      "description": "Optional artifact reference; usually null"
+    },
+    "meta": {
+      "type": "object",
+      "required": ["containment_event"],
+      "additionalProperties": false,
+      "properties": {
+        "containment_event": {
+          "type": "object",
+          "required": ["action", "source"],
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "type": "string",
+              "enum": ["enter", "exit", "abort"],
+              "description": "Containment action that occurred"
+            },
+            "source": {
+              "type": "string",
+              "enum": ["escalation", "manual"],
+              "description": "What initiated the action"
+            },
+            "reason": {
+              "type": "string",
+              "enum": [
+                "quota_exceeded",
+                "relational_drift",
+                "epistemic_drift",
+                "safety_risk",
+                "operator_revoked"
+              ],
+              "description": "Abort reason when action == abort"
+            },
+            "activation_count": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of times containment has been activated this session (enter only)"
+            },
+            "details": {
+              "type": "string",
+              "description": "Optional freeform detail"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

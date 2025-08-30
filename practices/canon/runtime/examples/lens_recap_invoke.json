@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "lens.recap",
+    "payload": {
+      "include": ["summary", "last_moves", "open_questions"],
+      "max_items": 5
+    }
+  }
+}

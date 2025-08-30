@@ -1,0 +1,13 @@
+{
+  "tool.call": {
+    "id": "move.drift_check",
+    "payload": {
+      "aim": "Decide on MVP scope",
+      "thread": [
+        "We should refactor the entire system",
+        "Let's talk about monetization"
+      ]
+    }
+  }
+}
+

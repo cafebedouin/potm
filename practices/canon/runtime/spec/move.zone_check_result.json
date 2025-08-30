@@ -1,0 +1,13 @@
+{
+  "$id": "potm.kernel.move.zone_check.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.zone_check result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "zone_label": { "type": "string", "enum": ["toxic", "messy", "insight"] },
+    "score": { "type": "integer", "minimum": 0, "maximum": 100 }
+  },
+  "required": ["zone_label", "score"]
+}
+

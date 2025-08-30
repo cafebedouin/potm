@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "closure.spiral",
+    "payload": {
+      "diff_log": "Exploration drifted into meta-level; stabilized with recap.",
+      "tags": ["drift", "recap"]
+    }
+  }
+}

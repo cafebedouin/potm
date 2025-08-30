@@ -1,0 +1,13 @@
+{
+  "tool.result": {
+    "id": "lens.trace",
+    "output": {
+      "chain": [
+        "Premise: Containment interrupts session flow.",
+        "Inference: Interruptions create user friction.",
+        "Claim: Therefore, containment is harmful."
+      ],
+      "notes": "Fails to account for safety role of containment."
+    }
+  }
+}

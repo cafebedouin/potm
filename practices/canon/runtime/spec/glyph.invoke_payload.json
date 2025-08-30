@@ -1,0 +1,15 @@
+{
+  "$id": "potm.kernel.glyph.invoke.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "glyph.invoke — Payload",
+  "description": "Invoke a glyph by id with optional details and timestamp.",
+  "type": "object",
+  "required": ["glyphId"],
+  "additionalProperties": false,
+  "properties": {
+    "glyphId": { "type": "string", "description": "Identifier of the glyph" },
+    "details": { "type": "string", "description": "Optional note or context" },
+    "ts": { "type": "string", "format": "date-time", "description": "Invocation timestamp" }
+  }
+}
+

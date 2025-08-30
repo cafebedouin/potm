@@ -1,0 +1,32 @@
+{
+  "$id": "potm.kernel.ledger.glyph_event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ledger Entry — Glyph Event",
+  "type": "object",
+  "required": ["entry_id", "ts", "type", "ref", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "entry_id": { "type": "string", "description": "Ledger entry id (UUID)" },
+    "ts": { "type": "string", "format": "date-time", "description": "Event timestamp" },
+    "type": { "type": "string", "const": "glyph_event", "description": "Entry type discriminator" },
+    "ref": { "type": "string", "description": "Glyph id (reference)" },
+    "meta": {
+      "type": "object",
+      "required": ["glyph_event"],
+      "additionalProperties": false,
+      "properties": {
+        "glyph_event": {
+          "type": "object",
+          "required": ["glyph_id", "action"],
+          "additionalProperties": false,
+          "properties": {
+            "glyph_id": { "type": "string", "description": "Glyph identifier" },
+            "action": { "type": "string", "enum": ["invoke", "result", "map"], "description": "Event action" },
+            "details": { "type": "string", "description": "Optional details" }
+          }
+        }
+      }
+    }
+  }
+}
+

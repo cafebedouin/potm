@@ -1,0 +1,14 @@
+{
+  "targets": [
+    "spiral.diff_log",
+    "archive.summary",
+    "archive.takeaways",
+    "archive.archive_status",
+    "waiting_with.wait_reason",
+    "waiting_with.reentry_hint",
+    "ledger.append",
+    "export.request",
+    "recap.export"
+  ]
+}
+

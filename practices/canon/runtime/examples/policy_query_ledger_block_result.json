@@ -1,0 +1,8 @@
+{
+  "decision": "block",
+  "violations": [{
+    "code": "V_LEDGER_CAP",
+    "reason": "ledger at capacity"
+  }]
+}
+

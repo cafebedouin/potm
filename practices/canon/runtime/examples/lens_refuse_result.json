@@ -1,0 +1,9 @@
+{
+  "tool.result": {
+    "id": "lens.refuse",
+    "output": {
+      "status": "refused",
+      "reason": "Toxic zone; engagement unsafe."
+    }
+  }
+}

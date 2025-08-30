@@ -1,0 +1,10 @@
+{
+  "tool.call": {
+    "id": "move.sandbox",
+    "payload": {
+      "scenario": "What if we reduce scope by 20%?",
+      "constraints": { "fail_soft": true, "word_cap": 24 }
+    }
+  }
+}
+

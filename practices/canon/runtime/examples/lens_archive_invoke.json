@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "lens.archive",
+    "payload": {
+      "thread": "fracture queue integration",
+      "status": "complete"
+    }
+  }
+}

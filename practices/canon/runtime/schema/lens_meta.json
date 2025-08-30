@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_meta",
+  "description": "Schema for invoking multiple lenses as a bundle, with policy hooks for anti-patterns.",
+  "type": "object",
+  "properties": {
+    "lenses": {
+      "description": "Ordered list of lens ids to invoke as a bundle.",
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "scope": {
+      "description": "Scope of invocation (session, claim, fracture).",
+      "type": "string",
+      "enum": ["session", "claim", "fracture"]
+    },
+    "policy_mode": {
+      "description": "Whether to enforce anti-pattern rules strictly or advisory-only.",
+      "type": "string",
+      "enum": ["strict", "advisory"],
+      "default": "strict"
+    }
+  },
+  "required": ["lenses"],
+  "additionalProperties": false
+}

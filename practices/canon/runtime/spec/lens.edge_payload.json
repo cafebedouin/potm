@@ -1,0 +1,14 @@
+{
+  "$id": "potm.kernel.lens.edge.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens.edge payload",
+  "description": "Surface edge cases & contradictions for a statement or topic.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "statement": { "type": "string", "maxLength": 2000 },
+    "topic": { "type": "string", "maxLength": 256 }
+  },
+  "required": ["statement"]
+}
+

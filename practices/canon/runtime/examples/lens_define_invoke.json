@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "lens.define",
+    "payload": {
+      "term": "containment",
+      "context": "kernel invariants"
+    }
+  }
+}

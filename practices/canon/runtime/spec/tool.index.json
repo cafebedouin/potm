@@ -1,0 +1,179 @@
+{
+  "tool.index": [
+    {
+      "id": "lens.edge",
+      "payload_schema_ref": "runtime/spec/lens.edge_payload.json",
+      "result_schema_ref": "runtime/spec/lens.edge_result.json",
+      "preconditions": ["meta_locus.accepted == true"]
+    },
+    {
+      "id": "move.align_scan",
+      "payload_schema_ref": "runtime/spec/move.align_scan_payload.json",
+      "result_schema_ref": "runtime/spec/move.align_scan_result.json"
+    },
+    {
+      "id": "closure.spiral",
+      "payload_schema_ref": "runtime/spec/closure.spiral_payload.json",
+      "result_schema_ref": "runtime/spec/closure.spiral_result.json"
+    },
+    {
+      "id": "closure.archive",
+      "payload_schema_ref": "runtime/spec/closure.archive_payload.json",
+      "result_schema_ref": "runtime/spec/closure.archive_result.json",
+      "preconditions": [
+        "meta_locus.accepted == true",
+        "len(meta_locus.review_queue) == 0"
+      ],
+      "quota": { "ledger_append": "policy.cap.ledger_max" }
+    },
+    {
+      "id": "closure.waiting_with",
+      "payload_schema_ref": "runtime/spec/closure.waiting_with_payload.json",
+      "result_schema_ref": "runtime/spec/closure.waiting_with_result.json",
+      "preconditions": [
+        "meta_locus.accepted == true",
+        "len(meta_locus.review_queue) > 0"
+      ],
+      "quota": { "ledger_append": "policy.cap.ledger_max" }
+    },
+    {
+      "id": "policy.query",
+      "payload_schema_ref": "runtime/spec/policy.query_payload.json",
+      "result_schema_ref": "runtime/spec/policy.query_result.json",
+      "preconditions": ["meta_locus.accepted == true"]
+    },
+    {
+      "id": "policy.enforce",
+      "payload_schema_ref": "runtime/spec/policy.enforce_payload.json",
+      "result_schema_ref": "runtime/spec/policy.enforce_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "quota": { "ledger_append": "policy.cap.ledger_max" }
+    },
+    {
+      "id": "policy.report",
+      "payload_schema_ref": "runtime/spec/policy.report_payload.json",
+      "result_schema_ref": "runtime/spec/policy.report_result.json",
+      "preconditions": ["meta_locus.accepted == true"]
+    },
+    {
+      "id": "latency.validator",
+      "payload_schema_ref": "runtime/spec/latency.validator.payload.json",
+      "result_schema_ref": "runtime/spec/latency.validator.result.json",
+      "mode": "fail_closed",
+      "notes": "Runs on every call; enforces latency mode and p95 ceilings from policy."
+    },
+    {
+      "id": "recap.validator",
+      "payload_schema_ref": "runtime/spec/recap.validator_payload.json",
+      "result_schema_ref": "runtime/spec/recap.validator_result.json",
+      "mode": "fail_closed",
+      "notes": "Runs only when id == recap.spec; enforces schema and caps from policy."
+    },
+    {
+      "id": "recap.spec",
+      "payload_schema_ref": "runtime/spec/recap.spec_payload.json",
+      "result_schema_ref": "runtime/spec/recap.spec_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Recap packet generator; guarded by recap.validator."
+    },
+    {
+      "id": "move.set_mode_profile",
+      "payload_schema_ref": "runtime/spec/move.set_mode_profile_payload.json",
+      "result_schema_ref": "runtime/spec/move.set_mode_profile_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Sets the active mode profile (lite, standard, strict). Records ts + source."
+    },
+    {
+      "id": "lens.mode_profile_status",
+      "payload_schema_ref": "runtime/spec/lens.mode_profile_status.json",
+      "result_schema_ref": "runtime/spec/lens.mode_profile_status.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Returns current mode profile, source of setting, and last change timestamp."
+    },
+    {
+      "id": "canary.report",
+      "payload_schema_ref": "runtime/spec/canary.report_payload.json",
+      "result_schema_ref": "runtime/spec/canary.report_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Emits an early warning for soft anomalies. Does not halt flow; logs a canary_report ledger entry."
+    },
+    {
+      "id": "lens.canary_status",
+      "payload_schema_ref": "runtime/spec/lens.canary_status.json",
+      "result_schema_ref": "runtime/spec/lens.canary_status.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Returns most recent canary signals, severity, and profile context."
+    },
+    {
+      "id": "escalation.event",
+      "payload_schema_ref": "runtime/spec/escalation.event_payload.json",
+      "result_schema_ref": "runtime/spec/escalation.event_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Interprets validator, latency, or canary signals. Produces an escalation_event ledger entry and may escalate profile, trigger fracture, or flip containment."
+    }
+    ,
+    {
+      "id": "move.open_fracture",
+      "payload_schema_ref": "runtime/spec/move.open_fracture_payload.json",
+      "result_schema_ref": "runtime/spec/move.open_fracture_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "quota": { "queue_append": "policy.cap.fracture_max" },
+      "notes": "Appends fracture entry (status: open→queued) to meta_locus.review_queue."
+    },
+    {
+      "id": "move.review_fracture",
+      "payload_schema_ref": "runtime/spec/move.review_fracture_payload.json",
+      "result_schema_ref": "runtime/spec/move.review_fracture_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Transitions fracture entry to status: review."
+    },
+    {
+      "id": "move.close_review",
+      "payload_schema_ref": "runtime/spec/move.close_review_payload.json",
+      "result_schema_ref": "runtime/spec/move.close_review_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Resolves fracture and dequeues from review_queue."
+    }
+    ,
+    {
+      "id": "move.set_containment",
+      "payload_schema_ref": "runtime/spec/move.set_containment_payload.json",
+      "result_schema_ref": "runtime/spec/move.set_containment_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "quota": { "activation_count": "policy.cap.containment_max" },
+      "notes": "Enter/exit containment; restricted mode enforced when true."
+    },
+    {
+      "id": "containment.abort",
+      "payload_schema_ref": "runtime/spec/containment.abort_payload.json",
+      "result_schema_ref": "runtime/spec/containment.abort_result.json",
+      "preconditions": ["meta_locus.accepted == true", "meta_locus.containment == true"],
+      "notes": "Abort containment under strict abort conditions."
+    }
+    ,
+    {
+      "id": "glyph.invoke",
+      "payload_schema_ref": "runtime/spec/glyph.invoke_payload.json",
+      "result_schema_ref": "runtime/spec/glyph.result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Invoke glyph by id; logs glyph_event entries for invoke/result/map."
+    }
+    ,
+    {
+      "id": "lens.fracture_status",
+      "payload_schema_ref": "runtime/spec/lens.fracture_status.json",
+      "result_schema_ref": "runtime/spec/lens.fracture_status.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "notes": "Returns current fracture review queue (id-only) and containment flag."
+    }
+    ,
+    {
+      "id": "guardian.trigger",
+      "payload_schema_ref": "runtime/spec/guardian.trigger_payload.json",
+      "result_schema_ref": "runtime/spec/guardian.trigger_result.json",
+      "preconditions": ["meta_locus.accepted == true"],
+      "quota": { "trigger_count": "policy.cap.guardian_max" },
+      "notes": "Guardian sentinel trigger; may elevate to escalation/containment."
+    }
+  ]
+}

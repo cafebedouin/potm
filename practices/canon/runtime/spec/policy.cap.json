@@ -1,0 +1,87 @@
+{
+  "$id": "potm.kernel.policy.cap.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "policy caps (P1)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ledger_max": { "type": "integer", "minimum": 1 },
+    "diff_log_max": { "type": "integer", "minimum": 1 },
+    "summary_max": { "type": "integer", "minimum": 1 },
+    "takeaways_max": { "type": "integer", "minimum": 1 },
+    "wait_reason_max": { "type": "integer", "minimum": 1 },
+    "reentry_hint_max": { "type": "integer", "minimum": 1 },
+    "recap": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_items": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "max_words_line": { "type": "integer", "minimum": 1, "maximum": 32 }
+      },
+      "required": ["max_items", "max_words_line"]
+    },
+    "latency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lite": { "$ref": "#/definitions/latency_pair" },
+        "standard": { "$ref": "#/definitions/latency_pair" },
+        "strict": { "$ref": "#/definitions/latency_pair" }
+      },
+      "required": ["lite", "standard", "strict"]
+    },
+    "canary_max": { "type": "integer", "minimum": 0 },
+    "escalation_max": { "type": "integer", "minimum": 0 },
+    "fracture_max": { "type": "integer", "minimum": 0 },
+    "containment_max": { "type": "integer", "minimum": 0 },
+    "guardian_max": { "type": "integer", "minimum": 0 },
+    "externalist_max": { "type": "integer", "minimum": 0 }
+  },
+  "required": [
+    "ledger_max",
+    "diff_log_max",
+    "summary_max",
+    "takeaways_max",
+    "wait_reason_max",
+    "reentry_hint_max",
+    "recap",
+    "latency",
+    "canary_max",
+    "escalation_max",
+    "fracture_max",
+    "containment_max",
+    "guardian_max",
+    "externalist_max"
+  ],
+  "definitions": {
+    "latency_pair": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "p50": { "type": "integer", "minimum": 1 },
+        "p95": { "type": "integer", "minimum": 1 }
+      },
+      "required": ["p50", "p95"]
+    }
+  },
+  "example": {
+    "ledger_max": 512,
+    "diff_log_max": 400,
+    "summary_max": 320,
+    "takeaways_max": 240,
+    "wait_reason_max": 256,
+    "reentry_hint_max": 64,
+    "recap": { "max_items": 10, "max_words_line": 32 },
+    "latency": {
+      "lite": { "p50": 2, "p95": 4 },
+      "standard": { "p50": 4, "p95": 6 },
+      "strict": { "p50": 8, "p95": 12 }
+    },
+    "canary_max": 50,
+    "escalation_max": 25,
+    "fracture_max": 32,
+    "containment_max": 3,
+    "guardian_max": 10,
+    "externalist_max": 8
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "tool.result": {
+    "id": "lens.wait",
+    "output": {
+      "status": "active",
+      "containment": true,
+      "note": "Holding escalation review until containment clears."
+    }
+  }
+}

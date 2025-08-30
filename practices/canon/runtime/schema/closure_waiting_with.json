@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "closure_waiting_with",
+  "description": "Schema for closure.waiting_with tool payload. Activates containment mode when unresolved fractures exist.",
+  "type": "object",
+  "properties": {
+    "note": {
+      "description": "Optional operator note on what is being waited-with.",
+      "type": "string",
+      "maxLength": 300
+    },
+    "tags": {
+      "description": "Optional tags to categorize the waiting state.",
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 5
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

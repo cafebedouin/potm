@@ -1,0 +1,126 @@
+{
+  "$id": "potm.kernel.acceptance.agreement.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Acceptance Agreement",
+  "description": "Kernel entry acceptance agreement and effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "token": { "type": "string", "const": "[KERNEL_ENTRY]" },
+    "normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trim_whitespace": { "type": "boolean" },
+        "case_sensitive": { "type": "boolean" },
+        "single_line_only": { "type": "boolean" }
+      },
+      "required": ["trim_whitespace", "case_sensitive", "single_line_only"]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "grants": { "type": "array", "items": { "type": "string" }, "maxItems": 16 },
+        "denies": { "type": "array", "items": { "type": "string" }, "maxItems": 16 },
+        "exceptions": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "export": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "condition": { "type": "string" },
+                "normalization": { "type": "string", "enum": ["strict_match"] },
+                "header": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              },
+              "required": ["condition", "normalization", "header"]
+            }
+          }
+        }
+      },
+      "required": ["grants", "denies"]
+    },
+    "on_success": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "set": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "meta_locus": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "accepted": { "type": "boolean" },
+                "fracture_active": { "type": "boolean" },
+                "containment": { "type": "boolean" },
+                "review_queue": { "type": "array", "items": { "type": "string" } }
+              },
+              "required": ["accepted", "fracture_active", "containment", "review_queue"]
+            }
+          },
+          "required": ["meta_locus"]
+        },
+        "next": { "type": "string", "const": "MENU.OPEN" },
+        "idempotent_message": { "type": "string" },
+        "confirmation": { "type": "string" }
+      },
+      "required": ["set", "next", "confirmation"]
+    },
+    "on_fail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "response": { "type": "string" }
+      },
+      "required": ["response"]
+    },
+    "on_revoke": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trigger": { "type": "string", "const": "[KERNEL_EXIT]" },
+        "set": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "meta_locus": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "accepted": { "type": "boolean" },
+                "fracture_active": { "type": "boolean" },
+                "containment": { "type": "boolean" },
+                "review_queue": { "type": "array", "items": { "type": "string" } }
+              },
+              "required": ["accepted", "fracture_active", "containment", "review_queue"]
+            }
+          },
+          "required": ["meta_locus"]
+        },
+        "next": { "type": "string", "const": "ACK.EXIT" },
+        "response": { "type": "string" }
+      },
+      "required": ["trigger", "set", "next", "response"]
+    },
+    "ledger": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "emit_on_accept": { "type": "boolean" },
+        "emit_on_exit": { "type": "boolean" }
+      },
+      "required": ["emit_on_accept", "emit_on_exit"]
+    }
+  },
+  "required": ["token", "normalization", "scope", "on_success", "on_fail", "on_revoke", "ledger"]
+}
+

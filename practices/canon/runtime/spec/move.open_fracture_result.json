@@ -1,0 +1,14 @@
+{
+  "$id": "potm.kernel.move.open_fracture.result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.open_fracture — Result",
+  "description": "Confirmation that a fracture was queued (id appended to review_queue).",
+  "type": "object",
+  "required": ["status", "fracture_id", "ts"],
+  "additionalProperties": false,
+  "properties": {
+    "status": { "type": "string", "const": "queued", "description": "Queue operation succeeded" },
+    "fracture_id": { "type": "string", "description": "Fracture identifier" },
+    "ts": { "type": "string", "format": "date-time", "description": "Operation timestamp" }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$id": "potm.kernel.move.zone_check.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "move.zone_check payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "history": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 2000 },
+      "minItems": 1,
+      "maxItems": 32
+    }
+  },
+  "required": ["history"]
+}
+

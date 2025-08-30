@@ -1,0 +1,17 @@
+{
+  "ledger_buffer": [
+    {
+      "entry_id": "uuid-101",
+      "ts": "2025-08-29T16:45:00Z",
+      "type": "mode_profile_change",
+      "ref": null,
+      "meta": {
+        "mode_profile_change": {
+          "previous": "standard",
+          "new": "strict",
+          "source": "manual"
+        }
+      }
+    }
+  ]
+}

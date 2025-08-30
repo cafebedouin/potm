@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "violations": [{
+    "code": "V_FIELD_TOO_LONG",
+    "reason": "Exceeded cap for spiral.diff_log"
+  }],
+  "value_out": "<trimmed to 400>",
+  "cap": 400
+}
+

@@ -1,0 +1,9 @@
+{
+  "tool.call": {
+    "id": "lens.self_audit",
+    "payload": {
+      "scope": "session",
+      "detail": "full"
+    }
+  }
+}

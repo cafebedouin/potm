@@ -1,0 +1,10 @@
+{
+  "tool.call": {
+    "id": "policy.enforce",
+    "payload": {
+      "target": "export.request",
+      "value": "any"
+    }
+  }
+}
+

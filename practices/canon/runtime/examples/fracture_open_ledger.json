@@ -1,0 +1,15 @@
+{
+  "entry_id": "uuid-1001",
+  "ts": "2025-08-29T12:00:00Z",
+  "type": "fracture_event",
+  "ref": "fxr-001",
+  "meta": {
+    "fracture_event": {
+      "fracture_id": "fxr-001",
+      "action": "open",
+      "origin": "validator",
+      "details": "Schema violation in recap.spec"
+    }
+  }
+}
+

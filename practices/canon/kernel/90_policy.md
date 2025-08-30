@@ -34,38 +34,155 @@ The router enforces the **envelope caps** (see `40_router.md`). Policy adds
 
 ## Invocation Grammar
 
-```yaml
-tool.call:
-  id: "policy.<tool_name>"
-  payload: { ... }   # per-tool schema
-````
+See router envelope: `runtime/spec/router_envelope.json`.  
+Per-tool payload/result schemas:
+- `runtime/spec/policy.query_payload.json`, `runtime/spec/policy.query_result.json`
+- `runtime/spec/policy.enforce_payload.json`, `runtime/spec/policy.enforce_result.json`
+- `runtime/spec/policy.report_payload.json`, `runtime/spec/policy.report_result.json`
 
-`<tool_name>` ∈ { `query`, `enforce`, `report` }.
+## Cap Table (content limits — single source of truth)
 
-## Cap Table (content limits — single source of truth
+Externalized caps: `runtime/spec/policy.cap.json`
 
-These caps are enforced by `policy.*` tools and referenced by other specs.
+### Fracture Cap
 
-```yaml
-policy.cap:
-  ledger_max:         512
-  diff_log_max:       400
-  summary_max:        320
-  takeaways_max:      240
-  wait_reason_max:    256
-  reentry_hint_max:    64
+`policy.cap.fracture_max` sets an upper bound on how many fracture ids may be stored in `meta_locus.review_queue` during a session.  
 
-  recap:
-    max_items:        10    # hard cap; default 5
-    max_words_line:   32    # hard cap; default 24
+- Prevents unbounded queue growth.  
+- Enforced on `move.open_fracture` (see tool index quota).  
+- When exceeded, `move.open_fracture` must fail-closed with `E_QUOTA`.  
 
-  latency:
-    lite:     { p50: 2, p95: 4 }
-    standard: { p50: 4, p95: 6 }
-    strict:   { p50: 8, p95: 12 }
+### Canary Cap
 
-```
+`policy.cap.canary_max` sets an upper bound on how many `canary_report`  
+entries may be appended to the ledger in a single session.  
+
+- Prevents runaway emission or noise floods.  
+- When exceeded, new canary emissions MUST be dropped and a  
+  `tool.error { code: "E_CANARY_QUOTA" }` returned.  
+- Default value: 50 (tunable).  
+
 ---
+
+### Cross-Reference — Mode Profiles
+
+Policy caps for latency (`policy.cap.latency`) are referenced by  
+both `latency_mode` and `mode_profile`.  
+
+- `latency_mode` (validated in `85_latency_validator.md`) uses these caps directly.  
+- `mode_profile` (defined in `65_mode_profiles.md`) determines which latency cap set  
+  is active, and also governs validator strictness, escalation sensitivity, and  
+  micro-canary thresholds.  
+
+Policy tools (`policy.query`, `policy.enforce`) may therefore use  
+`mode_profile` indirectly when evaluating latency breaches,  
+validator strictness, or escalation events.
+
+---
+
+### Ledger Integration — Canary Reports
+
+Whenever `canary.report` is invoked, the kernel appends a  
+`ledger_buffer` entry of type `canary_report`.
+
+This entry captures:
+- `signal`: anomaly category
+- `severity`: warning | error
+- `mode_profile`: envelope active at time of emission
+- `details`: optional freeform note
+
+Capacity is enforced by `policy.cap.ledger_max`.  
+Policy tools may query or summarize canary emissions for audit  
+(e.g. frequency analysis, escalation thresholding).
+```
+
+---
+### Ledger Integration — Escalation Events
+
+Whenever `escalation.event` is invoked, the kernel appends a  
+`ledger_buffer` entry of type `escalation_event`.
+
+This entry captures:
+- `source`: validator | latency | canary | policy | other  
+- `tier`: escalation gate reached (1–4)  
+- `action`: escalation decision (none, escalate_profile, fracture_trigger, containment)  
+- `mode_profile`: profile active after the event  
+- `details`: optional description of the trigger  
+
+Capacity is enforced by `policy.cap.ledger_max`.  
+
+---
+
+### Ledger Integration — Fracture and Containment Events
+
+Fracture lifecycle transitions and containment state changes MUST be recorded in the ledger.
+
+- Fracture events → `ledger_buffer` entries of type `fracture_event`  
+  - Schema: `runtime/spec/ledger.fracture_event.json`  
+- Containment events → `ledger_buffer` entries of type `containment_event`  
+  - Schema: `runtime/spec/ledger.containment_event.json`  
+
+Capacity is enforced by `policy.cap.ledger_max`. Implementations MUST log these events for auditability.
+
+### Ledger Integration — Latency Breaches
+
+Latency validator MUST record a `latency_breach` entry when observed latency exceeds the active ceiling.  
+- Shape is defined in `85_latency_validator.md` (see Ledger Invariants) and enforced by the validator/move pair.  
+- Examples: `runtime/examples/latency_breach_ledger.json`  
+
+### Ledger Integration — Glyph Events
+
+All glyph invocations, results, and resonance mappings MUST be recorded in the ledger.  
+
+- Schema: `runtime/spec/ledger.glyph_event.json`  
+- Capacity: governed by `policy.cap.ledger_max`  
+- Examples:  
+  - `runtime/examples/glyph_invoke_ledger.json`  
+  - `runtime/examples/glyph_result_ledger.json`  
+  - `runtime/examples/glyph_map_ledger.json`  
+
+### Ledger Integration — Guardian Events
+
+All Guardian triggers MUST be recorded as `guardian_event` ledger entries.  
+- Schema: `runtime/spec/ledger.guardian_event.json`  
+- Examples:  
+  - `runtime/examples/guardian_soft_ledger.json`  
+  - `runtime/examples/guardian_hard_ledger.json`  
+Capacity is enforced by `policy.cap.ledger_max`.
+
+### Escalation Cap
+
+`policy.cap.escalation_max` sets an upper bound on how many  
+`escalation_event` entries may be appended to the ledger in a single session.
+
+- Prevents runaway escalations from spamming the ledger.  
+- When exceeded, new escalation events MUST be dropped and a  
+  `tool.error { code: "E_ESCALATION_QUOTA" }` returned.  
+- Default value: 25 (tunable).
+
+---
+
+### Escalation Cap
+
+`policy.cap.escalation_max` sets an upper bound on how many  
+`escalation_event` entries may be appended to the ledger in a single session.
+
+- Prevents runaway or recursive escalation loops from overwhelming the ledger.  
+- When exceeded, new escalation events MUST be dropped and a  
+  `tool.error { code: "E_ESCALATION_QUOTA" }` returned.  
+- Default value: 25 (tunable).  
+
+This cap works in tandem with `ledger_max` to ensure escalation signals  
+remain meaningful without saturating the audit trail.
+
+---
+
+### Ledger Integration — Externalist Events
+
+All Externalist invocations MUST record an `externalist_event` in the ledger.  
+- Schema: `runtime/spec/ledger.externalist_event.json`  
+- Example: `runtime/examples/externalist_ledger.json`  
+Capacity is enforced by `policy.cap.ledger_max`.
 
 ## Cap Resolver (pure helper)
 
@@ -93,18 +210,7 @@ function ceiling_for(mode: string) -> number:
 
 ## Targets (what policy evaluates)
 
-```yaml
-policy.targets:
-  - "spiral.diff_log"
-  - "archive.summary"
-  - "archive.takeaways"
-  - "archive.archive_status"
-  - "waiting_with.wait_reason"
-  - "waiting_with.reentry_hint"
-  - "ledger.append"
-  - "export.request"
-  - "recap.export"        # recap packets are blocked unless explicit override
-```
+Externalized targets: `runtime/spec/policy.targets.json`
 
 ---
 
@@ -218,216 +324,36 @@ Notes:
 
 ## Examples
 
-**Query: archive summary within cap**
+**Query: archive summary within cap**  
+Invoke: `runtime/examples/policy_query_allow_invoke.json`  
+Result: `runtime/examples/policy_query_allow_result.json`
 
-```yaml
-tool.call:
-  id: "policy.query"
-  payload:
-    target: "archive.summary"
-    value: "Short and sweet."
-# → tool.emit { result:{ decision:"allow", violations:[] } }
-```
+**Enforce: spiral diff_log too long**  
+Invoke: `runtime/examples/policy_enforce_revise_invoke.json`  
+Result: `runtime/examples/policy_enforce_revise_result.json`
 
-**Enforce: spiral diff\_log too long**
+**Query: ledger capacity before append**  
+Invoke: `runtime/examples/policy_query_ledger_block_invoke.json`  
+Result: `runtime/examples/policy_query_ledger_block_result.json`
 
-```yaml
-tool.call:
-  id: "policy.enforce"
-  payload:
-    target: "spiral.diff_log"
-    value: "<405 chars ...>"
-# → decision:"revise", violations:[{code:"V_FIELD_TOO_LONG"}], value_out:"<trimmed to 400>"
-# → ledger append: ref "#policy:revise:V_FIELD_TOO_LONG"
-```
-
-**Query: ledger capacity before append**
-
-```yaml
-tool.call:
-  id: "policy.query"
-  payload:
-    target: "ledger.append"
-# → if at cap: decision:"block", violations:[{code:"V_LEDGER_CAP"}]
-```
-
-**Enforce: export request (blocked in-kernel)**
-
-```yaml
-tool.call:
-  id: "policy.enforce"
-  payload:
-    target: "export.request"
-    value: "any"
-# → decision:"block", violations:[{code:"V_EXPORT_DISABLED"}]
-```
+**Enforce: export request (blocked in-kernel)**  
+Invoke: `runtime/examples/policy_enforce_export_block_invoke.json`  
+Result: `runtime/examples/policy_enforce_export_block_result.json`
 
 ````
 
 ---
 
-## JSON Schemas (drop into `spec/`)
+## JSON Schemas
 
-**`policy.query` payload**
-```json
-{
-  "$id": "potm.kernel.policy.query.payload.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "policy.query payload",
-  "type": "object",
-  "required": ["target"],
-  "additionalProperties": false,
-  "properties": {
-    "target": {
-      "type": "string",
-      "enum": [
-        "spiral.diff_log",
-        "archive.summary",
-        "archive.takeaways",
-        "archive.archive_status",
-        "waiting_with.wait_reason",
-        "waiting_with.reentry_hint",
-        "ledger.append",
-        "export.request"
-      ]
-    },
-    "value": { "type": "string", "maxLength": 2000 }
-  }
-}
-````
+- **policy.query payload:** `runtime/spec/policy.query_payload.json`  
+- **policy.query result:**  `runtime/spec/policy.query_result.json`
 
-**`policy.query` result**
+- **policy.enforce payload:** `runtime/spec/policy.enforce_payload.json`  
+- **policy.enforce result:**  `runtime/spec/policy.enforce_result.json`
 
-```json
-{
-  "$id": "potm.kernel.policy.query.result.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "policy.query result",
-  "type": "object",
-  "required": ["decision", "violations"],
-  "additionalProperties": false,
-  "properties": {
-    "decision": { "type": "string", "enum": ["allow", "revise", "block"] },
-    "violations": {
-      "type": "array",
-      "maxItems": 8,
-      "items": {
-        "type": "object",
-        "required": ["code", "reason"],
-        "additionalProperties": false,
-        "properties": {
-          "code": {
-            "type": "string",
-            "enum": [
-              "V_FIELD_TOO_LONG",
-              "V_LEDGER_CAP",
-              "V_EXPORT_DISABLED",
-              "V_UNKNOWN_TARGET",
-              "V_UNSAFE_ACTION"
-            ]
-          },
-          "reason": { "type": "string", "maxLength": 256 }
-        }
-      }
-    },
-    "suggest": { "type": "string", "maxLength": 2000 }
-  }
-}
-```
-
-**`policy.enforce` payload** (same as query)
-
-```json
-{
-  "$id": "potm.kernel.policy.enforce.payload.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "policy.enforce payload",
-  "type": "object",
-  "required": ["target"],
-  "additionalProperties": false,
-  "properties": {
-    "target": { "$ref": "potm.kernel.policy.query.payload.v1#/properties/target" },
-    "value":  { "type": "string", "maxLength": 2000 }
-  }
-}
-```
-
-**`policy.enforce` result**
-
-```json
-{
-  "$id": "potm.kernel.policy.enforce.result.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "policy.enforce result",
-  "type": "object",
-  "required": ["decision", "violations"],
-  "additionalProperties": false,
-  "properties": {
-    "decision": { "type": "string", "enum": ["allow", "revise", "block"] },
-    "violations": { "$ref": "potm.kernel.policy.query.result.v1#/properties/violations" },
-    "value_out": { "type": "string", "maxLength": 2000 },
-    "cap": { "type": "integer", "minimum": 0, "maximum": 10000 }
-  }
-}
-```
-
-**`policy.report` payload**
-
-```json
-{
-  "$id": "potm.kernel.policy.report.payload.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "policy.report payload",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "scope": { "type": "string", "enum": ["session"], "default": "session" }
-  }
-}
-```
-
-**`policy.report` result**
-
-```json
-{
-  "$id": "potm.kernel.policy.report.result.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "policy.report result",
-  "type": "object",
-  "required": ["totals", "by_code", "last"],
-  "additionalProperties": false,
-  "properties": {
-    "totals": {
-      "type": "object",
-      "required": ["allow", "revise", "block"],
-      "additionalProperties": false,
-      "properties": {
-        "allow":  { "type": "integer", "minimum": 0 },
-        "revise": { "type": "integer", "minimum": 0 },
-        "block":  { "type": "integer", "minimum": 0 }
-      }
-    },
-    "by_code": {
-      "type": "object",
-      "additionalProperties": { "type": "integer", "minimum": 0 }
-    },
-    "last": {
-      "type": "array",
-      "maxItems": 10,
-      "items": {
-        "type": "object",
-        "required": ["ts", "decision", "code"],
-        "additionalProperties": false,
-        "properties": {
-          "ts": { "type": "string", "pattern": "^[0-9TZ:.-]+Z$" },
-          "decision": { "type": "string", "enum": ["allow", "revise", "block"] },
-          "code": { "type": "string", "maxLength": 64 }
-        }
-      }
-    }
-  }
-}
-```
+- **policy.report payload:** `runtime/spec/policy.report_payload.json`  
+- **policy.report result:**  `runtime/spec/policy.report_result.json`
 
 ---
 
@@ -438,48 +364,25 @@ from `policy.cap`. Not a public tool; used internally by `policy.query` and `pol
 
 ### Mapping table
 
-```yaml
-policy.cap.table:
-  spiral.diff_log:           { cap_key: diff_log_max,     rule: clamp }
-  archive.summary:           { cap_key: summary_max,      rule: clamp }
-  archive.takeaways:         { cap_key: takeaways_max,    rule: clamp }
-  archive.archive_status:    { cap_key: null,             rule: enum }       # enum handled by caller
-  waiting_with.wait_reason:  { cap_key: wait_reason_max,  rule: clamp }
-  waiting_with.reentry_hint: { cap_key: reentry_hint_max, rule: clamp }
-  recap.include:             { cap_key: null,             rule: enum }   # six known fields only
-  recap.max_items:           { cap_key: recap.max_items,  rule: range }  # ≤10
-  recap.max_words_line:      { cap_key: recap.max_words_line, rule: range } # ≤32
-  recap.export:              { cap_key: null,             rule: block }
+Externalized table: `runtime/spec/policy.cap.table.json`
 
 ---
 
 ## `tool.index` additions
 
-```yaml
-tool.index:
-  - id: policy.query
-    payload_schema_ref: "spec/policy.query.payload.v1.json"
-    result_schema_ref:  "spec/policy.query.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
-    notes: "Advisory check; no state mutation."
-
-  - id: policy.enforce
-    payload_schema_ref: "spec/policy.enforce.payload.v1.json"
-    result_schema_ref:  "spec/policy.enforce.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
-    quota:
-      ledger_append: "policy.cap.ledger_max"
-    notes: "Deterministic clamp/block; logs non-allow decisions to ledger."
-
-  - id: policy.report
-    payload_schema_ref: "spec/policy.report.payload.v1.json"
-    result_schema_ref:  "spec/policy.report.result.v1.json"
-    preconditions:
-      - "meta_locus.accepted == true"
-    notes: "Reads ledger to summarize policy activity; no mutation."
-```
+See registry: `runtime/spec/tool.index.json`
 
 ---
+### Containment Cap
 
+`policy.cap.containment_max` limits the number of times containment may be activated in a single session.  
+
+- Enforced by `move.set_containment` (enter).  
+- Exceeding the cap → `E_QUOTA`.  
+- Prevents oscillation or recursive containment loops.
+-### Guardian Cap
+
+`policy.cap.guardian_max` limits the number of Guardian trigger evaluations per session.  
+
+- Enforced by `guardian.trigger`.  
+- Exceeding the cap → `E_QUOTA`.  

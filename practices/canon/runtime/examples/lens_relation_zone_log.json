@@ -1,0 +1,14 @@
+{
+  "entry_id": "uuid-rlzn-001",
+  "ts": "2025-08-29T17:45:00Z",
+  "type": "lens_output",
+  "ref": "lens.relation_zone",
+  "meta": {
+    "relation_zone": {
+      "previous": "yellow",
+      "new": "red",
+      "trigger": "boundary_violation",
+      "details": "Detected shift from cooperative hesitation into adversarial rupture"
+    }
+  }
+}

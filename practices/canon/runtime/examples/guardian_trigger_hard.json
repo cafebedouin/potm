@@ -1,0 +1,12 @@
+{
+  "tool.call": {
+    "id": "guardian.trigger",
+    "payload": {
+      "triggerId": "safety_risk_detected",
+      "severity": "hard",
+      "ts": "2025-08-29T12:31:00Z",
+      "details": "Immediate containment recommended"
+    }
+  }
+}
+

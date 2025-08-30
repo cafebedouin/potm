@@ -1,0 +1,14 @@
+{
+  "tool.call": {
+    "id": "closure.archive",
+    "payload": {
+      "summary": "Session focused on kernel invariants; no open fractures remain.",
+      "takeaways": [
+        "Fracture queue integrated cleanly",
+        "Mode profiles clarified",
+        "Recap validator operational"
+      ],
+      "archive_status": "complete"
+    }
+  }
+}

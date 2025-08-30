@@ -1,0 +1,10 @@
+{
+  "tool.call": {
+    "id": "lens.meta",
+    "payload": {
+      "lenses": ["define", "edge", "open_questions"],
+      "scope": "claim",
+      "policy_mode": "strict"
+    }
+  }
+}

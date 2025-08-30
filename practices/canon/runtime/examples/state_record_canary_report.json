@@ -1,0 +1,18 @@
+{
+  "ledger_buffer": [
+    {
+      "entry_id": "uuid-202",
+      "ts": "2025-08-29T17:15:00Z",
+      "type": "canary_report",
+      "ref": null,
+      "meta": {
+        "canary_report": {
+          "signal": "unusual_latency",
+          "severity": "warning",
+          "mode_profile": "standard",
+          "details": "Latency spike detected at 2.7s (under cap but outside baseline)"
+        }
+      }
+    }
+  ]
+}
