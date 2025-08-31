@@ -19,7 +19,7 @@ cadence: []
 entry_cues: []
 safety_notes: []
 tags: []
-author: Sean + models
+author: practitioner + models
 license: CC0-1.0
 updated: 2025-07-30
 authors:
@@ -142,6 +142,16 @@ Use Pal invocations to set stance with minimal friction:
 
 - bs_detect → `kernel/79_bs_detect.md`  
 - sentinel_spotcheck → `kernel/80_sentinel_spotcheck.md`  
+
+### Practitioner Menu & Examples
+
+- Adapter contract: `interpretative/menu_user_surface.md`  
+- Glyph examples:  
+  - `runtime/examples/glyph_card_draw_static.json`  
+  - `runtime/examples/glyph_card_draw_dynamic.json`  
+  - `runtime/examples/glyph_journal_prompt.json`  
+  - `runtime/examples/glyph_zuihitsu.json`  
+  - `runtime/examples/glyph_describe_intake.json`  
 
 ---
 

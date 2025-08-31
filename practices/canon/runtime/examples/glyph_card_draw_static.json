@@ -1,0 +1,9 @@
+{ "tool.call": { "id": "glyph.invoke", "payload": {
+  "type": "card_draw", "mode": "static_pack", "constraints": {"tone":"gentle"}
+}},
+ "tool.result": { "artifact": {
+   "type": "card_draw", "content": "Draw: Name the tension you’re avoiding. Give it one sentence.", "source": "pack:core/001"
+ }, "provenance": { "time": "2025-08-30T12:00:00Z" },
+ "why_this": "Matches your recent mention of avoidance.",
+ "fit_confidence": 0.72 } }
+

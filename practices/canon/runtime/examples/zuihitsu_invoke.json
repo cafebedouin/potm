@@ -1,0 +1,13 @@
+{
+  "tool.call": {
+    "id": "glyph.invoke",
+    "request_id": "req-001",
+    "payload": {
+      "id": "zuihitsu.draw",
+      "payload": {
+        "source": "interpretative/data/zuihitsu/zuihitsu_combined.md",
+        "count": 1
+      }
+    }
+  }
+}

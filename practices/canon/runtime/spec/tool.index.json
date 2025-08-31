@@ -175,5 +175,11 @@
       "quota": { "trigger_count": "policy.cap.guardian_max" },
       "notes": "Guardian sentinel trigger; may elevate to escalation/containment."
     }
+    ,
+    {
+      "id": "glyph.zuihitsu",
+      "payload_schema": "runtime/spec/glyph.zuihitsu_payload.json",
+      "result_schema": "runtime/spec/glyph.zuihitsu_result.json"
+    }
   ]
 }

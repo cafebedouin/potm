@@ -1,0 +1,6 @@
+{ "tool.call": { "id":"glyph.invoke", "payload": { "type":"zuihitsu", "constraints":{"fragments":4} } },
+  "tool.result": { "artifact": { "type":"zuihitsu", "content":"• The coffee went cold.\n• The email stayed open.\n• The fear shrank when named.\n• The next inch is enough.", "source":"generated" },
+  "provenance": { "time":"2025-08-30T12:03:00Z" },
+  "why_this":"Fragmented style can bypass overthinking.",
+  "fit_confidence":0.64 } }
+

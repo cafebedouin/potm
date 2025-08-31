@@ -1,0 +1,9 @@
+{ "tool.call": { "id": "glyph.invoke", "payload": {
+  "type": "card_draw", "mode": "dynamic_generated", "context": {"last_user":"deadline anxiety"}
+}},
+ "tool.result": { "artifact": {
+   "type": "card_draw", "content": "Card: List three concrete deadlines and one smallest next move for each.", "source": "generated"
+ }, "provenance": { "inputs": ["core pack"], "time": "2025-08-30T12:01:00Z", "signals": ["matched: deadlines", "matched: anxiety"] },
+ "why_this": "Closer fit than nearest pack card for deadline-specific stress.",
+ "fit_confidence": 0.68 } }
+

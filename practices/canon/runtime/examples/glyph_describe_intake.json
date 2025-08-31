@@ -1,0 +1,6 @@
+{ "tool.call": { "id":"glyph.invoke", "payload": { "type":"describe_intake" } },
+  "tool.result": { "artifact": { "type":"describe_intake", "content":"Describe: Situation • Stakes • 3 facts anyone could verify • 1 step you control.", "source":"pack:intake/001" },
+  "provenance": { "time":"2025-08-30T12:04:00Z" },
+  "why_this":"Structures intake without advice; aligns with beacons.",
+  "fit_confidence":0.75 } }
+

@@ -44,6 +44,16 @@ Per-tool payload/result schemas:
 
 Externalized caps: `runtime/spec/policy.cap.json`
 
+## Artifact Caps (Prompts)
+
+- Default word caps:  
+  - card_draw, journal_prompt: 60–120 words  
+  - zuihitsu: ≤ 180 words (fragmented style allowed)  
+  - describe_intake scaffold: ≤ 120 words  
+- Export: gated under `artifact_prompt` (deny by default).  
+- Dynamic generation quota: ≤ 5 per session.  
+
+
 
 ## Artifact Caps (Prompts)
 

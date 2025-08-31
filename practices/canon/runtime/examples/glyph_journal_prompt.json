@@ -1,0 +1,6 @@
+{ "tool.call": { "id": "glyph.invoke", "payload": { "type":"journal_prompt" }},
+  "tool.result": { "artifact": { "type":"journal_prompt", "content":"Journal: What outcome matters this week, and what would you trade for it?", "source":"pack:journal/014" },
+  "provenance": { "time":"2025-08-30T12:02:00Z" },
+  "why_this":"Weekly cadence inferred; prompt emphasizes tradeoffs.",
+  "fit_confidence":0.7 } }
+

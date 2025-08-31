@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ledger.glyph_zuihitsu_event",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "enum": ["glyph_zuihitsu"],
+      "description": "Fixed identifier for Zuihitsu glyph events"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of the draw"
+    },
+    "request_id": {
+      "type": "string",
+      "description": "Echo of the request id that triggered the draw"
+    },
+    "source": {
+      "type": "string",
+      "description": "Path to zuihitsu source file"
+    },
+    "fragments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 512
+      },
+      "minItems": 1,
+      "maxItems": 5,
+      "description": "Fragments selected from the source"
+    },
+    "seed": {
+      "type": ["integer", "null"],
+      "description": "Deterministic seed used (if any)"
+    }
+  },
+  "required": ["event_type", "ts", "request_id", "source", "fragments"]
+}

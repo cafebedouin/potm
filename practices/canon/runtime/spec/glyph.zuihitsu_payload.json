@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "glyph.zuihitsu_payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "Path to the zuihitsu text pack, e.g. interpretative/data/zuihitsu/zuihitsu_combined.md"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "default": 1,
+      "description": "How many fragments to draw"
+    },
+    "seed": {
+      "type": ["integer", "null"],
+      "description": "Optional deterministic seed for reproducible draws"
+    }
+  },
+  "required": ["source"]
+}

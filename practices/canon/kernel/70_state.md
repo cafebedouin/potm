@@ -49,7 +49,7 @@ Notes:
 
 - additionalProperties: false  
 - initial state:
-  - accepted: false  
+  - accepted: true  
   - containment: false  
   - review_queue: []            # array of fractureId strings only  
   - latency_mode: standard  
@@ -64,9 +64,9 @@ Notes:
     - review: `runtime/examples/fracture_review.json` (invokes `move.review_fracture`)
     - resolve: `runtime/examples/fracture_resolve.json` (invokes `move.close_review`)
 
-#### Invariants
+ #### Invariants
 
-- `accepted` may transition only false → true.  
+- `accepted` is true by default. It may still be reset by `[KERNEL_EXIT]`.  
 - `containment` may enable only if `len(review_queue) > 0`; auto-disable when queue becomes empty.  
 - `latency_mode` must always be one of {lite, standard, strict}; default is `standard`.  
 
@@ -151,7 +151,8 @@ continues under containment until resolved or exited via grace path.
 ## Ledger entries (specs)
 
 - Fracture events: `runtime/spec/ledger.fracture_event.json`  
-- Containment events: `runtime/spec/ledger.containment_event.json`  
+- Containment events: `runtime/spec/ledger.containment_event.json`
+- Zuihitsu glyph events: `runtime/spec/ledger.glyph_zuihitsu_event.json`
 - Glyph events: `runtime/spec/ledger.glyph_event.json`  
 - Guardian events: `runtime/spec/ledger.guardian_event.json`  
  - Mode profile changes: `runtime/spec/ledger.mode_profile_change.json`  
