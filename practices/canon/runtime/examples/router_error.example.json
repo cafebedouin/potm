@@ -1,0 +1,8 @@
+{
+  "ok": false,
+  "code": "E_PAYLOAD",
+  "reason": "payload failed schema: lens.check.min",
+  "recovery_hint": "See potm.kernel.router.envelope.v1",
+  "severity": "warn",
+  "trace": ["router.validate", "latency.validator", "dispatch.lens.check"]
+}

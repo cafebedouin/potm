@@ -38,9 +38,9 @@ license: CC0-1.0
 
 ## 1) Wire format
 
-- **Envelope validation:** `runtime/spec/router_envelope.json`
-- **Emission (success) format:** `runtime/spec/router_emission.json`
-- **Emission (error) format:** `runtime/spec/router_error.json`
+- **Envelope validation:** `potm.kernel.router.envelope.v1`
+- **Emission (success) format:** `potm.kernel.router.emission.v1`
+- **Emission (error) format:** `potm.kernel.router.error.v1`
 
 The router accepts only properly-typed envelopes and always returns a typed emission.
 
@@ -62,8 +62,8 @@ The router accepts only properly-typed envelopes and always returns a typed emis
      - `lens.refuse`.
    - Otherwise emit `E_CONTAINMENT_BLOCKED`.
 5. **Latency validator (first validator):**
-   - Invoke with `runtime/spec/latency.validator_payload.json`,
-     receive `runtime/spec/latency.validator_result.json`.
+   - Invoke with `potm.kernel.latency.validator.payload.v1`,
+     receive `potm.kernel.latency.validator.result.v1`.
    - If result `error` → emit `E_LATENCY_INVARIANT` and halt.
    - If result `warn` → attach `W_LATENCY_BREACH` to emission context.
 6. **Lookup tool** in `runtime/spec/tool.index.json`:
@@ -87,16 +87,16 @@ Register **only** these ids for the kernel:
 ```json
 {
   "tools": [
-    { "id": "lens.define",  "payload_schema": "runtime/schema/min/lens_define.min.json",  "result_schema": "runtime/spec/router_emission.json#/$defs/lens.define.result" },
-    { "id": "lens.check",   "payload_schema": "runtime/schema/min/lens_check.min.json",   "result_schema": "runtime/spec/router_emission.json#/$defs/lens.check.result" },
-    { "id": "lens.trace",   "payload_schema": "runtime/schema/min/lens_trace.min.json",   "result_schema": "runtime/spec/router_emission.json#/$defs/lens.trace.result" },
-    { "id": "lens.refuse",  "payload_schema": "runtime/schema/min/lens_refuse.min.json",  "result_schema": "runtime/spec/router_emission.json#/$defs/lens.refuse.result" },
+    { "id": "lens.define",  "payload_schema": "potm.kernel.lens.define.min.v1",  "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.define.result" },
+    { "id": "lens.check",   "payload_schema": "potm.kernel.lens.check.min.v1",   "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.check.result" },
+    { "id": "lens.trace",   "payload_schema": "potm.kernel.lens.trace.min.v1",   "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.trace.result" },
+    { "id": "lens.refuse",  "payload_schema": "potm.kernel.lens.refuse.min.v1",  "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.refuse.result" },
 
     { "id": "move.align_scan", "payload_schema": "runtime/spec/move.align_scan_payload.json", "result_schema": "runtime/spec/move.align_scan_result.json" },
     { "id": "move.drift_check","payload_schema": "runtime/spec/move.drift_check_payload.json","result_schema": "runtime/spec/move.drift_check_result.json" },
     { "id": "move.fracture",   "payload_schema": "runtime/spec/move.fracture_payload.json",   "result_schema": "runtime/spec/move.fracture_result.json" },
 
-    { "id": "guardian.trigger","payload_schema": "runtime/spec/guardian.trigger_payload.json","result_schema": "runtime/spec/guardian.trigger_result.json" }
+    { "id": "guardian.trigger","payload_schema": "potm.kernel.guardian.trigger.payload.v1","result_schema": "potm.kernel.guardian.trigger.result.v1" }
   ]
 }
 ````
@@ -140,7 +140,7 @@ All errors/warnings are emitted using `router_error.json` / `router_emission.jso
 
 ```pseudo
 function route(envelope):
-  assert validate(envelope, "runtime/spec/router_envelope.json")
+  assert validate(envelope, "potm.kernel.router.envelope.v1")
 
   (ns, name) = split(envelope.id)
   if ns not in {"lens","move","guardian"}: return err(E_NAMESPACE)
