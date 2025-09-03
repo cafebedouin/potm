@@ -38,7 +38,7 @@ license: CC0-1.0
 
 ## 1) Inputs
 
-**Envelope fields (subset of `runtime/spec/router_envelope.json`):**
+**Envelope fields (subset of `potm.kernel.router.envelope.v1`):**
 
 ```json
 {
@@ -49,14 +49,14 @@ license: CC0-1.0
 
 **Schemas:**
 
-* `runtime/spec/latency.validator_payload.json`
-* `runtime/spec/latency.validator_result.json`
+* `potm.kernel.latency.validator.payload.v1`
+* `potm.kernel.latency.validator.result.v1`
 
 ---
 
 ## 2) Policy reference
 
-**File:** `runtime/spec/policy.cap.json` (and table variant `policy.cap.table.json`)
+**File:** `potm.kernel.policy.cap.v1` (and table variant `policy.cap.table.json`)
 
 Minimal required field:
 
@@ -127,9 +127,9 @@ Example result (warning):
 
 * **Schemas:**
 
-  * `runtime/spec/latency.validator_payload.json`
-  * `runtime/spec/latency.validator_result.json`
-* **Policy caps:** `runtime/spec/policy.cap.json`
-* **Ledger schema:** `runtime/spec/ledger.latency_breach.json`
+  * `potm.kernel.latency.validator.payload.v1`
+  * `potm.kernel.latency.validator.result.v1`
+* **Policy caps:** `potm.kernel.policy.cap.v1`
+* **Ledger schema:** `potm.kernel.ledger.latency_breach.v1`
 * **Examples:** `runtime/examples/latency_breach_ledger.json`, `runtime/examples/state_log_latency_breach.json`
 

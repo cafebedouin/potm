@@ -99,7 +99,7 @@ above (or to `runtime/spec/min/...` if you add overlays).
 ## Annex
 
 - Beacons (for `beacon_ref` in `move.fracture`): `kernel/20_beacons.md`
-- Guardian trigger contract: `runtime/spec/guardian.trigger_payload.json`,
-  `runtime/spec/guardian.trigger_result.json`
-- Latency validator: `runtime/spec/latency.validator_payload.json`,
-  `runtime/spec/latency.validator_result.json`
+- Guardian trigger contract: `potm.kernel.guardian.trigger.payload.v1`,
+  `potm.kernel.guardian.trigger.result.v1`
+- Latency validator: `potm.kernel.latency.validator.payload.v1`,
+  `potm.kernel.latency.validator.result.v1`

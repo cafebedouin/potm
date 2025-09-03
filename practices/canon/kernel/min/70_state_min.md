@@ -76,7 +76,7 @@ license: CC0-1.0
 ## 4) `fracture_log` (map)
 
 * Session-local **map**: `{ [fracture_id]: fracture_entry }`.&#x20;
-* Each entry conforms to `runtime/schema/fracture_entry.json`.&#x20;
+* Each entry conforms to `potm.kernel.fracture.entry.v1`.&#x20;
 
 ---
 
@@ -110,10 +110,10 @@ license: CC0-1.0
 
 ## 7) JSON Schemas & examples (references)
 
-* **Router envelope/emissions:** `runtime/spec/router_envelope.json`, `runtime/spec/router_emission.json`
-* **Latency validator:** `runtime/spec/latency.validator_payload.json`, `runtime/spec/latency.validator_result.json`&#x20;
-* **Ledger events:** `runtime/spec/ledger.latency_breach.json`, `runtime/spec/ledger.guardian_event.json`, `runtime/spec/ledger.fracture_event.json` (see also runtime/examples)&#x20;
-* **Fracture entry:** `runtime/schema/fracture_entry.json`&#x20;
+* **Router envelope/emissions:** `potm.kernel.router.envelope.v1`, `potm.kernel.router.emission.v1`
+* **Latency validator:** `potm.kernel.latency.validator.payload.v1`, `potm.kernel.latency.validator.result.v1`&#x20;
+* **Ledger events:** `potm.kernel.ledger.latency_breach.v1`, `potm.kernel.ledger.guardian_event.v1`, `potm.kernel.ledger.fracture_event.v1` (see also runtime/examples)&#x20;
+* **Fracture entry:** `potm.kernel.fracture.entry.v1`&#x20;
 * **Examples:** `runtime/examples/state_meta_locus.json`, `state_log_latency_breach.json`, `fracture_open.json`, `fracture_open_ledger.json` &#x20;
 
 ---

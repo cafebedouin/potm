@@ -29,12 +29,12 @@ Payloads and results MUST conform to the referenced JSON Schemas (strict, with
 
 | id     | Purpose                               | Baseline schema (kept)    | Min overlay (microkernel)         | Example (microkernel)                  |
 | ------ | ------------------------------------- | ------------------------- | --------------------------------- | -------------------------------------- |
-| define | Disambiguate key terms                | `runtime/schema/lens_define.json` | `runtime/schema/min/lens_define.min.json` | `runtime/examples/lens_define_invoke.min.json` |
-| check  | Test a single key assumption          | `runtime/schema/lens_check.json`  | `runtime/schema/min/lens_check.min.json`  | `runtime/examples/lens_check_invoke.min.json`  |
-| trace  | Show a short reasoning chain (2–4)    | `runtime/schema/lens_trace.json`  | `runtime/schema/min/lens_trace.min.json`  | `runtime/examples/lens_trace_invoke.min.json`  |
-| refuse | Decline safely with one forward route | `runtime/schema/lens_refuse.json` | `runtime/schema/min/lens_refuse.min.json` | `runtime/examples/lens_refuse_invoke.min.json` |
+| define | Disambiguate key terms                | `potm.kernel.lens.define.v1` | `potm.kernel.lens.define.min.v1` | `runtime/examples/lens_define_invoke.min.json` |
+| check  | Test a single key assumption          | `potm.kernel.lens.check.v1`  | `potm.kernel.lens.check.min.v1`  | `runtime/examples/lens_check_invoke.min.json`  |
+| trace  | Show a short reasoning chain (2–4)    | `potm.kernel.lens.trace.v1`  | `potm.kernel.lens.trace.min.v1`  | `runtime/examples/lens_trace_invoke.min.json`  |
+| refuse | Decline safely with one forward route | `potm.kernel.lens.refuse.v1` | `potm.kernel.lens.refuse.min.v1` | `runtime/examples/lens_refuse_invoke.min.json` |
 
-Note: Baseline schema retained at runtime/schema/lens_trace.json for extended/ use.
+Note: Baseline schema retained at potm.kernel.lens.trace.v1 for extended/ use.
 
 ## Invocation (router contract)
 

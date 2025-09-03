@@ -1,86 +1,33 @@
-   "properties": {
-     "tool.emit": {
-       "type": "object",
-       "required": ["id", "ok", "result"],
-       "additionalProperties": false,
-       "$defs": {
-         "lens.define.result": {
-           "type": "object",
-           "additionalProperties": false,
-           "required": ["definitions"],
-           "properties": {
-             "definitions": {
-             "type": "array",
-             "minItems": 1,
-             "maxItems": 6,
-             "items": {
-               "type": "object",
-               "additionalProperties": false,
-               "required": ["term", "definition"],
-               "properties": {
-                 "term": { "type": "string", "maxLength": 64 },
-                 "definition": { "type": "string", "maxLength": 200 }
-               }
-             }  
-           }
-         }
-       },
-         "lens.check.result": {
-           "type": "object",
-           "additionalProperties": false,
-           "required": ["verdict"],
-           "properties": {
-             "verdict": { "type": "string", "enum": ["pass","fail","uncertain"] },
-             "evidence": {
-               "type": "array",
-               "minItems": 0,
-               "maxItems": 2,
-               "items": { "type": "string", "maxLength": 160 }
-             },
-        "next_hint": { "type": "string", "maxLength": 140 }
-          }
-        },
-          "lens.trace.result": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["chain"],
-            "properties": {
-              "chain": {
-              "type": "array",
-              "minItems": 2,
-              "maxItems": 4,
-              "items": { "type": "string", "maxLength": 120 }
-              }
-            }
-         },
-           "lens.refuse.result": {
-             "type": "object",
-             "additionalProperties": false,
-             "required": ["declined","forward_route"],
-             "properties": {
-               "declined": { "type": "boolean", "const": true },
-               "forward_route": {
-                 "type": "object",
-                 "additionalProperties": false,
-                 "required": ["label","suggestion"],
-                 "properties": {
-                   "label": { "type": "string", "maxLength": 64 },
-                   "suggestion": { "type": "string", "maxLength": 200 }
-                 }
-               }
-             }
-           }
-         }
-     } ,
-       "properties": {
-         "id": { "type": "string" },
-         "ok": { "const": true },
-         "result": { "type": "object" },
-         "warnings": {
-           "type": "array", "maxItems": 8,
-           "items": { "type": "string", "maxLength": 128 }
-         },
-         "trace": { "type": "array", "items": { "type": "string" }, "maxItems": 32 }
-       }
-     }
-   }
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "potm.kernel.router.emission.v1",
+  "title": "Router Emission ($defs for lens results)",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "lens.define.result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "ok": { "const": true }, "id": { "type": "string" }, "definition": { "type": "string" } },
+      "required": ["ok", "id", "definition"]
+    },
+    "lens.check.result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "ok": { "const": true }, "id": { "type": "string" }, "valid": { "type": "boolean" } },
+      "required": ["ok", "id", "valid"]
+    },
+    "lens.trace.result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "ok": { "const": true }, "id": { "type": "string" }, "trace": { "type": "array", "items": { "type": "string" } } },
+      "required": ["ok", "id", "trace"]
+    },
+    "lens.refuse.result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "ok": { "const": true }, "reason": { "type": "string" } },
+      "required": ["ok", "reason"]
+    }
+  }
+}
