@@ -1,5 +1,5 @@
 ---
-id: potm.proto.tooling.suspicion_first.v1.3
+id: potm.proto.tooling.suspicion_first.v1_3
 title: suspicion_first_protocol
 display_title: "Suspicion-First Engagement Flow"
 type: practitioner_protocol

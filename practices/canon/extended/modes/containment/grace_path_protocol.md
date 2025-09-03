@@ -1,8 +1,7 @@
 ---
-
-id: potm.protocol.grace\_path.v1\_0
-title: grace\_path\_protocol
-display\_title: "Grace Path Protocol"
+id: potm.protocol.grace_path.v1_0
+title: grace_path_protocol
+display_title: "Grace Path Protocol"
 type: protocol
 lifecycle: canon
 version: 1.0
@@ -11,9 +10,9 @@ stability: stable
 summary: >
 Defines a gentle exit ramp from high-intensity PoTM practices or rupture states. Provides a structured path of care, integration, and restoration when containment or epistemic engagement has reached an edge condition.
 relations:
-supersedes: \[]
-superseded\_by: \[]
-tags: \[containment, soft\_exit, recovery, safety, epistemic\_resilience, dignity]
+supersedes: []
+superseded_by: []
+tags: [containment, soft_exit, recovery, safety, epistemic_resilience, dignity]
 author: practitioner
 license: CC0-1.0
 ----------------

@@ -1,5 +1,5 @@
 ---
-id: potm.proto.tooling.externalist_modes.v1.1
+id: potm.proto.tooling.externalist_modes.v1_1
 title: externalist_diagnostic_modes
 display_title: "Externalist Diagnostic Modes"
 type: practitioner_protocol

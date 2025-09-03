@@ -1,3 +1,8 @@
+---
+id: potm.kernel.preamble.v1_6_dev
+title: 00_preamble
+---
+
 PoTM has a two-domain architecture with clear responsibilities:
 
  - **Formal Logic** — the runnable system:

@@ -1,9 +1,9 @@
 {
   "cap": {
     "latency": {
-      "lite":     { "p50_ms": 2000, "p95_ms": 4000 },
+      "lite": { "p50_ms": 2000, "p95_ms": 4000 },
       "standard": { "p50_ms": 4000, "p95_ms": 6000 },
-      "strict":   { "p50_ms": 8000, "p95_ms": 12000 }
+      "strict": { "p50_ms": 8000, "p95_ms": 12000 }
     },
     "ledger_max": 512
   }

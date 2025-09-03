@@ -1,5 +1,5 @@
 ---
-id: potm.kernel.lenses.v1_6_dev
+id: potm.interpretative.kernel.lenses.v1_6_dev
 title: "30_lenses"
 display_title: "Lenses — Contracted Views"
 type: kernel

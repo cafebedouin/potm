@@ -1,7 +1,7 @@
 {
   "$id": "potm.kernel.latency.validator.result.v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "latency.validator result",
+  "title": "latency.validator_result",
   "type": "object",
   "required": ["decision", "violations"],
   "additionalProperties": false,

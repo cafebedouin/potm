@@ -1,7 +1,7 @@
 {
   "$id": "potm.kernel.latency.validator.payload.v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "latency.validator payload",
+  "title": "latency.validator_payload",
   "type": "object",
   "required": ["meta_locus", "observed_latency", "ceiling", "severity"],
   "additionalProperties": false,

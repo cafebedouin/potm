@@ -63,7 +63,7 @@ The kernel delivers the prompt, card, or vignette.
 Deeper diagnostics and lenses auto-invoke as needed—without cluttering your menu.
 
 Data sources (static):  
-- Cards: `interpretative/data/cards/combined_cards.yaml`  
+- Cards: `interpretative/data/cards/cards_combined.yaml`  
 - Journaling: `interpretative/data/journaling/prompts.yaml`  
 - Zuihitsu: `interpretative/data/zuihitsu/zuihitsu_combined.txt`  
 
