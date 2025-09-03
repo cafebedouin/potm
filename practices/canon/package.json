@@ -1,0 +1,17 @@
+{
+  "name": "canon",
+  "version": "1.0.0",
+  "description": "The Pilates of the Mind (PoTM) canon is organized into **five tiers**:   **kernel / extended / interpretative / meta / runtime**.   Each has a distinct role and scope.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-cli": "^5.0.0",
+    "ajv-formats": "^3.0.1"
+  }
+}
