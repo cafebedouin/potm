@@ -1,6 +1,6 @@
 ---
-id: potm.kernel.state_min.v1_6_dev
-title: "70_state_min"
+$id: potm.kernel.state_min.v1
+title: "state_min"
 display_title: "State — Minimal Session State"
 type: kernel
 lifecycle: canon
@@ -110,11 +110,11 @@ license: CC0-1.0
 
 ## 7) JSON Schemas & examples (references)
 
-* **Router envelope/emissions:** `potm.kernel.router.envelope.v1`, `potm.kernel.router.emission.v1`
-* **Latency validator:** `potm.kernel.latency.validator.payload.v1`, `potm.kernel.latency.validator.result.v1`&#x20;
-* **Ledger events:** `potm.kernel.ledger.latency_breach.v1`, `potm.kernel.ledger.guardian_event.v1`, `potm.kernel.ledger.fracture_event.v1` (see also runtime/examples)&#x20;
-* **Fracture entry:** `potm.kernel.fracture.entry.v1`&#x20;
-* **Examples:** `runtime/examples/state_meta_locus.json`, `state_log_latency_breach.json`, `fracture_open.json`, `fracture_open_ledger.json` &#x20;
+* Router envelope/emissions: `potm.kernel.router.envelope.v1`, `potm.kernel.router.emission.v1`
+* Latency validator: `potm.kernel.latency.validator.payload.v1`, `potm.kernel.latency.validator.result.v1`
+* Ledger events: `potm.kernel.ledger.latency_breach.v1`
+* Fracture entry: `potm.kernel.fracture.entry.v1`
+* Examples: `runtime/examples/latency_breach_ledger.json`
 
 ---
 
@@ -123,4 +123,3 @@ license: CC0-1.0
 * **Removed from kernel:** `mode_profile` and its gates/canary machinery; these live under `extended/modes/` and `extended/gates/`.&#x20;
 * **Guardian + Containment:** containment is diagnostic, not punitive; it restricts routing until the fracture queue is cleared via extended tools.&#x20;
 * **Export policy:** kernel state never exports; export targets (if any) are governed in `extended/policy/`.
-

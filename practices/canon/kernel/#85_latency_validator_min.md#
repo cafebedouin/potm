@@ -1,5 +1,5 @@
 ---
-id: potm.kernel.latency_validator_min.v1_6_dev
+id: potm.kernel.latency.validator.min.v1_6_dev
 title: "85_latency_validator_min"
 display_title: "Latency Validator — Minimal Contract"
 type: kernel
@@ -56,22 +56,7 @@ license: CC0-1.0
 
 ## 2) Policy reference
 
-**File:** `potm.kernel.policy.cap.v1` (and table variant `policy.cap.table.json`)
-
-Minimal required field:
-
-```json
-{
-  "cap": {
-    "latency": {
-      "lite":     { "p50_ms": 2000, "p95_ms": 4000 },
-      "standard": { "p50_ms": 4000, "p95_ms": 6000 },
-      "strict":   { "p50_ms": 8000, "p95_ms": 12000 }
-    },
-    "ledger_max": 512
-  }
-}
-```
+* `potm.latency.cap.min.cap.v1_6_dev`
 
 ---
 
@@ -131,5 +116,5 @@ Example result (warning):
   * `potm.kernel.latency.validator.result.v1`
 * **Policy caps:** `potm.kernel.policy.cap.v1`
 * **Ledger schema:** `potm.kernel.ledger.latency_breach.v1`
-* **Examples:** `runtime/examples/latency_breach_ledger.json`, `runtime/examples/state_log_latency_breach.json`
+* **Examples:** `runtime/examples/latency_breach_ledger.json`
 

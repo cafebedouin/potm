@@ -1,0 +1,16 @@
+{
+  "$id": "potm.kernel.ledger.latency_breach.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Latency Breach Ledger Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ts": { "type": "string", "format": "date-time" },
+    "mode": { "type": "string", "enum": ["lite", "standard", "strict"] },
+    "observed_ms": { "type": "integer", "minimum": 0 },
+    "p50_ms": { "type": "integer", "minimum": 0 },
+    "p95_ms": { "type": "integer", "minimum": 0 },
+    "code": { "type": "string", "enum": ["W_LATENCY_BREACH", "E_LATENCY_INVARIANT"] }
+  },
+  "required": ["ts", "mode", "observed_ms", "p50_ms", "p95_ms", "code"]
+}

@@ -1,30 +1,16 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "potm.kernel.router.error.v1",
-  "title": "Router Error",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "ok": { "const": false },
-    "code": {
-      "type": "string",
-      "enum": [
-        "E_NAMESPACE",
-        "E_TOOL_NOT_FOUND",
-        "E_PAYLOAD",
-        "E_PRECONDITION",
-        "E_QUOTA",
-        "E_DISABLED",
-        "E_INVARIANT",
-        "E_IDEMPOTENCY",
-        "E_CONTAINMENT_BLOCKED",
-        "E_LATENCY_INVARIANT"
-      ]
-    },
-    "reason":        { "type": "string", "maxLength": 512 },
-    "recovery_hint": { "type": "string", "maxLength": 160 },
-    "severity":      { "type": "string", "enum": ["info", "warn", "hard"] },
-    "trace":         { "type": "array", "items": { "type": "string" }, "maxItems": 32 }
-  },
-  "required": ["ok", "code", "reason"]
+  "$id":"potm.kernel.router.error.v1",
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["ok","code","reason"],
+  "properties":{
+    "ok":{"const":false},
+    "code":{"type":"string","enum":["E_NAMESPACE","E_TOOL_NOT_FOUND","E_PAYLOAD","E_PRECONDITION","E_QUOTA","E_DISABLED","E_INVARIANT","E_IDEMPOTENCY","E_CONTAINMENT_BLOCKED","E_LATENCY_INVARIANT"]},
+    "reason":{"type":"string","maxLength":512},
+    "message":{"type":"string","maxLength":300},
+    "recovery_hint":{"type":"string","maxLength":160},
+    "severity":{"type":"string","enum":["info","warn","hard"]},
+    "trace":{"type":"array","items":{"type":"string"},"maxItems":32}
+  }
 }
+

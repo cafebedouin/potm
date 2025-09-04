@@ -3,28 +3,23 @@
   "$id": "potm.kernel.tool.index.v1",
   "tools": [
     {
-      "id": "latency.validator",
-      "payload_schema": "runtime/spec/latency.validator_payload.json",
-      "result_schema":  "runtime/spec/latency.validator_result.json"
-    },
-    {
       "id": "lens.define",
-      "payload_schema": "runtime/schema/min/lens_define.min.json",
+      "payload_schema": "runtime/spec/min/lens_define.min.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.define.result"
     },
     {
       "id": "lens.check",
-      "payload_schema": "runtime/schema/min/lens_check.min.json",
+      "payload_schema": "runtime/spec/min/lens_check.min.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.check.result"
     },
     {
       "id": "lens.trace",
-      "payload_schema": "runtime/schema/min/lens_trace.min.json",
+      "payload_schema": "runtime/spec/min/lens_trace.min.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.trace.result"
     },
     {
       "id": "lens.refuse",
-      "payload_schema": "runtime/schema/min/lens_refuse.min.json",
+      "payload_schema": "runtime/spec/min/lens_refuse.min.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.refuse.result"
     },
     {

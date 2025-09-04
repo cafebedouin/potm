@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "potm.kernel.lens.define.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "lens_define",
   "description": "Provide contextual definition of a term.",
   "type": "object",
@@ -16,4 +17,3 @@
   "required": ["term"],
   "additionalProperties": false
 }
-

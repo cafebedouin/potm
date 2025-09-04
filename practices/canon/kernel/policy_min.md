@@ -1,0 +1,37 @@
+---
+$id: potm.kernel.policy_min.v1
+title: "policy_min"
+display_title: "Policy — Minimal Caps"
+type: kernel
+lifecycle: canon
+version: 1.6.0-dev
+status: active
+stability: stable
+summary: >
+  Minimal policy file for the microkernel. Anchors only the invariants needed
+  by the latency validator and the in-memory ledger. All richer policy
+  documents (content boundaries, refusal playbooks, export rules, etc.)
+  belong in extended/.
+relations:
+  supersedes: []
+  superseded_by: []
+tags: [kernel, policy, minimal]
+author: practitioner
+license: CC0-1.0
+---
+
+# Policy — Minimal Caps
+
+## 0) Scope
+
+- Defines only **caps** required by kernel validators and state:
+  - latency ceilings (p50/p95 by mode)
+  - maximum ledger size
+- Everything else is governed by extended/ policy modules.
+
+---
+
+## 1) Latency ceilings
+
+Enforced by `$id` `potm.kernel.latency_validator_min.v1`.  
+Source of truth is `$id` `potm.kernel.policy.cap.v1`.

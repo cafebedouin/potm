@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "potm.kernel.fracture.entry.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "fracture_entry",
   "description": "Schema for fracture entries queued in meta_locus.review_queue.",
   "type": "object",

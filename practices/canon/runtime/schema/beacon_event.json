@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "potm.kernel.beacon.event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "beacon_event",
   "description": "Schema for beacon event entries. Used to record validator, latency, and policy signals.",
   "type": "object",

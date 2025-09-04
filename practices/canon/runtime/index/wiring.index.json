@@ -1,0 +1,163 @@
+{
+  "example_validation": [
+    {
+      "example": "runtime/examples/beacon_event.json",
+      "schema_id": "potm.kernel.beacon.event.v1",
+      "schema_path": "runtime/schema/beacon_event.json",
+      "valid": true
+    },
+    {
+      "example": "runtime/examples/router_error.example.json",
+      "schema_id": "potm.kernel.router.error.v1",
+      "schema_path": "runtime/spec/router_error.json",
+      "valid": true
+    },
+    {
+      "example": "runtime/examples/latency_breach_ledger.json",
+      "schema_id": "potm.kernel.ledger.latency_breach.v1",
+      "schema_path": "runtime/spec/ledger.latency_breach.json",
+      "valid": true
+    }
+  ],
+  "ids": {
+    "potm.kernel.acceptance.agreement.v1": "runtime/spec/acceptance_agreement.json",
+    "potm.kernel.beacon.event.v1": "runtime/schema/beacon_event.json",
+    "potm.kernel.fracture.entry.v1": "runtime/schema/fracture_entry.json",
+    "potm.kernel.guardian.trigger.payload.v1": "runtime/spec/guardian.trigger_payload.json",
+    "potm.kernel.guardian.trigger.result.v1": "runtime/spec/guardian.trigger_result.json",
+    "potm.kernel.latency.validator.payload.v1": "runtime/spec/latency.validator_payload.json",
+    "potm.kernel.latency.validator.result.v1": "runtime/spec/latency.validator_result.json",
+    "potm.kernel.ledger.latency_breach.v1": "runtime/spec/ledger.latency_breach.json",
+    "potm.kernel.lens.check.min.v1": "runtime/spec/min/lens_check.min.json",
+    "potm.kernel.lens.check.payload.v1": "runtime/schema/lens_check.json",
+    "potm.kernel.lens.define.min.v1": "runtime/spec/min/lens_define.min.json",
+    "potm.kernel.lens.define.payload.v1": "runtime/schema/lens_define.json",
+    "potm.kernel.lens.refuse.min.v1": "runtime/spec/min/lens_refuse.min.json",
+    "potm.kernel.lens.refuse.payload.v1": "runtime/schema/lens_refuse.json",
+    "potm.kernel.lens.trace.min.v1": "runtime/spec/min/lens_trace.min.json",
+    "potm.kernel.lens.trace.payload.v1": "runtime/schema/lens_trace.json",
+    "potm.kernel.move.align_scan.payload.v1": "runtime/spec/move.align_scan_payload.json",
+    "potm.kernel.move.align_scan.result.v1": "runtime/spec/move.align_scan_result.json",
+    "potm.kernel.move.drift_check.payload.v1": "runtime/spec/move.drift_check_payload.json",
+    "potm.kernel.move.drift_check.result.v1": "runtime/spec/move.drift_check_result.json",
+    "potm.kernel.move.fracture.payload.v1": "runtime/spec/move.fracture_payload.json",
+    "potm.kernel.move.fracture.result.v1": "runtime/spec/move.fracture_result.json",
+    "potm.kernel.policy.cap.v1": "runtime/spec/min/latency_cap.min.json",
+    "potm.kernel.router.emission.v1": "runtime/spec/router_emission.json",
+    "potm.kernel.router.envelope.v1": "runtime/spec/router_envelope.json",
+    "potm.kernel.router.error.v1": "runtime/spec/router_error.json",
+    "potm.kernel.tool.index.v1": "runtime/spec/tool.index.json"
+  },
+  "kernel": {
+    "/home/scott/bin/potm/practices/canon/kernel/20_beacons.md": {
+      "kernel_id": "potm.kernel.beacons.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.beacon.event.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/entry_gate.md": {
+      "kernel_id": "potm.kernel.entry_gate.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.acceptance.agreement.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/latency_validator_min.md": {
+      "kernel_id": "potm.kernel.latency_validator_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1",
+        "potm.kernel.ledger.latency_breach.v1",
+        "potm.kernel.policy.cap.v1",
+        "potm.kernel.router.envelope.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/lenses_min.md": {
+      "kernel_id": "potm.kernel.lenses_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.lens.check.min.v1",
+        "potm.kernel.lens.check.payload.v1",
+        "potm.kernel.lens.define.min.v1",
+        "potm.kernel.lens.define.payload.v1",
+        "potm.kernel.lens.refuse.min.v1",
+        "potm.kernel.lens.refuse.payload.v1",
+        "potm.kernel.lens.trace.min.v1",
+        "potm.kernel.lens.trace.payload.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/micromoves_min.md": {
+      "kernel_id": "potm.kernel.micromoves_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.guardian.trigger.payload.v1",
+        "potm.kernel.guardian.trigger.result.v1",
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/policy_min.md": {
+      "kernel_id": "potm.kernel.policy_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.latency_validator_min.v1",
+        "potm.kernel.policy.cap.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/preamble.md": {
+      "kernel_id": "potm.kernel.preamble.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/router_min.md": {
+      "kernel_id": "potm.kernel.router_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.guardian.trigger.payload.v1",
+        "potm.kernel.guardian.trigger.result.v1",
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1",
+        "potm.kernel.lens.check.min.v1",
+        "potm.kernel.lens.define.min.v1",
+        "potm.kernel.lens.refuse.min.v1",
+        "potm.kernel.lens.trace.min.v1",
+        "potm.kernel.router.emission.v1",
+        "potm.kernel.router.envelope.v1",
+        "potm.kernel.router.error.v1",
+        "potm.kernel.tool.index.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/state_min.md": {
+      "kernel_id": "potm.kernel.state_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.fracture.entry.v1",
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1",
+        "potm.kernel.ledger.latency_breach.v1",
+        "potm.kernel.router.emission.v1",
+        "potm.kernel.router.envelope.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ---
-id: potm.kernel.router_min.v1_6_dev
-title: "40_router_min"
+$id: potm.kernel.router_min.v1
+title: "router_min"
 display_title: "Router — Minimal Contract"
 type: kernel
 lifecycle: canon
@@ -48,7 +48,7 @@ The router accepts only properly-typed envelopes and always returns a typed emis
 
 ## 2) Dispatch order (hard invariant)
 
-1. **Validate envelope** against `router_envelope.json`.
+1. **Validate envelope** against `potm.kernel.router.envelope.v1`.
 2. **Parse tool id** → `(namespace, name)` and check against **allow-list**.
 3. **Idempotency check:**
    - Require `request_id` (from envelope).
@@ -80,7 +80,7 @@ The router accepts only properly-typed envelopes and always returns a typed emis
 
 ## 3) Registration (tool index)
 
-**File:** `runtime/spec/tool.index.json`
+**File:** `runtime/spec/tool.index.json` (`$id`: `potm.kernel.tool.index.v1`)
 
 Register **only** these ids for the kernel:
 

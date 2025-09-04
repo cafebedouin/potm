@@ -1,34 +1,24 @@
 {
-  "$id": "potm.kernel.router.envelope.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "router envelope",
-  "type": "object",
-  "required": ["tool.call"],
+  "$id":"potm.kernel.router.envelope.v1",
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object",
   "additionalProperties": false,
+  "required": ["id","request_id","payload","meta"],
   "properties": {
-    "tool.call": {
-      "type": "object",
-      "required": ["id", "payload"],
-      "additionalProperties": false,
+    "id": { "type":"string","pattern":"^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$" },
+    "request_id": { "type":"string","minLength":8,"maxLength":64 },
+    "payload": { "type":"object","additionalProperties": true },
+    "observed_latency_ms": { "type":"integer","minimum":0 },
+    "meta": {
+      "type":"object","additionalProperties":false,
+      "required":["latency_mode"],
       "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"
-        },
-        "payload": {
-          "type": "object",
-          "additionalProperties": true
-        },
-        "meta": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "request_id": { "type": "string", "format": "uuid" },
-            "trace": { "type": "boolean", "default": false },
-            "origin": { "type": "string", "maxLength": 64 }
-          }
-        }
+        "latency_mode": { "type":"string","enum":["lite","standard","strict"] },
+        "containment": { "type":"boolean" },
+        "trace": { "type":"boolean","default":false },
+        "origin": { "type":"string","maxLength":64 }
       }
     }
   }
 }
+

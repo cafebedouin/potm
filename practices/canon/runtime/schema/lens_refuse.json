@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "potm.kernel.lens.refuse.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "lens_refuse",
   "description": "Schema for the Refuse lens. Marks claims or prompts as declined.",
   "type": "object",

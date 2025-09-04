@@ -1,34 +1,12 @@
 {
-  "$id": "potm.kernel.latency.validator.payload.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "latency.validator_payload",
-  "type": "object",
-  "required": ["meta_locus", "observed_latency", "ceiling", "severity"],
-  "additionalProperties": false,
-  "properties": {
-    "meta_locus": {
-      "type": "object",
-      "required": ["latency_mode"],
-      "additionalProperties": false,
-      "properties": {
-        "latency_mode": {
-          "type": "string",
-          "enum": ["lite", "standard", "strict"]
-        }
-      }
+  "$id":"potm.kernel.latency.validator.payload.v1",
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["meta","observed_latency_ms"],
+  "properties":{
+    "meta":{"type":"object","additionalProperties":false,"required":["latency_mode"],
+      "properties":{"latency_mode":{"type":"string","enum":["lite","standard","strict"]}}
     },
-    "observed_latency": {
-      "type": "number",
-      "minimum": 0
-    },
-    "ceiling": {
-      "type": "number",
-      "minimum": 0
-    },
-    "severity": {
-      "type": "string",
-      "enum": ["warning", "error"]
-    }
+    "observed_latency_ms":{"type":"integer","minimum":0}
   }
 }
-

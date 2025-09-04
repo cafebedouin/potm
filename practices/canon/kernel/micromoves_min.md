@@ -1,6 +1,6 @@
 ---
-id: potm.kernel.micromoves_min.v1_6_dev
-title: "35_micromoves_min"
+$id: potm.kernel.micromoves_min.v1
+title: "micromoves_min"
 display_title: "Micromoves — Minimal Contract"
 type: kernel
 lifecycle: canon

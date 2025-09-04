@@ -1,6 +1,6 @@
 ---
-id: potm.kernel.preamble.v1_6_dev
-title: 00_preamble
+$id: potm.kernel.preamble.v1
+title: preamble
 ---
 
 PoTM has a two-domain architecture with clear responsibilities:

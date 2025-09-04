@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "potm.kernel.lens.check.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "lens_check",
   "description": "Schema for the Check lens. Validates assumptions or premises for consistency.",
   "type": "object",

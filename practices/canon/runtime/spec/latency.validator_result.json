@@ -1,49 +1,15 @@
 {
-  "$id": "potm.kernel.latency.validator.result.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "latency.validator_result",
-  "type": "object",
-  "required": ["decision", "violations"],
-  "additionalProperties": false,
-  "properties": {
-    "decision": {
-      "type": "string",
-      "enum": ["allow", "warn", "block"]
-    },
-    "violations": {
-      "type": "array",
-      "maxItems": 8,
-      "items": {
-        "type": "object",
-        "required": ["code"],
-        "additionalProperties": false,
-        "properties": {
-          "code": {
-            "type": "string",
-            "enum": [
-              "E_LATENCY_MODE",
-              "E_LATENCY_INVARIANT",
-              "W_LATENCY_EXTRA",
-              "W_LATENCY_BREACH",
-              "W_LATENCY_FALSE_BREACH"
-            ]
-          },
-          "detail": {
-            "type": "string",
-            "maxLength": 256
-          }
-        }
-      }
-    },
-    "meta": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "observed_latency": { "type": "number", "minimum": 0 },
-        "ceiling": { "type": "number", "minimum": 0 },
-        "mode": { "type": "string", "enum": ["lite", "standard", "strict"] },
-        "severity": { "type": "string", "enum": ["warning", "error"] }
-      }
-    }
+  "$id":"potm.kernel.latency.validator.result.v1",
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["decision","mode","observed_ms","p50_ms","p95_ms"],
+  "properties":{
+    "decision":{"type":"string","enum":["allow","warn","block"]},
+    "mode":{"type":"string","enum":["lite","standard","strict"]},
+    "observed_ms":{"type":"integer","minimum":0},
+    "p50_ms":{"type":"integer","minimum":0},
+    "p95_ms":{"type":"integer","minimum":0},
+    "code":{"type":"string","enum":["E_LATENCY_MODE","E_LATENCY_INVARIANT","W_LATENCY_BREACH"]}
   }
 }
+

@@ -1374,31 +1374,39 @@ Source of truth lives here under `cap.latency`.
 {
   "$id": "potm.kernel.router.envelope.v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "router envelope",
+  "title": "router_envelope",
   "type": "object",
   "required": ["tool.call"],
   "additionalProperties": false,
   "properties": {
     "tool.call": {
       "type": "object",
-      "required": ["id", "payload"],
+      "required": ["id", "request_id", "payload", "meta"],
       "additionalProperties": false,
       "properties": {
         "id": {
           "type": "string",
           "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"
+	  "latency_mode": { "type": "string", "enum": ["lite","standard","strict"] },
+          "containment": { "type": "boolean" }  
         },
+	"request_id": { "type": "string", "minLength": 8, "maxLength": 64
+	},  
         "payload": {
           "type": "object",
           "additionalProperties": true
         },
+	"observed_latency_ms": { "type": "integer", "minimum": 0 },  
         "meta": {
           "type": "object",
           "additionalProperties": false,
-          "properties": {
-            "request_id": { "type": "string", "format": "uuid" },
-            "trace": { "type": "boolean", "default": false },
-            "origin": { "type": "string", "maxLength": 64 }
+	    "required": ["latency_mode"],  
+            "properties": {
+              "request_id": { "type": "string", "format": "uuid" },
+              "trace": { "type": "boolean", "default": false },
+              "origin": { "type": "string", "maxLength": 64 },
+	      "latency_mode": { "type": "string", "enum": ["lite","standard","strict"] },
+              "containment": { "type": "boolean" }	
           }
         }
       }
@@ -1411,6 +1419,7 @@ Source of truth lives here under `cap.latency`.
   "title": "Router Error",
   "type": "object",
   "additionalProperties": false,
+  "required": ["code", "message"],  
   "properties": {
     "ok": { "const": false },
     "code": {
@@ -1428,6 +1437,7 @@ Source of truth lives here under `cap.latency`.
         "E_LATENCY_INVARIANT"
       ]
     },
+    "message": { "type": "string", "maxLength": 300 },
     "reason":        { "type": "string", "maxLength": 512 },
     "recovery_hint": { "type": "string", "maxLength": 160 },
     "severity":      { "type": "string", "enum": ["info", "warn", "hard"] },

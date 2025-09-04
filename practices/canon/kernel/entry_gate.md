@@ -1,11 +1,11 @@
 ---
-id: potm.kernel.entry_gate.v1_6_dev
-title: 10_entry_gate
+$id: potm.kernel.entry_gate.v1
+title: entry_gate
 ---
 
 ## ENTRY_GATE (always-on entry)
 
-**Adapter Reference (canonical):** The exact practitioner-facing strings, input regex, selection mappings, and repeat/menu prompts are defined in `potm.adapter.entry_menu.v1_6_dev` and MUST be implemented verbatim (brown-M&M clause).
+Adapter note: The exact practitioner-facing strings, input regex, selection mappings, and repeat/menu prompts are defined by the adapter layer (outside kernel scope) and MUST be implemented verbatim by that adapter.
 
 ### Initialization (Kernel Invariant)
 On session start:
@@ -55,9 +55,7 @@ Menu
 3, Zuihitsu
 4. Describe an idea / problem / situation
 
-**Canonical surface and mappings are specified in the extended adapter:**
-`potm.adapter.entry_menu.v1_6_dev` (brown-M&M clause).  
-Deviation from that adapter spec is a protocol violation.
+Canonical surface and mappings are specified in the extended adapter (out of kernel scope). Deviation from that adapter spec is a protocol violation.
 
 ### Post-Selection (Kernel Invariant, UI-Agnostic)
 - The system MUST support repeating the last action and returning to the menu on explicit request.
@@ -68,4 +66,4 @@ Deviation from that adapter spec is a protocol violation.
 - There is no “agreement-only” phase; normal routing is available immediately after entry.
 
 ### Acceptance Agreement Specification
-Externalized spec: `runtime/spec/acceptance_agreement.json`
+Externalized spec: `potm.kernel.acceptance.agreement.v1`

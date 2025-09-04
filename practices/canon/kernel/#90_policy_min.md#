@@ -1,5 +1,3 @@
-<!-- kernel/90_policy_min.md -->
-
 ---
 id: potm.kernel.policy_min.v1_6_dev
 title: "90_policy_min"
@@ -35,16 +33,5 @@ license: CC0-1.0
 
 ## 1) Latency ceilings
 
-Enforced by `kernel/85_latency_validator_min.md`.  
-Source of truth lives here under `cap.latency`.
-
-```json
-{
-  "cap": {
-    "latency": {
-      "lite":     { "p50_ms": 2000, "p95_ms": 4000 },
-      "standard": { "p50_ms": 4000, "p95_ms": 6000 },
-      "strict":   { "p50_ms": 8000, "p95_ms": 12000 }
-    }
-  }
-}
+Enforced by `potm.kernel.latency.validator.min.v1_6_dev`.  
+Source of truth is `potm.latency.cap.min.v1_6_dev`.

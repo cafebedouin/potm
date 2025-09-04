@@ -1,6 +1,6 @@
 ---
-id: potm.kernel.beacons.v1_6_dev
-title: "20_beacons"
+$id: potm.kernel.beacons.v1
+title: "beacons"
 display_title: "Core Guardrails & Operator Agreement"
 type: kernel
 lifecycle: canon
@@ -85,6 +85,7 @@ relaxing schemas or router invariants.
 
 Defined externally in:
 
+- `$id`: `potm.kernel.beacon.event.v1`
 - `runtime/schema/beacon_event.json`
 - `runtime/examples/beacon_event.json`
 
@@ -109,4 +110,3 @@ By remaining in the kernel, the operator agrees to:
 * **Dispatch hooks:** `40_router.md`
 
 ```
-
