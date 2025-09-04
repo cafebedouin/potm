@@ -1,9 +1,17 @@
 # Node
-**/node_modules/
-**/package-lock.json
-**/.package-lock.json
+node_modules/
+package-lock.json
 
-# Python / misc
+# Python
 .venv/
-**/__pycache__/
+__pycache__/
 *.pyc
+
+# Environments
+.env
+*.env
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+*.swp
