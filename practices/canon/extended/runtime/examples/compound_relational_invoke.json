@@ -1,0 +1,13 @@
+{
+  "id": "lens.compound.relational",
+  "request_id": "abc123rel1",
+  "meta": { "latency_mode": "standard" },
+  "payload": {
+    "context": "Recurring conflict over project roles and missed handoffs.",
+    "intensity": "medium",
+    "domain": "roles",
+    "attempts": 2,
+    "horizon": "month"
+  }
+}
+

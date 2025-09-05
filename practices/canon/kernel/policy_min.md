@@ -1,5 +1,5 @@
 ---
-$id: potm.kernel.policy_min.v1
+id: potm.kernel.policy_min.v1
 title: "policy_min"
 display_title: "Policy — Minimal Caps"
 type: kernel
@@ -33,5 +33,6 @@ license: CC0-1.0
 
 ## 1) Latency ceilings
 
-Enforced by `$id` `potm.kernel.latency_validator_min.v1`.  
+Enforced by `$id` `potm.kernel.latency.validator_min.v1`.  
 Source of truth is `$id` `potm.kernel.policy.cap.v1`.
+

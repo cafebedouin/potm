@@ -1,0 +1,7 @@
+{
+  "id": "lens_unframe",
+  "frames": ["polish-before-measure", "feature-as-proof"],
+  "alternatives": ["measure-before-polish", "prototype-as-proof"],
+  "tradeoffs": ["faster learning vs. visible flaws", "reduced risk vs. slower iteration"]
+}
+

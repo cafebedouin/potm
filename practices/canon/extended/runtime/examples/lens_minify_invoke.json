@@ -1,0 +1,7 @@
+{
+  "id": "lens_minify",
+  "text": "We’re over-explaining the release. Focus on steps that affect activation and remove nice-to-haves.",
+  "max_points": 3,
+  "focus": "steps"
+}
+

@@ -1,0 +1,7 @@
+{
+  "id": "lens_pause",
+  "reason": "pacing reset",
+  "duration_s": 30,
+  "confirm": true
+}
+

@@ -12,7 +12,9 @@ SPEC_DIR = RUNTIME_DIR / "spec"
 EXAMPLES_DIR = RUNTIME_DIR / "examples"
 INDEX_OUT = ROOT / "runtime" / "index" / "wiring.index.json"
 
-ID_PATTERN = re.compile(r"^potm\.[a-z0-9_.]+\.v[0-9]+$")
+ID_PATTERN = re.compile(
+    r"^potm\.[a-z0-9_.]+(\.(payload|min|result|event))?\.v[0-9]+$"
+)
 ID_INLINE_PATTERN = re.compile(r"potm\.[a-z0-9_.]+\.v[0-9]+")
 
 def load_json(path: Path):

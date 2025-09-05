@@ -1,0 +1,89 @@
+{
+  "id": "potm.ex.lenses.compound.research.v1",
+  "compound_id": "ex.compound.research",
+  "display_name": "Research & Analysis",
+  "version": "0.1.0",
+  "signature": {
+    "intent": "Examine claims via contrary, falsification, evidence mapping, and uncertainty.",
+    "input_contract": ["context", "claim", "components?"],
+    "output_contract": ["artifact.contrary?", "artifact.disconfirms[]", "artifact.rungs[]", "artifact.allocations{}"],
+    "move_graph": {
+      "order": ["ex.lens.falsify_first", "ex.lens.contrary_corner", "ex.lens.evidence_ladder", "ex.lens.uncertainty_budget"],
+      "optional": ["ex.lens.variance_scan"]
+    },
+    "state_touched": ["attention", "boundary"],
+    "risk_profile": "low"
+  },
+  "components": {
+    "lenses": [
+      {"lens_id": "ex.lens.falsify_first", "payload_schema_ref": "schema.falsify.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.contrary_corner", "payload_schema_ref": "schema.contrary.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.evidence_ladder", "payload_schema_ref": "schema.evidence.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.uncertainty_budget", "payload_schema_ref": "schema.uncertainty.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.variance_scan", "payload_schema_ref": "schema.variance.payload", "version_pin": "*"}
+    ]
+  },
+  "schemas": [
+    {
+      "id": "schema.contrary.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "claim": {"type": "string"},
+          "mode": {"type": "string", "enum": ["lite", "standard"], "default": "lite"}
+        },
+        "required": ["context", "claim"]
+      }
+    },
+    {
+      "id": "schema.falsify.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "claim": {"type": "string"}
+        },
+        "required": ["context", "claim"]
+      }
+    },
+    {
+      "id": "schema.evidence.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "claim": {"type": "string"},
+          "max_links": {"type": "integer", "minimum": 1, "maximum": 8, "default": 4}
+        },
+        "required": ["context", "claim"]
+      }
+    },
+    {
+      "id": "schema.uncertainty.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "components": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+        },
+        "required": ["context", "components"]
+      }
+    },
+    {
+      "id": "schema.variance.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "statements": {"type": "array", "items": {"type": "string"}, "minItems": 2}
+        },
+        "required": ["context", "statements"]
+      }
+    }
+  ],
+  "safety_notes": [
+    {"id": "safety.generic", "path": "lenses/README.md"}
+  ],
+  "related": ["ex.compound.decision"]
+}

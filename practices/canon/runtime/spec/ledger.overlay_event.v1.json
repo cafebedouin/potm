@@ -1,0 +1,11 @@
+{
+  "$id": "potm.runtime.ledger.overlay_event.v1",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "mode": { "type": ["string", "null"] },
+    "result_type": { "type": "string", "enum": ["artifact", "refusal", "error"] },
+    "ts": { "type": "string" }
+  },
+  "required": ["name", "result_type", "ts"]
+}

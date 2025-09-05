@@ -1,0 +1,8 @@
+{
+  "id": "lens_discover",
+  "name": "ZOOM",
+  "intent": "Switch micro↔macro midstream",
+  "outputs": ["zoomed view", "contrast signals"],
+  "placement": "after CHECK"
+}
+

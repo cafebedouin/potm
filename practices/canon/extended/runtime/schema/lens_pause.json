@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_pause",
+  "description": "Insert a micro-stop/reset; optionally set a timer and confirmation.",
+  "type": "object",
+  "properties": {
+    "reason": { "type": "string", "description": "Why we pause (safety, reset, pacing)." },
+    "duration_s": { "type": "integer", "minimum": 1, "maximum": 300, "description": "Optional pause duration in seconds." },
+    "confirm": { "type": "boolean", "default": true, "description": "Ask for confirmation before resuming." }
+  },
+  "required": ["reason"],
+  "additionalProperties": true
+}
+

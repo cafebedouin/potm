@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_swerve",
+  "description": "Make an orthogonal jump in the chain; record rationale and guardrails.",
+  "type": "object",
+  "properties": {
+    "to": { "type": "string", "description": "Target lane or lens family (e.g., externalist, sandbox)." },
+    "from": { "type": "string", "description": "Optional origin lens or lane." },
+    "rationale": { "type": "string", "description": "Why swerving is beneficial now." },
+    "guardrails": { "type": "array", "items": { "type": "string" }, "description": "Caps or conditions to keep risk low." }
+  },
+  "required": ["to"],
+  "additionalProperties": true
+}
+

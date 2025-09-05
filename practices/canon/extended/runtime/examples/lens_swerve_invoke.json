@@ -1,0 +1,8 @@
+{
+  "id": "lens_swerve",
+  "to": "externalist",
+  "from": "planning",
+  "rationale": "Plan is stuck; an external scan could unlock options.",
+  "guardrails": ["no network", "5-minute timebox"]
+}
+

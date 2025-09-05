@@ -1,5 +1,5 @@
 ---
-$id: potm.kernel.lenses_min.v1
+id: potm.kernel.lenses_min.v1
 title: "lenses_min"
 display_title: "Lenses — Minimal Contract"
 type: kernel
@@ -50,24 +50,20 @@ Note: Baseline schema retained at `potm.kernel.lens.trace.payload.v1` for extend
 > If the existing schema is broader than microkernel caps, use an **overlay wrapper** located in `runtime/spec/min/` that narrows fields via `allOf`.
 
 ### `lens.define`
-
-- **Payload schema:** `$id` `potm.kernel.lens.define.payload.v1` (runtime/schema/lens_define.json)
-- **Min overlay:**    `$id` `potm.kernel.lens.define.min.v1` (runtime/spec/min/lens_define.min.json)
+- **Payload schema:** `$id` `potm.kernel.lens.define.payload.v1`
+- **Min overlay:**    `$id` `potm.kernel.lens.define.min.v1` 
 
 ### `lens.check`
-
-- **Payload schema:** `$id` `potm.kernel.lens.check.payload.v1` (runtime/schema/lens_check.json)
-- **Min overlay:**    `$id` `potm.kernel.lens.check.min.v1` (runtime/spec/min/lens_check.min.json)
+- **Payload schema:** `$id` `potm.kernel.lens.check.payload.v1` 
+- **Min overlay:**    `$id` `potm.kernel.lens.check.min.v1` 
 
 ### `lens.trace`
-
-- **Payload schema:** `$id` `potm.kernel.lens.trace.payload.v1` (runtime/schema/lens_trace.json)
-- **Min overlay:**    `$id` `potm.kernel.lens.trace.min.v1` (runtime/spec/min/lens_trace.min.json)
+- **Payload schema:** `$id` `potm.kernel.lens.trace.payload.v1` 
+- **Min overlay:**    `$id` `potm.kernel.lens.trace.min.v1` 
 
 ### `lens.refuse`
-
-- **Payload schema:** `$id` `potm.kernel.lens.refuse.payload.v1` (runtime/schema/lens_refuse.json)
-- **Min overlay:**    `$id` `potm.kernel.lens.refuse.min.v1` (runtime/spec/min/lens_refuse.min.json)
+- **Payload schema:** `$id` `potm.kernel.lens.refuse.payload.v1`
+- **Min overlay:**    `$id` `potm.kernel.lens.refuse.min.v1` 
 
 ---
 

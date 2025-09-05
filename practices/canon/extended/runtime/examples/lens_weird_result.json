@@ -1,0 +1,7 @@
+{
+  "id": "lens_weird",
+  "flag": "non sequitur",
+  "explanation": "Suggested network call conflicts with kernel invariants.",
+  "next": "Switch to lens_refuse with forward path."
+}
+

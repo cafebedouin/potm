@@ -1,0 +1,56 @@
+{
+  "$id": "potm.spec.ledger.lens_event.v1",
+  "title": "Ledger Event — Lens Invocation",
+  "description": "Ledger entry for each lens.* invocation, recording payload, result, and surfacing context.",
+  "type": "object",
+  "required": ["id", "timestamp", "lens_id", "payload", "result"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ledger\\.lens_event\\.[a-z0-9_.-]+$",
+      "description": "Stable event identifier for this ledger entry."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp when the lens call was made."
+    },
+    "lens_id": {
+      "type": "string",
+      "pattern": "^lens\\.[a-z0-9_.-]+$",
+      "description": "Lens invoked (e.g., lens.edge, lens.trace)."
+    },
+    "compound_id": {
+      "type": "string",
+      "pattern": "^compound\\.[a-z0-9_.-]+$",
+      "description": "If part of a compound lens execution, record the compound id.",
+      "nullable": true
+    },
+    "payload": {
+      "type": "object",
+      "description": "Validated payload passed to the lens."
+    },
+    "result": {
+      "type": "object",
+      "description": "Emission returned by the router for this lens."
+    },
+    "ok": {
+      "type": "boolean",
+      "description": "Quick flag for whether the lens call succeeded."
+    },
+    "surface_block": {
+      "type": "string",
+      "description": "Exact text block surfaced to the user (the [LENS: …] header + payload/result summary)."
+    },
+    "meta": {
+      "type": "object",
+      "description": "Optional adapter metadata.",
+      "properties": {
+        "session_id": {"type": "string"},
+        "adapter_version": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

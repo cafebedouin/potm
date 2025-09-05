@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_situate",
+  "description": "Place a topic relative to time and context to reduce drift.",
+  "type": "object",
+  "properties": {
+    "topic": { "type": "string", "description": "Subject or situation to situate." },
+    "horizon": { "type": "string", "enum": ["hour", "day", "week", "month", "quarter", "year"], "default": "week" },
+    "domain": { "type": "string", "description": "Optional domain (e.g., product, team, ops)." }
+  },
+  "required": ["topic"],
+  "additionalProperties": false
+}
+

@@ -1,5 +1,5 @@
 ---
-$id: potm.kernel.micromoves_min.v1
+id: potm.kernel.micromoves_min.v1
 title: "micromoves_min"
 display_title: "Micromoves — Minimal Contract"
 type: kernel
@@ -38,12 +38,12 @@ Schemas referenced below (`additionalProperties:false` enforced).
 
 | id              | purpose                                              | payload schema                                   | result schema                                    |
 |-----------------|------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
-| move.align_scan | Check request → beacons/router fit; emit guidance    | `runtime/spec/move.align_scan_payload.json`      | `runtime/spec/move.align_scan_result.json`       |
-| move.drift_check| Detect likely context/protocol drift (lightweight)   | `runtime/spec/move.drift_check_payload.json`     | `runtime/spec/move.drift_check_result.json`      |
-| move.fracture   | Open/record a fracture and enqueue for review        | `runtime/spec/move.fracture_payload.json`        | `runtime/spec/move.fracture_result.json`         |
+| move.align_scan | Check request → beacons/router fit; emit guidance    | `potm.kernel.move.align_scan.payload.v1` | `potm.kernel.move.align_scan.result.v1` |
+| move.drift_check| Detect likely context/protocol drift (lightweight)   | `potm.kernel.move.drift_check.payload.v1` | `potm.kernel.move.drift_check.result.v1` |
+| move.fracture   | Open/record a fracture and enqueue for review        | `potm.kernel.move.fracture.payload.v1` | `potm.kernel.move.fracture.result.v1` |
 
 > If any baseline schema is broader than desired, add overlays under
-> `runtime/spec/min/…` and point the tool index at those instead.
+> Point the tool index at the corresponding `$id` (using min overlays if present).
 
 ---
 
@@ -98,7 +98,7 @@ above (or to `runtime/spec/min/...` if you add overlays).
 
 ## Annex
 
-- Beacons (for `beacon_ref` in `move.fracture`): `kernel/20_beacons.md`
+- Beacons (for `beacon_ref` in `move.fracture`): `kernel/beacons.md`
 - Guardian trigger contract: `potm.kernel.guardian.trigger.payload.v1`,
   `potm.kernel.guardian.trigger.result.v1`
 - Latency validator: `potm.kernel.latency.validator.payload.v1`,

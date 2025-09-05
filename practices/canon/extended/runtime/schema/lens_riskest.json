@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_riskest",
+  "description": "Rapid risk estimation for a scenario with factors and horizon.",
+  "type": "object",
+  "properties": {
+    "scenario": { "type": "string", "description": "Situation or decision under assessment." },
+    "factors": {
+      "type": "array",
+      "description": "Known risk-influencing factors.",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "horizon": { "type": "string", "enum": ["short", "medium", "long"], "default": "short" },
+    "assume_guardrails": { "type": "boolean", "description": "Assume standard PoTM guardrails in place.", "default": true }
+  },
+  "required": ["scenario"],
+  "additionalProperties": false
+}
+

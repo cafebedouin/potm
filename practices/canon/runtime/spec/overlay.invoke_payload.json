@@ -1,0 +1,11 @@
+{
+  "$id": "potm.runtime.overlay.invoke_payload.v1",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "enum": ["externalist", "mirror"] },
+    "mode": { "type": ["string", "null"] },
+    "context": { "type": "string" },
+    "limiter": { "type": ["string", "null"] }
+  },
+  "required": ["name", "context"]
+}

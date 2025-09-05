@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_beacon",
+  "description": "Surface relevant protocol beacons for a given context and optionally scan/apply reminders.",
+  "type": "object",
+  "properties": {
+    "context": { "type": "string", "description": "Situation or text to ground beacon relevance." },
+    "targets": {
+      "type": "array",
+      "description": "Optional explicit beacon ids to focus (e.g., dignity, assumption_check).",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "mode": {
+      "type": "string",
+      "description": "Action mode for beacons.",
+      "enum": ["list", "scan", "remind"],
+      "default": "scan"
+    }
+  },
+  "required": ["context"],
+  "additionalProperties": false
+}
+

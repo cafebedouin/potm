@@ -1,0 +1,8 @@
+{
+  "id": "lens_riskest",
+  "scenario": "Launch a heuristic-based recommender to 5% of traffic.",
+  "factors": ["cold-start data", "privacy constraints", "on-call coverage"],
+  "horizon": "short",
+  "assume_guardrails": true
+}
+

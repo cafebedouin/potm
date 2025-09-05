@@ -1,0 +1,100 @@
+{
+  "id": "potm.ex.lenses.compound.externalist.v1",
+  "compound_id": "ex.compound.externalist",
+  "display_name": "Externalist Contexts",
+  "version": "0.1.0",
+  "signature": {
+    "intent": "Surface environment-level forces: base rates, incentives, constraints, and system dynamics.",
+    "input_contract": ["context", "domain?", "horizon?"],
+    "output_contract": [
+      "artifact.base_rates[]",
+      "artifact.constraints[]",
+      "artifact.affordances[]",
+      "artifact.incentives[]",
+      "artifact.dynamics[]"
+    ],
+    "move_graph": {
+      "order": [
+        "ex.lens.base_rate_anchor",
+        "ex.lens.constraint_surface_map",
+        "ex.lens.affordance_inventory",
+        "ex.lens.incentive_topology",
+        "ex.lens.system_dynamics_probe"
+      ]
+    },
+    "state_touched": ["attention", "boundary", "plan"],
+    "risk_profile": "low"
+  },
+  "components": {
+    "lenses": [
+      { "lens_id": "ex.lens.base_rate_anchor", "payload_schema_ref": "schema.base.payload", "version_pin": "*" },
+      { "lens_id": "ex.lens.constraint_surface_map", "payload_schema_ref": "schema.constraint.payload", "version_pin": "*" },
+      { "lens_id": "ex.lens.affordance_inventory", "payload_schema_ref": "schema.aff.payload", "version_pin": "*" },
+      { "lens_id": "ex.lens.incentive_topology", "payload_schema_ref": "schema.incent.payload", "version_pin": "*" },
+      { "lens_id": "ex.lens.system_dynamics_probe", "payload_schema_ref": "schema.sysdyn.payload", "version_pin": "*" }
+    ]
+  },
+  "schemas": [
+    {
+      "id": "schema.base.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": { "type": "string" },
+          "domain": { "type": "string", "enum": ["market", "org", "policy", "tech", "social"], "default": "org" }
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.constraint.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": { "type": "string" },
+          "horizon": { "type": "string", "enum": ["short", "medium", "long"], "default": "medium" }
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.aff.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": { "type": "string" }
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.incent.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": { "type": "string" }
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.sysdyn.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": { "type": "string" },
+          "horizon": { "type": "string", "enum": ["short", "medium", "long"], "default": "long" }
+        },
+        "required": ["context"]
+      }
+    }
+  ],
+  "safety_notes": [
+    { "id": "safety.externalist", "path": "lenses/README.md" }
+  ],
+  "related": [
+    "ex.compound.research",
+    "ex.compound.decision",
+    "ex.compound.relational"
+  ]
+}

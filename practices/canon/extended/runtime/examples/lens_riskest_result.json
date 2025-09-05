@@ -1,0 +1,7 @@
+{
+  "id": "lens_riskest",
+  "risk": "medium",
+  "rationale": "Cold start amplifies variance; low blast radius mitigates.",
+  "mitigations": ["rate-limit exposure", "add rollback switch", "extra on-call for first 48h"]
+}
+

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_refuse",
+  "description": "Enforce constraints; provide a safe alternative or forward path.",
+  "type": "object",
+  "properties": {
+    "reason": { "type": "string", "description": "Reason for refusal (free text or codified)." },
+    "note": { "type": "string", "description": "Optional clarifying note." },
+    "forward_route": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "suggestion": { "type": "string" }
+      },
+      "required": ["label", "suggestion"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["reason"],
+  "additionalProperties": true
+}
+

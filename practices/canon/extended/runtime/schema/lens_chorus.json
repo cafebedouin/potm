@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_chorus",
+  "description": "Generate multiple concise perspectives to reduce fixation.",
+  "type": "object",
+  "properties": {
+    "prompt": { "type": "string", "description": "Question or situation for the chorus." },
+    "personas": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string" },
+      "description": "Short persona tags (e.g., skeptic, operator)."
+    },
+    "style": { "type": "string", "description": "Optional style hint (e.g., terse, probing)." }
+  },
+  "required": ["prompt", "personas"],
+  "additionalProperties": false
+}
+

@@ -1,0 +1,10 @@
+{
+  "id": "lens_chorus",
+  "perspectives": [
+    { "persona": "skeptic", "view": "Ship minimal; learn while risk is bounded." },
+    { "persona": "operator", "view": "Ship to 5% with rollback; meter activation." },
+    { "persona": "mediator", "view": "Agree on guardrails; polish in parallel." }
+  ],
+  "synthesis": "Bounded rollout balances learning and risk."
+}
+

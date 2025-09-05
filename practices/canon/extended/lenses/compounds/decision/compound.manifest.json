@@ -1,0 +1,86 @@
+{
+  "id": "potm.ex.lenses.compound.decision.v1",
+  "compound_id": "ex.compound.decision",  
+  "display_name": "Decision & Action",
+  "version": "0.1.0",
+  "signature": {
+    "intent": "Shape options, foresee failure, choose criteria, and commit to next steps.",
+    "input_contract": ["context", "options?", "plan?", "criteria?", "horizon?"],
+    "output_contract": ["artifact.core_options[]", "artifact.failure_modes[]", "artifact.guards[]", "artifact.weights{}", "artifact.next_step", "artifact.reversible_score"],
+    "move_graph": {
+      "order": ["ex.lens.option_sculpt", "ex.lens.reversibility_scan", "ex.lens.pre_mortem_mini", "ex.lens.criteria_weighting_lite", "ex.lens.next_step_check"]
+    },
+    "state_touched": ["boundary", "plan", "attention"],
+    "risk_profile": "low"
+  },
+  "components": {
+    "lenses": [
+      {"lens_id": "ex.lens.option_sculpt", "payload_schema_ref": "schema.option.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.reversibility_scan", "payload_schema_ref": "schema.reversible.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.pre_mortem_mini", "payload_schema_ref": "schema.premortem.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.criteria_weighting_lite", "payload_schema_ref": "schema.criteria.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.next_step_check", "payload_schema_ref": "schema.nextstep.payload", "version_pin": "*"}
+    ]
+  },
+  "schemas": [
+    {
+      "id": "schema.option.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "options": {"type": "array", "items": {"type": "string"}, "minItems": 2},
+          "mode": {"type": "string", "enum": ["reduce", "expand", "sculpt"], "default": "sculpt"}
+        },
+        "required": ["context", "options"]
+      }
+    },
+    {
+      "id": "schema.reversible.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "horizon": {"type": "string", "enum": ["short", "medium", "long"], "default": "short"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.premortem.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "plan": {"type": "string"}
+        },
+        "required": ["context", "plan"]
+      }
+    },
+    {
+      "id": "schema.criteria.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "criteria": {"type": "array", "items": {"type": "string"}, "minItems": 2}
+        },
+        "required": ["context", "criteria"]
+      }
+    },
+    {
+      "id": "schema.nextstep.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"}
+        },
+        "required": ["context"]
+      }
+    }
+  ],
+  "safety_notes": [
+    {"id": "safety.generic", "path": "lenses/README.md"}
+  ],
+  "related": ["ex.compound.research", "ex.compound.trickster"]
+}

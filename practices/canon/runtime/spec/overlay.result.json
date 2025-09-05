@@ -1,0 +1,14 @@
+{
+  "$id": "potm.runtime.overlay.result.v1",
+  "type": "object",
+  "properties": {
+    "status": { "type": "string", "enum": ["ok", "refuse", "error"] },
+    "name":   { "type": "string" },
+    "mode":   { "type": ["string", "null"] },
+    "reframed_question": { "type": ["string", "null"] },
+    "trace":  { "type": "array", "items": { "type": "string" } },
+    "limiter":{ "type": ["string", "null"] },
+    "ts":     { "type": "string" }
+  },
+  "required": ["status", "name", "ts"]
+}

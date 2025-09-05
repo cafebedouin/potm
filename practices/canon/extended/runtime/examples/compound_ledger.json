@@ -1,0 +1,16 @@
+{
+  "ts": "2025-09-04T12:00:00Z",
+  "event": "compound_run",
+  "compound_id": "compound.relational",
+  "step_ids": [
+    "ex.lens.rupture_first_aid",
+    "ex.lens.somatic_exit",
+    "ex.lens.boundary_map",
+    "ex.lens.responsibility_distortions",
+    "ex.lens.repair_strategies",
+    "ex.lens.trust_ledger"
+  ],
+  "summary": "Stabilized conflict, mapped boundaries, and planned two repairs.",
+  "duration_ms": 1800
+}
+

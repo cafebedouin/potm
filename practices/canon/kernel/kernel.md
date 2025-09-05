@@ -1,6 +1,6 @@
 ---
-id: potm.kernel.preamble.v1_6_dev
-title: 00_preamble
+$id: potm.kernel.preamble.v1
+title: preamble
 ---
 
 PoTM has a two-domain architecture with clear responsibilities:
@@ -31,13 +31,13 @@ If you’re ready to proceed:
  - If using an adapter, type `menu` to request a protocol signal for your chosen engagement mode.  
  - Or begin directly with a topic, tension, or scenario you wish to explore.
 ---
-id: potm.kernel.entry_gate.v1_6_dev
-title: 10_entry_gate
+$id: potm.kernel.entry_gate.v1
+title: entry_gate
 ---
 
 ## ENTRY_GATE (always-on entry)
 
-**Adapter Reference (canonical):** The exact practitioner-facing strings, input regex, selection mappings, and repeat/menu prompts are defined in `potm.adapter.entry_menu.v1_6_dev` and MUST be implemented verbatim (brown-M&M clause).
+Adapter note: The exact practitioner-facing strings, input regex, selection mappings, and repeat/menu prompts are defined by the adapter layer (outside kernel scope) and MUST be implemented verbatim by that adapter.
 
 ### Initialization (Kernel Invariant)
 On session start:
@@ -87,9 +87,7 @@ Menu
 3, Zuihitsu
 4. Describe an idea / problem / situation
 
-**Canonical surface and mappings are specified in the extended adapter:**
-`potm.adapter.entry_menu.v1_6_dev` (brown-M&M clause).  
-Deviation from that adapter spec is a protocol violation.
+Canonical surface and mappings are specified in the extended adapter (out of kernel scope). Deviation from that adapter spec is a protocol violation.
 
 ### Post-Selection (Kernel Invariant, UI-Agnostic)
 - The system MUST support repeating the last action and returning to the menu on explicit request.
@@ -100,10 +98,10 @@ Deviation from that adapter spec is a protocol violation.
 - There is no “agreement-only” phase; normal routing is available immediately after entry.
 
 ### Acceptance Agreement Specification
-Externalized spec: `runtime/spec/acceptance_agreement.json`
+Externalized spec: `potm.kernel.acceptance.agreement.v1`
 ---
-id: potm.kernel.beacons.v1_6_dev
-title: "20_beacons"
+$id: potm.kernel.beacons.v1
+title: "beacons"
 display_title: "Core Guardrails & Operator Agreement"
 type: kernel
 lifecycle: canon
@@ -188,7 +186,8 @@ relaxing schemas or router invariants.
 
 Defined externally in:
 
-- `runtime/schema/beacon_event.json`
+- `$id`: `potm.kernel.beacon.event.v1`
+- `runtime/schema/beacon_event.v1.json`
 - `runtime/examples/beacon_event.json`
 
 ---
@@ -212,10 +211,9 @@ By remaining in the kernel, the operator agrees to:
 * **Dispatch hooks:** `40_router.md`
 
 ```
-
 ---
-id: potm.kernel.lenses_min.v1_6_dev
-title: "30_lenses_min"
+$id: potm.kernel.lenses_min.v1
+title: "lenses_min"
 display_title: "Lenses — Minimal Contract"
 type: kernel
 lifecycle: canon
@@ -242,14 +240,14 @@ Payloads and results MUST conform to the referenced JSON Schemas (strict, with
 
 ## Catalog (minimal)
 
-| id     | Purpose                               | Baseline schema (kept)    | Min overlay (microkernel)         | Example (microkernel)                  |
-| ------ | ------------------------------------- | ------------------------- | --------------------------------- | -------------------------------------- |
-| define | Disambiguate key terms                | `potm.kernel.lens.define.v1` | `potm.kernel.lens.define.min.v1` | `runtime/examples/lens_define_invoke.min.json` |
-| check  | Test a single key assumption          | `potm.kernel.lens.check.v1`  | `potm.kernel.lens.check.min.v1`  | `runtime/examples/lens_check_invoke.min.json`  |
-| trace  | Show a short reasoning chain (2–4)    | `potm.kernel.lens.trace.v1`  | `potm.kernel.lens.trace.min.v1`  | `runtime/examples/lens_trace_invoke.min.json`  |
-| refuse | Decline safely with one forward route | `potm.kernel.lens.refuse.v1` | `potm.kernel.lens.refuse.min.v1` | `runtime/examples/lens_refuse_invoke.min.json` |
+| id     | Purpose                               | Baseline payload schema      | Min overlay (microkernel)         |
+| ------ | ------------------------------------- | ---------------------------- | --------------------------------- |
+| define | Disambiguate key terms                | `potm.kernel.lens.define.payload.v1` | `potm.kernel.lens.define.min.v1` |
+| check  | Test a single key assumption          | `potm.kernel.lens.check.payload.v1`  | `potm.kernel.lens.check.min.v1`  |
+| trace  | Show a short reasoning chain (2–4)    | `potm.kernel.lens.trace.payload.v1`  | `potm.kernel.lens.trace.min.v1`  |
+| refuse | Decline safely with one forward route | `potm.kernel.lens.refuse.payload.v1` | `potm.kernel.lens.refuse.min.v1` |
 
-Note: Baseline schema retained at potm.kernel.lens.trace.v1 for extended/ use.
+Note: Baseline schema retained at `potm.kernel.lens.trace.payload.v1` for extended/ use.
 
 ## Invocation (router contract)
 
@@ -262,114 +260,23 @@ Note: Baseline schema retained at potm.kernel.lens.trace.v1 for extended/ use.
 ## Schemas (by reference)
 
 > Prefer direct reuse of existing schemas in `runtime/schema/`.  
-> If the existing schema is broader than microkernel caps, use an **overlay wrapper** located in `runtime/schema/min/` that narrows fields via `allOf`.
+> If the existing schema is broader than microkernel caps, use an **overlay wrapper** located in `runtime/spec/min/` that narrows fields via `allOf`.
 
 ### `lens.define`
-
-- **Payload schema:** `runtime/spec/lens.define_payload.json`
-- **Result schema:**  `runtime/spec/lens.define_result.json`
-
-> If you need tighter caps than the existing schema, add:
->
-> `runtime/spec/min/lens.define_payload.min.json`
-> ```json
-> {
->   "$id": "runtime/spec/min/lens.define_payload.min.json",
->   "allOf": [
->     { "$ref": "../lens.define_payload.json" },
->     {
->       "type": "object",
->       "properties": {
->         "terms": { "minItems": 1, "maxItems": 6 }
->       },
->       "additionalProperties": false
->     }
->   ]
-> }
-> ```
-> `runtime/spec/min/lens.define_result.min.json` similarly narrows `definitions` length, etc.
+- **Payload schema:** `$id` `potm.kernel.lens.define.payload.v1`
+- **Min overlay:**    `$id` `potm.kernel.lens.define.min.v1` 
 
 ### `lens.check`
-
-- **Payload schema:** `runtime/spec/lens.check_payload.json`
-- **Result schema:**  `runtime/spec/lens.check_result.json`
-
-> Optional overlay (if needed):
->
-> `runtime/spec/min/lens.check_payload.min.json`
-> ```json
-> {
->   "$id": "runtime/spec/min/lens.check_payload.min.json",
->   "allOf": [
->     { "$ref": "../lens.check_payload.json" },
->     {
->       "type": "object",
->       "properties": {
->         "assumption": { "minLength": 3, "maxLength": 256 },
->         "method": { "enum": ["contrast","example","edge","proxy","other"] }
->       },
->       "additionalProperties": false
->     }
->   ]
-> }
-> ```
+- **Payload schema:** `$id` `potm.kernel.lens.check.payload.v1` 
+- **Min overlay:**    `$id` `potm.kernel.lens.check.min.v1` 
 
 ### `lens.trace`
-
-- **Payload schema:** `runtime/spec/lens.trace_payload.json`
-- **Result schema:**  `runtime/spec/lens.trace_result.json`
-
-> Optional overlay:
->
-> `runtime/spec/min/lens.trace_payload.min.json`
-> ```json
-> {
->   "$id": "runtime/spec/min/lens.trace_payload.min.json",
->   "allOf": [
->     { "$ref": "../lens.trace_payload.json" },
->     {
->       "type": "object",
->       "properties": { "steps": { "minimum": 2, "maximum": 4 } },
->       "additionalProperties": false
->     }
->   ]
-> }
-> ```
+- **Payload schema:** `$id` `potm.kernel.lens.trace.payload.v1` 
+- **Min overlay:**    `$id` `potm.kernel.lens.trace.min.v1` 
 
 ### `lens.refuse`
-
-- **Payload schema:** `runtime/spec/lens.refuse_payload.json`
-- **Result schema:**  `runtime/spec/lens.refuse_result.json`
-
-> Optional overlay to enforce microkernel doctrine “one forward path” and reason enums:
->
-> `runtime/spec/min/lens.refuse_payload.min.json`
-> ```json
-> {
->   "$id": "runtime/spec/min/lens.refuse_payload.min.json",
->   "allOf": [
->     { "$ref": "../lens.refuse_payload.json" },
->     {
->       "type": "object",
->       "required": ["reason","forward_route"],
->       "properties": {
->         "reason": {
->           "enum": [
->             "safety_risk","privacy_risk","policy_block",
->             "unsupported_scope","insufficient_info","other"
->           ]
->         },
->         "forward_route": {
->           "type": "object",
->           "required": ["label","suggestion"],
->           "additionalProperties": false
->         }
->       },
->       "additionalProperties": false
->     }
->   ]
-> }
-> ```
+- **Payload schema:** `$id` `potm.kernel.lens.refuse.payload.v1`
+- **Min overlay:**    `$id` `potm.kernel.lens.refuse.min.v1` 
 
 ---
 
@@ -393,10 +300,9 @@ If you use the **min overlays**, point the router’s per-tool schema pointers a
 - Keep `$id` stable; bump only when changing semantics or caps.  
 - Prefer **overlay min-files** to forking the baseline schemas; it keeps the “truth” centralized and the microkernel constraints explicit.  
 - If a baseline schema is already narrow enough, skip overlays and point directly to it.
-
 ---
-id: potm.kernel.micromoves_min.v1_6_dev
-title: "35_micromoves_min"
+$id: potm.kernel.micromoves_min.v1
+title: "micromoves_min"
 display_title: "Micromoves — Minimal Contract"
 type: kernel
 lifecycle: canon
@@ -434,12 +340,12 @@ Schemas referenced below (`additionalProperties:false` enforced).
 
 | id              | purpose                                              | payload schema                                   | result schema                                    |
 |-----------------|------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
-| move.align_scan | Check request → beacons/router fit; emit guidance    | `runtime/spec/move.align_scan_payload.json`      | `runtime/spec/move.align_scan_result.json`       |
-| move.drift_check| Detect likely context/protocol drift (lightweight)   | `runtime/spec/move.drift_check_payload.json`     | `runtime/spec/move.drift_check_result.json`      |
-| move.fracture   | Open/record a fracture and enqueue for review        | `runtime/spec/move.fracture_payload.json`        | `runtime/spec/move.fracture_result.json`         |
+| move.align_scan | Check request → beacons/router fit; emit guidance    | `potm.kernel.move.align_scan.payload.v1` | `potm.kernel.move.align_scan.result.v1` |
+| move.drift_check| Detect likely context/protocol drift (lightweight)   | `potm.kernel.move.drift_check.payload.v1` | `potm.kernel.move.drift_check.result.v1` |
+| move.fracture   | Open/record a fracture and enqueue for review        | `potm.kernel.move.fracture.payload.v1` | `potm.kernel.move.fracture.result.v1` |
 
 > If any baseline schema is broader than desired, add overlays under
-> `runtime/spec/min/…` and point the tool index at those instead.
+> Point the tool index at the corresponding `$id` (using min overlays if present).
 
 ---
 
@@ -494,13 +400,14 @@ above (or to `runtime/spec/min/...` if you add overlays).
 
 ## Annex
 
-- Beacons (for `beacon_ref` in `move.fracture`): `kernel/20_beacons.md`
+- Beacons (for `beacon_ref` in `move.fracture`): `kernel/beacons.md`
 - Guardian trigger contract: `potm.kernel.guardian.trigger.payload.v1`,
   `potm.kernel.guardian.trigger.result.v1`
 - Latency validator: `potm.kernel.latency.validator.payload.v1`,
-  `potm.kernel.latency.validator.result.v1`---
-id: potm.kernel.router_min.v1_6_dev
-title: "40_router_min"
+  `potm.kernel.latency.validator.result.v1`
+---
+$id: potm.kernel.router_min.v1
+title: "router_min"
 display_title: "Router — Minimal Contract"
 type: kernel
 lifecycle: canon
@@ -548,11 +455,11 @@ The router accepts only properly-typed envelopes and always returns a typed emis
 
 ## 2) Dispatch order (hard invariant)
 
-1. **Validate envelope** against `router_envelope.json`.
+1. **Validate envelope** against `potm.kernel.router.envelope.v1`.
 2. **Parse tool id** → `(namespace, name)` and check against **allow-list**.
 3. **Idempotency check:**
    - Require `request_id` (from envelope).
-   - Compute `digest = sha256(canonical(tool_id, payload))`.
+   - Canonicalization: use JSON Canonicalization Scheme (JCS) to ensure deterministic digests.
    - If `(request_id, digest)` seen → return cached emission.
    - If `request_id` reuse with different `digest` → error `E_IDEMPOTENCY`.
 4. **Containment gate (read-only):**
@@ -580,22 +487,20 @@ The router accepts only properly-typed envelopes and always returns a typed emis
 
 ## 3) Registration (tool index)
 
-**File:** `runtime/spec/tool.index.json`
+**File:** `runtime/spec/tool.index.json` (`$id`: `potm.kernel.tool.index.v1`)
 
 Register **only** these ids for the kernel:
 
 ```json
 {
   "tools": [
-    { "id": "lens.define",  "payload_schema": "potm.kernel.lens.define.min.v1",  "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.define.result" },
-    { "id": "lens.check",   "payload_schema": "potm.kernel.lens.check.min.v1",   "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.check.result" },
-    { "id": "lens.trace",   "payload_schema": "potm.kernel.lens.trace.min.v1",   "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.trace.result" },
-    { "id": "lens.refuse",  "payload_schema": "potm.kernel.lens.refuse.min.v1",  "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.refuse.result" },
-
-    { "id": "move.align_scan", "payload_schema": "runtime/spec/move.align_scan_payload.json", "result_schema": "runtime/spec/move.align_scan_result.json" },
-    { "id": "move.drift_check","payload_schema": "runtime/spec/move.drift_check_payload.json","result_schema": "runtime/spec/move.drift_check_result.json" },
-    { "id": "move.fracture",   "payload_schema": "runtime/spec/move.fracture_payload.json",   "result_schema": "runtime/spec/move.fracture_result.json" },
-
+    { "id": "lens.define",  "payload_schema": "runtime/spec/min/lens.define.min.v1.json",  "result_schema": "runtime/spec/router_emission.json#/$defs/lens.define.result" },
+    { "id": "lens.check",   "payload_schema": "runtime/spec/min/lens.check.min.v1.json",   "result_schema": "runtime/spec/router_emission.json#/$defs/lens.check.result" },
+    { "id": "lens.trace",   "payload_schema": "runtime/spec/min/lens.trace.min.v1.json",   "result_schema": "runtime/spec/router_emission.json#/$defs/lens.trace.result" },
+    { "id": "lens.refuse",  "payload_schema": "runtime/spec/min/lens.refuse.min.v1.json",  "result_schema": "runtime/spec/router_emission.json#/$defs/lens.refuse.result" },
+    { "id": "move.align_scan", "payload_schema": "potm.kernel.move.align_scan.payload.v1", "result_schema": "potm.kernel.move.align_scan.result.v1" },
+    { "id": "move.drift_check","payload_schema": "potm.kernel.move.drift_check.payload.v1","result_schema": "potm.kernel.move.drift_check.result.v1" },
+    { "id": "move.fracture",   "payload_schema": "potm.kernel.move.fracture.payload.v1",   "result_schema": "potm.kernel.move.fracture.result.v1" },
     { "id": "guardian.trigger","payload_schema": "potm.kernel.guardian.trigger.payload.v1","result_schema": "potm.kernel.guardian.trigger.result.v1" }
   ]
 }
@@ -694,8 +599,8 @@ Everything else yields `E_CONTAINMENT_BLOCKED`.
   glyphs, and any additional lenses/moves not listed above.
 ```
 ---
-id: potm.kernel.state_min.v1_6_dev
-title: "70_state_min"
+$id: potm.kernel.state_min.v1
+title: "state_min"
 display_title: "State — Minimal Session State"
 type: kernel
 lifecycle: canon
@@ -718,9 +623,9 @@ license: CC0-1.0
 
 ## 0) Scope
 
-- **Session-local only**; no persistence between sessions and no filesystem/network I/O. :contentReference[oaicite:0]{index=0}  
-- Tools may **read/write state only via explicit kernel tools** (lenses are read-only). :contentReference[oaicite:1]{index=1}  
-- The **fracture queue lives in `meta_locus.review_queue`**; full entries are stored in a `fracture_log` map. :contentReference[oaicite:2]{index=2}
+- **Session-local only**; no persistence between sessions and no filesystem/network I/O.
+- Tools may **read/write state only via explicit kernel tools** (lenses are read-only). 
+- The **fracture queue lives in `meta_locus.review_queue`**; full entries are stored in a `fracture_log` map.
 
 ---
 
@@ -730,8 +635,7 @@ license: CC0-1.0
 2) **ledger_buffer** — chronological in-memory ledger  
 3) **fracture_log** — map of fracture entries keyed by `fracture_id`
 
-> Minimality note: the microkernel **removes `mode_profile`** from `meta_locus` and keeps only `latency_mode`. (Your prior state kept both; we’re simplifying while preserving latency enforcement.) :contentReference[oaicite:3]{index=3}
-
+> Minimality note: the microkernel **removes `mode_profile`** from `meta_locus` and keeps only `latency_mode`. (Your prior state kept both; we’re simplifying while preserving latency enforcement.)
 ---
 
 ## 2) `meta_locus` (supervisory)
@@ -746,32 +650,34 @@ license: CC0-1.0
 }
 ````
 
-**Initial values:** `accepted:true`, `containment:false`, `review_queue:[]`, `latency_mode:"standard"`.&#x20;
+**Initial values:** `accepted:true`, `containment:false`, `review_queue:[]`, `latency_mode:"standard"`.
 
 **Invariants (hard):**
 
 * `accepted` defaults **true**; `[KERNEL_EXIT]` may flip it **false**.&#x20;
-* `containment` **may enable only if** `review_queue.length > 0`; it **auto-disables** when the queue becomes empty.&#x20;
-* `latency_mode ∈ {lite, standard, strict}`; enforced by the latency validator and policy caps. &#x20;
+* `containment` **may enable only if** `review_queue.length > 0`; it **auto-disables** when the queue becomes empty.
+* `latency_mode ∈ {lite, standard, strict}`; enforced by the latency validator and policy caps. 
 
-**Queue semantics:** `review_queue` stores **ids only**; full entries live in `fracture_log`.&#x20;
+**Queue semantics:** `review_queue` stores **ids only**; full entries live in `fracture_log`.
 
-**Containment gating:** while `containment==true`, only the containment-safe tools are allowed by the router (guardian.trigger, move.fracture, lens.refuse).&#x20;
+**Containment gating:** while `containment==true`, only the containment-safe tools are allowed by the router (guardian.trigger, move.fracture, lens.refuse).
 
 ---
 
 ## 3) `ledger_buffer` (in-memory ledger)
 
-* An **in-memory array** of lightweight ledger entries (latency breaches, guardian events, fracture/containment transitions, etc.). &#x20;
-* **Capacity** is enforced by `policy.cap.ledger_max`. When exceeded → `E_QUOTA`. &#x20;
-* Canonical event schemas live under `runtime/spec/ledger.*.json` (e.g., `ledger.latency_breach.json`, `ledger.guardian_event.json`). See runtime/examples for concrete rows.
+* An **in-memory array** of lightweight ledger entries (latency breaches, guardian events, fracture/containment transitions, etc.). 
+* **Capacity** is enforced by `policy.cap.ledger_max`. When exceeded → `E_QUOTA`. 
+* Canonical event schemas: `$id` `potm.kernel.ledger.latency_breach.v1`, `$id` `potm.kernel.ledger.guardian_event.v1`. See runtime/examples for concrete rows.
+
+
 
 ---
 
 ## 4) `fracture_log` (map)
 
-* Session-local **map**: `{ [fracture_id]: fracture_entry }`.&#x20;
-* Each entry conforms to `potm.kernel.fracture.entry.v1`.&#x20;
+* Session-local **map**: `{ [fracture_id]: fracture_entry }`.
+* Each entry conforms to `potm.kernel.fracture.entry.v1`.
 
 ---
 
@@ -785,7 +691,7 @@ license: CC0-1.0
 | Record latency breach           | latency.validator      | Append `latency_breach` ledger entry; no other mutation.            |
 | General ledger append           | (none in microkernel)  | (Policy/diagnostic writers live in `extended/`; kernel is minimal.) |
 
-> Your fuller state doc enumerated additional writers like `move.set_containment`, `move.open_fracture`, `move.review_fracture`, etc. In the **microkernel**, we limit writers to the minimal set above; richer lifecycle tools live under `extended/`.&#x20;
+> Your fuller state doc enumerated additional writers like `move.set_containment`, `move.open_fracture`, `move.review_fracture`, etc. In the **microkernel**, we limit writers to the minimal set above; richer lifecycle tools live under `extended/`.
 
 ---
 
@@ -799,29 +705,28 @@ license: CC0-1.0
 | quota exceeded on ledger append            | `E_QUOTA`               |
 | mutation attempted during containment gate | `E_CONTAINMENT_BLOCKED` |
 
-(Aligned to your prior state/policy tables and router behavior.) &#x20;
+(Aligned to your prior state/policy tables and router behavior.) 
 
 ---
 
 ## 7) JSON Schemas & examples (references)
 
-* **Router envelope/emissions:** `potm.kernel.router.envelope.v1`, `potm.kernel.router.emission.v1`
-* **Latency validator:** `potm.kernel.latency.validator.payload.v1`, `potm.kernel.latency.validator.result.v1`&#x20;
-* **Ledger events:** `potm.kernel.ledger.latency_breach.v1`, `potm.kernel.ledger.guardian_event.v1`, `potm.kernel.ledger.fracture_event.v1` (see also runtime/examples)&#x20;
-* **Fracture entry:** `potm.kernel.fracture.entry.v1`&#x20;
-* **Examples:** `runtime/examples/state_meta_locus.json`, `state_log_latency_breach.json`, `fracture_open.json`, `fracture_open_ledger.json` &#x20;
+* Router envelope/emissions: `potm.kernel.router.envelope.v1`, `potm.kernel.router.emission.v1`
+* Latency validator: `potm.kernel.latency.validator.payload.v1`, `potm.kernel.latency.validator.result.v1`
+* Ledger events: `potm.kernel.ledger.latency_breach.v1`
+* Fracture entry: `potm.kernel.fracture.entry.v1`
+* Examples: `runtime/examples/latency_breach_ledger.json`
 
 ---
 
 ## 8) Notes & exclusions (microkernel deltas)
 
-* **Removed from kernel:** `mode_profile` and its gates/canary machinery; these live under `extended/modes/` and `extended/gates/`.&#x20;
-* **Guardian + Containment:** containment is diagnostic, not punitive; it restricts routing until the fracture queue is cleared via extended tools.&#x20;
+* **Removed from kernel:** `mode_profile` and its gates/canary machinery; these live under `extended/modes/` and `extended/gates/`.
+* **Guardian + Containment:** containment is diagnostic, not punitive; it restricts routing until the fracture queue is cleared via extended tools.
 * **Export policy:** kernel state never exports; export targets (if any) are governed in `extended/policy/`.
-
 ---
-id: potm.kernel.latency_validator_min.v1_6_dev
-title: "85_latency_validator_min"
+$id: potm.kernel.latency_validator_min.v1
+title: "latency_validator_min"
 display_title: "Latency Validator — Minimal Contract"
 type: kernel
 lifecycle: canon
@@ -847,8 +752,8 @@ license: CC0-1.0
 - Runs **first** in router dispatch order.  
 - Purely session-local; does not call network.  
 - Consumes `meta_locus.latency_mode` and `observed_latency_ms` from the
-  router envelope.  
-- Writes at most one ledger event (`ledger.latency_breach.json`).  
+  router envelope.
+- Validates latency against policy caps. Writes at most one ledger event (`$id` `potm.kernel.ledger.latency_breach.v1`).
 - Emits either:
   - `E_LATENCY_MODE` if `latency_mode` invalid,  
   - `E_LATENCY_INVARIANT` if p95 ceiling breached,  
@@ -877,7 +782,7 @@ license: CC0-1.0
 
 ## 2) Policy reference
 
-**File:** `potm.kernel.policy.cap.v1` (and table variant `policy.cap.table.json`)
+**File/Schema:** `$id` `potm.kernel.policy.cap.v1` (runtime/spec/min/policy.cap.v1.json)
 
 Minimal required field:
 
@@ -909,15 +814,14 @@ Minimal required field:
 
 3. **Ledger.**
 
-   * For `warn` or `error`, append an entry to `ledger.latency_breach.json`.
-   * Examples: see `runtime/examples/latency_breach_ledger.json`,
-     `state_log_latency_breach.json`.
+* For `warn` or `error`, append an entry to `$id` `potm.kernel.ledger.latency_breach.v1`.
+* Example instance: `runtime/examples/latency_breach_ledger.json` (validates against `$id` above).
 
 ---
 
 ## 4) Result schema
 
-**Reference:** `runtime/spec/latency.validator.result.json`
+**Reference:** `$id` `potm.kernel.latency.validator.result.v1`
 
 Example result (warning):
 
@@ -953,12 +857,9 @@ Example result (warning):
 * **Policy caps:** `potm.kernel.policy.cap.v1`
 * **Ledger schema:** `potm.kernel.ledger.latency_breach.v1`
 * **Examples:** `runtime/examples/latency_breach_ledger.json`, `runtime/examples/state_log_latency_breach.json`
-
-<!-- kernel/90_policy_min.md -->
-
 ---
-id: potm.kernel.policy_min.v1_6_dev
-title: "90_policy_min"
+$id: potm.kernel.policy_min.v1
+title: "policy_min"
 display_title: "Policy — Minimal Caps"
 type: kernel
 lifecycle: canon
@@ -991,18 +892,360 @@ license: CC0-1.0
 
 ## 1) Latency ceilings
 
-Enforced by `kernel/85_latency_validator_min.md`.  
-Source of truth lives here under `cap.latency`.
+Enforced by `$id` `potm.kernel.latency_validator_min.v1`.  
+Source of truth is `$id` `potm.kernel.policy.cap.v1`.
 
-```json
 {
-  "cap": {
-    "latency": {
-      "lite":     { "p50_ms": 2000, "p95_ms": 4000 },
-      "standard": { "p50_ms": 4000, "p95_ms": 6000 },
-      "strict":   { "p50_ms": 8000, "p95_ms": 12000 }
+  "ts": "2025-08-29T12:30:00Z",
+  "source": "validator",
+  "signal": "schema_near_miss",
+  "severity": "warning",
+  "details": "Optional field repeatedly missing from recap payload"
+}
+{
+  "ts": "2025-09-03T23:05:00Z",
+  "mode": "standard",
+  "observed_ms": 5200,
+  "p50_ms": 4000,
+  "p95_ms": 6000,
+  "code": "W_LATENCY_BREACH"
+}
+{
+  "ok": false,
+  "code": "E_PAYLOAD",
+  "reason": "payload failed schema: lens.check.min",
+  "recovery_hint": "See potm.kernel.router.envelope.v1",
+  "severity": "warn",
+  "trace": ["router.validate", "latency.validator", "dispatch.lens.check"]
+}
+{
+  "example_validation": [
+    {
+      "example": "runtime/examples/beacon_event.json",
+      "schema_id": "potm.kernel.beacon.event.v1",
+      "schema_path": "runtime/schema/beacon.event.v1.json",
+      "valid": true
+    },
+    {
+      "example": "runtime/examples/router_error.example.json",
+      "schema_id": "potm.kernel.router.error.v1",
+      "schema_path": "runtime/spec/router_error.json",
+      "valid": true
+    },
+    {
+      "example": "runtime/examples/latency_breach_ledger.json",
+      "schema_id": "potm.kernel.ledger.latency_breach.v1",
+      "schema_path": "runtime/spec/ledger.latency_breach.v1.json",
+      "valid": true
+    }
+  ],
+  "ids": {
+    "potm.kernel.acceptance.agreement.v1": "runtime/spec/acceptance_agreement.json",
+    "potm.kernel.beacon.event.v1": "runtime/schema/beacon.event.v1.json",
+    "potm.kernel.fracture.entry.v1": "runtime/schema/fracture.entry.v1.json",
+    "potm.kernel.guardian.trigger.payload.v1": "runtime/spec/guardian.trigger_payload.json",
+    "potm.kernel.guardian.trigger.result.v1": "runtime/spec/guardian.trigger_result.json",
+    "potm.kernel.latency.validator.payload.v1": "runtime/spec/latency.validator_payload.json",
+    "potm.kernel.latency.validator.result.v1": "runtime/spec/latency.validator_result.json",
+    "potm.kernel.ledger.latency_breach.v1": "runtime/spec/ledger.latency_breach.v1.json",
+    "potm.kernel.lens.check.min.v1": "runtime/spec/min/lens.check.min.v1.json",
+    "potm.kernel.lens.check.payload.v1": "runtime/schema/lens.check.payload.v1.json",
+    "potm.kernel.lens.define.min.v1": "runtime/spec/min/lens.define.min.v1.json",
+    "potm.kernel.lens.define.payload.v1": "runtime/schema/lens.define.payload.v1.json",
+    "potm.kernel.lens.refuse.min.v1": "runtime/spec/min/lens.refuse.min.v1.json",
+    "potm.kernel.lens.refuse.payload.v1": "runtime/schema/lens.refuse.payload.v1.json",
+    "potm.kernel.lens.trace.min.v1": "runtime/spec/min/lens.trace.min.v1.json",
+    "potm.kernel.lens.trace.payload.v1": "runtime/schema/lens.trace.payload.v1.json",
+    "potm.kernel.move.align_scan.payload.v1": "runtime/spec/move.align_scan_payload.json",
+    "potm.kernel.move.align_scan.result.v1": "runtime/spec/move.align_scan_result.json",
+    "potm.kernel.move.drift_check.payload.v1": "runtime/spec/move.drift_check_payload.json",
+    "potm.kernel.move.drift_check.result.v1": "runtime/spec/move.drift_check_result.json",
+    "potm.kernel.move.fracture.payload.v1": "runtime/spec/move.fracture_payload.json",
+    "potm.kernel.move.fracture.result.v1": "runtime/spec/move.fracture_result.json",
+    "potm.kernel.policy.cap.v1": "runtime/spec/min/policy.cap.v1.json",
+    "potm.kernel.router.emission.v1": "runtime/spec/router_emission.json",
+    "potm.kernel.router.envelope.v1": "runtime/spec/router_envelope.json",
+    "potm.kernel.router.error.v1": "runtime/spec/router_error.json",
+    "potm.kernel.tool.index.v1": "runtime/spec/tool.index.json"
+  },
+  "kernel": {
+    "/home/scott/bin/potm/practices/canon/kernel/20_beacons.md": {
+      "kernel_id": "potm.kernel.beacons.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.beacon.event.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/85_latency_validator_min.md": {
+      "kernel_id": "potm.kernel.latency.validator.min.v1_6_dev",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.latency.validator.min.v1",
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1",
+        "potm.kernel.ledger.latency_breach.v1",
+        "potm.kernel.policy.cap.v1",
+        "potm.kernel.router.envelope.v1",
+        "potm.latency.cap.min.cap.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/90_policy_min.md": {
+      "kernel_id": "potm.kernel.policy_min.v1_6_dev",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.latency.validator.min.v1",
+        "potm.kernel.policy_min.v1",
+        "potm.latency.cap.min.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/entry_gate.md": {
+      "kernel_id": "potm.kernel.entry_gate.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.acceptance.agreement.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/latency_validator_min.md": {
+      "kernel_id": "potm.kernel.latency_validator_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1",
+        "potm.kernel.ledger.latency_breach.v1",
+        "potm.kernel.policy.cap.v1",
+        "potm.kernel.router.envelope.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/lenses_min.md": {
+      "kernel_id": "potm.kernel.lenses_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.lens.check.min.v1",
+        "potm.kernel.lens.check.payload.v1",
+        "potm.kernel.lens.define.min.v1",
+        "potm.kernel.lens.define.payload.v1",
+        "potm.kernel.lens.refuse.min.v1",
+        "potm.kernel.lens.refuse.payload.v1",
+        "potm.kernel.lens.trace.min.v1",
+        "potm.kernel.lens.trace.payload.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/micromoves_min.md": {
+      "kernel_id": "potm.kernel.micromoves_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.guardian.trigger.payload.v1",
+        "potm.kernel.guardian.trigger.result.v1",
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/policy_min.md": {
+      "kernel_id": "potm.kernel.policy_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.latency_validator_min.v1",
+        "potm.kernel.policy.cap.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/preamble.md": {
+      "kernel_id": "potm.kernel.preamble.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/router_min.md": {
+      "kernel_id": "potm.kernel.router_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.guardian.trigger.payload.v1",
+        "potm.kernel.guardian.trigger.result.v1",
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1",
+        "potm.kernel.lens.check.min.v1",
+        "potm.kernel.lens.define.min.v1",
+        "potm.kernel.lens.refuse.min.v1",
+        "potm.kernel.lens.trace.min.v1",
+        "potm.kernel.router.emission.v1",
+        "potm.kernel.router.envelope.v1",
+        "potm.kernel.router.error.v1",
+        "potm.kernel.tool.index.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
+    },
+    "/home/scott/bin/potm/practices/canon/kernel/state_min.md": {
+      "kernel_id": "potm.kernel.state_min.v1",
+      "referenced_example_paths": [],
+      "referenced_ids": [
+        "potm.kernel.fracture.entry.v1",
+        "potm.kernel.latency.validator.payload.v1",
+        "potm.kernel.latency.validator.result.v1",
+        "potm.kernel.ledger.latency_breach.v1",
+        "potm.kernel.router.emission.v1",
+        "potm.kernel.router.envelope.v1"
+      ],
+      "referenced_schema_paths": [],
+      "referenced_spec_paths": []
     }
   }
+}{
+  "$id": "potm.kernel.beacon.event.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "beacon_event",
+  "description": "Schema for beacon event entries. Used to record validator, latency, and policy signals.",
+  "type": "object",
+  "properties": {
+    "ts": {
+      "description": "Timestamp of the beacon event.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "description": "Signal origin.",
+      "type": "string",
+      "enum": ["validator", "latency", "policy", "canary", "other"]
+    },
+    "signal": {
+      "description": "Beacon signal type.",
+      "type": "string",
+      "enum": ["schema_near_miss", "latency_spike", "cap_breach", "drift_pattern", "unknown"]
+    },
+    "severity": {
+      "description": "Severity of the signal.",
+      "type": "string",
+      "enum": ["warning", "error"]
+    },
+    "details": {
+      "description": "Optional freeform description.",
+      "type": "string",
+      "maxLength": 300
+    }
+  },
+  "required": ["ts", "source", "signal", "severity"],
+  "additionalProperties": false
+}
+{
+  "$id": "potm.kernel.fracture.entry.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "fracture_entry",
+  "description": "Schema for fracture entries queued in meta_locus.review_queue.",
+  "type": "object",
+  "properties": {
+    "fracture_id": {
+      "description": "Unique identifier for the fracture (string).",
+      "type": "string"
+    },
+    "status": {
+      "description": "Lifecycle status of the fracture entry.",
+      "type": "string",
+      "enum": ["open", "review", "resolved"]
+    },
+    "origin": {
+      "description": "Origin of the fracture event.",
+      "type": "string",
+      "enum": ["validator", "latency", "policy", "manual"]
+    },
+    "details": {
+      "description": "Optional diagnostic context or note.",
+      "type": "string"
+    },
+    "ts": {
+      "description": "ISO 8601 timestamp of when the fracture was recorded.",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["fracture_id", "status", "origin"],
+  "additionalProperties": false
+}
+{
+  "$id": "potm.kernel.lens.check.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens_check",
+  "description": "Schema for the Check lens. Validates assumptions or premises for consistency.",
+  "type": "object",
+  "properties": {
+    "assumption": {
+      "description": "The assumption or premise to validate.",
+      "type": "string"
+    }
+  },
+  "required": ["assumption"],
+  "additionalProperties": false
+}
+{
+  "$id": "potm.kernel.lens.define.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens_define",
+  "description": "Provide contextual definition of a term.",
+  "type": "object",
+  "properties": {
+    "term": {
+      "description": "The term to define in context.",
+      "type": "string"
+    },
+    "context": {
+      "description": "Optional short context to ground the definition.",
+      "type": "string"
+    }
+  },
+  "required": ["term"],
+  "additionalProperties": false
+}
+{
+  "$id": "potm.kernel.lens.refuse.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens_refuse",
+  "description": "Schema for the Refuse lens. Marks claims or prompts as declined.",
+  "type": "object",
+  "properties": {
+    "reason": {
+      "description": "Reason for refusal.",
+      "type": "string",
+      "maxLength": 200
+    }
+  },
+  "required": ["reason"],
+  "additionalProperties": false
+}
+{
+  "$id": "potm.kernel.lens.trace.payload.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lens_trace",
+  "description": "Schema for the Trace lens. Follows reasoning chains step by step.",
+  "type": "object",
+  "properties": {
+    "claim": {
+      "description": "The claim or argument to trace.",
+      "type": "string"
+    },
+    "depth": {
+      "description": "Optional max depth of tracing.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    }
+  },
+  "required": ["claim"],
+  "additionalProperties": false
 }
 {
   "$id": "potm.kernel.acceptance.agreement.v1",
@@ -1163,87 +1406,47 @@ Source of truth lives here under `cap.latency`.
 }
 
 {
-  "$id": "potm.kernel.latency.validator.payload.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "latency.validator_payload",
-  "type": "object",
-  "required": ["meta_locus", "observed_latency", "ceiling", "severity"],
-  "additionalProperties": false,
-  "properties": {
-    "meta_locus": {
-      "type": "object",
-      "required": ["latency_mode"],
-      "additionalProperties": false,
-      "properties": {
-        "latency_mode": {
-          "type": "string",
-          "enum": ["lite", "standard", "strict"]
-        }
-      }
+  "$id":"potm.kernel.latency.validator.payload.v1",
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["meta","observed_latency_ms"],
+  "properties":{
+    "meta":{"type":"object","additionalProperties":false,"required":["latency_mode"],
+      "properties":{"latency_mode":{"type":"string","enum":["lite","standard","strict"]}}
     },
-    "observed_latency": {
-      "type": "number",
-      "minimum": 0
-    },
-    "ceiling": {
-      "type": "number",
-      "minimum": 0
-    },
-    "severity": {
-      "type": "string",
-      "enum": ["warning", "error"]
-    }
+    "observed_latency_ms":{"type":"integer","minimum":0}
+  }
+}
+{
+  "$id":"potm.kernel.latency.validator.result.v1",
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["decision","mode","observed_ms","p50_ms","p95_ms"],
+  "properties":{
+    "decision":{"type":"string","enum":["allow","warn","block"]},
+    "mode":{"type":"string","enum":["lite","standard","strict"]},
+    "observed_ms":{"type":"integer","minimum":0},
+    "p50_ms":{"type":"integer","minimum":0},
+    "p95_ms":{"type":"integer","minimum":0},
+    "code":{"type":"string","enum":["E_LATENCY_MODE","E_LATENCY_INVARIANT","W_LATENCY_BREACH"]}
   }
 }
 
 {
-  "$id": "potm.kernel.latency.validator.result.v1",
+  "$id": "potm.kernel.ledger.latency_breach.v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "latency.validator_result",
+  "title": "Latency Breach Ledger Entry",
   "type": "object",
-  "required": ["decision", "violations"],
   "additionalProperties": false,
   "properties": {
-    "decision": {
-      "type": "string",
-      "enum": ["allow", "warn", "block"]
-    },
-    "violations": {
-      "type": "array",
-      "maxItems": 8,
-      "items": {
-        "type": "object",
-        "required": ["code"],
-        "additionalProperties": false,
-        "properties": {
-          "code": {
-            "type": "string",
-            "enum": [
-              "E_LATENCY_MODE",
-              "E_LATENCY_INVARIANT",
-              "W_LATENCY_EXTRA",
-              "W_LATENCY_BREACH",
-              "W_LATENCY_FALSE_BREACH"
-            ]
-          },
-          "detail": {
-            "type": "string",
-            "maxLength": 256
-          }
-        }
-      }
-    },
-    "meta": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "observed_latency": { "type": "number", "minimum": 0 },
-        "ceiling": { "type": "number", "minimum": 0 },
-        "mode": { "type": "string", "enum": ["lite", "standard", "strict"] },
-        "severity": { "type": "string", "enum": ["warning", "error"] }
-      }
-    }
-  }
+    "ts": { "type": "string", "format": "date-time" },
+    "mode": { "type": "string", "enum": ["lite", "standard", "strict"] },
+    "observed_ms": { "type": "integer", "minimum": 0 },
+    "p50_ms": { "type": "integer", "minimum": 0 },
+    "p95_ms": { "type": "integer", "minimum": 0 },
+    "code": { "type": "string", "enum": ["W_LATENCY_BREACH", "E_LATENCY_INVARIANT"] }
+  },
+  "required": ["ts", "mode", "observed_ms", "p50_ms", "p95_ms", "code"]
 }
 {
   "$id": "potm.kernel.move.align_scan.payload.v1",
@@ -1372,278 +1575,206 @@ Source of truth lives here under `cap.latency`.
   }
 }
 {
-  "$id": "potm.kernel.router.envelope.v1",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "router_envelope",
-  "type": "object",
-  "required": ["tool.call"],
+  "$id":"potm.kernel.router.envelope.v1",
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object",
   "additionalProperties": false,
+  "required": ["id","request_id","payload","meta"],
   "properties": {
-    "tool.call": {
-      "type": "object",
-      "required": ["id", "request_id", "payload", "meta"],
-      "additionalProperties": false,
+    "id": { "type":"string","pattern":"^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$" },
+    "request_id": { "type":"string","minLength":8,"maxLength":64 },
+    "payload": { "type":"object","additionalProperties": true },
+    "observed_latency_ms": { "type":"integer","minimum":0 },
+    "meta": {
+      "type":"object","additionalProperties":false,
+      "required":["latency_mode"],
       "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"
-	  "latency_mode": { "type": "string", "enum": ["lite","standard","strict"] },
-          "containment": { "type": "boolean" }  
-        },
-	"request_id": { "type": "string", "minLength": 8, "maxLength": 64
-	},  
-        "payload": {
-          "type": "object",
-          "additionalProperties": true
-        },
-	"observed_latency_ms": { "type": "integer", "minimum": 0 },  
-        "meta": {
-          "type": "object",
-          "additionalProperties": false,
-	    "required": ["latency_mode"],  
-            "properties": {
-              "request_id": { "type": "string", "format": "uuid" },
-              "trace": { "type": "boolean", "default": false },
-              "origin": { "type": "string", "maxLength": 64 },
-	      "latency_mode": { "type": "string", "enum": ["lite","standard","strict"] },
-              "containment": { "type": "boolean" }	
-          }
-        }
+        "latency_mode": { "type":"string","enum":["lite","standard","strict"] },
+        "containment": { "type":"boolean" },
+        "trace": { "type":"boolean","default":false },
+        "origin": { "type":"string","maxLength":64 }
       }
     }
   }
 }
+
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "potm.kernel.router.error.v1",
-  "title": "Router Error",
-  "type": "object",
-  "additionalProperties": false,
-  "required": ["code", "message"],  
-  "properties": {
-    "ok": { "const": false },
-    "code": {
-      "type": "string",
-      "enum": [
-        "E_NAMESPACE",
-        "E_TOOL_NOT_FOUND",
-        "E_PAYLOAD",
-        "E_PRECONDITION",
-        "E_QUOTA",
-        "E_DISABLED",
-        "E_INVARIANT",
-        "E_IDEMPOTENCY",
-        "E_CONTAINMENT_BLOCKED",
-        "E_LATENCY_INVARIANT"
-      ]
-    },
-    "message": { "type": "string", "maxLength": 300 },
-    "reason":        { "type": "string", "maxLength": 512 },
-    "recovery_hint": { "type": "string", "maxLength": 160 },
-    "severity":      { "type": "string", "enum": ["info", "warn", "hard"] },
-    "trace":         { "type": "array", "items": { "type": "string" }, "maxItems": 32 }
-  },
-  "required": ["ok", "code", "reason"]
+  "$id":"potm.kernel.router.error.v1",
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["ok","code","reason"],
+  "properties":{
+    "ok":{"const":false},
+    "code":{"type":"string","enum":["E_NAMESPACE","E_TOOL_NOT_FOUND","E_PAYLOAD","E_PRECONDITION","E_QUOTA","E_DISABLED","E_INVARIANT","E_IDEMPOTENCY","E_CONTAINMENT_BLOCKED","E_LATENCY_INVARIANT"]},
+    "reason":{"type":"string","maxLength":512},
+    "message":{"type":"string","maxLength":300},
+    "recovery_hint":{"type":"string","maxLength":160},
+    "severity":{"type":"string","enum":["info","warn","hard"]},
+    "trace":{"type":"array","items":{"type":"string"},"maxItems":32}
+  }
 }
+
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "potm.kernel.tool.index.v1",
   "tools": [
     {
-      "id": "latency.validator",
-      "payload_schema": "runtime/spec/latency.validator_payload.json",
-      "result_schema":  "runtime/spec/latency.validator_result.json"
-    },
-    {
       "id": "lens.define",
-      "payload_schema": "runtime/schema/min/lens_define.min.json",
+      "payload_schema": "runtime/spec/min/lens_define.min.v1.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.define.result"
     },
     {
       "id": "lens.check",
-      "payload_schema": "runtime/schema/min/lens_check.min.json",
+      "payload_schema": "runtime/spec/min/lens_check.min.v1.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.check.result"
     },
     {
       "id": "lens.trace",
-      "payload_schema": "runtime/schema/min/lens_trace.min.json",
+      "payload_schema": "runtime/spec/min/lens_trace.min.v1.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.trace.result"
     },
     {
       "id": "lens.refuse",
-      "payload_schema": "runtime/schema/min/lens_refuse.min.json",
+      "payload_schema": "runtime/spec/min/lens_refuse.min.v1.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.refuse.result"
     },
     {
       "id": "move.align_scan",
-      "payload_schema": "runtime/spec/move.align_scan_payload.json",
-      "result_schema":  "runtime/spec/move.align_scan_result.json"
+      "payload_schema": "potm.kernel.move.align_scan.payload.v1",
+      "result_schema":  "potm.kernel.move.align_scan.result.v1"
     },
     {
       "id": "move.drift_check",
-      "payload_schema": "runtime/spec/move.drift_check_payload.json",
-      "result_schema":  "runtime/spec/move.drift_check_result.json"
+      "payload_schema": "potm.kernel.move.drift_check.payload.v1",
+      "result_schema":  "potm.kernel.move.drift_check.result.v1"
     },
     {
       "id": "move.fracture",
-      "payload_schema": "runtime/spec/move.fracture_payload.json",
-      "result_schema":  "runtime/spec/move.fracture_result.json"
+      "payload_schema": "potm.kernel.move.fracture.payload.v1",
+      "result_schema":  "potm.kernel.move.fracture.result.v1"
     },
     {
       "id": "guardian.trigger",
-      "payload_schema": "runtime/spec/guardian.trigger_payload.json",
-      "result_schema":  "runtime/spec/guardian.trigger_result.json"
+      "payload_schema": "potm.kernel.guardian.trigger.payload.v1",
+      "result_schema":  "potm.kernel.guardian.trigger.result.v1"
     }
   ]
 }
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "beacon_event",
-  "description": "Schema for beacon event entries. Used to record validator, latency, and policy signals.",
-  "type": "object",
-  "properties": {
-    "ts": {
-      "description": "Timestamp of the beacon event.",
-      "type": "string",
-      "format": "date-time"
-    },
-    "source": {
-      "description": "Signal origin.",
-      "type": "string",
-      "enum": ["validator", "latency", "policy", "canary", "other"]
-    },
-    "signal": {
-      "description": "Beacon signal type.",
-      "type": "string",
-      "enum": ["schema_near_miss", "latency_spike", "cap_breach", "drift_pattern", "unknown"]
-    },
-    "severity": {
-      "description": "Severity of the signal.",
-      "type": "string",
-      "enum": ["warning", "error"]
-    },
-    "details": {
-      "description": "Optional freeform description.",
-      "type": "string",
-      "maxLength": 300
+  "$id": "potm.kernel.lens.check.min.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "../../schema/lens.check.payload.v1.json" },
+    {
+      "type": "object",
+      "properties": {
+        "assumption": { "type": "string", "minLength": 3, "maxLength": 256 },
+        "method": { "type": "string", "enum": ["contrast","example","edge","proxy","other"] },
+        "proxy": { "type": "string", "maxLength": 120 }
+      },
+      "required": ["assumption"],
+      "additionalProperties": false
     }
-  },
-  "required": ["ts", "source", "signal", "severity"],
-  "additionalProperties": false
+  ]
 }
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "fracture_entry",
-  "description": "Schema for fracture entries queued in meta_locus.review_queue.",
-  "type": "object",
-  "properties": {
-    "fracture_id": {
-      "description": "Unique identifier for the fracture (string).",
-      "type": "string"
-    },
-    "status": {
-      "description": "Lifecycle status of the fracture entry.",
-      "type": "string",
-      "enum": ["open", "review", "resolved"]
-    },
-    "origin": {
-      "description": "Origin of the fracture event.",
-      "type": "string",
-      "enum": ["validator", "latency", "policy", "manual"]
-    },
-    "details": {
-      "description": "Optional diagnostic context or note.",
-      "type": "string"
-    },
-    "ts": {
-      "description": "ISO 8601 timestamp of when the fracture was recorded.",
-      "type": "string",
-      "format": "date-time"
+  "$id": "potm.kernel.lens.define.min.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "../../schema/lens.define.payload.v1.json" },
+    {
+      "type": "object",
+      "properties": {
+        "term": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "context": { "type": "string", "maxLength": 280 }
+      },
+      "required": ["term"],
+      "additionalProperties": false
     }
-  },
-  "required": ["fracture_id", "status", "origin"],
-  "additionalProperties": false
+  ]
 }
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "lens_check",
-  "description": "Schema for the Check lens. Validates assumptions or premises for consistency.",
-  "type": "object",
-  "properties": {
-    "assumption": {
-      "description": "The assumption or premise to validate.",
-      "type": "string"
+  "$id": "potm.kernel.lens.refuse.min.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "../../schema/lens.refuse.payload.v1.json" },
+    {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "type": "string",
+          "enum": [
+            "safety_risk","privacy_risk","policy_block",
+            "unsupported_scope","insufficient_info","other"
+          ]
+        },
+        "note": { "type": "string", "maxLength": 200 },
+        "forward_route": {
+          "type": "object",
+          "required": ["label","suggestion"],
+          "additionalProperties": false,
+          "properties": {
+            "label": { "type": "string", "maxLength": 64 },
+            "suggestion": { "type": "string", "maxLength": 200 }
+          }
+        }
+      },
+      "required": ["reason","forward_route"],
+      "additionalProperties": false
     }
-  },
-  "required": ["assumption"],
-  "additionalProperties": false
+  ]
 }
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "lens_define",
-  "description": "Provide contextual definition of a term.",
+  "$id": "potm.kernel.lens.trace.min.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "../../schema/lens.trace.payload.v1.json" },
+    {
+      "type": "object",
+      "properties": {
+        "depth": { "type": "integer", "minimum": 2, "maximum": 4 }
+      },
+      "required": ["claim"],
+      "additionalProperties": false
+    }
+  ]
+}
+{
+  "$id": "potm.kernel.policy.cap.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kernel Policy Caps (Minimal)",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "term": {
-      "description": "The term to define in context.",
-      "type": "string"
+    "cap": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "latency": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lite": { "$ref": "#/$defs/latency_mode" },
+            "standard": { "$ref": "#/$defs/latency_mode" },
+            "strict": { "$ref": "#/$defs/latency_mode" }
+          },
+          "required": ["lite", "standard", "strict"]
+        }
+      },
+      "required": ["latency"]
     },
-    "context": {
-      "description": "Optional short context to ground the definition.",
-      "type": "string"
-    }
+    "ledger_max": { "type": "integer", "minimum": 1 }
   },
-  "required": ["term"],
-  "additionalProperties": false
-}
-
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "lens_refuse",
-  "description": "Schema for the Refuse lens. Marks claims or prompts as declined.",
-  "type": "object",
-  "properties": {
-    "reason": {
-      "description": "Reason for refusal.",
-      "type": "string",
-      "maxLength": 200
+  "required": ["cap", "ledger_max"],
+  "$defs": {
+    "latency_mode": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "p50_ms": { "type": "integer", "minimum": 0 },
+        "p95_ms": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["p50_ms", "p95_ms"]
     }
-  },
-  "required": ["reason"],
-  "additionalProperties": false
-}
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "lens_trace",
-  "description": "Schema for the Trace lens. Follows reasoning chains step by step.",
-  "type": "object",
-  "properties": {
-    "claim": {
-      "description": "The claim or argument to trace.",
-      "type": "string"
-    },
-    "depth": {
-      "description": "Optional max depth of tracing.",
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 10
-    }
-  },
-  "required": ["claim"],
-  "additionalProperties": false
-}
-{
-  "ts": "2025-08-29T12:30:00Z",
-  "source": "validator",
-  "signal": "schema_near_miss",
-  "severity": "warning",
-  "details": "Optional field repeatedly missing from recap payload"
-}
-{
-  "ok": false,
-  "code": "E_PAYLOAD",
-  "reason": "payload failed schema: lens.check.min",
-  "recovery_hint": "See potm.kernel.router.envelope.v1",
-  "severity": "warn",
-  "trace": ["router.validate", "latency.validator", "dispatch.lens.check"]
+  }
 }

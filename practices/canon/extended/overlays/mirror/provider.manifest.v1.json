@@ -1,0 +1,14 @@
+{
+  "overlay_id": "ex.overlay.mirror.v1",
+  "name": "mirror",
+  "display_name": "Mirror — Integrity Self-Check",
+  "version": "0.1.0",
+  "modes": ["mini", "standard"],
+  "payload_schema_ref": "potm.runtime.overlay.invoke_payload",
+  "result_schema_ref": "potm.runtime.overlay.result",
+  "invariants": {
+    "checklist_items": 3,
+    "fail_closed_on_violation": true
+  },
+  "safety_notes_ref": "docs/mirror_overlay.md"
+}

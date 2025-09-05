@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_route",
+  "description": "Select a forward route from candidate options given constraints.",
+  "type": "object",
+  "properties": {
+    "aim": { "type": "string", "description": "The concrete outcome to route toward." },
+    "options": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 2,
+      "description": "Candidate routes or approaches."
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Constraints to honor (e.g., time, risk, policy)."
+    },
+    "preference": { "type": "string", "description": "Tie-break preference or value." }
+  },
+  "required": ["aim", "options"],
+  "additionalProperties": false
+}
+

@@ -1,0 +1,14 @@
+{
+  "overlay_id": "ex.overlay.externalist.v1",
+  "name": "externalist",
+  "display_name": "Externalist — Diagnostic Overlay",
+  "version": "0.1.0",
+  "modes": ["boundary", "contrary_corner", "scale_shift", "frame_inversion"],
+  "payload_schema_ref": "potm.runtime.overlay.invoke_payload",
+  "result_schema_ref": "potm.runtime.overlay.result",
+  "invariants": {
+    "require_limiter_for": ["frame_inversion"],
+    "avoid_recursion": true
+  },
+  "safety_notes_ref": "docs/externalist_modes.md"
+}

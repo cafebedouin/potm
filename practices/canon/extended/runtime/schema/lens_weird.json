@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_weird",
+  "description": "Flag anomaly, incoherence, or drift with minimal structure.",
+  "type": "object",
+  "properties": {
+    "context": { "type": "string", "description": "What seems off or where it occurred." },
+    "signal": { "type": "string", "description": "Short name for the anomaly (e.g., 'loop', 'non sequitur')." },
+    "evidence": { "type": "array", "items": { "type": "string" }, "description": "Examples or quotes." },
+    "severity": { "type": "string", "enum": ["low", "medium", "high"], "default": "low" }
+  },
+  "required": ["context"],
+  "additionalProperties": true
+}
+

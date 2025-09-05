@@ -1,0 +1,170 @@
+{
+  "id": "potm.lenses.catalog.v1",
+  "version": "1.0.0",
+  "lenses": [
+    {
+      "id": "lens_edge",
+      "schema_ref": "extended/runtime/schema/lens_edge.json",
+      "example_ref": "extended/runtime/examples/lens_edge_invoke.json"
+    },
+    {
+      "id": "lens_define",
+      "schema_ref": "extended/runtime/schema/lens_define.json",
+      "example_ref": "extended/runtime/examples/lens_define_invoke.json"
+    },
+    {
+      "id": "lens_self_audit",
+      "schema_ref": "extended/runtime/schema/lens_self_audit.json",
+      "example_ref": "extended/runtime/examples/lens_self_audit_invoke.json"
+    },
+    {
+      "id": "lens_open_questions",
+      "schema_ref": "extended/runtime/schema/lens_open_questions.json",
+      "example_ref": "extended/runtime/examples/lens_open_questions_invoke.json"
+    },
+    {
+      "id": "lens_facts",
+      "schema_ref": "extended/runtime/schema/lens_facts.json",
+      "example_ref": "extended/runtime/examples/lens_facts_invoke.json"
+    },
+    {
+      "id": "lens_check",
+      "schema_ref": "extended/runtime/schema/lens_check_invoke.json",
+      "example_ref": "extended/runtime/examples/lens_check_invoke.json"
+    },
+    {
+      "id": "lens_trace",
+      "schema_ref": "extended/runtime/schema/lens_trace.json",
+      "example_ref": "extended/runtime/examples/lens_trace_invoke.json"
+    },
+    {
+      "id": "lens_boundary",
+      "schema_ref": "extended/runtime/schema/lens_boundary.json",
+      "example_ref": "extended/runtime/examples/lens_boundary_invoke.json"
+    },
+    {
+      "id": "lens_contrary",
+      "schema_ref": "extended/runtime/schema/lens_contrary.json",
+      "example_ref": "extended/runtime/examples/lens_contrary_invoke.json"
+    },
+    {
+      "id": "lens_forge",
+      "schema_ref": "extended/runtime/schema/lens_forge.json",
+      "example_ref": "extended/runtime/examples/lens_forge_invoke.json"
+    },
+    {
+      "id": "lens_synth",
+      "schema_ref": "extended/runtime/schema/lens_synth.json",
+      "example_ref": "extended/runtime/examples/lens_synth_invoke.json"
+    },
+    {
+      "id": "lens_spiral",
+      "schema_ref": "extended/runtime/schema/lens_spiral.json",
+      "example_ref": "extended/runtime/examples/lens_spiral_invoke.json"
+    },
+    {
+      "id": "lens_archive",
+      "schema_ref": "extended/runtime/schema/lens_archive.json",
+      "example_ref": "extended/runtime/examples/lens_archive_invoke.json"
+    },
+    {
+      "id": "lens_wait",
+      "schema_ref": "extended/runtime/schema/lens_wait.json",
+      "example_ref": "extended/runtime/examples/lens_wait_invoke.json"
+    },
+    {
+      "id": "lens_refuse",
+      "schema_ref": "extended/runtime/schema/lens_refuse.json",
+      "example_ref": "extended/runtime/examples/lens_refuse_invoke.json"
+    },
+    {
+      "id": "lens_relation_zone",
+      "schema_ref": "extended/runtime/schema/lens_relation_zone.json",
+      "example_ref": "extended/runtime/examples/lens_relation_zone_log.json"
+    },
+    {
+      "id": "lens_meta_conflict",
+      "schema_ref": "extended/runtime/schema/lens_meta_conflict.json",
+      "example_ref": "extended/runtime/examples/lens_meta_conflict_invoke.json"
+    },
+    {
+      "id": "lens_meta",
+      "schema_ref": "extended/runtime/schema/lens_meta.json",
+      "example_ref": "extended/runtime/examples/lens_meta_invoke_valid.json"
+    },
+    {
+      "id": "lens_fracture_status",
+      "schema_ref": "extended/runtime/spec/lens.fracture_status.json",
+      "example_ref": "extended/runtime/examples/lens_fracture_status.json"
+    },
+    {
+      "id": "lens_latency_status",
+      "schema_ref": "extended/runtime/spec/lens.latency_status.json",
+      "example_ref": "extended/runtime/examples/lens_latency_status.json"
+    },
+    {
+      "id": "lens_mode_profile_status",
+      "schema_ref": "extended/runtime/spec/lens.mode_profile_status.json",
+      "example_ref": "extended/runtime/examples/lens_mode_profile_status.json"
+    },
+    {
+      "id": "lens_escalation_status",
+      "schema_ref": "extended/runtime/spec/lens.escalation_status.json",
+      "example_ref": "extended/runtime/examples/lens_escalation_status.json"
+    },
+    {
+      "id": "lens_canary_status",
+      "schema_ref": "extended/runtime/spec/lens.canary_status.json",
+      "example_ref": "extended/runtime/examples/lens_canary_status.json"
+    },
+    {
+      "id": "lens_recap",
+      "schema_ref": "extended/runtime/spec/recap.spec_payload.json",
+      "example_ref": "extended/runtime/examples/lens_recap_invoke.json"
+    }
+  ],
+  "compounds": [
+    {
+      "id": "compound.relational",
+      "title": "Relational",
+      "manifest": "extended/lenses/compounds/relational/compound.manifest.json",
+      "description": "Stabilize ruptures, clarify boundaries, rebalance responsibility, and plan repairs."
+    },
+    {
+      "id": "compound.somatic",
+      "title": "Somatic & Regulation",
+      "manifest": "extended/lenses/compounds/somatic/compound.manifest.json",
+      "description": "Downshift arousal, re-anchor attention, and gate cognitive load by readiness."
+    },
+    {
+      "id": "compound.creative",
+      "title": "Creative & Generative",
+      "manifest": "extended/lenses/compounds/creative/compound.manifest.json",
+      "description": "Break fixation with flips, seeds, metaphors, future perspective, and combinations."
+    },
+    {
+      "id": "compound.trickster",
+      "title": "Trickster & Safety",
+      "manifest": "extended/lenses/compounds/trickster/compound.manifest.json",
+      "description": "Detect covert reframes, scan persuasion patterns, surface value clashes, and keep outputs honest."
+    },
+    {
+      "id": "compound.decision",
+      "title": "Decision & Action",
+      "manifest": "extended/lenses/compounds/decision/compound.manifest.json",
+      "description": "Shape options, foresee failure, choose criteria, and commit to next steps."
+    },
+    {
+      "id": "compound.research",
+      "title": "Research & Analysis",
+      "manifest": "extended/lenses/compounds/research/compound.manifest.json",
+      "description": "Examine claims via contrary, falsification, evidence mapping, and uncertainty."
+    },
+    {
+      "id": "compound.externalist",
+      "title": "Externalist Contexts",
+      "manifest": "extended/lenses/compounds/externalist/compound.manifest.json",
+      "description": "Surface environment-level forces: base rates, incentives, constraints, and system dynamics."
+    }
+  ]
+}

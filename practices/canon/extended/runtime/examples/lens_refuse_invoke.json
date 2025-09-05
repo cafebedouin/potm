@@ -1,0 +1,7 @@
+{
+  "id": "lens_refuse",
+  "reason": "policy_block",
+  "note": "Kernel scope excludes off-platform medical advice.",
+  "forward_route": { "label": "safer_alt", "suggestion": "Reframe as general safety checklist." }
+}
+

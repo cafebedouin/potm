@@ -1,0 +1,7 @@
+{
+  "id": "lens_situate",
+  "anchors": ["current sprint goals", "monthly learning milestone"],
+  "references": ["prior AB test results", "on-call schedule windows"],
+  "map": "Align experiments to monthly milestone; avoid high-risk windows."
+}
+

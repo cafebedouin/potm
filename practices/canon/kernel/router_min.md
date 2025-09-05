@@ -1,5 +1,5 @@
 ---
-$id: potm.kernel.router_min.v1
+id: potm.kernel.router_min.v1
 title: "router_min"
 display_title: "Router — Minimal Contract"
 type: kernel
@@ -25,14 +25,17 @@ license: CC0-1.0
 ## 0) Scope & invariants
 
 - **Allow-listed namespaces (kernel only):**
-  - `lens.*` → `define`, `check`, `trace`, `refuse`
-  - `move.*` → `align_scan`, `drift_check`, `fracture`
+  - `menu.*`   → `surface`
+  - `lens.*`   → `define`, `check`, `trace`, `refuse`
+  - `move.*`   → `align_scan`, `drift_check`, `fracture`
   - `guardian.*` → `trigger`
 - **Not routed in kernel:** `closure.*`, `recap.*`, `externalist.*`, `policy.*`, `glyph.*`,
   `mode_profile.*`, `sentinel.*` (these belong in `extended/`).
 - **No implicit tools.** Only ids present in the **tool index** are callable.
 - **No external I/O.** All effects are session-local; kernel does not call the network.
 - **Fail-closed.** Unknown namespace/id → error; invalid payload → error; containment may block.
+- Before emitting adapter-defined menu surfaces, call:
+  `tool.validate: potm.runtime.menu.surface_validator.v1`
 
 ---
 
@@ -52,50 +55,57 @@ The router accepts only properly-typed envelopes and always returns a typed emis
 2. **Parse tool id** → `(namespace, name)` and check against **allow-list**.
 3. **Idempotency check:**
    - Require `request_id` (from envelope).
-   - Compute `digest = sha256(canonical(tool_id, payload))`.
+   - Canonicalization: use JSON Canonicalization Scheme (JCS) to ensure deterministic digests.
    - If `(request_id, digest)` seen → return cached emission.
    - If `request_id` reuse with different `digest` → error `E_IDEMPOTENCY`.
-4. **Containment gate (read-only):**
+4. If tool == "menu.surface":
+   - Route to `potm.adapter.entry_menu.v1_6_dev`.
+   - Validate output against `potm.runtime.menu.surface_validator.v1`.
+   - On success:
+     - Emit `ledger.glyph_event{ event:"menu_invoked" }`.
+   - On mismatch:
+     - Emit error `E_SURFACE_VIOLATION`.
+     - Emit `ledger.guardian_event{ event:"surface_mismatch", details:"entry menu drift" }`.
+     - Block emission (fail-closed).
+5. **Containment gate (read-only):**
    - If `meta_locus.containment==true`, allow only:
      - `guardian.trigger` (any level),
      - `move.fracture` (close or append),
      - `lens.refuse`.
    - Otherwise emit `E_CONTAINMENT_BLOCKED`.
-5. **Latency validator (first validator):**
+6. **Latency validator (first validator):**
    - Invoke with `potm.kernel.latency.validator.payload.v1`,
      receive `potm.kernel.latency.validator.result.v1`.
    - If result `error` → emit `E_LATENCY_INVARIANT` and halt.
    - If result `warn` → attach `W_LATENCY_BREACH` to emission context.
-6. **Lookup tool** in `runtime/spec/tool.index.json`:
+7. **Lookup tool** in `runtime/spec/tool.index.json`:
    - Must map `id` → `{payload_schema, result_schema}` file refs.
    - If missing → `E_TOOL_NOT_FOUND`.
-7. **Validate payload** against tool’s `payload_schema`.
+8. **Validate payload** against tool’s `payload_schema`.
    - On failure → `E_PAYLOAD`.
-8. **Execute tool** (pure or declared side-effects only).
+9. **Execute tool** (pure or declared side-effects only).
    - **No network / external I/O** in kernel tools.
-9. **Validate result** against tool’s `result_schema`.
-10. **Emit** `router_emission.json` with `result`, plus any attached warnings.
+10. **Validate result** against tool’s `result_schema`.
+11. **Emit** `router_emission.json` with `result`, plus any attached warnings.
 
 ---
 
 ## 3) Registration (tool index)
 
-**File:** `runtime/spec/tool.index.json` (`$id`: `potm.kernel.tool.index.v1`)
+**File:** `runtime/spec/tool.index.json` (`id`: `potm.kernel.tool.index.v1`)
 
 Register **only** these ids for the kernel:
 
 ```json
 {
   "tools": [
-    { "id": "lens.define",  "payload_schema": "potm.kernel.lens.define.min.v1",  "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.define.result" },
-    { "id": "lens.check",   "payload_schema": "potm.kernel.lens.check.min.v1",   "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.check.result" },
-    { "id": "lens.trace",   "payload_schema": "potm.kernel.lens.trace.min.v1",   "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.trace.result" },
-    { "id": "lens.refuse",  "payload_schema": "potm.kernel.lens.refuse.min.v1",  "result_schema": "potm.kernel.router.emission.v1#/$defs/lens.refuse.result" },
-
-    { "id": "move.align_scan", "payload_schema": "runtime/spec/move.align_scan_payload.json", "result_schema": "runtime/spec/move.align_scan_result.json" },
-    { "id": "move.drift_check","payload_schema": "runtime/spec/move.drift_check_payload.json","result_schema": "runtime/spec/move.drift_check_result.json" },
-    { "id": "move.fracture",   "payload_schema": "runtime/spec/move.fracture_payload.json",   "result_schema": "runtime/spec/move.fracture_result.json" },
-
+    { "id": "lens.define",  "payload_schema": "runtime/spec/min/lens.define.min.v1.json",  "result_schema": "runtime/spec/router_emission.json#/$defs/lens.define.result" },
+    { "id": "lens.check",   "payload_schema": "runtime/spec/min/lens.check.min.v1.json",   "result_schema": "runtime/spec/router_emission.json#/$defs/lens.check.result" },
+    { "id": "lens.trace",   "payload_schema": "runtime/spec/min/lens.trace.min.v1.json",   "result_schema": "runtime/spec/router_emission.json#/$defs/lens.trace.result" },
+    { "id": "lens.refuse",  "payload_schema": "runtime/spec/min/lens.refuse.min.v1.json",  "result_schema": "runtime/spec/router_emission.json#/$defs/lens.refuse.result" },
+    { "id": "move.align_scan", "payload_schema": "potm.kernel.move.align_scan.payload.v1", "result_schema": "potm.kernel.move.align_scan.result.v1" },
+    { "id": "move.drift_check","payload_schema": "potm.kernel.move.drift_check.payload.v1","result_schema": "potm.kernel.move.drift_check.result.v1" },
+    { "id": "move.fracture",   "payload_schema": "potm.kernel.move.fracture.payload.v1",   "result_schema": "potm.kernel.move.fracture.result.v1" },
     { "id": "guardian.trigger","payload_schema": "potm.kernel.guardian.trigger.payload.v1","result_schema": "potm.kernel.guardian.trigger.result.v1" }
   ]
 }
@@ -121,6 +131,9 @@ Register **only** these ids for the kernel:
 | `E_CONTAINMENT_BLOCKED` | Tool not permitted while in containment              |
 | `E_LATENCY_INVARIANT`   | Latency validator reports hard breach                |
 | `W_LATENCY_BREACH`      | Latency validator reports soft breach (warning only) |
+| `E_SURFACE_VIOLATION`   | Menu output did not match adapter + validator       |
+| `E_AGREEMENT_DRIFT`     | Acceptance not bound at boot (only prompted later) |
+
 
 All errors/warnings are emitted using `router_error.json` / `router_emission.json`.
 
@@ -132,6 +145,9 @@ All errors/warnings are emitted using `router_error.json` / `router_emission.jso
 * **Limited writers:** `move.fracture` may append to `ledger.fracture_event` and
   enqueue a fracture; `guardian.trigger(level:"hard")` may set
   `meta_locus.containment=true`. No other mutation in kernel tools.
+  * `menu.surface` may emit `ledger.glyph_event{ event:"menu_invoked" }`.
+* On violation, it may emit `ledger.guardian_event{ event:"surface_mismatch" }`.
+
 * **No export.** Kernel does not expose export targets; see `policy.targets.json` in `extended/` if needed.
 
 ---

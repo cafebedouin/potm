@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_mirror",
+  "description": "Reflect back the practitioner’s text and ask for confirmation.",
+  "type": "object",
+  "properties": {
+    "text": { "type": "string", "description": "Practitioner text to mirror back." },
+    "ask_to_confirm": { "type": "boolean", "description": "Include a confirmation check.", "default": true }
+  },
+  "required": ["text"],
+  "additionalProperties": false
+}
+

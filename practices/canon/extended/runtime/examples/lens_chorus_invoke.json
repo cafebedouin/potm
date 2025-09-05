@@ -1,0 +1,7 @@
+{
+  "id": "lens_chorus",
+  "prompt": "Should we ship now or wait for polish?",
+  "personas": ["skeptic", "operator", "mediator"],
+  "style": "terse"
+}
+

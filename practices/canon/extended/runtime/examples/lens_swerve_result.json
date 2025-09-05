@@ -1,0 +1,8 @@
+{
+  "id": "lens_swerve",
+  "switched": true,
+  "lane": "externalist",
+  "guardrails": ["no network", "5-minute timebox"],
+  "next": "Run base rate anchor, then constraint map."
+}
+

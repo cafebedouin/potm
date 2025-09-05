@@ -1,0 +1,7 @@
+{
+  "id": "lens_pause",
+  "status": "paused",
+  "duration_s": 30,
+  "message": "Take a short reset. Say 'resume' when ready."
+}
+

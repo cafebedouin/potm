@@ -1,0 +1,98 @@
+{
+  "id": "potm.ex.lenses.compound.relational.v1",
+  "compound_id": "ex.compound.relational",  
+  "display_name": "Relational",
+  "version": "0.1.0",
+  "signature": {
+    "intent": "Stabilize ruptures, clarify boundaries, rebalance responsibility, and plan repairs.",
+    "input_contract": ["context", "intensity?", "domain?", "heat?", "attempts?", "horizon?"],
+    "output_contract": ["artifact.stabilizers[]", "artifact.boundary", "artifact.labels[]", "artifact.reframe", "artifact.map", "artifact.repairs[]", "artifact.entries[]", "artifact.trend"],
+    "move_graph": {
+      "order": ["ex.lens.rupture_first_aid", "ex.lens.somatic_exit", "ex.lens.boundary_map", "ex.lens.responsibility_distortions", "ex.lens.repair_strategies", "ex.lens.trust_ledger"]
+    },
+    "state_touched": ["boundary", "attention", "plan"],
+    "risk_profile": "medium"
+  },
+  "components": {
+    "lenses": [
+      {"lens_id": "ex.lens.rupture_first_aid", "payload_schema_ref": "schema.rupture.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.somatic_exit", "payload_schema_ref": "schema.exit.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.boundary_map", "payload_schema_ref": "schema.boundary.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.responsibility_distortions", "payload_schema_ref": "schema.rd.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.repair_strategies", "payload_schema_ref": "schema.repair.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.trust_ledger", "payload_schema_ref": "schema.trust.payload", "version_pin": "*"}
+    ]
+  },
+  "schemas": [
+    {
+      "id": "schema.rupture.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "heat": {"type": "string", "enum": ["low", "medium", "high"], "default": "medium"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.exit.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "readiness": {"type": "string", "enum": ["yes", "unsure", "no"], "default": "unsure"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.boundary.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "domain": {"type": "string", "enum": ["roles", "time", "money", "space", "comms"], "default": "roles"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.rd.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "intensity": {"type": "string", "enum": ["gentle", "medium", "hard"], "default": "gentle"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.repair.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "attempts": {"type": "integer", "minimum": 1, "maximum": 5, "default": 3}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.trust.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "horizon": {"type": "string", "enum": ["week", "month", "quarter"], "default": "month"}
+        },
+        "required": ["context"]
+      }
+    }
+  ],
+  "safety_notes": [
+    {"id": "safety.rel", "path": "lenses/README.md"}
+  ],
+  "related": ["ex.compound.somatic"]
+}

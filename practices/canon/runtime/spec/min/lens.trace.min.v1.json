@@ -2,7 +2,7 @@
   "$id": "potm.kernel.lens.trace.min.v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
-    { "$ref": "../../schema/lens_trace.json" },
+    { "$ref": "../../schema/lens.trace.payload.v1.json" },
     {
       "type": "object",
       "properties": {

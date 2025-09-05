@@ -2,7 +2,7 @@
   "$id": "potm.kernel.lens.check.min.v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
-    { "$ref": "../../schema/lens_check.json" },
+    { "$ref": "../../schema/lens.check.payload.v1.json" },
     {
       "type": "object",
       "properties": {

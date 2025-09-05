@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "potm.compound.recipe.v1",
+  "title": "PoTM Compound Recipe",
+  "type": "object",
+  "properties": {
+    "compound_id": {
+      "type": "string",
+      "pattern": "^compound\\.[a-z0-9_.-]+$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "suggestions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Suggestion"
+      }
+    },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^compound\\.[a-z0-9_.-]+$"
+      },
+      "uniqueItems": true
+    },
+    "notes_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "compound_id",
+    "display_name",
+    "version",
+    "intent",
+    "suggestions"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "LensId": {
+      "description": "Accept either bare IDs (catalog style) or prefixed IDs (runtime style).",
+      "type": "string",
+      "enum": [
+        "edge",
+        "lens_edge",
+        "define",
+        "lens_define",
+        "self_audit",
+        "lens_self_audit",
+        "open_questions",
+        "lens_open_questions",
+        "facts",
+        "lens_facts",
+        "check",
+        "lens_check",
+        "trace",
+        "lens_trace",
+        "boundary",
+        "lens_boundary",
+        "contrary",
+        "lens_contrary",
+        "forge",
+        "lens_forge",
+        "synth",
+        "lens_synth",
+        "spiral",
+        "lens_spiral",
+        "archive",
+        "lens_archive",
+        "wait",
+        "lens_wait",
+        "refuse",
+        "lens_refuse",
+        "relation_zone",
+        "lens_relation_zone",
+        "meta_conflict",
+        "lens_meta_conflict",
+        "meta",
+        "lens_meta",
+        "fracture_status",
+        "lens_fracture_status",
+        "latency_status",
+        "lens_latency_status",
+        "mode_profile_status",
+        "lens_mode_profile_status",
+        "escalation_status",
+        "lens_escalation_status",
+        "canary_status",
+        "lens_canary_status",
+        "recap",
+        "lens_recap"
+      ]
+    },
+    "OverlayHook": {
+      "description": "Advisory overlay calls; the adapter may ignore if not registered.",
+      "type": "string",
+      "pattern": "^overlay:(externalist|mirror)(:[a-z0-9_.-]+)?$"
+    },
+    "AntiPattern": {
+      "description": "Known anti-patterns (guided) or any forward-compatible string.",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "edge before define",
+            "trace without check",
+            "open_questions in toxic zones (use refuse)",
+            "chaining without align_scan",
+            "repeated self-audit loops",
+            "spiral on every micromove",
+            "archive on live tensions"
+          ]
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+    "Guards": {
+      "type": "object",
+      "properties": {
+        "anti_patterns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AntiPattern"
+          },
+          "uniqueItems": true
+        },
+        "stop_if": {
+          "type": "object",
+          "description": "Adapter-interpreted conditions, e.g., {\"uncertainty_budget.min_component_below\": 10}.",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "Hooks": {
+      "type": "object",
+      "properties": {
+        "pre": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OverlayHook"
+          },
+          "uniqueItems": true
+        },
+        "post": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OverlayHook"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "Suggestion": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sequence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/LensId"
+          }
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "guards": {
+          "$ref": "#/$defs/Guards"
+        },
+        "hooks": {
+          "$ref": "#/$defs/Hooks"
+        }
+      },
+      "required": [
+        "name",
+        "sequence"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "lenses": [
+    {
+      "id": "lens_prune",
+      "schema_ref": "extended/runtime/schema/lens_prune.json",
+      "example_ref": "extended/runtime/examples/lens_prune_invoke.json"
+    },
+    {
+      "id": "lens_beacon",
+      "schema_ref": "extended/runtime/schema/lens_beacon.json",
+      "example_ref": "extended/runtime/examples/lens_beacon_invoke.json"
+    },
+    {
+      "id": "lens_riskest",
+      "schema_ref": "extended/runtime/schema/lens_riskest.json",
+      "example_ref": "extended/runtime/examples/lens_riskest_invoke.json"
+    },
+    {
+      "id": "lens_minify",
+      "schema_ref": "extended/runtime/schema/lens_minify.json",
+      "example_ref": "extended/runtime/examples/lens_minify_invoke.json"
+    },
+    {
+      "id": "lens_unframe",
+      "schema_ref": "extended/runtime/schema/lens_unframe.json",
+      "example_ref": "extended/runtime/examples/lens_unframe_invoke.json"
+    },
+    {
+      "id": "lens_route",
+      "schema_ref": "extended/runtime/schema/lens_route.json",
+      "example_ref": "extended/runtime/examples/lens_route_invoke.json"
+    },
+    {
+      "id": "lens_situate",
+      "schema_ref": "extended/runtime/schema/lens_situate.json",
+      "example_ref": "extended/runtime/examples/lens_situate_invoke.json"
+    },
+    {
+      "id": "lens_meaning",
+      "schema_ref": "extended/runtime/schema/lens_meaning.json",
+      "example_ref": "extended/runtime/examples/lens_meaning_invoke.json"
+    },
+    {
+      "id": "lens_chorus",
+      "schema_ref": "extended/runtime/schema/lens_chorus.json",
+      "example_ref": "extended/runtime/examples/lens_chorus_invoke.json"
+    },
+    {
+      "id": "lens_mirror",
+      "schema_ref": "extended/runtime/schema/lens_mirror.json",
+      "example_ref": "extended/runtime/examples/lens_mirror_invoke.json"
+    },
+    {
+      "id": "lens_discover",
+      "schema_ref": "extended/runtime/schema/lens_discover.json",
+      "example_ref": "extended/runtime/examples/lens_discover_invoke.json"
+    },
+    {
+      "id": "lens_refuse",
+      "schema_ref": "extended/runtime/schema/lens_refuse.json",
+      "example_ref": "extended/runtime/examples/lens_refuse_invoke.json"
+    },
+    {
+      "id": "lens_weird",
+      "schema_ref": "extended/runtime/schema/lens_weird.json",
+      "example_ref": "extended/runtime/examples/lens_weird_invoke.json"
+    },
+    {
+      "id": "lens_pause",
+      "schema_ref": "extended/runtime/schema/lens_pause.json",
+      "example_ref": "extended/runtime/examples/lens_pause_invoke.json"
+    },
+    {
+      "id": "lens_swerve",
+      "schema_ref": "extended/runtime/schema/lens_swerve.json",
+      "example_ref": "extended/runtime/examples/lens_swerve_invoke.json"
+    }
+  ]
+}

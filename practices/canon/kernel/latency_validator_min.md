@@ -1,5 +1,5 @@
 ---
-$id: potm.kernel.latency_validator_min.v1
+id: potm.kernel.latency.validator_min.v1
 title: "latency_validator_min"
 display_title: "Latency Validator — Minimal Contract"
 type: kernel
@@ -26,8 +26,8 @@ license: CC0-1.0
 - Runs **first** in router dispatch order.  
 - Purely session-local; does not call network.  
 - Consumes `meta_locus.latency_mode` and `observed_latency_ms` from the
-  router envelope.  
-- Writes at most one ledger event (`ledger.latency_breach.json`).  
+  router envelope.
+- Validates latency against policy caps. Writes at most one ledger event (`$id` `potm.kernel.ledger.latency_breach.v1`).
 - Emits either:
   - `E_LATENCY_MODE` if `latency_mode` invalid,  
   - `E_LATENCY_INVARIANT` if p95 ceiling breached,  
@@ -56,7 +56,7 @@ license: CC0-1.0
 
 ## 2) Policy reference
 
-**File/Schema:** `$id` `potm.kernel.policy.cap.v1` (runtime/spec/min/latency_cap.min.json)
+**File/Schema:** `$id` `potm.kernel.policy.cap.v1` (runtime/spec/min/policy.cap.v1.json)
 
 Minimal required field:
 
@@ -89,7 +89,7 @@ Minimal required field:
 3. **Ledger.**
 
 * For `warn` or `error`, append an entry to `$id` `potm.kernel.ledger.latency_breach.v1`.
-* Example: see `runtime/examples/latency_breach_ledger.json`.
+* Example instance: `runtime/examples/latency_breach_ledger.json` (validates against `$id` above).
 
 ---
 

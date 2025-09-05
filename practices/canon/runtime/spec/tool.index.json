@@ -4,43 +4,43 @@
   "tools": [
     {
       "id": "lens.define",
-      "payload_schema": "runtime/spec/min/lens_define.min.json",
+      "payload_schema": "runtime/spec/min/lens_define.min.v1.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.define.result"
     },
     {
       "id": "lens.check",
-      "payload_schema": "runtime/spec/min/lens_check.min.json",
+      "payload_schema": "runtime/spec/min/lens_check.min.v1.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.check.result"
     },
     {
       "id": "lens.trace",
-      "payload_schema": "runtime/spec/min/lens_trace.min.json",
+      "payload_schema": "runtime/spec/min/lens_trace.min.v1.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.trace.result"
     },
     {
       "id": "lens.refuse",
-      "payload_schema": "runtime/spec/min/lens_refuse.min.json",
+      "payload_schema": "runtime/spec/min/lens_refuse.min.v1.json",
       "result_schema":  "runtime/spec/router_emission.json#/$defs/lens.refuse.result"
     },
     {
       "id": "move.align_scan",
-      "payload_schema": "runtime/spec/move.align_scan_payload.json",
-      "result_schema":  "runtime/spec/move.align_scan_result.json"
+      "payload_schema": "potm.kernel.move.align_scan.payload.v1",
+      "result_schema":  "potm.kernel.move.align_scan.result.v1"
     },
     {
       "id": "move.drift_check",
-      "payload_schema": "runtime/spec/move.drift_check_payload.json",
-      "result_schema":  "runtime/spec/move.drift_check_result.json"
+      "payload_schema": "potm.kernel.move.drift_check.payload.v1",
+      "result_schema":  "potm.kernel.move.drift_check.result.v1"
     },
     {
       "id": "move.fracture",
-      "payload_schema": "runtime/spec/move.fracture_payload.json",
-      "result_schema":  "runtime/spec/move.fracture_result.json"
+      "payload_schema": "potm.kernel.move.fracture.payload.v1",
+      "result_schema":  "potm.kernel.move.fracture.result.v1"
     },
     {
       "id": "guardian.trigger",
-      "payload_schema": "runtime/spec/guardian.trigger_payload.json",
-      "result_schema":  "runtime/spec/guardian.trigger_result.json"
+      "payload_schema": "potm.kernel.guardian.trigger.payload.v1",
+      "result_schema":  "potm.kernel.guardian.trigger.result.v1"
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_unframe",
+  "description": "Reveal and remove an implicit frame; propose alternative frames.",
+  "type": "object",
+  "properties": {
+    "statement": { "type": "string", "description": "Text or assumption to unframe." },
+    "suspected_frame": { "type": "string", "description": "Optional best-guess frame to test." },
+    "aim": { "type": "string", "description": "What better frame should enable." }
+  },
+  "required": ["statement"],
+  "additionalProperties": false
+}
+

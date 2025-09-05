@@ -1,0 +1,85 @@
+{
+  "id": "potm.ex.lenses.compound.creative.v1",
+  "compound_id": "ex.compound.creative",
+  "display_name": "Creative & Generative",
+  "version": "0.1.0",
+  "signature": {
+    "intent": "Break fixation with flips, seeds, metaphors, future perspective, and combinations.",
+    "input_contract": ["context", "constraint?", "domain?", "horizon?", "pool?"],
+    "output_contract": ["artifact.flip", "artifact.options[]", "artifact.seed", "artifact.prompt", "artifact.metaphor", "artifact.transfer", "artifact.advice[]", "artifact.combo", "artifact.idea"],
+    "move_graph": {
+      "order": ["ex.lens.random_seed", "ex.lens.constraint_flip", "ex.lens.metaphor_bridge", "ex.lens.future_self_ping", "ex.lens.combinatorial_spark"]
+    },
+    "state_touched": ["stance", "attention", "plan"],
+    "risk_profile": "low"
+  },
+  "components": {
+    "lenses": [
+      {"lens_id": "ex.lens.random_seed", "payload_schema_ref": "schema.seed.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.constraint_flip", "payload_schema_ref": "schema.flip.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.metaphor_bridge", "payload_schema_ref": "schema.meta.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.future_self_ping", "payload_schema_ref": "schema.future.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.combinatorial_spark", "payload_schema_ref": "schema.spark.payload", "version_pin": "*"}
+    ]
+  },
+  "schemas": [
+    {
+      "id": "schema.flip.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "constraint": {"type": "string"}
+        },
+        "required": ["context", "constraint"]
+      }
+    },
+    {
+      "id": "schema.seed.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "domain": {"type": "string", "enum": ["word", "image", "prompt"], "default": "word"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.meta.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.future.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "horizon": {"type": "string", "enum": ["1y", "5y", "10y"], "default": "5y"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.spark.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "pool": {"type": "array", "items": {"type": "string"}, "minItems": 2}
+        },
+        "required": ["context", "pool"]
+      }
+    }
+  ],
+  "safety_notes": [
+    {"id": "safety.cre", "path": "lenses/README.md"}
+  ],
+  "related": ["ex.compound.trickster"]
+}

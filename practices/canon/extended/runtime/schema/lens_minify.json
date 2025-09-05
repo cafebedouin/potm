@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_minify",
+  "description": "Compress text to essentials with optional point limit and focus.",
+  "type": "object",
+  "properties": {
+    "text": { "type": "string", "description": "Input text to compress." },
+    "max_points": { "type": "integer", "minimum": 1, "maximum": 10, "default": 3 },
+    "focus": { "type": "string", "description": "Optional focus (e.g., decision, risks, steps)." }
+  },
+  "required": ["text"],
+  "additionalProperties": false
+}
+

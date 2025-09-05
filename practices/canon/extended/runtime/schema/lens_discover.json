@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_discover",
+  "description": "Invent a one-off temporary lens when no existing lens fits.",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "description": "Proposed lens name" },
+    "intent": { "type": "string", "description": "One-line purpose" },
+    "outputs": { "type": "array", "items": { "type": "string" } },
+    "placement": { "type": "string", "description": "Where it fits in a chain" }
+  },
+  "required": ["name", "intent"],
+  "additionalProperties": true
+}
+

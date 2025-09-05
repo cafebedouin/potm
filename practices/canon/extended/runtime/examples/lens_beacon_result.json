@@ -1,0 +1,9 @@
+{
+  "id": "lens_beacon",
+  "beacons": [
+    { "id": "assumption_check", "status": "relevant", "action": "State assumptions or ask to confirm." },
+    { "id": "precision_over_certainty", "status": "relevant", "action": "Mark confidence; propose an observable proxy." }
+  ],
+  "reminder": "Prefer clarity over polish; avoid oracle posture."
+}
+

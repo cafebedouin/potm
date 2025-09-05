@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "lens_meaning",
+  "description": "Elicit themes and a concise meaning statement from an event.",
+  "type": "object",
+  "properties": {
+    "event": { "type": "string", "description": "Event or experience to interpret." },
+    "signals": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Observed signals or details to weigh."
+    },
+    "audience": { "type": "string", "description": "Intended audience (self, team, stakeholder)." }
+  },
+  "required": ["event"],
+  "additionalProperties": false
+}
+

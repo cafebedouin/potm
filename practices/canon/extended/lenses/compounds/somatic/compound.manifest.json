@@ -1,0 +1,84 @@
+{
+  "id": "potm.ex.lenses.compound.somatic.v1",
+  "compound_id": "ex.compound.somatic",
+  "display_name": "Somatic & Regulation",
+  "version": "0.1.0",
+  "signature": {
+    "intent": "Downshift arousal, re-anchor attention, and gate cognitive load by readiness.",
+    "input_contract": ["context", "rounds?", "window?", "readiness?"],
+    "output_contract": ["artifact.confirmation", "artifact.shift", "artifact.sequence[]", "artifact.timer", "artifact.note", "artifact.hotspots[]", "artifact.ok", "artifact.suggestion?"],
+    "move_graph": {
+      "order": ["ex.lens.centering_breath", "ex.lens.orient_5x5", "ex.lens.urge_surf_lite", "ex.lens.tension_map", "ex.lens.somatic_exit"]
+    },
+    "state_touched": ["attention", "boundary"],
+    "risk_profile": "low"
+  },
+  "components": {
+    "lenses": [
+      {"lens_id": "ex.lens.centering_breath", "payload_schema_ref": "schema.cb.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.orient_5x5", "payload_schema_ref": "schema.orient.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.urge_surf_lite", "payload_schema_ref": "schema.urge.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.tension_map", "payload_schema_ref": "schema.tension.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.somatic_exit", "payload_schema_ref": "schema.exit.payload", "version_pin": "*"}
+    ]
+  },
+  "schemas": [
+    {
+      "id": "schema.cb.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "rounds": {"type": "integer", "minimum": 1, "maximum": 5, "default": 3}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.orient.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.urge.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "window": {"type": "integer", "minimum": 1, "maximum": 5, "default": 2}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.tension.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.exit.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "readiness": {"type": "string", "enum": ["yes", "unsure", "no"], "default": "unsure"}
+        },
+        "required": ["context"]
+      }
+    }
+  ],
+  "safety_notes": [
+    {"id": "safety.soma", "path": "lenses/README.md"}
+  ],
+  "related": ["ex.compound.relational"]
+}

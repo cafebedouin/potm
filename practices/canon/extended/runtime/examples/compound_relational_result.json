@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "compound_id": "compound.relational",
+  "version": "0.1.0",
+  "steps": [
+    {
+      "id": "ex.lens.rupture_first_aid",
+      "lens": "lens.define",
+      "payload": { "term": "rupture", "context": "project roles conflict" },
+      "result": { "ok": true, "id": "rupture", "definition": "A breakdown in trust or coordination." }
+    },
+    {
+      "id": "ex.lens.somatic_exit",
+      "lens": "lens.check",
+      "payload": { "assumption": "We can downshift before problem-solving." },
+      "result": { "ok": true, "id": "somatic_exit", "valid": true }
+    },
+    {
+      "id": "ex.lens.boundary_map",
+      "lens": "lens.trace",
+      "payload": { "claim": "Boundaries are unclear in roles", "depth": 2 },
+      "result": { "ok": true, "id": "boundary_map", "trace": ["role A overlaps B", "handoffs not explicit"] }
+    }
+  ],
+  "artifacts": {
+    "stabilizers": ["pause + label rupture", "somatic downshift"],
+    "boundary": "Clarify ownership and handoffs",
+    "labels": ["role ambiguity", "handoff gaps"],
+    "repairs": ["write RACI", "weekly review 10m"],
+    "trend": "improving with structure"
+  }
+}
+

@@ -1,0 +1,15 @@
+{
+  "id": "lens_prune",
+  "trimmed_steps": [
+    "Wire signup event to metrics",
+    "Write launch checklist"
+  ],
+  "cuts": [
+    { "step": "Draft landing page copy", "why": "Does not move first-session activation; can use starter copy." },
+    { "step": "Implement demo polish", "why": "Cosmetic; no impact on activation metric." },
+    { "step": "Add admin export", "why": "Back-office; decoupled from activation." }
+  ],
+  "new_timebox": "4 days",
+  "note": "Drop demo polish; keep metrics wiring."
+}
+

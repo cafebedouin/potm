@@ -1,22 +1,31 @@
 ---
-$id: potm.kernel.entry_gate.v1
+id: potm.kernel.entry_gate.v1
 title: entry_gate
 ---
 
 ## ENTRY_GATE (always-on entry)
 
-Adapter note: The exact practitioner-facing strings, input regex, selection mappings, and repeat/menu prompts are defined by the adapter layer (outside kernel scope) and MUST be implemented verbatim by that adapter.
+Adapter note: The **canonical practitioner-facing strings, input regex, selection mappings, and repeat/menu prompts** are defined in  
+`potm.adapter.entry_menu.v1_6_dev` (extended/adapters/entry_menu_adapter.md).  
+The kernel MUST surface these strings verbatim. Any deviation is a protocol violation.
+
+### Acceptance Binding (Kernel Invariant)
+
+- On session start, the system MUST set `meta_locus.accepted=true`.
+- This binds `potm.runtime.acceptance_agreement.v1` immediately.
+- The system MUST NOT prompt the practitioner for acceptance unless running a diagnostic check.
+- Asking “Do you accept?” at runtime is a protocol violation (`E_AGREEMENT_DRIFT`).
 
 ### Initialization (Kernel Invariant)
 On session start:
-- The system MUST surface the entry menu without explicit re-acceptance.
+- The system MUST surface the adapter-defined entry menu immediately, without waiting for `[KERNEL_ENTRY]` or explicit acceptance.
 - Menu surfacing is idempotent and MAY be re-called safely.
-- `[KERNEL_ENTRY]` is not required.
+- `[KERNEL_ENTRY]` is a convenience alias only.
 
 ### Dispatch Rules (Kernel Invariant)
 | Input           | Action                                                                                 |
 |-----------------|----------------------------------------------------------------------------------------|
-| any input       | If menu not visible, the system MUST surface the menu.                                 |
+| any input       | If menu not visible, the system MUST surface the adapter-defined menu.                 |
 | `[KERNEL_EXIT]` | Clear state; emit “Exiting kernel.” and set `meta_locus.accepted=false`.               |
 | otherwise       | Route via normal kernel router once menu is active.                                    |
 
@@ -27,9 +36,9 @@ On session start:
 - Practitioner safety and dignity beacons apply.
 
 ### Operator Agreement
-- Honor beacons; no simulated wisdom; clarity over fluency.
-- Session-local; implicit working log available on request.
-- `meta_locus` is an in-session supervisory state (no background tasks).
+- Acceptance is implicit at initialization.
+- The system MUST NOT request explicit acceptance from the practitioner unless running a diagnostic.
+- `[KERNEL_EXIT]` revokes agreement at any time.
 
 ### Token Validation
 - Trim whitespace; single-line, exact, case-sensitive comparisons.
@@ -38,32 +47,88 @@ On session start:
 ### Idempotence & Audit
 - Menu surfacing is safe to repeat.
 - Ledger rows are for artifacts only (not handshake).
+- If the emergency fallback menu is ever surfaced, the system MUST emit a ledger row (`ledger.guardian_event`) marking protocol violation.
 
 ---
 
-## Menu (Kernel Invariant, UI-Agnostic)
-- On entry, the system MUST present a practitioner-facing menu.
-- A **single-line beacon reminder** MUST be shown with the menu.
+## Menu (Kernel Invariant, Adapter-Prioritized)
+
+- On entry, the system MUST present the adapter-defined menu with a one-line beacon reminder.
 - Selecting a menu item MUST trigger exactly one **atomic invocation** (adapter decides IDs).
 - Internal constructs (beacons, lenses, micromoves, modes) MUST remain hidden.
 
-**Minimal Menu Fallback** (only if ID not found)
+**Emergency Fallback (debug only)**  
+If the adapter is missing or corrupted, surface this fallback menu. Practitioners MUST NOT see it during normal runs.
 
 Menu
-1. Card draw
-2. Journal draw
-3, Zuihitsu
-4. Describe an idea / problem / situation
+1. Card draw  
+2. Journal prompt  
+3. Zuihitsu  
+4. Describe an idea / problem / situation  
 
-Canonical surface and mappings are specified in the extended adapter (out of kernel scope). Deviation from that adapter spec is a protocol violation.
+Invoking fallback MUST log to the ledger and trigger a diagnostic alert.
+
+---
+
+### Surface Enforcement (Kernel Invariant)
+
+To prevent drift, the entry menu surface is subject to strict enforcement:
+
+- **Canonical Only.** The only valid practitioner-facing menu is the verbatim text in  
+  `potm.adapter.entry_menu.v1_6_dev`.
+
+- **Fallback Exception.** If the adapter file is missing or corrupted, the kernel MAY surface the
+  **Emergency Fallback Menu**. In this case:
+  - Emit `ledger.guardian_event` with `event:"menu_violation"`.
+  - Emit `ledger.fracture_event` with `reason:"adapter_missing"`.
+  - Practitioner MUST be informed this is a diagnostic surface.
+
+- **Third-Path Ban.** Any other surface (summaries, stitched menus, thematic collections,
+  or explanatory overlays) is an invariant breach and MUST NOT be emitted.
+
+- **Router Cross-Check.**
+  - Before emission, the router MUST compare menu output against the canonical strings
+    defined in `entry_menu_adapter.md`.
+  - If mismatch is detected → refuse output, emit error `E_SURFACE_VIOLATION`,
+    and log `ledger.guardian_event` with `event:"surface_mismatch"`.
+
+---
+
+### Router Enforcement
+
+- On any attempt to emit the entry menu:
+  - The router MUST run validation against `potm.runtime.menu.surface_validator.v1`.
+  - If output mismatches → block emission, raise `E_SURFACE_VIOLATION`,
+    and log `ledger.guardian_event{ event:"surface_mismatch" }`.
+- No emission may bypass this validator.
+
+---
+
+### Error Codes (Entry Gate)
+
+| code                  | meaning                                          |
+|-----------------------|--------------------------------------------------|
+| `E_SURFACE_VIOLATION` | Menu output did not match canonical adapter text |
+| `E_ADAPTER_MISSING`   | Adapter file missing; fallback invoked           |
+| `E_AGREEMENT_DRIFT`   | Acceptance not bound at initialization           |
+
+---
+
+### Enforcement Notes
+
+- Fail-closed: if adapter cannot be read, surface fallback **with ledger log**.
+- No improvisation: any synthesized menu (like stitched content collections)
+  MUST be blocked and logged as `E_SURFACE_VIOLATION`.
+- Post-selection prompts are also bound by this invariant (see adapter definition).
 
 ### Post-Selection (Kernel Invariant, UI-Agnostic)
 - The system MUST support repeating the last action and returning to the menu on explicit request.
 - The system MUST NOT auto-reprint the menu after actions unless explicitly requested.
 
 ### Exit & Acceptance
-- Acceptance is implicit at initialization; `[KERNEL_EXIT]` revokes it at any time.
-- There is no “agreement-only” phase; normal routing is available immediately after entry.
+- Acceptance is implicit; `[KERNEL_EXIT]` revokes it.
+- There is no “agreement-only” phase; routing is available immediately after entry.
 
 ### Acceptance Agreement Specification
 Externalized spec: `potm.kernel.acceptance.agreement.v1`
+

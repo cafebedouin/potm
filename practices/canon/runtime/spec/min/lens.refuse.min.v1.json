@@ -2,7 +2,7 @@
   "$id": "potm.kernel.lens.refuse.min.v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
-    { "$ref": "../../schema/lens_refuse.json" },
+    { "$ref": "../../schema/lens.refuse.payload.v1.json" },
     {
       "type": "object",
       "properties": {

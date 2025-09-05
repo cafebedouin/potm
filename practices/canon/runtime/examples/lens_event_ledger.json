@@ -1,0 +1,19 @@
+{
+  "id": "ledger.lens_event.2025-09-05T12:34:56Z.edge",
+  "timestamp": "2025-09-05T12:34:56Z",
+  "lens_id": "lens.edge",
+  "compound_id": null,
+  "payload": {
+    "text": "Burning Man is an interesting example..."
+  },
+  "result": {
+    "ok": true,
+    "analysis": "This passage introduces an example..."
+  },
+  "ok": true,
+  "surface_block": "[LENS: lens.edge]\n→ payload: {\"text\": \"Burning Man is an interesting example...\"}\n→ result: {\"ok\": true, \"analysis\": \"This passage introduces an example...\"}",
+  "meta": {
+    "session_id": "session_abc123",
+    "adapter_version": "v1.1"
+  }
+}

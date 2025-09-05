@@ -1,0 +1,41 @@
+{
+  "$id": "potm.runtime.ledger.guardian_event.v1",
+  "title": "ledger.guardian_event",
+  "type": "object",
+  "description": "Ledger entry recording guardian triggers inside the kernel.",
+  "additionalProperties": false,
+  "properties": {
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of event"
+    },
+    "event": {
+      "const": "guardian_event",
+      "description": "Type discriminator"
+    },
+    "trigger": {
+      "type": "string",
+      "description": "Guardian mode or trigger ID (e.g. dignity_breach, integrity_check)"
+    },
+    "source": {
+      "type": "string",
+      "description": "Kernel component that raised the trigger"
+    },
+    "detail": {
+      "type": "object",
+      "description": "Additional context (reason codes, payload summary)"
+    },
+    {
+    "event": "surface_mismatch",
+    "timestamp": "2025-09-05T12:00:00Z",
+    "context": {
+      "expected": "[KERNEL_ENTRY] Menu …",
+      "received": "🌐 Core Sources …"
+    }
+  }
+}
+  
+  },
+  "required": ["ts", "event", "trigger", "source"]
+}

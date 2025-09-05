@@ -1,0 +1,85 @@
+{
+  "id": "potm.ex.lenses.compound.trickster.v1",
+  "compound_id": "ex.compound.trickster",  
+  "display_name": "Trickster & Safety",
+  "version": "0.1.0",
+  "signature": {
+    "intent": "Detect covert reframes, scan persuasion patterns, surface value clashes, and keep outputs honest.",
+    "input_contract": ["context", "before?", "after?", "text?", "values?"],
+    "output_contract": ["artifact.changes[]", "artifact.flags[]", "artifact.tensions[]", "artifact.question", "artifact.subversion", "artifact.checklist[]", "artifact.result"],
+    "move_graph": {
+      "order": ["ex.lens.bait_and_switch_detector", "ex.lens.persuasion_pattern_scan", "ex.lens.value_conflict_probe", "ex.lens.playful_subversion", "ex.lens.mirror_mini"]
+    },
+    "state_touched": ["attention", "stance"],
+    "risk_profile": "low"
+  },
+  "components": {
+    "lenses": [
+      {"lens_id": "ex.lens.bait_and_switch_detector", "payload_schema_ref": "schema.bas.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.persuasion_pattern_scan", "payload_schema_ref": "schema.persuade.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.value_conflict_probe", "payload_schema_ref": "schema.vcp.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.playful_subversion", "payload_schema_ref": "schema.play.payload", "version_pin": "*"},
+      {"lens_id": "ex.lens.mirror_mini", "payload_schema_ref": "schema.mirror.payload", "version_pin": "*"}
+    ]
+  },
+  "schemas": [
+    {
+      "id": "schema.bas.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "before": {"type": "string"},
+          "after": {"type": "string"}
+        },
+        "required": ["context", "before", "after"]
+      }
+    },
+    {
+      "id": "schema.persuade.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "text": {"type": "string"}
+        },
+        "required": ["context", "text"]
+      }
+    },
+    {
+      "id": "schema.vcp.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"},
+          "values": {"type": "array", "items": {"type": "string"}, "minItems": 2}
+        },
+        "required": ["context", "values"]
+      }
+    },
+    {
+      "id": "schema.play.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"}
+        },
+        "required": ["context"]
+      }
+    },
+    {
+      "id": "schema.mirror.payload",
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "context": {"type": "string"}
+        },
+        "required": ["context"]
+      }
+    }
+  ],
+  "safety_notes": [
+    {"id": "safety.trick", "path": "lenses/README.md"}
+  ],
+  "related": ["ex.compound.research"]
+}

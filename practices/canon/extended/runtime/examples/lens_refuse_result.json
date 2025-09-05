@@ -1,0 +1,7 @@
+{
+  "id": "lens_refuse",
+  "refusal": "policy_block",
+  "message": "I can’t assist with medical advice here.",
+  "forward_route": { "label": "safer_alt", "suggestion": "I can provide a general safety checklist instead." }
+}
+

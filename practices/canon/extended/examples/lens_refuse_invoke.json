@@ -1,8 +1,0 @@
-{
-  "tool.call": {
-    "id": "lens.refuse",
-    "payload": {
-      "reason": "Toxic zone; engagement unsafe."
-    }
-  }
-}

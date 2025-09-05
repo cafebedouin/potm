@@ -1,0 +1,16 @@
+{
+  "id": "lens_prune",
+  "steps": [
+    "Draft landing page copy",
+    "Implement demo polish",
+    "Wire signup event to metrics",
+    "Add admin export",
+    "Write launch checklist"
+  ],
+  "metric": "Activation rate in first session",
+  "non_negotiables": ["Wire signup event to metrics"],
+  "timebox_hint": "1w",
+  "context": "Prototype quality OK; release feels slow due to extras.",
+  "keep_ratio": 0.5
+}
+

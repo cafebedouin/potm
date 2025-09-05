@@ -1,0 +1,7 @@
+{
+  "id": "lens_weird",
+  "context": "Reply contradicted earlier constraints.",
+  "signal": "non sequitur",
+  "evidence": ["Suggested network call despite kernel no-network rule"]
+}
+

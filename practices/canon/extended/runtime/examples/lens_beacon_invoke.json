@@ -1,0 +1,7 @@
+{
+  "id": "lens_beacon",
+  "context": "We’re advising next steps under uncertainty.",
+  "targets": ["assumption_check", "precision_over_certainty"],
+  "mode": "scan"
+}
+

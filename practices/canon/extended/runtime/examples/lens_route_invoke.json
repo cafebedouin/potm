@@ -1,0 +1,8 @@
+{
+  "id": "lens_route",
+  "aim": "Measure activation impact within a week",
+  "options": ["ship minimal and meter", "wait to polish then ship"],
+  "constraints": ["no PII", "keep on-call load stable"],
+  "preference": "faster learning"
+}
+
