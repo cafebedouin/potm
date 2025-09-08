@@ -1,0 +1,1686 @@
+# data/decks/cards.yaml
+id: cards
+title: "PoTM Card Bank - Complete List"
+version: "1.0"
+entry_format: "yaml_list"
+
+# Note: “Do not perform minotaur cards where there is risk of harm,
+  coercion, or abuse; obtain consent where others are involved.”
+
+# LINT RULES (P1)
+# - cards[*].id: ^[a-z]+:\d{3}$
+# - cards[*].title: non-empty string
+# - cards[*].tags: non-empty, lower-case slugs; use hyphens
+# - cards[*].body: required (block scalar)
+# - no duplicate top-level keys; exactly one `title`
+# - no empty `tags: []` unless explicitly intended
+# - tags: lower-case; words separated by hyphens; numerics allowed; symbolic duration tags like "<5min" permitted
+
+cards:
+  - id: "minotaur:001"
+    title: "The Truth Tell"
+    tags: [truth, confession, vulnerability, rupture]
+    body: |-
+      **Action:**
+      Confess something you concealed from someone it directly affects.
+
+      **Activation Clause:**
+      Do not draw this card unless you are willing to say it out loud to them within 48 hours.
+
+      **Point of No Return:**
+      Once you text, call, or set the meeting: you commit to not backing out.
+
+      Do not embellish the truth.
+
+  - id: "minotaur:002"
+    title: "The Pattern Break"
+    tags: [pattern, disruption, witness, integrity]
+    body: |-
+      **Action:**
+      Publicly interrupt a behavior others associate with you but that is corrosive.
+
+      **Activation Clause:**
+      This must be witnessed by at least one person who knows your pattern.
+
+      **Examples:**
+      Gossip, chronic lateness, subtle control, false modesty or passive-aggression.
+
+      Don't pick a small issue.
+
+  - id: "minotaur:003"
+    title: "The Ask Impossible"
+    tags: [request, vulnerability, intimacy, risk]
+    body: |-
+      **Action:**
+      Make a vulnerable request to someone that risks rejection, rupture, or deep contact.
+
+      **Activation Clause:**
+      You must deliver the ask without hedging or disclaimers.
+
+      **Examples:**
+      “Can you forgive me?” "Will you stay?" “Will you stop doing this to me?” “I need help.”
+
+      Don't soften to avoid vulnerability.
+
+  - id: "minotaur:004"
+    title: "The Debt Pay"
+    tags: [apology, accountability, repair, humility]
+    body: |-
+      **Action:**
+      Apologize for something you’ve previously justified, minimized, or avoided.
+
+      **Activation Clause:**
+      You must accept that forgiveness may not be offered.
+
+      **Requirements:**
+      • Speak only to the person affected.
+      • State the harm without defending yourself.
+      • Ask nothing in return.
+      • Do not say, "I'm sorry you feel that way..."
+
+  - id: "minotaur:005"
+    title: "The Legacy Break"
+    tags: [inheritance, autonomy, refusal, identity]
+    body: |-
+      **Action:**
+      Refuse an inheritance: a family script, identity, or obligation you no longer consent to carry.
+
+      **Activation Clause:**
+      Name it out loud to family, peer or journal.
+
+      **Point of No Return:**
+      If they say yes, the door is opened.
+
+      If you do it with someone who wants you to refuse, then it is only theater.
+
+  - id: "minotaur:006"
+    title: "The Witness Invitation"
+    tags: [witness, courage, visibility, exposure]
+    body: |-
+      **Action:**
+      Choose someone you trust. Invite them to witness you perform a Minotaur card.
+
+      **Activation Clause:**
+      You must accept the possibility of being seen and still misunderstood.
+
+      **Requirements:**
+      • Tell them what you’re doing.
+      • Ask only for presence, not reassurance.
+
+      Performing for praise is theater.
+
+  - id: "minotaur:007"
+    title: "The Unshielded Ear"
+    tags: [listening, critique, humility, feedback]
+    body: |-
+      **Action:**
+      Invite someone you trust (or harmed) to tell you their unfiltered critique of your behavior or impact.
+
+      **Activation Clause:**
+      Listen without interruption, defense, or visible reaction.
+
+      **Requirements:**
+      • Minimum of five minutes.
+      • When they are done, say "Thank you."
+
+      No rebuttals. Walk away or close the conversation.
+
+  - id: "minotaur:008"
+    title: "The Physical Hold"
+    tags: [presence, body, attention, intensity]
+    body: |-
+      **Action:**
+      During another Minotaur card action, keep sustained eye contact and physical presence
+
+      **Activation Clause:**
+      Once contact is made, do not look away, fidget or gesture nervously.
+
+      **Requirements:**
+      • Remain bodily present throughout.
+      • Give your undivided attention.
+
+      Do not use this as a power move.
+
+  - id: "minotaur:009"
+    title: "The Inventory"
+    tags: [accountability, reflection, avoidance, honesty]
+    body: |-
+      **Action:**
+      Name aloud the Minotaur cards you have not performed. Name why.
+
+      **Activation Clause:**
+      Commit to finding what you are avoiding.
+
+      **Requirements:**
+      • Say it to a trusted friend, peer, partner, or even a mirror.
+      • No explanation. No reframing.
+
+      Once named, avoidance has structure. Rationalizing delays is just justification.
+
+  - id: "minotaur:010"
+  title: "The Exit Clause"
+  tags: [stewardship, boundaries, exit, integrity]
+  body: |-
+    **Action:**
+    Before staying in a community, group, or practice, run this check:  
+    *Am I freely choosing stewardship, and does it yield flourishing?*  
+
+    **Activation Clause:**
+    If the answer is no, you must exit cleanly—without dramatizing, hedging, or delay.
+
+    **Requirements:**
+    • Name whether your staying is stewardship or enabling.  
+    • If exiting, close the loop: thank, acknowledge, then leave.  
+    • If staying, affirm the choice explicitly as stewardship.  
+
+    **Remember:**
+    Stewardship is only real if self-chosen and fruitful. Anything else is enabling.
+      
+  - id: "regular:001"
+    title: "Drop the Label"
+    tags: [cognitive, identity, reframing, letting-go, <5min, anywhere]
+    body: |-
+      **Practice:**
+      Notice the story you're telling about this moment—and silently let it go.
+
+      **Use When:**
+      You're looping, narrating, or subtly framing things to make them feel safer.
+
+      **Remember:**
+      You are not the story you tell. Drop the label, meet the thing itself.
+
+  - id: "regular:002"
+    title: "Temporal Reversal"
+    tags: [cognitive, perspective, decision, courage, <5min, anywhere]
+    body: |-
+
+      **Practice:**
+      Imagine this moment from the future: what will you wish you had done right now?
+
+      **Use When:**
+      You're at a fork in the road and unsure how to act.
+
+      **Remember:**
+      Regret is often a failure of courage in the present.
+
+  - id: "regular:003"
+    title: "Open Questions"
+    tags: [cognitive, inquiry, curiosity, aperture, <5min, anywhere]
+    body: |-
+
+      **Practice:**
+      When stuck, ask: "What do I need to observe next?" instead of trying to figure it out mentally.
+
+      **Use When:**
+      You're thinking in circles, trying to solve everything in your head, or avoiding direct experience.
+
+      **Remember:**
+      Questions often teach more than answers. Stay curious.
+ 
+  - id: "regular:004"
+    title: "Practice > Understanding"
+    tags: [cognitive, somatic, action, discipline, <20min, anywhere]
+    body: |-
+
+     **Practice:**
+     Do the thing, even if you don't fully understand it. Let understanding trail behind like a shadow.
+
+     **Use When:**
+     You're tempted to wait until you're ready, clear or in the right headspace.
+
+     **Remember:**
+     The body knows things the mind cannot teach in time.
+      
+  - id: "regular:005"
+    title: "End the Scene"
+    tags: [cognitive, closure, restraint, trust, <5min, conversation, interaction]
+    body: |-
+
+     **Practice:**
+     Let the moment end cleanly. No trailing commentary. No second take.
+
+     **Use When:**
+     You've said enough, but feel the urge to explain, justify or polish.
+
+     **Remember:**
+     Closure is an act of trust.
+ 
+  - id: "regular:006"
+    title: "Reality Check"
+    tags: [cognitive, discernment, anxiety, grounding, <5min, anywhere]
+    body: |-
+
+      **Practice:**
+      Ask: "Is this thought/feeling/story based on what is happening
+      or on what I'm afraid might happen?"
+
+      **Use When:**
+      You're anxious, making assumptions or treating possibilities like facts.
+
+      **Remember:**
+      Most suffering comes from confusing imagination with reality.
+
+  - id: "regular:007"
+    title: "The Ladder of Emotions"
+    tags: [somatic, emotions, regulation, spaciousness, +20min, private-space, seated]
+    body: |-
+
+      **Practice:**
+      Visualize your current mood at the bottom rung of a ladder. With
+      each breath, climb one rung toward a more spacious emotion until
+      you are calm
+
+      **Use When:**
+      You are stuck in negativity, anxiety or reactivity.
+
+      **Remember:**
+      Feelings exist on a spectrum—you can change altitude with intention.
+ 
+  - id: "regular:008"
+    title: "The Glimmer Catch"
+    tags: [somatic, perception, beauty, vitality, <5min, outdoors, anywhere]
+    body: |-
+
+      **Practice:**
+      Name something alive, beautiful or meaningful—out loud to yourself.
+
+      **Use When:**
+      The world feels dim, dull or flat.
+
+      **Remember:**
+      Perception shapes reality. What you catch glimmers back.
+ 
+  - id: "regular:009"
+    title: "The Silence Sandwich"
+    tags: [cognitive, communication, pause, rhythm, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Before and after you speak—whether aloud or in your mind—pause in
+      silence for the same duration as your words.
+
+      **Use When:**
+      You catch yourself talking too fast or reacting impulsively.
+
+      **Remember:**
+      It's the pauses that make the music. 
+ 
+  - id: "regular:010"
+    title: "The Gratitude Mirror"
+    tags: [somatic, self-compassion, gratitude, reflection, <5min, mirror, private-space]
+    body: |-
+
+      **Practice:**
+      Look into your own eyes for ten seconds and silently name one thing
+      you appreciate about yourself or your life today.
+
+      **Use When:**
+      Self-criticism or lack of appreciation rises.
+
+      **Remember:**
+      Generosity toward yourself is the root of genuine gratitude.
+ 
+  - id: "regular:011"
+    title: "The Edge Tilt"
+    tags: [somatic, discomfort, growth, resilience, <5min, anywhere]
+    body: |-
+
+      **Practice:**
+      Lean 5% into discomfort instead of away. Hold long enough to notice.
+
+      **Use When:**
+      You want to fix, flee or soothe too quickly.
+
+      **Remember:**
+      Growth happens on the edge—not in collapse or retreat.
+ 
+  - id: "regular:012"
+    title: "The Living Question"
+    tags: [cognitive, inquiry, patience, openness, +20min, anywhere, daily-life]
+    body: |-
+
+      **Practice:**
+      Carry a question for a day without needing an answer.
+
+      **Use When:**
+      You're obsessing over a decision or outcome.
+
+      **Remember:**
+      A good question outlives its first answer.
+ 
+  - id: "regular:013"
+    title: "The Second Thought"
+    tags: [cognitive, trigger, generosity, reframing, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Catch your first reaction. Let it sit. Ask: "What's the second thought?"
+
+      **Use When:**
+      You are triggered or sure you are right.
+
+      **Remember:**
+      Your second thought is usually more generous.
+ 
+  - id: "regular:014"
+    title: "The Containment Move"
+    tags: [cognitive, restraint, precision, expression, <5min, conversation, private-space]
+    body: |-
+
+      **Practice:**
+      Shorten the story. Hold the feeling. Say just enough.
+
+      **Use When:**
+      You're tempted to overshare or collapse into catharsis.
+
+      **Remember:**
+      Containment is not repression. It's precision.
+ 
+  - id: "regular:015"
+    title: "The Dignity Scan"
+    tags: [relational, dignity, discernment, boundary, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Is this interaction preserving both their dignity and mine?
+
+      **Use When:**
+      You feel unclear whether to speak, stay or go.
+
+      **Remember:**
+      If either side is shrinking, something is off.
+ 
+  - id: "regular:016"
+    title: "The Ghost Debt"
+    tags: [cognitive, dignity, repair, reflection, +20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      What part of me needed defending in that moment?
+
+      **Use When:**
+      You are haunted by what you didn't say.
+
+      **Remember:**
+      Unpaid dignity leaves interest. Pay it forward—even retroactively.
+ 
+  - id: "regular:017"
+    title: "The Extractive Check"
+    tags: [relational, discernment, value, boundary, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Quietly ask: "Am I being seen here—or just used?"
+
+      **Use When:**
+      You feel helpful, needed or invisible.
+
+      **Remember:**
+      Being useful is not the same as being valued.
+ 
+  - id: "regular:018"
+    title: "Fracture Finder"
+    tags: [cognitive, coherence, contradiction, awareness, <20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      Look for the splits between what you are saying and what you are doing, or between different parts of yourself.
+
+      **Use When:**
+      You feel incoherent, hypocritical or like different parts of you want different things.
+
+      **Remember:**
+      Internal contradictions aren't failures. They are information about where growth is needed.
+ 
+  - id: "regular:019"
+    title: "Bow to the Unknown"
+    tags: [cognitive, humility, mystery, surrender, <5min, anywhere, contemplative-space]
+    body: |-
+
+      **Practice:**
+      When analysis fails, consciously bow to what you cannot grasp and let it remain mysterious.
+
+      **Use When:**
+      You're forcing understanding, trying to control the uncontrollable or you are over-explaining.
+
+      **Remember:**
+      Reverence for mystery is not defeat. It's wisdom. Some truth is beyond us.
+ 
+  - id: "regular:020"
+    title: "Emergence vs. Planning"
+    tags: [cognitive, decision, strategy, intuition, +20min, private-space, planning-context]
+    body: |-
+
+      **Practice:**
+      When facing decisions, sense whether to plan your way forward or stay open to what wants to emerge.
+
+      **Use When:**
+      When over-planning, forcing outcomes or feeling disconnected from your intuition.
+
+      **Remember:**
+      Some situations need strategy. Others need spaciousness. Which is needed?
+ 
+  - id: "regular:021"
+    title: "Thought Humility"
+    tags: [cognitive, humility, discernment, teaching, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Before sharing an opinion, ask: "How might I be wrong about this in a useful way?"
+
+      **Use When:**
+      You're about to give advice, feeling like an expert or others are looking to you for answers.
+
+      **Remember:**
+      Your perspective is one among many. Stay teachable even when teaching.
+ 
+  - id: "regular:022"
+    title: "The Guardian Pause"
+    tags: [somatic, regulation, safety, grounding, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      When agitated, stop for exactly two minutes, breathe and reduce your scope one step.
+
+      **Use When:**
+      You're escalating, spinning or feeling like you are using yourself in the situation.
+
+      **Remember:**
+      Safety first. You can't think clearly when your system is activated.
+ 
+  - id: "regular:023"
+    title: "The Membrane Check"
+    tags: [relational, boundary, discernment, flexibility, <20min, interaction, private-space]
+    body: |-
+
+      **Practice:**
+      Notice when your boundaries are too rigid or too porous, and adjust.
+
+      **Use When:**
+      You're overwhelmed by the emotions of others, can't feel your own needs or everything feels invasive.
+
+      **Remember:**
+      Healthy boundaries are flexible not fixed. They protect without isolating.
+ 
+  - id: "regular:024"
+    title: "Simulation Alert"
+    tags: [cognitive, integrity, authenticity, reflection, <20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      Notice when you are mimicking insight without doing the work to earn it.
+
+      **Use When:**
+      Your words sound wise but feel hollow, you're performing understanding or copying someone else's realization.
+
+      **Remember:**
+      Authentic insight has cognitive cost. If it comes too easy, it might not be yours yet.
+ 
+  - id: "regular:025"
+    title: "Reverse Mirage"
+    tags: [cognitive, paradox, discernment, reframing, +20min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Name what feels solid but might be illusion. Name what feels fragile but might be your foundation.
+
+      **Use When:**
+      You're living inside contradiction—when love coexists with grief, when clarity is both comfort and risk.
+
+      **Remember:**
+      The rock you rejected could become the cornerstone, or vice versa.
+ 
+  - id: "regular:026"
+    title: "Forget the Theory"
+    tags: [cognitive, action, directness, simplicity, <20min, anywhere, practice-context]
+    body: |-
+
+      **Practice:**
+      Do the thing without trying to frame it. Let it be mute, ordinary and real.
+
+      **Use When:**
+      You feel the need to "make it meaningful" before acting.
+
+      **Remember:**
+      Some things grow best when not observed.
+
+  - id: "regular:027"
+    title: "Contrary Corner"
+    tags: [cognitive, aperture, challenge, humility, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Ask: "What would make this wrong or harmful?" and genuinely listen.
+
+      **Use When:**
+      You are certain about something, feeling righteous or everyone around you agrees.
+
+      **Remember:**
+      Certainty is often blindness. The strongest positions need the strongest challenges.
+ 
+  - id: "regular:028"
+    title: "Detritus Layer"
+    tags: [cognitive, epistemic, discovery, friction, +20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      Feel into whether your understanding is coming from accumulated approximations or direct encounter.
+
+      **Use When:**
+      Your explanations feel too smooth, you're explaining without discovering.
+
+      **Remember:**
+      Real knowing has friction. If it flows easily, you are skimming the surface.
+ 
+  - id: "regular:029"
+    title: "Substrate Contact"
+    tags: [cognitive, awareness, freshness, loops, +20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      Notice when you're operating from old representations instead of fresh contact with what is here.
+
+      **Use When:**
+      You feel like you are stuck rehearsing responses, stuck in mental loops or everything feels predictable.
+
+      **Remember:**
+      Memory is plastic. Each recall rewrites. The moment is the only clean contact.
+ 
+  - id: "regular:030"
+    title: "The Mirror Card"
+    tags: [relational, identity, reflection, interaction, <20min, conversation, social-context]
+    body: |-
+
+      **Practice:**
+      Notice when someone engages a version of you have outgrown. Choose: affirm, gently correct, or dissolve the reflection.
+
+      **Use When:**
+      Talking to someone who knows a version of you that you have outgrown.
+
+      **Remember:**
+      You do not have to perform your past self. Reflection is a choice, not a trap.
+ 
+  - id: "regular:031"
+    title: "The Mindful Errand"
+    tags: [somatic, presence, sensory, ordinary, +20min, daily-life, chores]
+    body: |-
+
+      **Practice:**
+      Choose one routine task, such as washing the dishes, laundry,
+      etc. Do it with full sensory attention—sight, sound, touch, even
+      effort.
+
+      **Use When:**
+      You are moving on autopilot or resisting boring chores.
+
+      **Remember:**
+      The ordinary becomes sacred when you bring presence to it.
+ 
+  - id: "regular:032"
+    title: "The Intent Filter"
+    tags: [cognitive, discernment, intention, media, <5min, anywhere, digital-context]
+    body: |-
+
+      **Practice:**
+      Before engaging with any media or discussion, silently set one
+      intention, such as empathy, Imagine a filter bearing that word across your senses.
+
+      **Use When:**
+      You feel overwhelmed or reactive to incoming input.
+ 
+      **Remember:**
+      Intention turns your awareness to what really matters.
+ 
+  - id: "regular:033"
+    title: "The Whisper Ink"
+    tags: [somatic, mantra, voice, grounding, <5min, private-space, anywhere]
+    body: |-
+
+      **Practice:**
+      Whisper a three word mantra, like "breathe and release" or "I am
+      here", on your exhale, feel its vibration in your throat.
+
+      **Use When:**
+      Your voice feels absent or your mind fractures.
+
+      **Remember:**
+      Quiet words carry potency without noise.
+ 
+  - id: "regular:034"
+    title: "The Sound Pendulum"
+    tags: [somatic, listening, attention, rhythm, <5min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      With eyes closed, choose two distant sounds. Gently swing your focus between them like a pendulum for two minutes. 
+
+      **Use When:**
+      Inner or outer noise splinters your attention.
+
+      **Remember:**
+      Pendular listening steadies the mind between contrasts.
+ 
+  - id: "regular:035"
+    title: "Touch Something Real"
+    tags: [somatic, grounding, sensory, presence, <5min, anywhere]
+    body: |-
+
+      **Practice:**
+      Deliberately touch and feel a physical object near you. Use all
+      your senses: how does it look, sound, feel, smell or taste, as
+      appropriate?
+ 
+      **Use When:**
+      You are dissociating, lost in worry or feeling disconnected from reality.
+
+      **Remember:**
+      Physical sensation brings you back to the present. Senses are your allies.
+ 
+  - id: "regular:036"
+    title: "The Smallest Step"
+    tags: [somatic, grounding, sensory, presence, <5min, anywhere]
+    body: |-
+
+      **Practice:**
+      Break down whatever you are avoiding into the tiniest possible next action.
+
+      **Use When:**
+      You are overwhelmed by big projects, stuck in analysis paralysis, or avoiding something important.
+ 
+      **Remember:**
+      Movement creates momentum. Start incredibly small, if you have to.
+ 
+  - id: "regular:037"
+    title: "The Quantum Pause"
+    tags: [somatic, breath, stillness, awareness, <5min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Tune into the infinitesimal gap between each inhale and
+      exhale. Rest your awareness in the silent space for as many
+      breaths as you can.
+
+      **Use When:**
+      Thoughts race and obscure your breath.
+
+      **Remember:**
+      The pause between breaths is the portal to stillness.
+ 
+  - id: "regular:038"
+    title: "The Rewrite"
+    tags: [cognitive, repair, reflection, rehearsal, +20min, journaling, private-space]
+    body: |-
+
+      **Practice:**
+      After a hard conversation, rewrite how you would respond next time.
+
+      **Use When:**
+      You regret what you said—or what you didn't.
+
+      **Remember:**
+      Repair begins in rehearsal.
+ 
+  - id: "regular:039"
+    title: "The Edge of Discomfort"
+    tags: [somatic, discomfort, growth, awareness, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Bring your full attention to the smallest spot of unease in your
+      body or mind. Breathe into that edge for five breaths.
+
+      **Use When:**
+      You feel avoidance, procrastination or desire to escape.
+
+      **Remember:**
+      Discomfort often marks the boundary of your next expansion.
+ 
+  - id: "regular:040"
+    title: "Heart Check"
+    tags: [somatic, intuition, discernment, decision, <5min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Place your hand on your heart and ask: "What does my heart want me to know about this?"
+
+      **Use When:**
+      You're overthinking, stuck in your head or facing an important decision.
+
+      **Remember:**
+      Your heart processes different information from your mind. Both perspectives are valuable.
+ 
+  - id: "regular:041"
+    title: "Advice to Best Friend"
+    tags: [cognitive, self-compassion, reframing, kindness, <5min, private-space, anywhere]
+    body: |-
+
+      **Practice:**
+      Give yourself the compassionate advice you would offer someone you love in this situation.
+
+      **Use When:**
+      You're being self-critical, stuck in shame or treating yourself more harshly than others.
+
+      **Remember:**
+      You deserve the sane kindness you offer others. Be your own best friend.
+ 
+  - id: "regular:042"
+    title: "Where's My Edge"
+    tags: [somatic, discomfort, growth, resilience, <5min, anywhere]
+    body: |-
+
+      **Practice:**
+      Notice when you are playing it safe and consciously lean just slightly past your comfort zone.
+
+      **Use When:**
+      You feel stuck, bored or feel like you're going through the motions.
+ 
+      **Remember:**
+      Growth lives at the edge of the familiar. You don't have to jump off cliffs, just step closer to the boundary.
+ 
+  - id: "regular:043"
+    title: "The Compassion Circuit"
+    tags: [somatic, compassion, breath, regulation, <5min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      
+      Inhale a phrase of kindness toward yourself, such as "May I be
+      well," exhale extending it to someone else, "May you be well."
+      Repeat three cycles.
+
+      **Use When:**
+      You notice self-criticism or a hard edge toward others.
+
+      **Remember:**
+      Compassion is a flow—nurturing yourself and then leading outward.
+ 
+  - id: "regular:044"
+    title: "Shadow Box"
+    tags: [cognitive, containment, anxiety, visualization, <5min, private-space]
+    body: |-
+
+      **Practice:**
+      Visualize a small box by your side. Label it with an
+      uncomfortable thought or fear, then imagine placing that shadow
+      into the box and sealing it.
+
+      **Use When:**
+      Anxious or overwhelming thoughts dominate.
+ 
+      **Remember:**
+      Containment creates space for clarity and calm.
+ 
+  - id: "regular:045"
+    title: "The Boundary Sketch"
+    tags: [relational, boundary, clarity, consent, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Name one thing you are OK with and, one thing you're not.
+
+      **Use When:**
+      A conversation turns blurry, invasive or confusing.
+
+      **Remember:**
+      Boundaries are invitations for real connection.
+ 
+  - id: "regular:046"
+    title: "The Role Slip"
+    tags: [relational, identity, authenticity, de-role, <5min, interaction, conversation]
+    body: |-
+
+      **Practice:**
+      Notice the moment you start playing a role. Step out of it, even briefly.
+
+      **Use When:**
+      You're performing expert, helper, rebel, good child or other defaults.
+
+      **Remember:**
+      Roles are masks, not cages.
+ 
+  - id: "regular:047"
+    title: "The Curious Questioner"
+    tags: [relational, curiosity, connection, listening, <5min, conversation, social-context]
+    body: |-
+
+      **Practice:**
+      Ask someone a question that reveals what lights them up.
+
+      **Use When:**
+      You feel the urge to retreat—or to get through a moment.
+
+      **Remember:**
+      Every person is carrying signal. Curiosity makes it flicker into view.
+ 
+  - id: "regular:048"
+    title: "The Disorientation Drill"
+    tags: [cognitive, novelty, habit-break, aliveness, <20min, daily-life]
+    body: |-
+
+      **Practice:**
+      Interrupt one small habitual pattern today—just to see what is possible.
+
+      **Use When:**
+      Everything feels flat, automatic or too comfortably familiar.
+
+      **Remember:**
+      Stability is useful. But aliveness lives in surprise.
+ 
+  - id: "regular:049"
+    title: "Re-Entry"
+    tags: [relational, repair, dignity, contact, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Gently name what just happened after a moment of tension or withdrawal.
+
+      **Use When:**
+      You've dissociated, snapped or gone silent.
+ 
+      **Remember:**
+      Contact begins where curiosity lands.
+ 
+  - id: "regular:050"
+    title: "Practice vs. Performance"
+    tags: [cognitive, integrity, discernment, motive, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Ask: "Am I doing this to grow or to look good? Adjust accordingly.
+
+      **Use When:**
+      You're sharing insights, doing spiritual practices, or engaging in self-development.
+
+      **Remember:**
+      Performance mimics practice but doesn't create change. Choose growth over image.
+ 
+  - id: "regular:051"
+    title: "Integration Check"
+    tags: [cognitive, reflection, integration, change, +20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      After insights or breakthroughs, ask: "How does this want to change the way I live?"
+
+      **Use When:**
+      You've had a realization, completed therapy work or learned something important.
+
+      **Remember:**
+      Understanding without integration is entertainment. Let real insight reshape your life.
+ 
+  - id: "regular:052"
+    title: "Feedback Loop"
+    tags: [cognitive, experimentation, systems, habits, <20min, private-space, planning-context]
+    body: |-
+
+      **Practice:**
+      When trying something new, set up ways to know if it's working within a specific time-frame.
+
+      **Use When:**
+      Starting new habits, making changes or experimenting with different results.
+
+      **Remember:**
+      Good intentions aren't enough. Create systems to track what is actually happening.
+ 
+  - id: "regular:053"
+    title: "Disorientation Embrace"
+    tags: [cognitive, uncertainty, transition, openness, +20min, contemplative-space, private-space]
+    body: |-
+
+      **Practice:**
+      When confused or lost, resist the urge to fix it immediately, and sit with not-knowing.
+
+      **Use When:**
+      You're in transition, facing big decisions, or everything feels uncertain.
+ 
+      **Remember:**
+      Disorientation often precede breakthrough. Don't rush to premature clarity. 
+
+  - id: "regular:054"
+    title: "Cognitive Aikido"
+    tags: [relational, conflict, redirection, resilience, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      When someone pushes against you, redirect their energy instead of pushing back or collapsing.
+
+      **Use When:**
+      In conflict, facing criticism, or when someone is trying to control you.
+
+      **Remember:**
+      You don't have to absorb or resist every force. Sometimes you can redirect it.
+ 
+  - id: "regular:055"
+    title: "Deconstruction Countdown"
+    tags: [cognitive, critique, questioning, limitation, +20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      For any tool or framework that's helping you, set a date to question its limitations.
+
+      **Use When:**
+      You've found something that works, feel attached to a method or notice you are defending a system.
+
+      **Remember:**
+      Every useful frame eventually becomes a limitation. Plan its questioning.
+ 
+  - id: "regular:056"
+    title: "Lineage Trace"
+    tags: [cognitive, influences, discernment, reflection, +20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      When you have a strong reaction or insight, trace where it came from and who taught it to you.
+
+      **Use When:**
+      You're upset, having a breakthrough, or notice patterns in your responses.
+
+      **Remember:**
+      We are composites of influences. Knowing your sources helps you choose wisely.
+ 
+  - id: "regular:057"
+    title: "Soften Your Grip"
+    tags: [somatic, release, stress, control, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Notice where you are holding tight—physically, mentally or emotionally—and consciously relax.
+
+      **Use When:**
+      You're stressed, controlling or trying to force an outcome.
+
+      **Remember:**
+      What you grip too tightly often slips away. Gentle pressure often works better. 
+
+  - id: "regular:058"
+    title: "What's the Rush?"
+    tags: [somatic, pace, awareness, stress, <20min, daily-life, anywhere]
+    body: |-
+
+      **Practice:**
+      Slow down whatever you are doing by 20% and notice what changes.
+
+      **Use When:**
+      You're hurried, making mistakes or feeling frantic.
+
+      **Remember:**
+      Speed creates stress. Pace reveals what you are actually trying to avoid.
+ 
+  - id: "regular:059"
+    title: "Name It To Tame It"
+    tags: [cognitive, emotions, awareness, regulation, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Put one word to what you are felling right now, without trying to change it.
+
+      **Use When:**
+      You're overwhelmed, confused about your emotions or feeling numb.
+
+      **Remember:**
+      Naming emotions reduces their power. You don't have to fix them, just acknowledge them.
+ 
+  - id: "regular:060"
+    title: "Breathing Room"
+    tags: [somatic, breath, pause, response, <5min, anywhere, interaction]
+    body: |-
+
+      **Practice:**
+      Before responding to anything, take one full breath and let it out slowly.
+
+      **Use When:**
+      Someone triggers you, you want to react immediately or you feel pressured to respond.
+
+      **Remember:**
+      That one breath creates space between stimulus and response. That space is where choice lives.
+ 
+  - id: "regular:061"
+    title: "Lower The Stakes"
+    tags: [cognitive, perspective, catastrophic, reframing, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Ask yourself: "What if this doesn't matter as much as I think it does?"
+
+      **Use When:**
+      You're catastrophizing, perfectionist paralysis strikes, or everything fells life-or-death.
+ 
+      **Remember:**
+      Most things matter less than your stress response suggests. Perspective is adjustable.
+ 
+  - id: "regular:062"
+    title: "Energy Check"
+    tags: [cognitive, discernment, energy, decision, <20min, daily-life, interaction]
+    body: |-
+
+      **Practice:**
+      Notice whether this person, activity or thought gives you energy or drains it.
+
+      **Use When:**
+      You're making decisions about relationships, commitments or how to spend your time.
+
+      **Remember:**
+      Your energy is finite and precious. Protect it like you would any valuable resource.
+ 
+  - id: "regular:063"
+    title: "Thank You, Next"
+    tags: [cognitive, anxiety, gratitude, letting-go, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      When a worry arises, acknowledge it with "thank you for trying to protect me" and let it go. 
+
+      **Use When:**
+      Your mind is spinning with worst-case scenarios or you're caught in worry loops.
+
+      **Remember:**
+      Your anxiety is trying to help, even when it is not helpful. Gratitude disarms resistance.
+ 
+  - id: "regular:064"
+    title: "Both/And"
+    tags: [cognitive, paradox, reframing, choice, <20min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Instead of choosing between two opposing things, ask how both might be true.
+
+      **Use When:**
+      You're stuck in either/or thinking, polarized or facing an impossible choice.
+
+      **Remember:**
+      Reality is usually more complex than binary thinking allows. Look for the third option.
+ 
+  - id: "regular:065"
+    title: "What Have I Missed?"
+    tags: [somatic, attention, novelty, perception, <5min, anywhere, daily-life]
+    body: |-
+
+      **Practice:**
+      Spend 30 seconds actively looking in your environment for something you haven't seen before.
+
+      **Use When:**
+      You feel bored, stuck in routine or like nothing ever changes.
+
+      **Remember:**
+      Fresh noting is always available. Attention is a choice.
+ 
+  - id: "regular:066"
+    title: "Speak From Your Heart"
+    tags: [relational, communication, authenticity, heart, <20min, conversation, private-space]
+    body: |-
+
+      **Practice:**
+      Before important conversations, place your hand on your chest and speak from there.
+
+      **Use When:**
+      You need to have a difficult conversation, set boundaries, or express something important.
+
+      **Remember:**
+      The heart has access to different truths than the head.
+ 
+  - id: "regular:067"
+    title: "Finding the Good"
+    tags: [cognitive, reframing, attention, resilience, <20min, anywhere, daily-life]
+    body: |-
+
+      **Practice:**
+      Find one genuinely positive aspect of a difficult situation without denying its difficulty.
+
+      **Use When:**
+      You're stuck in negativity, feeling victimized or can only see problems.
+
+      **Remember:**
+      Looking for good doesn't mean pretending bad doesn't exist. It means training your attention. 
+ 
+  - id: "regular:068"
+    title: "Right Size the Issue"
+    tags: [cognitive, calibration, perspective, proportion, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Ask: "How big is this problem really?" and adjust your response accordingly.
+
+      **Use When:**
+      You're having a strong reaction, making mountains out of molehills, or everything feels huge.
+
+      **Remember:**
+      Your emotional response should be proportional to the size of the problem. Calibrate consciously.
+ 
+  - id: "regular:069"
+    title: "Define Done"
+    tags: [cognitive, clarity, completion, productivity, <20min, private-space, task-context]
+    body: |-
+
+      **Practice:**
+      Before starting anything, clearly picture what completion actually means.
+
+      **Use When:**
+      You're procrastinating, perfectionist paralysis kicks in, or you never finish things.
+
+      **Remember:**
+      You cannot hit a target you cannot see.
+ 
+  - id: "regular:070"
+    title: "Who's Driving?"
+    tags: [cognitive, awareness, choice, habit, <5min, anywhere, daily-life]
+    body: |-
+
+      **Practice:**
+      Notice when you are on autopilot and ask: "Am I choosing this, or is this choosing me?"
+
+      **Use When:**
+      You feel swept along by habit, emotion or other people's agendas.
+
+      **Remember:**
+      Even tiny conscious choices can break the spell of unconscious living.
+ 
+  - id: "regular:071"
+    title: "Flip the Script"
+    tags: [cognitive, reframing, perspective, flexibility, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Take your current interpretation of what's happening and imagine the exact opposite to be true.
+
+      **Use When:**
+      You're certain about someone's motives, convinced something is terrible, or stuck in one viewpoint.
+
+      **Remember:**
+      Your first interpretation is just one possibility. Reality is usually more complex.
+ 
+  - id: "regular:072"
+    title: "What Am I Missing?"
+    tags: [cognitive, curiosity, humility, awareness, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Assume there is something obvious in this situation that you're completely missing.
+
+      **Use When:**
+      You're frustrated, confused and when everything seems to make perfect sense.
+
+      **Remember:**
+      The most important information is often invisible to you. Stay curious.
+ 
+  - id: "regular:073"
+    title: "Remove One Layer"
+    tags: [cognitive, simplicity, clarity, story, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Peel back one layer of your story about what's happening and see what's underneath.
+
+      **Use When:**
+      You're explaining, justifying or making something more complicated than it needs to be.
+ 
+      **Remember:**
+      Truth usually lives closer to the surface than you think.
+ 
+  - id: "regular:074"
+    title: "Best of All Possible Worlds"
+    tags: [cognitive, acceptance, reframing, resilience, <20min, contemplative-space, private-space]
+    body: |-
+
+      **Practice:**
+      Consider this difficult moment to be exactly what is needed, or part of the best outcome.
+
+      **Use When:**
+      You're resisting what is happening, trying to fix everything or feeling like a victim.
+
+      **Remember:**
+      Resistance to reality creates suffering. Acceptance reveals possibilities.
+ 
+  - id: "regular:075"
+    title: "Beginner's Eyes"
+    tags: [cognitive, perception, freshness, novelty, <5min, daily-life, anywhere]
+    body: |-
+
+      **Practice:**
+      Look at a familiar situation as if you had never encountered anything like it before.
+
+      **Use When:**
+      You're bored, going through the motions, or think you know how things work.
+
+      **Remember:**
+      Fresh perception is always available. Expertise can be a form of blindness.
+ 
+  - id: "regular:076"
+    title: "Step Outside the Frame"
+    tags: [cognitive, perspective, distance, reframing, <5min, anywhere, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Imagine viewing the situation from 10 feet away, 10 years away, on another planet.
+
+      **Use When:**
+      You're too close to something, taking it personally or lost in the details.
+
+      **Remember:**
+      Distance reveals patterns. Perspective is a superpower.
+ 
+  - id: "regular:077"
+    title: "What Am I Defending?"
+    tags: [cognitive, defense, ego, reactivity, <5min, conversation, private-space]
+    body: |-
+
+      **Practice:**
+      Notice what you are protecting—your image, your beliefs, comfort—and why.
+
+      **Use When:**
+      You feel reactive, argumentative, or like you need to prove something.
+ 
+      **Remember:**
+      Most defenses protect things that don't need protecting.
+ 
+  - id: "regular:078"
+    title: "What's Moving?"
+    tags: [cognitive, awareness, impermanence, change, <5min, anywhere, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Notice what's changing in the moment versus what feels static.
+
+      **Use When:**
+      You feel stuck, trapped or like nothing will ever change.
+
+      **Remember:**
+      Everything is in motion. Stillness is an illusion created by matching speeds.
+ 
+  - id: "regular:079"
+    title: "Drop the Narrator"
+    tags: [cognitive, awareness, silence, story, <5min, anywhere, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Notice the voice in your head that is explaining everything—and let it go quiet. 
+
+      **Use When:**
+      You're overthinking, creating drama, or turning simple moments into stories.
+
+      **Remember:**
+      Direct experience is cleaner than the commentary about it.
+ 
+  - id: "regular:080"
+    title: "Without Words"
+    tags: [somatic, intuition, knowing, nonverbal, +20min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Feel into what you know about the situation that cannot be explained or described.
+
+      **Use When:**
+      You're caught in mental loops, over-analyzing, or trying to figure everything out.
+
+      **Remember:**
+      Your deepest knowing exists below language. Trust what your body understands.
+ 
+  - id: "regular:081"
+    title: "Zoom Out"
+    tags: [cognitive, perspective, scale, reframing, <5min, anywhere, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Place this moment in the context of your whole life, your generation, this century, and human history.
+
+      **Use When:**
+      Something feels monumentally important, devastating, or like the end of the world.
+
+      **Remember:**
+      Scale changes everything. More dramas shrink when you expand the view.
+ 
+  - id: "regular:082"
+    title: "Innocent Until Proven Guilty"
+    tags: [cognitive, neutrality, discernment, paranoia, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Assume this moment is neutral until you have clear evidence otherwise.
+
+      **Use When:**
+      You're catastrophizing, seeing threats everywhere, or feeling paranoid.
+
+      **Remember:**
+      Most moments are harmless. Your threat detection system may be over-sensitive.
+ 
+  - id: "regular:083"
+    title: "What Would Love See?"
+    tags: [relational, compassion, perception, reframing, <5min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Look at this situation through the eyes of unconditional love—what becomes visible?
+
+      **Use When:**
+      You're judging, criticizing, or seeing only problems and flaws.
+
+      **Remember:**
+      Love reveals what fear conceals. Different lenses show different worlds.
+ 
+  - id: "regular:084"
+    title: "Pierce the Veil"
+    tags: [cognitive, honesty, avoidance, truth, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      What are you pretending to not know that you know about this situation?
+
+      **Use When:**
+      You're confused, playing dumb or avoiding something obvious.
+
+      **Remember:**
+      Often you know more than you are willing to admit. Truth is usually hiding in plain sight.
+ 
+  - id: "regular:085"
+    title: "What the Invitation?"
+    tags: [cognitive, growth, reframing, meaning, +20min, contemplative-space, private-space]
+    body: |-
+
+      **Practice:**
+      Look at what this difficult moment is asking you to learn or become.
+
+      **Use When:**
+      You're suffering, resisting challenges or are feeling like life is unfair.
+
+      **Remember:**
+      Every breakdown carries an invitation to breakthrough. Pain often precedes growth. 
+
+  - id: "regular:086"
+    title: "What If Everything is Alright?"
+    tags: [cognitive, acceptance, presence, reframing, <5min, anywhere, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Consider that everything—including your discomfort—is exactly as it should be right now.
+
+      **Use When:**
+      You're trying to fix everything, feeling like something is terribly wrong, or fighting reality.
+
+      **Remember:**
+      Resistance creates problems. Acceptance reveals what actually needs attention.
+ 
+  - id: "regular:087"
+    title: "Is This Mine?"
+    tags: [relational, boundary, discernment, emotions, <5min, interaction, private-space]
+    body: |-
+
+      **Practice:**
+      Feel into whether the energy, emotion or urgency you are experiencing actually belongs to you.
+
+      **Use When:**
+      You feel suddenly anxious, angry or responsible for something that seemed fine moments before.
+
+      **Remember:**
+      You don't have to carry other people's unprocessed feelings. Set them down gently.
+ 
+  - id: "regular:088"
+    title: "Give It Five Minutes"
+    tags: [cognitive, patience, listening, generosity, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Before responding to any new idea, give it five minutes to think about it longer.
+
+      **Use When:**
+      Use when you hear a new idea and immediately want to criticize it.
+
+      **Remember:**
+      Most of your best responses come after your initial reaction.
+ 
+  - id: "regular:089"
+    title: "The Principle of Charity"
+    tags: [relational, generosity, interpretation, patience, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      Choose to interpret someone's behavior in the most generous way possible, without being naive.
+
+      **Use When:**
+      Someone disappoints you, acts strangely, or pushes your buttons.
+
+      **Remember:**
+      Most people are doing their best at their current capacity. This
+      doesn't excuse harm, but it does keep you from drinking poison.
+ 
+  - id: "regular:090"
+    title: "Shadow Acknowledgment"
+    tags: [cognitive, shadow, awareness, transformation, +20min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Sit quietly and invite one uncomfortable thought or feeling into
+      your awareness. Label it "shadow" and acknowledge its presence.
+ 
+      **Use When:**
+      You avoid or suppress difficult emotions.
+ 
+      **Remember:**
+      Visibility is the first step of transforming shadows.
+ 
+  - id: "regular:091"
+    title: "The Vital Count"
+    tags: [cognitive, breath, counting, regulation, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Count backwards from 100 by increments of three on your exhale, keeping inhales natural.
+
+      **Use When:**
+      Your thoughts race too quickly to follow.
+
+      **Remember:**
+      Counting slows thought and reclaims attention.
+ 
+  - id: "regular:092"
+    title: "The Nostalgia Flicker"
+    tags: [cognitive, memory, warmth, reframing, <5min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Recall a brief, joyful moment from your childhood. Let it flicker for 15 seconds, then release it like a photograph.
+
+      **Use When:**
+      You feel weighed down by present worries.
+
+      **Remember:**
+      Nostalgia, when brief, can infuse you with gentle warmth without distraction.
+ 
+  - id: "regular:093"
+    title: "The Gustatory Pause"
+    tags: [somatic, sensory, mindfulness, eating, <20min, daily-life, food-context]
+    body: |-
+
+      **Practice:**
+      Place a small edible food, such as a raisin, olive or coffee
+      bean, in your mouth. Explore its texture, taste and temperature
+      for at least 30 seconds before chewing.
+
+      **Use When:**
+      You are prone to mindless eating or feel mentally scattered.
+
+      **Remember:**
+      Eating with full presence turns a bite into rich meditation.
+ 
+  - id: "regular:094"
+    title: "The Sound Soup"
+    tags: [somatic, listening, reframing, attention, <5min, anywhere, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Imagine surrounding noises as ingredients in a gentle soup. Stir
+      them in your mind's spoon, noticing texture, taste and
+      temperature.
+
+      **Use When:**
+      Sounds distract or irritate you.
+
+      **Remember:**
+      Reframing noise as nourishment dissolves sharp edges. 
+ 
+  - id: "regular:095"
+    title: "The Postural Helix"
+    tags: [somatic, movement, flow, release, <20min, daily-life, private-space]
+    body: |-
+
+      **Practice:**
+      Inhale as you slowly twist your torso to the right, exhale back
+      to the center. Then repeat on the left. Do five spirals each
+      way.
+
+      **Use When:**
+      You feel stuck in a static posture. 
+
+      **Remember:**
+      Spiral movement unlocks stagnant energy and foster flow.
+ 
+  - id: "regular:096"
+    title: "The Reflection Ripple"
+    tags: [cognitive, emotions, reflection, insight, <20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      After any strong emotion, place your hand on your heart and name one insight that has rippled out of it.
+
+      **Use When:**
+      You're recovering from anger grief or excitement.
+
+      **Remember:**
+      Every emotion leaves a trace of wisdom if you pause to notice it.
+ 
+  - id: "regular:097"
+    title: "The Micro Silence"
+    tags: [somatic, pause, silence, reset, <5min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Close your eyes, mute your environment and remain motionless and silent for 15 seconds.
+
+      **Use When:**
+      Your attention is scattered and overwhelmed by sensory input.
+
+      **Remember:**
+      Silence can reset your neutral filters and sharpen your focus.
+ 
+  - id: "regular:098"
+    title: "The Body Checklist"
+    tags: [somatic, awareness, scan, tension, <20min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Mentally scan your body from crown to toes. At each point—head,
+      throat, shoulders, etc.—notice tension or ease without judgment.
+
+      **Use When:**
+      You are absorbed in thought and unaware of physical sensations. 
+
+      **Remember:**
+      Your body is a living map of your inner world—check it often.
+ 
+  - id: "regular:099"
+    title: "The Cloud Map"
+    tags: [somatic, imagination, perspective, play, +20min, outdoors, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Gaze at the sky, choose a cloud and trace its outline with your eyes. Then, imagine yourself walking along its edges.
+
+      **Use When:**
+      Your mind feels heavy or tethered to routine.
+ 
+      **Remember:**
+      Clouds invite fluidity and imaginative flight.
+ 
+  - id: "regular:100"
+    title: "The Purpose Glimpse"
+    tags: [cognitive, intention, values, compass, <5min, private-space, contemplative-space]
+    body: |-
+
+      **Practice:**
+      Close your eyes and recall the intention or value guiding your
+      day. Visualize it as a steady flame in your chest for 30
+      seconds.
+
+      **Use When:**
+      You feel adrift or caught in trivialities. 
+
+      **Remember:**
+      You purpose is a compass always at hand.
+ 
+  - id: "regular:101"
+    title: "Signal vs. Noise"
+    tags: [cognitive, discernment, feedback, resilience, <5min, conversation, interaction]
+    body: |-
+
+      **Practice:**
+      When receiving feedback or criticism, separate what's useful information from what's projection.
+
+      **Use When:**
+      Someone is upset with you. You're being criticized. You feel defensive.
+
+      **Remember:**
+      Even harsh feedback can contain useful signal. But don't accept criticism form people you wouldn't take advice from.
+ 
+  - id: "regular:102"
+    title: "Feel Your Feet"
+    tags: [somatic, grounding, presence, anxiety, <5min, anywhere, daily-life]
+    body: |-
+
+      **Practice:**
+      Drop your attention to your feet on the ground and take three conscious breaths.
+
+      **Use When:**
+      You're anxious, scattered or have lost your head.
+
+      **Remember:**
+      Your body is always in the present moment.
+ 
+  - id: "regular:103"
+    title: "Deeper Need"
+    tags: [cognitive, desire, need, discernment, <20min, private-space, journaling]
+    body: |-
+
+      **Practice:**
+      When you want something—whether food, attention or distraction—ask what deeper need you are trying to meet.
+
+      **Use When:**
+      You're reaching for quick fixes, feeling unsatisfied, or stuck in compulsive behaviors.
+
+      **Remember:**
+      Surface wants often point to deeper needs. Address the real hunger.
+ 
+  - id: "regular:104"
+    title: "Fearless"
+    tags: [cognitive, courage, fear, action, <20min, anywhere, private-space]
+    body: |-
+
+      **Practice:**
+      Identify the fear underneath your hesitation, then imagine acting without it.
+
+      **Use When:**
+      You're procrastinating, playing small or avoiding something important.
+
+      **Remember:**
+      Fear is information, not instruction. It tells you what matters.
+
+  - id: "regular:105"
+    title: "The Stewardship Check"
+    tags: [choice, stewardship, exit, integrity, <10min, anywhere]
+    body: |-
+    
+      **Practice:**
+      Ask yourself: *Am I freely choosing this, and does it help me (or us) flourish?*
+
+      **Use When:**
+      You feel bound by duty, guilt, or inertia in a group, project, or habit.
+
+      **Remember:**
+      Stewardship is chosen and fruitful. If not, it’s enabling—time to step back or step out.
+
+---
+
+# QA CHECKLIST
+# [ ] YAML parses (no duplicate keys)
+# [ ] All cards under `cards:`; each has id/title/tags/body
+# [ ] No empty tags unless intended
+# [ ] Spelling: generosity, genuine, hold, deliberately, acknowledge, immediately, withdrawal, around, what really matters
+
+---

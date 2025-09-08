@@ -1,0 +1,532 @@
+
+# data/journals/prompts.yaml
+id: journal
+title: "Unified Journal Deck (90)"
+type: journal_prompts
+version: "1.0"
+entry_format: "yaml_list"
+
+# LINT RULES (aligning with cards.yaml style)
+# - prompts[*].id: ^journal:\d{3}$
+# - prompts[*].prompt: non-empty string
+# - prompts[*].tags: non-empty, lower-case slugs; use hyphens
+# - prompts[*].themes: optional, broad grouping (e.g., self-identity, time-change)
+# - no duplicate top-level keys; exactly one `title`
+# - no empty `tags: []` unless explicitly intended
+
+journal:
+  - id: "journal:001"
+    prompt: "What is the story you keep telling yourself, and what happens if you stop believing it?"
+    tags: [self, identity, narrative, reframing]
+    themes: [self-identity]
+
+  - id: "journal:002"
+    prompt: "What part of yourself do you hide from others, and why?"
+    tags: [self, vulnerability, shadow, protection]
+    themes: [self-identity]
+
+  - id: "journal:003"
+    prompt: "When have you felt like a stranger to yourself?"
+    tags: [self, identity, estrangement, change]
+    themes: [self-identity]
+
+  - id: "journal:004"
+    prompt: "Which version of you are others still holding onto that no longer exists?"
+    tags: [identity, social-perception, growth]
+    themes: [self-identity]
+
+  - id: "journal:005"
+    prompt: "What is one truth you’ve only dared to whisper?"
+    tags: [truth, courage, secrecy, vulnerability]
+    themes: [self-identity]
+
+  - id: "journal:006"
+    prompt: "How has the desire to be liked shaped your decisions, and what would change without it?"
+    tags: [approval, agency, decision-making, boundaries]
+    themes: [self-identity]
+
+  - id: "journal:007"
+    prompt: "Which fragments of you no longer fit, yet still cling?"
+    tags: [identity, shedding, attachment, change]
+    themes: [self-identity]
+
+  - id: "journal:008"
+    prompt: "Where do you confuse usefulness with being valued?"
+    tags: [worth, utility, relationships, boundary]
+    themes: [self-identity]
+
+  - id: "journal:009"
+    prompt: "Write about a time when you surprised yourself."
+    tags: [self-discovery, novelty, growth]
+    themes: [self-identity]
+
+  - id: "journal:010"
+    prompt: "What is a paradox you live inside right now?"
+    tags: [paradox, tension, ambiguity]
+    themes: [time-change]
+
+  - id: "journal:011"
+    prompt: "Recall a moment when you mistook comfort for happiness."
+    tags: [comfort, happiness, discernment]
+    themes: [time-change]
+
+  - id: "journal:012"
+    prompt: "What’s the difference between what you want now and what you want most?"
+    tags: [desire, priority, values, focus]
+    themes: [time-change]
+
+  - id: "journal:013"
+    prompt: "When did silence teach you more than words?"
+    tags: [silence, listening, insight]
+    themes: [time-change]
+
+  - id: "journal:014"
+    prompt: "How do you respond to endings?"
+    tags: [endings, grief, transition, resilience]
+    themes: [time-change]
+
+  - id: "journal:015"
+    prompt: "When has paying attention shifted the meaning of something ordinary?"
+    tags: [attention, meaning, mindfulness]
+    themes: [time-change]
+
+  - id: "journal:016"
+    prompt: "What dream or goal quietly died—what did it teach you?"
+    tags: [loss, learning, reorientation]
+    themes: [time-change]
+
+  - id: "journal:017"
+    prompt: "When has “not knowing” been wiser than “knowing”?"
+    tags: [uncertainty, humility, wisdom]
+    themes: [time-change]
+
+  - id: "journal:018"
+    prompt: "Which discomfort marks your next expansion?"
+    tags: [discomfort, growth, edge]
+    themes: [time-change]
+
+  - id: "journal:019"
+    prompt: "What does it mean to live as if no feeling is final?"
+    tags: [emotion, impermanence, regulation]
+    themes: [time-change]
+
+  - id: "journal:020"
+    prompt: "Reflect on a relationship where love involved struggle."
+    tags: [love, struggle, complexity]
+    themes: [relationships]
+
+  - id: "journal:021"
+    prompt: "Who in your life drains your energy, and how can you set boundaries with them?"
+    tags: [energy, boundaries, protection]
+    themes: [relationships]
+
+  - id: "journal:022"
+    prompt: "What relationships in your life feel more like prisons than places of freedom?"
+    tags: [constraint, autonomy, freedom]
+    themes: [relationships]
+
+  - id: "journal:023"
+    prompt: "When were you misunderstood—what was the truth you couldn’t get across?"
+    tags: [misunderstanding, communication, truth]
+    themes: [relationships]
+
+  - id: "journal:024"
+    prompt: "When were you able to forgive someone, and how did it change you?"
+    tags: [forgiveness, repair, transformation]
+    themes: [relationships]
+
+  - id: "journal:025"
+    prompt: "Write about a time you prioritized dignity over harmony."
+    tags: [dignity, conflict, integrity]
+    themes: [relationships]
+
+  - id: "journal:026"
+    prompt: "What is one promise you keep to everyone else but not yourself?"
+    tags: [promise, self-betrayal, alignment]
+    themes: [relationships]
+
+  - id: "journal:027"
+    prompt: "How do you balance survival needs with the pursuit of the sublime?"
+    tags: [survival, meaning, transcendence]
+    themes: [relationships]
+
+  - id: "journal:028"
+    prompt: "Write about an instance where integrity guided you more than intelligence."
+    tags: [integrity, values, decision]
+    themes: [values-integrity]
+
+  - id: "journal:029"
+    prompt: "Which rules guide you, and which rules trap you?"
+    tags: [rules, freedom, constraint, discernment]
+    themes: [values-integrity]
+
+  - id: "journal:030"
+    prompt: "What belief once kept you safe but now keeps you small?"
+    tags: [beliefs, safety, growth, shedding]
+    themes: [values-integrity]
+    
+  - id: "journal:031"
+    title: "No Feeling Is Final"
+    tags: [impermanence, resilience, reflection]
+    body: |-
+      Describe a moment when you noticed that no feeling is final.
+
+  - id: "journal:032"
+    title: "Moving Forward by Leaving"
+    tags: [transition, growth, release]
+    body: |-
+      Reflect on a time when moving forward required leaving something behind.
+
+  - id: "journal:033"
+    title: "Integrity Over Intelligence"
+    tags: [values, ethics, decision-making]
+    body: |-
+      Write about an instance where integrity guided you more than intelligence.
+
+  - id: "journal:034"
+    title: "Time Over Money"
+    tags: [priorities, values, choice]
+    body: |-
+      Reflect on a time you prioritized your time, friends, mind, or body over money.
+
+  - id: "journal:035"
+    title: "Beyond Yourself"
+    tags: [purpose, service, meaning]
+    body: |-
+      Describe a moment when you served a purpose beyond yourself.
+
+  - id: "journal:036"
+    title: "Learning Through Reflection"
+    tags: [learning, reflection, growth]
+    body: |-
+      Journal about a lesson you learned through reflection rather than imitation.
+
+  - id: "journal:037"
+    title: "Imagination as Play"
+    tags: [creativity, imagination, joy]
+    body: |-
+      Explore a moment when your imagination felt like intelligence having fun.
+
+  - id: "journal:038"
+    title: "Avoided Conflicts"
+    tags: [conflict, inner-struggle, honesty]
+    body: |-
+      Reflect on a situation where avoiding conflict sparked an inner struggle.
+
+  - id: "journal:039"
+    title: "Close Enough is Perfect"
+    tags: [perfectionism, acceptance, resilience]
+    body: |-
+      Journal about what it means for you that “close enough is perfect.”
+
+  - id: "journal:040"
+    title: "Boundary and Values"
+    tags: [boundaries, values, action]
+    body: |-
+      Write about a boundary you set to protect your values and how it shaped your actions.
+
+  - id: "journal:041"
+    title: "Lies to Self"
+    tags: [truth, denial, self-deception]
+    body: |-
+      Reflect on the ways you might lie to yourself and the truths you tend to avoid.
+
+  - id: "journal:042"
+    title: "Lessons From Not Getting"
+    tags: [desire, disappointment, growth]
+    body: |-
+      Write about an experience you gained from not getting what you wanted.
+
+  - id: "journal:043"
+    title: "The Price That Mattered"
+    tags: [value, money, meaning]
+    body: |-
+      Describe a time when what you paid mattered more than what you bought.
+
+  - id: "journal:044"
+    title: "Failure as Teacher"
+    tags: [failure, learning, resilience]
+    body: |-
+      Reflect on a moment when failure taught you more than success.
+
+  - id: "journal:045"
+    title: "Power and Character"
+    tags: [power, integrity, character]
+    body: |-
+      Explore how power has tested your character more than any crisis.
+
+  - id: "journal:046"
+    title: "Unseen Risks"
+    tags: [risk, awareness, hindsight]
+    body: |-
+      Identify a risk you failed to see and how you would approach it differently now.
+
+  - id: "journal:047"
+    title: "Gaps That Filled"
+    tags: [absence, fulfillment, change]
+    body: |-
+      What gaps have you noticed in your life, and how have they filled?
+
+  - id: "journal:048"
+    title: "Beliefs That Changed"
+    tags: [beliefs, growth, transformation]
+    body: |-
+      Write about a belief you once held that changed over time.
+
+  - id: "journal:049"
+    title: "Love and Struggle"
+    tags: [love, struggle, relationships]
+    body: |-
+      Reflect on a relationship where love involved struggle.
+
+  - id: "journal:050"
+    title: "Forsaking for Dreams"
+    tags: [dreams, sacrifice, values]
+    body: |-
+      Describe a time when holding onto a dream required forsaking something you valued.
+
+  - id: "journal:051"
+    title: "Difference as Insight"
+    tags: [difference, perspective, identity]
+    body: |-
+      Consider a moment when embracing your difference brought new insight.
+
+  - id: "journal:052"
+    title: "Silence Over Speaking"
+    tags: [silence, restraint, discovery]
+    body: |-
+      Journal about a time you chose silence over speaking and what you discovered.
+
+  - id: "journal:053"
+    title: "Questions That Shaped You"
+    tags: [questions, growth, reflection]
+    body: |-
+      What questions have shaped your character more than the answers you received?
+
+  - id: "journal:054"
+    title: "Ambiguity as Possibility"
+    tags: [ambiguity, awareness, openness]
+    body: |-
+      Reflect on how ambiguity has opened up awareness of life’s possibilities.
+
+  - id: "journal:055"
+    title: "Constraints as Creativity"
+    tags: [constraints, creativity, innovation]
+    body: |-
+      Write about a situation where constraints sparked your creativity.
+
+  - id: "journal:056"
+    title: "Feedback Over Planning"
+    tags: [feedback, planning, growth]
+    body: |-
+      Describe a moment when feedback proved more valuable than planning.
+
+  - id: "journal:057"
+    title: "Empty Spaces Filled"
+    tags: [emptiness, fulfillment, meaning]
+    body: |-
+      What spaces in your life felt empty, and how did you choose to fill them?
+
+  - id: "journal:058"
+    title: "Adapting in Discomfort"
+    tags: [adaptation, discomfort, resilience]
+    body: |-
+      Reflect on how you have adapted in moments of discomfort.
+
+  - id: "journal:059"
+    title: "Yes or No"
+    tags: [choices, decision, growth]
+    body: |-
+      Explore a choice you made to say yes or no and its impact on your growth.
+
+  - id: "journal:060"
+    title: "Fear You Faced"
+    tags: [fear, courage, challenge]
+    body: |-
+      Journal about a fear you faced and the ways it climbed over you.
+
+  - id: "journal:061"
+    title: "No Feeling is Final"
+    tags: [emotion, impermanence, resilience]
+    body: |-
+      Describe a moment when you noticed that no feeling is final.
+
+  - id: "journal:062"
+    title: "Leaving Something Behind"
+    tags: [transition, growth, letting-go]
+    body: |-
+      Reflect on a time when moving forward required leaving something behind.
+
+  - id: "journal:063"
+    title: "Integrity Over Intelligence"
+    tags: [integrity, wisdom, decision]
+    body: |-
+      Write about an instance where integrity guided you more than intelligence.
+
+  - id: "journal:064"
+    title: "Time Over Money"
+    tags: [priorities, balance, values]
+    body: |-
+      Reflect on a time you prioritized your time, friends, mind, or body over money.
+
+  - id: "journal:065"
+    title: "Beyond Yourself"
+    tags: [purpose, contribution, service]
+    body: |-
+      Describe a moment when you served a purpose beyond yourself.
+
+  - id: "journal:066"
+    title: "Learning by Reflection"
+    tags: [learning, reflection, growth]
+    body: |-
+      Journal about a lesson you learned through reflection rather than imitation.
+
+  - id: "journal:067"
+    title: "Imagination as Play"
+    tags: [imagination, creativity, joy]
+    body: |-
+      Explore a moment when your imagination felt like intelligence having fun.
+
+  - id: "journal:068"
+    title: "Avoiding Conflict"
+    tags: [conflict, avoidance, struggle]
+    body: |-
+      Reflect on a situation where avoiding conflict sparked an inner struggle.
+
+  - id: "journal:069"
+    title: "Close Enough"
+    tags: [perfectionism, acceptance, resilience]
+    body: |-
+      Journal about what it means for you that “close enough is perfect.”
+
+  - id: "journal:070"
+    title: "Boundary and Values"
+    tags: [boundaries, values, action]
+    body: |-
+      Write about a boundary you set to protect your values and how it shaped your actions.
+
+  - id: "journal:071"
+    title: "Challenge and Limits"
+    tags: [challenge, limits, growth]
+    body: |-
+      Reflect on a challenge where you felt done but pushed further—what did you learn about your limits?
+
+  - id: "journal:072"
+    title: "Impostor Feelings"
+    tags: [impostor-syndrome, self-doubt, success]
+    body: |-
+      How do you handle feelings of being a phony despite your successes?
+
+  - id: "journal:073"
+    title: "Control and Emotion"
+    tags: [control, relationships, emotion]
+    body: |-
+      Identify times when you've tried to control others' behavior instead of managing your own emotions.
+
+  - id: "journal:074"
+    title: "Priorities"
+    tags: [dreams, balance, friendship, happiness]
+    body: |-
+      Which of these do you need to focus on more: pursuing dreams, balancing work, speaking your mind, nurturing friendships, or cultivating happiness?
+
+  - id: "journal:075"
+    title: "Small Changes"
+    tags: [evolution, growth, self-improvement]
+    body: |-
+      What small changes are you making to foster your personal evolution?
+
+  - id: "journal:076"
+    title: "Hard or Easy"
+    tags: [choices, patterns, values]
+    body: |-
+      In what areas of your life do you choose hard over easy, more options over less, action over planning, small over large, strange over familiar, or puzzles over facts?
+
+  - id: "journal:077"
+    title: "Routine Made Interesting"
+    tags: [routine, creativity, curiosity]
+    body: |-
+      How can you make a mundane aspect of your daily routine more interesting?
+
+  - id: "journal:078"
+    title: "Important vs. Unimportant"
+    tags: [priorities, discernment, focus]
+    body: |-
+      What distinctions do you draw between the important and unimportant in your current life?
+
+  - id: "journal:079"
+    title: "Wasted Efforts"
+    tags: [effort, hindsight, growth]
+    body: |-
+      Reflect on past efforts that seemed wasted at the time but ultimately proved valuable.
+
+  - id: "journal:080"
+    title: "Assume It's Not True"
+    tags: [beliefs, perspective, flexibility]
+    body: |-
+      Take a strongly held belief and assume it's not true—what new perspectives emerge?
+
+  - id: "journal:081"
+    title: "No One Owes You"
+    tags: [expectations, relationships, freedom]
+    body: |-
+      How does recognizing that no one owes you anything shift your expectations of others?
+
+  - id: "journal:082"
+    title: "Autonomy First"
+    tags: [autonomy, independence, priorities]
+    body: |-
+      Where in your life do you prioritize autonomy above all else?
+
+  - id: "journal:083"
+    title: "Overlearned Lessons"
+    tags: [learning, unlearning, limits]
+    body: |-
+      What lessons from your past have you overlearned, and how might you unlearn them?
+
+  - id: "journal:084"
+    title: "Desire to Be Liked"
+    tags: [approval, decision-making, authenticity]
+    body: |-
+      How has the desire to be liked influenced your decisions, and what would change without it?
+
+  - id: "journal:085"
+    title: "Irrelevant Struggles"
+    tags: [struggles, focus, energy]
+    body: |-
+      What irrelevant struggles or agendas are you avoiding, or should you avoid, to preserve your energy?
+
+  - id: "journal:086"
+    title: "Worst-Case Scenarios"
+    tags: [fear, planning, resilience]
+    body: |-
+      Imagine worst-case scenarios for a current situation—what steps can you take to prevent them?
+
+  - id: "journal:087"
+    title: "Boundaries and Problems"
+    tags: [boundaries, responsibility, relationships]
+    body: |-
+      How do you maintain boundaries between your problems and those of others?
+
+  - id: "journal:088"
+    title: "New Eyes on Familiar"
+    tags: [novelty, perspective, curiosity]
+    body: |-
+      How can you experience something familiar in your life in a completely new way?
+
+  - id: "journal:089"
+    title: "Trying vs. Doing"
+    tags: [effort, excuses, action]
+    body: |-
+      Where in your life is "trying" serving as an excuse rather than leading to action?
+
+  - id: "journal:090"
+    title: "Passion and Rationality"
+    tags: [passion, rationality, balance]
+    body: |-
+      How do your passions influence or override your rational thinking?
+
+  - id: "journal:091"
+    title: "Steward or Enabler?
+    tags: [stewardship, enabling, choice, flourishing, integrity, values]
+    body: |-    
+      When has your sense of responsibility turned into enabling rather than stewardship? How did you know the difference?
