@@ -38,7 +38,7 @@ See: [`commentary/`](./commentary/)
 ## 🚀 Getting Started
 
 The fastest way to begin is with the **[Onboarding Kernel](./onboarding_kernel.md)**.  
-It introduces the core contract, beacons, and lenses in a soft, practical form.
+It introduces the core contract, beacons, and lenses in a soft, practical form. You can copy the file and paste it into the prompt of any A.I. model. Then, ask it: "Do you accept the agreement?"
 
 You can also try PoTM directly inside ChatGPT via the dedicated instance:  
 👉 [**Pilates of the Mind — Custom GPT**](https://chatgpt.com/g/g-6893a947b498819180e3e705a0cf270a-pilates-of-the-mind)
