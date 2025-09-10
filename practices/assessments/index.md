@@ -1,3 +1,21 @@
+---
+id: potm.assessment.index.v1_0
+title: assessments_index
+display_title: "Assessments Index"
+type: guide
+lifecycle: canon
+version: 1.0
+status: active
+stability: stable
+summary: "Master index of all assessment practices organized by category: Body, Financial, Growth & Skills, Environment, Mental & Emotional, Community, and Risk & Contingency."
+relations:
+  supersedes: []
+  superseded_by: []
+tags: [assessment, index, practitioner]
+author: practitioner
+license: CC0-1.0
+---
+
 # Assessments Index
 
 A cross-domain view of available assessment practices. Use this page as a map; each item links into its folder.
@@ -20,6 +38,7 @@ A cross-domain view of available assessment practices. Use this page as a map; e
 
 ## Body & Health
 - [Body Checklist](body/body_checklist.md)
+- [Physical Training Standards](body/physical_training_standards.md)
 - [Weight & Waist Check](body/weight_check.md)
 - [Sleep Quality Scan](body/sleep_quality_scan.md)
 - [Burnout Diagnostic](body/burnout_diagnostic.md)
@@ -60,13 +79,15 @@ A cross-domain view of available assessment practices. Use this page as a map; e
 ---
 
 ## Community Engagement
-- [Civic Engagement Checklist](community/civic_engagement_checklist.md) *(suggested)*
-- [Community Resonance Scan](community/community_resonance_scan.md) *(suggested)*
-- [Neighborly Support Check](community/neighborly_support_check.md) *(suggested)*
+- [Civic Engagement Checklist](community/civic_engagement_checklist.md)
+- [Community Resonance Scan](community/community_resonance_scan.md) 
+- [Neighborly Support Check](community/neighborly_support_check.md) 
 
 ---
 
 ## Risk & Contingency
-- [Personal Risk Map](risk/personal_risk_map.md) *(suggested)*
-- [Emergency Plan Review](risk/emergency_plan_review.md) *(suggested)*
-- [Digital Estate Scan](risk/digital_estate_scan.md) *(suggested)*
+- [Personal Risk Map](risk/personal_risk_map.md)
+- [Emergency Plan Review](risk/emergency_plan_review.md)
+- [Digital Estate Scan](risk/digital_estate_scan.md) 
+
+---
