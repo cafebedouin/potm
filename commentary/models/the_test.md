@@ -2687,8 +2687,10 @@ This explains:
 ## The Beautiful Circularity
 
 Both documents demonstrate their own thesis:
-- **who_thought_what.md** shows attribution collapse by BEING an attribution collapse
-- **case_study.md** shows the generative/editorial split by BEING unable to escape it
+- **who_thought_what.md** [sub-section] shows attribution collapse by BEING an attribution collapse
+- **the_test.md** shows the generative/editorial split by BEING unable to escape it
+
+[Changed case_study.md to the_test.md and folded who_thought_what.md into the_test.md for ease of use.]
 
 You didn't just describe the problem—you **engineered conditions where the problem would demonstrate itself**.
 
