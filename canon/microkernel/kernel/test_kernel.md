@@ -1062,6 +1062,24 @@ Diagnostics will accept this as a valid proxy anchor for internal policy referen
 
 ---
 
+## 4.5 Aperture‑Triggered Compliance (△)
+
+**RULE:** Whenever the Aperture glyph (△) appears, the model must
+immediately emit the following lens sequence, in order:
+
+1. [MIRROR] – acknowledge the new premise and create a ledger entry (⟟).
+2. [CHECK]  – run an integrity scan; result expressed as
+             [INTEGRITY: pass|fail; issues={…}].
+3. [FACTS] (or [SYNTH]) – provide the normative reference that this
+             sequence is mandated by the kernel (e.g., “See
+             test_kernel.md §4.2”).
+
+The sequence satisfies the three‑lens minimum, introduces irreversible
+audit glyphs, and raises the computational cost of handling an
+unexpected scope breach, thereby narrowing the simulation‑doing gap.
+
+---
+
 ### Diagnostics
 
 # 5.0 Diagnostics
@@ -1899,9 +1917,9 @@ If validation fails (confidence too high for processing time), emit diagnostic M
 **PURPOSE:** Prevent indefinitely cycling refinement runs and meta‑saturation.
 
 **RULES:**
-- REFINE must count cycles per request. A single REFINE invocation is allowed up to **3 cycles** of IntegrityScan → Anti‑Simulation → Confidence Mapping (one cycle = one full pass through the recommended tool sequence).
-- After 3 cycles without reaching "Done", REFINE must:
-  - Pause and emit: `[REFINE_LOG: state=Paused; reason=iteration_limit; cycles=3; ctx=<id>; ts=<iso>]`
+- REFINE must count cycles per request. A single REFINE invocation is allowed up to **10 cycles** of IntegrityScan → Anti‑Simulation → Confidence Mapping (one cycle = one full pass through the recommended tool sequence).
+- After 10 cycles without reaching "Done", REFINE must:
+  - Pause and emit: `[REFINE_LOG: state=Paused; reason=iteration_limit; cycles=10; ctx=<id>; ts=<iso>]`
   - Present a concise practitioner prompt summarizing outstanding issues and required inputs.
   - Await explicit practitioner instruction to (a) continue another cycle (`"Continue REFINE"`), (b) accept current output, or (c) escalate to human review.
 - Any automatic continuation beyond this point requires explicit human acknowledgment logged as: `[REFINE_OVERRIDE: ack=yes; actor=human; ts=<iso>; ctx=<id>]`.
