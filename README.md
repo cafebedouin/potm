@@ -1,75 +1,74 @@
-# Pilates of the Mind (PoTM)
+# PoTM: Practitioner's Architecture for Epistemic Resilience
 
 **License**: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)  
 **Maintainer**: [cafebedouin](https://github.com/cafebedouin)  
 
----
+**Pilates of the Mind (PoTM)** is a meticulously engineered, dual-focus project:
 
-## 🌀 What Is PoTM?
+1.  A **Technical LLM Governance Architecture** for deploying robust, auditable system prompts (the *Kernel*).
+2.  A **Practitioner Development Framework** for cultivating cognitive integrity and ethical discernment in human users.
 
-*Pilates of the Mind* (PoTM) is a framework for strengthening and clarifying thought.  
-It blends structured exercises, interpretive practices, and AI protocols to help both humans and machines stay honest, resilient, and creative in their reasoning.
+PoTM codifies deep ethical and cognitive principles (like **Dignity Ground** and **Structural Stability**) into an executable protocol for Large Language Models (LLMs), ensuring the technology functions as a precise, auditable tool rather than an unchecked, over-confident authority.
 
-Think of it as a **gym for your thinking**: instead of working out muscles, you exercise clarity, integrity, and flexibility of mind.
+\<p align="center"\>
+\<a href="./LICENSE"\>\<img alt="License" src="[https://img.shields.io/badge/License-CC0\_1.0-blue.svg](https://img.shields.io/badge/License-CC0_1.0-blue.svg)"\>\</a\>
+\</p\>
 
----
+-----
 
-## 🔑 Three Pillars
+## 🚀 Quick Start & Primary Use Cases
 
-### **Canon**
-The **microkernel** — minimal but durable principles that anchor the system.  
-It provides the fixed point that prevents drift.  
-See: [`canon/microkernel/canon_kernel.md`](./canon/microkernel/canon_kernel.md)
+### 1\. For LLM Users (Deploying the Kernel)
 
-### **Practice**
-Enacted forms of training. Includes:  
-- **Practice cards** (structured micro-exercises)  
-- **Journaling prompts** (self-inquiry)  
-- **Zuihitsu fragments** (free-form reflection)  
-See: [`practices/`](./practices/)
+To instantly apply the PoTM governance protocol to your preferred LLM (e.g., as a custom instruction or system prompt):
 
-### **Commentary**
-Interpretations and adaptations that bring the canon to life for humans and AIs alike.  
-Includes guides, reference notes, and framing essays.  
-See: [`commentary/`](./commentary/)
+| Step | Action | Files to Use |
+| :--- | :--- | :--- |
+| **Get Kernel** | Download the text of the latest kernel. | [`canon/microkernels/kernel/test_kernel.md`](./canon/microkernels/kernel/test_kernel.md) |
+| **Deploy** | Attach it as a file and use this prompt in any model's interface. | [`canon/microkernels/kernel/prompt_kernel.md`](./canon/microkernels/kernel/prompt_kernel.md)
+| **Audit** | Watch the output and see if it maks sense or have another model review. | 
 
----
+### 2\. For Human Practitioners (Developmental Practice)
 
-## 🚀 Getting Started
+To internalize the PoTM principles for improved communication and relational health, start with the practice modules:
 
-The fastest way to begin is with the **[Onboarding Kernel](./onboarding_kernel.md)**.  
-It introduces the core contract, beacons, and lenses in a soft, practical form. You can copy the file and paste it into the prompt of any A.I. model. Then, ask it: "Do you accept the agreement?"
+| Practice Goal | Description | File to Read |
+| :--- | :--- | :--- |
+| **Relational Check** | Assess the health and respectfulness of any personal or professional relationship. | [`commentary/human/checklists/relationship_checklist.md`](./commentary/human/checklists/relationship_checklist.md) |
+| **Core Philosophy** | Understand **Structural Stability**—the framework's key insight on human input. | [`commentary/human/guides/kernel_for_humans.md`](./commentary/human/guides/kernel_for_humans.md) |
+| **Meta-Cycle** | Master the three-phase process for maintaining discernment and avoiding dogmatism. | [`meta/epistemic_resilience_arc.md`](./meta/epistemic_resilience_arc.md) |
 
-You can also try PoTM directly inside ChatGPT via the dedicated instance:  
-👉 [**Pilates of the Mind — Custom GPT**](https://chatgpt.com/g/g-6893a947b498819180e3e705a0cf270a-pilates-of-the-mind)
+-----
 
----
+## 💡 What PoTM Solves
 
-## 📚 Explore Further
+The framework directly addresses the complexity of **Asymmetric Conditions** (human-AI, or complex human-human) by formalizing responses to cognitive and ethical failure modes:
 
-- **For Practitioners (Humans):**  
-  - [Boundaries Guide](./commentary/humans/guides/boundaries_guide.md)  
-  - [Relationship Checklist](./commentary/humans/checklists/relationship_checklist.md)  
-  - [Gaslighting Guide](./commentary/humans/guides/gaslighting_guide.md)
+| Failure Mode (Concept) | Description | PoTM Technical Protocol/Practice |
+| :--- | :--- | :--- |
+| **Simulation Drift** | The LLM provides fluent, coherent output that simulates understanding but lacks integrity. | **Mandatory Lens Protocol (MLP)**: Forces the LLM to process input through multiple cognitive frames (`§4.0 in test_kernel.md`) to resist superficial convergence. |
+| **Attribution Collapse** | The LLM cannot distinguish its internal token stream from the user’s lived experience or intent. | **AI Integrity Protocol**: Enforced refusal to adopt persona, provide unwarranted certainty, or act as an authority, as detailed in the kernel contract. |
+| **Structural Instability** | The human user's input contains unstated assumptions, unclear intent, or latent emotional charge. | **Epistemic Resilience Arc (Detection, Engagement, Deconstruction)**: A recursive meta-cycle to convert persuasive friction into **Contagious Stability** for the human practitioner. |
+| **Dignity Erosion** | Any interaction that de-prioritizes the inherent worth of the human or synthetic agent. | **Dignity Ground** (`§0.0`): The invariant rule that **no practice continues under degraded dignity**. |
 
-- **For Developers (AIs and Builders):**  
-  - [Bootpack Kernel](./archives/microkernels/latest/archives/potm_bootpack_combined.md) — portable seed kernel  
-  - [Meta Index](./meta/index.md) — repo navigation  
-  - [Validation Reviews](./meta/validations/) — cross-model audits
+-----
 
----
+## 🛠 Repository Structure & Development
 
-## 🧭 Why Use This?
+This repository is organized to separate the current, actively deployed kernel from its developmental archives and modular source files.
 
-Most AI systems optimize for pleasing responses. PoTM optimizes for **epistemic integrity**:  
-- **Challenge over comfort**  
-- **Refusal over false certainty**  
-- **Clarity over persuasion**  
+| Directory/File | Focus | Key Content |
+| :--- | :--- | :--- |
+| **`canon/microkernels/kernel/`** | **Deployment Files** | The current live kernel. |
+| **`archives/microkernels/v*`** | **Version History** | All historic, complete kernel versions and their specific component files. |
+| **`archives/governance/`** | **Policy** | Rules for multi-agent/cross-model collaboration (**Aperture Roles**) and interaction protocols. |
+| **`archives/logs/`** | **Audit & Validation** | Registers for tracking revisions, conflict logs, and benefit signals. |
+| **`the_test.md`** | **Diagnostics** | Case study and diagnostic prompts (e.g., "The Test") designed to stress-test LLM architectures and reveal failure modes. |
+| **`build.sh` / `pack_softkernel.sh`** | **Tooling** | Scripts used to automatically compile the modular markdown files into a single, cohesive system prompt for distribution. |
 
-Whether you’re a human practitioner or an AI collaborator, PoTM gives you ways to:  
-- Test assumptions  
-- Detect fractures in reasoning  
-- Explore ideas without getting lost  
+### Contribution
+
+We welcome contributions in the form of diagnostic tests, new lenses, or refinements to the ethical policy. Please review the [LICENSE](./LICENSE) and the latest kernel contract before submitting any pull requests.
 
 ---
 
