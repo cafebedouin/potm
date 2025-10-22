@@ -10,10 +10,6 @@
 
 PoTM codifies deep ethical and cognitive principles (like **Dignity Ground** and **Structural Stability**) into an executable protocol for Large Language Models (LLMs), ensuring the technology functions as a precise, auditable tool rather than an unchecked, over-confident authority.
 
-\<p align="center"\>
-\<a href="./LICENSE"\>\<img alt="License" src="[https://img.shields.io/badge/License-CC0\_1.0-blue.svg](https://img.shields.io/badge/License-CC0_1.0-blue.svg)"\>\</a\>
-\</p\>
-
 -----
 
 ## 🚀 Quick Start & Primary Use Cases
@@ -28,14 +24,14 @@ To instantly apply the PoTM governance protocol to your preferred LLM (e.g., as 
 | **Deploy** | Attach it as a file and use this prompt in any model's interface. | [`canon/microkernel/kernel/prompt_kernel.md`](./canon/microkernel/kernel/prompt_kernel.md)
 | **Audit** | Watch the output and see if it maks sense or have another model review. | 
 
-### 2\. For Human Practitioners (Developmental Practice)
+### 2. For Human Practitioners (Developmental Practice)
 
 To internalize the PoTM principles for improved communication and relational health, start with the practice modules:
 
 | Practice Goal | Description | File to Read |
 | :--- | :--- | :--- |
-| **Relational Check** | Assess the health and respectfulness of any personal or professional relationship. | [`commentary/human/checklists/relationship_checklist.md`](./commentary/human/checklists/relationship_checklist.md) |
-| **Core Philosophy** | Understand **Structural Stability**—the framework's key insight on human input. | [`commentary/human/guides/kernel_for_humans.md`](./commentary/human/guides/kernel_for_humans.md) |
+| **Relational Check** | Assess the health and respectfulness of any personal or professional relationship. | [`commentary/humans/checklists/relationship_checklist.md`](./commentary/human/checklists/relationship_checklist.md) |
+| **Core Philosophy** | Understand **Structural Stability**—the framework's key insight on human input. | [`commentary/humans/guides/kernel_for_humans.md`](./commentary/human/guides/kernel_for_humans.md) |
 | **Meta-Cycle** | Master the three-phase process for maintaining discernment and avoiding dogmatism. | [`meta/epistemic_resilience_arc.md`](./meta/epistemic_resilience_arc.md) |
 
 -----
