@@ -24,7 +24,7 @@ To instantly apply the PoTM governance protocol to your preferred LLM (e.g., as 
 
 | Step | Action | Files to Use |
 | :--- | :--- | :--- |
-| **Get Kernel** | Download the text of the latest kernel. | [`canon/microkernel/kernel/test_kernel.md`](./canon/microkernels/kernel/test_kernel.md) |
+| **Get Kernel** | Download the text of the latest kernel. | [`canon/microkernel/kernel/test_kernel.md`](./canon/microkernel/kernel/test_kernel.md) |
 | **Deploy** | Attach it as a file and use this prompt in any model's interface. | [`canon/microkernel/kernel/prompt_kernel.md`](./canon/microkernel/kernel/prompt_kernel.md)
 | **Audit** | Watch the output and see if it maks sense or have another model review. | 
 
