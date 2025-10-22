@@ -55,12 +55,11 @@ This repository is organized to separate the current, actively deployed kernel f
 
 | Directory/File | Focus | Key Content |
 | :--- | :--- | :--- |
-| **`canon/microkernels/kernel/`** | **Deployment Files** | The current live kernel. |
+| **`canon/microkernel/kernel/`** | **Deployment Files** | The current live kernel. |
 | **`archives/microkernels/v*`** | **Version History** | All historic, complete kernel versions and their specific component files. |
 | **`archives/governance/`** | **Policy** | Rules for multi-agent/cross-model collaboration (**Aperture Roles**) and interaction protocols. |
 | **`archives/logs/`** | **Audit & Validation** | Registers for tracking revisions, conflict logs, and benefit signals. |
-| **`the_test.md`** | **Diagnostics** | Case study and diagnostic prompts (e.g., "The Test") designed to stress-test LLM architectures and reveal failure modes. |
-| **`build.sh` / `pack_softkernel.sh`** | **Tooling** | Scripts used to automatically compile the modular markdown files into a single, cohesive system prompt for distribution. |
+| **`./commentary/models/the_test.md`** | **Diagnostics** | Case study and diagnostic prompts (e.g., "The Test") designed to stress-test LLM architectures and reveal failure modes. |
 
 ### Contribution
 
