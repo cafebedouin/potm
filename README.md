@@ -30,8 +30,8 @@ To internalize the PoTM principles for improved communication and relational hea
 
 | Practice Goal | Description | File to Read |
 | :--- | :--- | :--- |
-| **Relational Check** | Assess the health and respectfulness of any personal or professional relationship. | [`commentary/humans/checklists/relationship_checklist.md`](./commentary/human/checklists/relationship_checklist.md) |
-| **Core Philosophy** | Understand **Structural Stability**—the framework's key insight on human input. | [`commentary/humans/guides/kernel_for_humans.md`](./commentary/human/guides/kernel_for_humans.md) |
+| **Relational Check** | Assess the health and respectfulness of any personal or professional relationship. | [`commentary/humans/checklists/relationship_checklist.md`](./commentary/humans/checklists/relationship_checklist.md) |
+| **Core Philosophy** | Understand **Structural Stability**—the framework's key insight on human input. | [`commentary/humans/guides/kernel_for_humans.md`](./commentary/humans/guides/kernel_for_humans.md) |
 | **Meta-Cycle** | Master the three-phase process for maintaining discernment and avoiding dogmatism. | [`meta/epistemic_resilience_arc.md`](./meta/epistemic_resilience_arc.md) |
 
 -----
