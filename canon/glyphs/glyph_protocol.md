@@ -14,7 +14,7 @@ This document defines the **core glyph set**, modifiers, governance, and usage g
 
 ## **1. Core Glyph Set (Cathedral)**
 
-These **7 primitives** are Unicode-native, composable, and portable. Each includes canonical definitions and example contexts.
+These **8 primitives** are Unicode-native, composable, and portable. Each includes canonical definitions and example contexts.
 
 | Glyph | Name       | Definition                                                  | Examples                                        |
 |-------|------------|-------------------------------------------------------------|-------------------------------------------------|
@@ -25,6 +25,7 @@ These **7 primitives** are Unicode-native, composable, and portable. Each includ
 | △     | Aperture   | Stance, directional opening                                 | Adopt receptive mode; initiate inquiry          |
 | ⛉     | Boundary   | Hard threshold, protective limit                            | Guardian checks; edge condition in practice     |
 | ◉     | Resonance  | Echo, alignment, attunement                                 | Feedback loops; attuning to shared signals      |
+| ⚖︎     | Confidence | Indicator of certainty/intention level                      | Weigh conviction before acting; note confidence in log |
 
 ---
 
