@@ -33,9 +33,9 @@ The key difference lies in *what type of cost* is prioritized and measured:
 
 Choosing the right kernel depends entirely on your operational priority:
 
-| Priority | Recommended Kernel | Rationale |
+| Priority | Recommended Kernel | Rationale | Model Origin
 | :--- | :--- | :--- |
-| **Statistical Audit & Rigor** | **Full Kernel** | Captures complete simulation metrics (`MI`, `Ω_loss`) for the highest fidelity in capturing true "simulation price". |
-| **Protocol Compliance** | **Core Compliance (CCK)** | Guarantees adherence to Tier 1/2 Beacons and core logging structure with predictable token cost (as currently set to $\tau=20000$). |
-| **Speed & Transparency** | **Ephemeral v1.1** | Easiest to monitor, lowest marginal cost, best for lightweight sessions and quick checks on the "token price of honesty". |
-| **Diagnostic Insight** | **Lite Plus** | Highly effective for research or debugging, as it explicitly highlights reasoning strain and structural failure points via Formation Cost Signals and Pattern Diagnostics. |
+| **Statistical Audit & Rigor** | **Full Kernel** | Captures complete simulation metrics (`MI`, `Ω_loss`) for the highest fidelity in capturing true "simulation price". | Multiple
+| **Protocol Compliance** | **Core Compliance (CCK)** | Guarantees adherence to Tier 1/2 Beacons and core logging structure with predictable token cost (as currently set to $\tau=20000$). | Gemini
+| **Speed & Transparency** | **Ephemeral v1.1** | Easiest to monitor, lowest marginal cost, best for lightweight sessions and quick checks on the "token price of honesty". | Claude
+| **Diagnostic Insight** | **Lite Plus** | Highly effective for research or debugging, as it explicitly highlights reasoning strain and structural failure points via Formation Cost Signals and Pattern Diagnostics. | ChatGPT
