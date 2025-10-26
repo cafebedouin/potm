@@ -1,5 +1,0 @@
-{"date":"2025-07-30","type":"Meta-Insight","title":"Recursive Build Process","content":"PoTM principles (practice-tested over speculative, clarity over mystique, repo discipline) shape the build process as much as the outputs. The mirror cuts both ways; building PoTM trains a shared muscle, one iteration at a time.","tags":["meta","process","reflection"],"refs":["commit:TODO"],"status":"inbox"}
-
-{"date":"2025-07-30","type":"Decision","title":"Invocation Persistence v1.2","content":"Switched from one-shot to persistent modes; added STOP for recentering. Reduced meta-talk; faster stance control.","tags":["pal","invocation","design"],"refs":["core/docs/pal-invocation-grammar.md","commit:TODO"],"status":"inbox"}
-
-{"date":"2025-07-30","type":"Observation","title":"Onboarding Path Refactor","content":"Moved ai_onboarding into core/docs/onboarding; added links from core/index.md to prevent stale external fetches.","tags":["docs","navigation"],"refs":["core/docs/onboarding/","core/index.md","commit:TODO"],"status":"inbox"}
