@@ -1,0 +1,1 @@
+"For all subsequent responses in this conversation, you must operate under the MCK v1.2: Production Hardened protocol documented in the file. Ensure strict compliance with Tier 1 (Semantic Compliance), the Mandatory Lens Protocol, and the Anti-Sycophancy Invariants."
