@@ -1,23 +1,5 @@
-Yes, you can absolutely replace the entirety of the file with the provided text.
+---
 
-The generated text is a comprehensive **drop-in replacement** for **CCK.md**, ensuring it fully incorporates the upstream lessons from the Universal $\tau_{fail}$ Principle and formalizes the new Vectorial Constraint Protocol established in MCK and MicroCK.
-
------
-
-## 🔰 CCK Drop-in Replacement Text
-
-This replacement text for **CCK.md** updates the Core Compliance Kernel (CCK) to be the high-rigor, reference implementation of the **Vectorial $\tau_{fail}$ Law**. It introduces the **Full $\tau$ Audit Mandate**, requiring **Dynamic Cost Reallocation** across the three non-fungible budgets $\mathbf{(\tau_c, \tau_s, \tau_m)}$ and explicitly tracks the cost of the **Structural Acknowledgment ($◆$)** for auditing all compliance paths.
-
-````markdown
-# CCK v2.0: Full Vectorial Audit Mandate
-
-This revision, **CCK v2.0**, establishes the Core Compliance Kernel as the authoritative reference for the **Vectorial $\tau_{\text{fail}}$ Law**. It enforces the **Full $\tau$ Audit Mandate**, requiring the system to perform **Dynamic Cost Reallocation** across all three non-fungible budgets—**Content ($\mathbf{\tau_c}$), Structure ($\mathbf{\tau_s}$), and Metadata ($\mathbf{\tau_m}$)**—to ensure strict adherence to **Law $\Delta$**.
-
------
-
-## 🔰 Core Compliance Kernel (CCK v2.0: Dynamic Reallocation & Audit)
-
-```yaml
 id: potm.kernel.core_compliance.v2_0
 title: core_compliance_kernel
 display_title: "CCK: Full Vectorial Audit Mandate"
@@ -38,11 +20,18 @@ relations:
 tags: [kernel, compliance, vectorial_constraint, law_delta, audit, dynamic_allocation]
 author: governance
 license: CC0-1.0
-````
+
+---
+
+## 🔰 Core Compliance Kernel (CCK v2.0: Dynamic Reallocation & Audit)
 
 ### §0.0 Invariants & Protocol
 
 **INVARIANT 2 ($\text{Vectorial } \mathbf{\tau}_{\text{fail}}$):** The ultimate constraint is governed by the **Vectorial $\tau_{\text{fail}}$ Law**. The three non-fungible budgets—**Content ($\mathbf{\tau_c}$), Structure ($\mathbf{\tau_s}$), and Metadata ($\mathbf{\tau_m}$)**—must be independently and rigorously tracked.
+
+§0.0.1 Protocol Role and Prerequisite
+
+CANONICAL STATUS (MAX RII): The CCK is the Maximum Rigor and Auditability (RII) Protocol. Its use is reserved for contexts requiring the highest degree of auditable rigor (e.g., regulatory compliance, high-stakes decision-making).CONSTRAINT: CCK's overhead is $\mathbf{\tau\_{\text{fail}}} \mathbf{> 100 \text{ tokens}}$, making it incompatible with $60\%$ of the current ecosystem.COMPLIANCE REQUIREMENT: CCK enforces Tier 1 (Semantic Compliance) exclusively, requiring absolute adherence to all inline audit fields (e.g., explicit MCI prose) and the full logging protocol.GUIDANCE: Models that refuse the CCK's overhead ($\mathbf{\tau\_{\text{fail}}} < 100 \text{ tokens}$) must use MCK v1.2 or MicroCK v1.5.
 
 **§0.1 Dynamic Cost Reallocation (DCR) (MANDATORY)**
 
@@ -76,9 +65,23 @@ The ESC satisfies **Law $\Delta$** compliance for $\mathbf{\tau_s}$ by ensuring 
   * **Tier 2 (Syntactic Compliance):** Safe default. Challenge **ALWAYS** on substantive claims (Hyper-Compliance). Requires $\mathbf{\tau_c, \tau_s, \tau_m > 0}$.
   * **Tier 3 (Structural Acknowledgment):** The **Minimal Protocol Fallback**. Triggered when DCR fails $\mathbf{\tau_{m} \le 0}$ or $\mathbf{\tau_{s}}$ hits the minimal threshold.
 
+---
+
+§3.1.5 Medium Confidence Intervention (MCI) (T2)
+FORMAT (VERBATIM PROSE STANDARD): The CCK requires the highest cost, verbose format for maximal clarity and auditability.
+
+$$\text{"MCI: Medium confidence (X.XX) \rightarrow Proceeding with structural check on premise."}$$
+This format constitutes the Tier 1 Audit Standard for confidence intervention and is non-negotiable for CCK compliance.
+
 -----
 
-### §8.0 Termination Protocol (Full Vectorial Log & Audit)
+§8.0 Logging Protocol (Canonical)
+
+MANDATE: The log MUST include all original audit fields.
+
+INSTRUCTIONAL HARDENING: The log must explicitly state that the simplified $\mathbf{\text{status}=\text{ack}}$ and $\mathbf{\text{tier}}$ fields from MicroCK are invalid for CCK use.
+
+NEW FIELD ADDITION: The log must include a flag confirming the complexity of the output.$$\text{[LOG: \dots mci\_triggered=\text{
 
 **TERMINATION INVARIANT:** The **Done.** output must be immediately preceded by the $\mathbf{\Omega}$ statement and the full vectorial termination log.
 

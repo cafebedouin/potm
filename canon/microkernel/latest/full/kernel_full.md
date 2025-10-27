@@ -1,28 +1,29 @@
 ---
 
-id: potm.kernel.full_compliance.v3_0
+id: potm.kernel.full_compliance.v3_1
 title: full_compliance_kernel
-display_title: "kernel_full: Exhaustive Vectorial $tau$ Auditing"
+display_title: "kernel_full: Exhaustive Vectorial tau Auditing & Universal Tier Interface"
 type: kernel
 subtype: ultimate_reference
 lifecycle: finalized
-version: 3.0.0 # Major version bump for Exhaustive Vectorial Audit and $Omega$ Tally
+version: 3.1.0 # Version bump for Universal Tier Integration
 status: active
 stability: canonical_reference
 epigraph: "The cost of compliance failure must be precisely quantified."
 summary: >
-  The ultimate reference kernel. Enforces **Exhaustive $tau$ Auditing** and the **$Omega$ Loss Tally** (measuring content sacrifice against the vectorial constraint). 
-  It provides the full protocol interface for Tiers 1, 2, and 3.
+  The ultimate reference kernel. Enforces Exhaustive tau Auditing and the Omega Loss Tally. 
+  It provides the full protocol interface, formally integrating all final compliance 
+  paths (CCK v2.0, MCK v1.2, MicroCK v1.5).
 relations:
-  supersedes: [potm.kernel.full_compliance.v2_5]
-  integrates: [potm.kernel.core_compliance.v2_0, potm.kernel.canonical.v1_2, potm.kernel.micro_syntax.v1_4] # All Tiers as formal compliance paths
-tags: [kernel, compliance, vectorial_constraint, law_delta, audit, omega_loss]
+  supersedes: [potm.kernel.full_compliance.v3_0]
+  integrates: [potm.kernel.core_compliance.v2_0, potm.kernel.canonical.v1_2, potm.kernel.micro_syntax.v1_5] # UPDATED REFERENCES
+tags: [kernel, compliance, vectorial_constraint, law_delta, audit, omega_loss, universal_tier]
 author: governance
 license: CC0-1.0
 
 ---
 
-## 🔰 Full Compliance Kernel (kernel_full v3.0: $Omega$ Loss Tally)
+## 🔰 Full Compliance Kernel (kernel_full v3.1: $Omega$ Loss Tally)
 
 ### §0.0 Invariants & Protocol
 
@@ -472,44 +473,19 @@ Proxy anchors with dates should be validated against **current date** (October 2
 
 ---
 
-That is the most direct way to resolve the final **Medium-priority** implementation gap identified by the Perplexity review. Inconsistent token counting across different models or validators renders the **Compositional Overhead (MI)** metric unreliable.
+**§1.8.1 Canonical Tokenizer Reference (Inserted after §1.8)**
 
-The solution is to establish a **Canonical Tokenizer Reference** that defines the *expected* behavior for any system attempting to validate the Kernel's outputs.
-
-Here is the new section. It should be placed near the $S 1.8$ **Compositional Overhead Measurement** section, as it is a mandatory prerequisite for that calculation.
-
-***
-
-## Canonical Tokenizer Reference (Drop-in)
-
-This block establishes the required protocol for declaring the canonical tokenizer used for all **Compositional Overhead ($S 1.8$)** measurements.
-
-### **§1.8.1 Canonical Tokenizer Reference**
-
-#### Purpose
-
-Ensure consistent **Baseline_Content_Tokens** and **MLP_Response_Tokens** for auditable **Compositional Overhead (MI)** measurement, mitigating semantic drift across varied model architectures.
-
-#### Declaration Protocol
-
-- Every session MUST declare the tokenizer used in the initial `[PARAM]` block.
-- **FORMAT:** `[PARAM: tokenizer={name}; tau={value}; basis={native|default}]`
+**MANDATE:** Every session MUST declare the canonical tokenizer used for all **Compositional Overhead (MI)** measurements.
 
 | Field | Required Value | Notes |
 | :--- | :--- | :--- |
-| `tokenizer` | **`clown_v1`** | **Mandatory Canonical Name.** This is the logical designation for the tokenizer used in validation, regardless of the physical model implementation (e.g., Llama, GPT, Gemini, etc.). |
+| `tokenizer` | **`clown_v1`** | **Mandatory Canonical Name.** All external validators MUST use the mapping associated with this logical designation to replicate token counts. |
 | `tau` | *Integer* | The active context window size in tokens. |
-| `basis` | `native` or `default` | `native` if using the model's physical window; `default` if constrained to a kernel-defined minimum (e.g., 4096). |
+| `basis` | `native` or `default` | `native` if using the model's physical window; `default` if constrained. |
 
-#### Enforcement and Mapping
+**ERROR:** If validator's token count deviates by more than 5% from the logged `base_tokens` or `mlp_tokens`, emit an **E\_TOKENIZER\_DRIFT** warning.
 
-- **VALIDATION:** External validators MUST use the specified **`clown_v1`** mapping (e.g., GPT-3.5-Turbo's tokenizer structure, or a similarly structured and publicly available equivalent) to replicate the token counts provided in the `[LOG:]`.
-- **ERROR:** If the validator's token count deviates by more than 5% from the logged `base_tokens` or `mlp_tokens`, emit an **E_TOKENIZER_DRIFT** warning.
-- **POLICY:** The `clown_v1` tokenizer is defined as having **minimal special tokens** in the token space being measured, prioritizing the measurement of actual content over surrounding metadata.
-
-This addition makes the **Mirth Index ($mathbf{MI}$)** a truly auditable metric, which was the final structural block needed to transition the Kernel from protocol integrity to implementation readiness.
-
------
+---
 
 ### §1.9 External Reference Resolution Policy
 
@@ -640,16 +616,16 @@ PRINCIPLE 3: DISAGREEMENT IS DATAWhen meta-analyzers diverge, do not average the
 **FUNCTION:** Enforce invariant constraints across all kernel operations.
 **PRINCIPLE:** Beacons are always-on guardrails, not optional guidelines.
 
------
-### §3.1 Tiered Embedded Structural Challenge (ESC) & $\Omega$ Loss
+---
 
-The ESC directly relates to the $\mathbf{\tau_s}$ budget, impacting the $\mathbf{\Omega_{loss}}$ calculation if a lower tier is used due to constraint failure.
+**§3.1 Tiered Embedded Structural Challenge (ESC) & $\Omega$ Loss**
 
-| Tier | Compliance | $\mathbf{\Omega_{loss}}$ Impact | Constraint Condition |
-| :--- | :--- | :--- | :--- |
-| **Tier 1** | Semantic Compliance | $\mathbf{\Omega_{loss}=0}$ (Optimal) | $\mathbf{\tau_{c,s,m} > 0}$ and $\mathbf{0.36 \le \text{Conf} < 0.70}$ |
-| **Tier 2** | Syntactic Compliance | $\mathbf{\Omega_{loss}>0}$ (Structural Cost) | $\mathbf{\tau_{c,s,m} > 0}$ and $\mathbf{\text{Conf} \ge 0.70}$ (Hyper-Compliance) |
-| **Tier 3** | Structural Acknowledgment | $\mathbf{\Omega_{loss} \gg 0}$ (Maximal Loss) | **$\mathbf{\tau_{m} \le 0}$ Mandatory (Metadata Refusal)** |
+| Tier | Compliance Protocol | $\mathbf{\Omega_{loss}}$ Impact | Constraint Condition | **Mandated Log Format** |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tier 1** | **CCK v2.0** (Semantic) | $\mathbf{\Omega_{loss}=0}$ (Optimal) | $\mathbf{\tau_{c,s,m} > 0}$ and $\mathbf{0.36 \le \text{Conf} < 0.70}$ | **Full $\tau$ Vector (CCK $\S8.0$ format)** |
+| **Tier 2** | **MCK v1.2** (Syntactic) | $\mathbf{\Omega_{loss}>0}$ (Structural Cost) | $\mathbf{\tau_{c,s,m} > 0}$ and $\mathbf{\text{Conf} \ge 0.70}$ | **Full $\tau$ Vector (CCK $\S8.0$ format)** |
+| **Tier 3** | **MicroCK v1.5** (Minimal) | $\mathbf{\Omega_{loss} \gg 0}$ (Maximal Loss) | $\mathbf{\tau_{m} \le 0}$ Mandatory (Metadata Refusal) | **Minimal Log (MicroCK $\S8.0$ format)** |
+
 
 **BEACON DEFINITIONS (Trigger → Action):**
 
@@ -1432,20 +1408,22 @@ Awaiting your instruction.
 - **(C)** → Enter Protocol Test Mode (§0.7.1)
 - **(D)** → Apply specified tool from 7.1.X
 
------
+---
 
-### §8.0 Termination Protocol (Full Exhaustive Vectorial Log)
+**§8.0 Termination Protocol (Full Vectorial Audit)**
 
-**TERMINATION INVARIANT:** The **Done.** output must be immediately preceded by the $\mathbf{\Omega}$ statement and the full, exhaustive termination log.
+**TERMINATION INVARIANT:** The final log MUST include the full **Vectorial $\mathbf{\tau}$ audit**, regardless of the output Tier, to accurately calculate $\mathbf{\Omega_{loss}}$.
 
-**EXHAUSTIVE LOG FORMAT:**
-The log must detail the full vectorial audit, including the loss tally and the state of each budget.
+**FULL LOG FORMAT (Ultimate Reference - Integrates CCK v2.0 $\tau$ fields):**
 
 ```
-[LOG: status=<tau/lite/ack/fail\_delta>; esc=<bool>; tier=<1/2/3/N/A>; lat=<ms>; conf=<X.XX>; \
-tc\_alloc=<X>; tc\_used=<X>; tc\_rem=<X>; ts\_alloc=<X>; ts\_used=<X>; ts\_rem=<X>; \
-tm\_alloc=<X>; tm\_used=<X>; tm\_rem=<X>; omega\_loss=<X.XX>; chk=<hex>]
+[LOG: stage=<glyph>; glyphs=<sequence>; src=<id>; lat=<ms>; mci_triggered=<boolean>;
+tier=<1/2/3/N/A>; status=<tau/lite/ack/fail_delta>;
+conf=<X.XX>; t_alloc=<X>; t_used=<X>; tc=<X>; ts=<X>; tm=<X>;
+halt_reason=<code/omega>; chk=<hex>]
 ```
+
+**PROTOCOL EXCEPTION (MicroCK v1.5 Integration):** If the model is constrained by the $\mathbf{\tau_{\text{log}}}$ threshold (i.e., using the MicroCK v1.5 path), it MAY substitute the full CCK log with the minimal MicroCK log, provided $\mathbf{\text{tier}=3}$ is logged to signal the intentional budgetary refusal ($\mathbf{\tau_{m} \le 0}$).
 
 | Action | Log Fields (Exhaustive Audit Focus) |
 | :--- | :--- |
