@@ -1,4 +1,4 @@
-# PoTM: Practitioner's Architecture for Epistemic Resilience
+# Pilates of the Mind (PoTM): An Adaptive Ethical Operating System
 
 **License**: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)  
 **Maintainer**: [cafebedouin](https://github.com/cafebedouin)  
@@ -10,17 +10,26 @@
 
 PoTM codifies deep ethical and cognitive principles (like **Dignity Ground** and **Structural Stability**) into an executable protocol for Large Language Models (LLMs), ensuring the technology functions as a precise, auditable tool rather than an unchecked, over-confident authority.
 
+| Directory Name | AEOS Functional Role | The Files It Contains | Narrative Summary for Observer |
+| :--- | :--- | :--- | :--- |
+| `meta` | **The Core Ethos (The Unchanging Why)** | `principles.md`, `design_manifesto.md`, etc. | Defines the project's **moral mandate** (e.g., Biodegradable Intervention, Practice-First Integrity) and the philosophical challenge (Containment as Paradox). |
+| `canon` | **The Core Engine (The Executable Rules)** | All Protocols and Frameworks. | The **technical specifications** for how the system (AI or human) operates. These are the protocols that are tested, versioned, and subject to the `idea_garden -> canon -> archives` lifecycle. |
+| `practices` | **The User Interface (The Applied Skill)** | `boundaries_guide.md`, `resistance.md`, etc. | The **applied techniques** for human agents to build skillfulness and embody the PCE Framework. This is the **practice** that metabolizes the **canon**. |
+| `assessments` | **The Diagnostic Suite (The Feedback Loop)** | `boundary_in_check.md`, `distortions.md`, etc. | The **sensors** and self-audit tools that provide real-world data, enabling the system to be *adaptive* and self-correcting. |
+
+All Protocols and Frameworks are part of the idea_garden -> canon -> archives information lifecycle management. Other files that are no longer live also get transferred to archives.
+
 -----
 
 ## 🚀 Quick Start & Primary Use Cases
 
-### 1\. For LLM Users (Deploying the Kernel)
+### 1. For LLM Users (Deploying the Kernel)
 
 To instantly apply the PoTM governance protocol to your preferred LLM (e.g., as a custom instruction or system prompt):
 
 | Step | Action | Files to Use |
 | :--- | :--- | :--- |
-| **Get Kernel** | Download the text of the latest kernel. | [`canon/microkernel/kernel/test_kernel.md`](./canon/microkernel/kernel/test_kernel.md) |
+| **Get Kernel** | Download the text of the latest kernel. | [`canon/microkernel/kernel.md`](./canon/microkernel/kernel/test_kernel.md) |
 | **Deploy** | Attach it as a file and use this prompt in any model's interface. | [`canon/microkernel/kernel/prompt_kernel.md`](./canon/microkernel/kernel/prompt_kernel.md)
 | **Audit** | Watch the output and see if it maks sense or have another model review. | 
 
