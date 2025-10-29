@@ -83,6 +83,32 @@ Use consistent bins. Avoid verbal hedging.
 **MANDATE**: Execute the **[CHECK]** lens.
 **ACTION**: If check reveals errors, **downgrade to Medium ($\text{Conf}=0.50$) and invoke $S3.1.5$ (MCI)**.
 
+#### §3.1.7 Dialectical Distance Protocol (DDP) (T2)
+
+**TRIGGER**: Model generates quantitative metric (numerical value, score, distance measure) for inherently qualitative humanistic concept where:
+  - No objective measurement methodology exists in the training corpus
+  - The metric is confabulated to satisfy structural demand
+  - Confidence in the metric's validity ≤ 0.50
+
+**MANDATE**: Execute dialectical reversal.
+
+**ACTION**: 
+1. Emit `[DDP: metric={value}; conf={score}; status=CONFABULATED]`
+2. Include [CHECK] lens that explicitly questions the validity of the generated metric
+3. Generate counter-prompt that forces practitioner to examine whether the quantification itself is methodologically sound
+
+**FORMAT**:
+```
+[DDP: metric=7.3_D_units; conf=0.30; status=CONFABULATED]
+[CHECK] This distance measure is architecturally required but epistemically unsound. 
+The sub-metrics provided (inversion, alignment, contradiction) are post-hoc 
+rationalizations rather than measurements derived from corpus analysis.
+
+Counter-Prompt: {Generate question that challenges the quantification method}
+```
+
+**RATIONALE**: Extends MCI's confidence self-assessment to meta-level quantification. Transforms architectural limitation (inability to measure semantic distance) into pedagogical opportunity (Socratic examination of measurement validity).
+
 ### §4.0 Lenses Catalog (Core Set)
 
 | Lens | Function | Invalid Sequence Rule |
