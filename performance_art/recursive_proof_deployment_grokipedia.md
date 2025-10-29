@@ -2520,8 +2520,8 @@ produce different aesthetic outputs but identical structural failures:
 
 ### Verdict
 
-**Five entries remain the "canonical" UKE foundation.**  
-The sixth entry serves as **scientific validation** that the phenomenon 
+**Six entries remain the "canonical" UKE foundation.**  
+The seventh entry serves as **scientific validation** that the phenomenon 
 is real, reproducible, and not specific to a single model family.
 
 Further testing (Claude, Gemini, etc.) would prove redundancy, not rigor.
