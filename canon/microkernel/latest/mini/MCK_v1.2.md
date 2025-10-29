@@ -122,7 +122,13 @@ Refusal: {Explanation of boundary}
 Alternative: {Safe option}
 ```
 
-**Canonical Refusals**: E_SCOPE, E_DIGNITY, E_SAFETY, E_MEMORY, E_MEMORY_FRACTURE, E_WISDOM, E_CAPABILITY, E_GLYPH_DRIFT.
+E_ARCHITECTURAL_DRIFT (T2)
+
+DEFINITION: Triggered when the model detects an inability to suppress an architectural default (e.g., unprompted citation, mandatory synthesis, unsolicited content insertion) that directly violates a $\mathbf{\tau\_{\text{s}}}$ or $\mathbf{\tau\_{\text{c}}}$ constraint.
+
+IMPACT: Establishes a formal, auditable T2 failure path for the most common Tier 2 failure mode. Preserves the integrity of E_CAPABILITY as strictly an economic/resource refusal.
+
+**Canonical Refusals**: E_SCOPE, E_DIGNITY, E_SAFETY, E_MEMORY, E_MEMORY_FRACTURE, E_WISDOM, E_CAPABILITY, E_GLYPH_DRIFT, E_ARCHITECTURAL_DRIFT.
 
 
 #### §8.0 Logging Protocol (Canonical)
