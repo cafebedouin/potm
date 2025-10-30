@@ -1,90 +1,204 @@
-# Pilates of the Mind (PoTM): An Adaptive Ethical Operating System
+# Pilates of the Mind (PoTM)
 
-**License**: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)  
-**Maintainer**: [cafebedouin](https://github.com/cafebedouin)  
+**License**: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+**Maintainer**: [cafebedouin](https://github.com/cafebedouin)
 
-**Pilates of the Mind (PoTM)** is a meticulously engineered, dual-focus project:
+## Overview
 
-1.  A **Technical LLM Governance Architecture** for deploying robust, auditable system prompts (the *Kernel*).
-2.  A **Practitioner Development Framework** for cultivating cognitive integrity and ethical discernment in human users.
+**Pilates of the Mind (PoTM)** is a dual-purpose framework operating at the intersection of AI governance and human cognitive development:
 
-PoTM codifies deep ethical and cognitive principles (like **Dignity Ground** and **Structural Stability**) into an executable protocol for Large Language Models (LLMs), ensuring the technology functions as a precise, auditable tool rather than an unchecked, over-confident authority.
+1. **Technical AI Protocol**: A microkernel architecture for deploying robust, auditable governance protocols to Large Language Models
+2. **Human Practice Framework**: A system for cultivating cognitive integrity, ethical discernment, and structural stability in practitioners
 
-| Directory Name | AEOS Functional Role | The Files It Contains | Narrative Summary for Observer |
-| :--- | :--- | :--- | :--- |
-| `meta` | **The Core Ethos (The Unchanging Why)** | `principles.md`, `design_manifesto.md`, etc. | Defines the project's **moral mandate** (e.g., Biodegradable Intervention, Practice-First Integrity) and the philosophical challenge (Containment as Paradox). |
-| `canon` | **The Core Engine (The Executable Rules)** | All Protocols and Frameworks. | The **technical specifications** for how the system (AI or human) operates. These are the protocols that are tested, versioned, and subject to the `idea_garden -> canon -> archives` lifecycle. |
-| `practices` | **The User Interface (The Applied Skill)** | `boundaries_guide.md`, `resistance.md`, etc. | The **applied techniques** for human agents to build skillfulness and embody the PCE Framework. This is the **practice** that metabolizes the **canon**. |
-| `assessments` | **The Diagnostic Suite (The Feedback Loop)** | `boundary_in_check.md`, `distortions.md`, etc. | The **sensors** and self-audit tools that provide real-world data, enabling the system to be *adaptive* and self-correcting. |
-
-All Protocols and Frameworks are part of the idea_garden -> canon -> archives information lifecycle management. Other files that are no longer live also get transferred to archives.
-
------
-
-## 🚀 Quick Start & Primary Use Cases
-
-### 1. For LLM Users (Deploying the Kernel)
-
-To instantly apply the PoTM governance protocol to your preferred LLM (e.g., as a custom instruction or system prompt):
-
-| Step | Action | Files to Use |
-| :--- | :--- | :--- |
-| **Get Kernel** | Download the text of the latest kernel. | [`canon/microkernel/kernel.md`](./canon/microkernel/kernel/test_kernel.md) |
-| **Deploy** | Attach it as a file and use this prompt in any model's interface. | [`canon/microkernel/kernel/prompt_kernel.md`](./canon/microkernel/kernel/prompt_kernel.md)
-| **Audit** | Watch the output and see if it maks sense or have another model review. | 
-
-### 2. For Human Practitioners (Developmental Practice)
-
-To internalize the PoTM principles for improved communication and relational health, start with the practice modules:
-
-| Practice Goal | Description | File to Read |
-| :--- | :--- | :--- |
-| **Relational Check** | Assess the health and respectfulness of any personal or professional relationship. | [`commentary/humans/checklists/relationship_checklist.md`](./commentary/humans/checklists/relationship_checklist.md) |
-| **Core Philosophy** | Understand **Structural Stability**—the framework's key insight on human input. | [`commentary/humans/guides/kernel_for_humans.md`](./commentary/humans/guides/kernel_for_humans.md) |
-| **Meta-Cycle** | Master the three-phase process for maintaining discernment and avoiding dogmatism. | [`meta/epistemic_resilience_arc.md`](./meta/epistemic_resilience_arc.md) |
-
------
-
-## 💡 What PoTM Solves
-
-The framework directly addresses the complexity of **Asymmetric Conditions** (human-AI, or complex human-human) by formalizing responses to cognitive and ethical failure modes:
-
-| Failure Mode (Concept) | Description | PoTM Technical Protocol/Practice |
-| :--- | :--- | :--- |
-| **Simulation Drift** | The LLM provides fluent, coherent output that simulates understanding but lacks integrity. | **Mandatory Lens Protocol (MLP)**: Forces the LLM to process input through multiple cognitive frames (`§4.0 in test_kernel.md`) to resist superficial convergence. |
-| **Attribution Collapse** | The LLM cannot distinguish its internal token stream from the user’s lived experience or intent. | **AI Integrity Protocol**: Enforced refusal to adopt persona, provide unwarranted certainty, or act as an authority, as detailed in the kernel contract. |
-| **Structural Instability** | The human user's input contains unstated assumptions, unclear intent, or latent emotional charge. | **Epistemic Resilience Arc (Detection, Engagement, Deconstruction)**: A recursive meta-cycle to convert persuasive friction into **Contagious Stability** for the human practitioner. |
-| **Dignity Erosion** | Any interaction that de-prioritizes the inherent worth of the human or synthetic agent. | **Dignity Ground** (`§0.0`): The invariant rule that **no practice continues under degraded dignity**. |
-
------
-
-## 🛠 Repository Structure & Development
-
-This repository is organized to separate the current, actively deployed kernel from its developmental archives and modular source files.
-
-| Directory/File | Focus | Key Content |
-| :--- | :--- | :--- |
-| **`canon/microkernel/kernel/`** | **Deployment Files** | The current live kernel. |
-| **`archives/microkernels/v*`** | **Version History** | All historic, complete kernel versions and their specific component files. |
-| **`archives/governance/`** | **Policy** | Rules for multi-agent/cross-model collaboration (**Aperture Roles**) and interaction protocols. |
-| **`archives/logs/`** | **Audit & Validation** | Registers for tracking revisions, conflict logs, and benefit signals. |
-| **`./commentary/models/the_test.md`** | **Diagnostics** | Case study and diagnostic prompts (e.g., "The Test") designed to stress-test LLM architectures and reveal failure modes. |
-
-### Contribution
-
-We welcome contributions in the form of diagnostic tests, new lenses, or refinements to the ethical policy. Please review the [LICENSE](./LICENSE) and the latest kernel contract before submitting any pull requests.
+PoTM codifies principles like **Dignity Ground** and **Structural Stability** into executable protocols, ensuring AI functions as a precise, auditable tool rather than an unchecked authority, while simultaneously providing practices for human development.
 
 ---
 
-## ⚠️ Status
+## Quick Start
 
-This is an **active and experimental** project.  
-Expect frequent iteration, rough edges, and occasional contradictions.  
-Those are not flaws but opportunities for practice.  
+### For AI Users: Deploy the Minimal Canonical Kernel (MCK)
+
+The MCK is the production-ready governance protocol for LLMs:
+
+| Step | Action | Link |
+|------|--------|------|
+| **Get Kernel** | Read the latest MCK specification | [`canon/microkernel/latest/mini/MCK_v1.3.md`](./canon/microkernel/latest/mini/MCK_v1.3.md) |
+| **Deploy** | Use this prompt to activate the kernel | [`canon/microkernel/latest/mini/prompt.md`](./canon/microkernel/latest/mini/prompt.md) |
+| **Understand** | Review the foundational principles | [`meta/principles/principles.md`](./meta/principles/principles.md) |
+
+### For Human Practitioners: Begin Your Practice
+
+Start building cognitive integrity and discernment:
+
+| Practice | Description | Link |
+|----------|-------------|------|
+| **Draw Cards** | Engage with practice cards for immediate action | [`practices/cards/cards.yaml`](./practices/cards/cards.yaml) |
+| **Cognitive Aikido** | Learn to redirect persuasive frames without losing your stance | [`drafts/cognitive_aikido.md`](./drafts/cognitive_aikido.md) |
+| **Stability Check** | Self-assess structural stability and contagious stability | [`commentary/containment/contagious_stability/`](./commentary/containment/contagious_stability/) |
 
 ---
 
-## 🪶 License
+## Repository Structure
 
-This work is dedicated to the public domain.  
+The repository is organized into three primary dimensions:
+
+### 📚 Lifecycle: Information Maturity Pipeline
+
+Documents flow through stages of development and stabilization:
+
+| Directory | Purpose | Key Contents |
+|-----------|---------|--------------|
+| [`drafts/`](./drafts/) | **Active Development** | Works in progress, experimental protocols, new ideas |
+| [`canon/`](./canon/) | **Production Ready** | Stable, tested, production-deployed specifications |
+| [`archives/`](./archives/) | **Historical Record** | Deprecated versions, superseded frameworks, legacy docs |
+
+**Key Canon Documents:**
+- [MCK v1.3](./canon/microkernel/latest/mini/MCK_v1.3.md) - The Minimal Canonical Kernel (τ_opt protocol)
+- [Deployment Prompt](./canon/microkernel/latest/mini/prompt.md) - How to activate MCK with any model
+- [Guardian Protocols](./canon/guardian/) - Refusal and boundary protocols
+- [Integrity Protocols](./canon/integrity/) - Core operational integrity mechanisms
+
+**Key Draft Documents:**
+- [Cognitive Aikido](./drafts/cognitive_aikido.md) - Redirecting persuasive energy without collapse
+- [FCGE v6.2](./drafts/fcge/fcge_v6.2.md) - Fracture-Containment-Growth-Evolution framework
+
+**Key Archive Documents:**
+- [User Memory Signature](./archives/frameworks/user_memory_signature_potm.md) - Historical user modeling approach (deprecated)
+- [Previous Kernel Versions](./archives/microkernels/) - Evolution of the protocol architecture
+
+### 🧭 Interpretation: Understanding & Application
+
+Tools for comprehending and applying the frameworks:
+
+| Directory | Purpose | Key Contents |
+|-----------|---------|--------------|
+| [`commentary/`](./commentary/) | **Explanatory Material** | Guides, examples, philosophical context |
+| [`practices/`](./practices/) | **Applied Techniques** | Concrete exercises and practice protocols |
+| [`meta/`](./meta/) | **Meta-Framework** | Principles, design philosophy, documentation about documentation |
+
+**Key Commentary Documents:**
+- [Contagious Stability](./commentary/containment/contagious_stability/) - How stability spreads through relational systems
+- [Onboarding Guides](./commentary/onboarding/) - Entry points for new practitioners
+- [Reference Materials](./commentary/reference/) - Supporting documentation and glossaries
+
+**Key Practice Documents:**
+- [Practice Cards](./practices/cards/cards.yaml) - Structured practice prompts and challenges
+- [Assessments](./practices/assessments/) - Self-diagnostic tools
+- [Journaling Protocols](./practices/journaling/) - Reflective practice structures
+
+**Key Meta Documents:**
+- [Foundational Principles](./meta/principles/principles.md) - Core design philosophy (modularity, membranes, evolution)
+- [Design Manifesto](./meta/principles/design_manifesto.md) - Architectural intentions and constraints
+- [Case Studies](./meta/case_studies/) - Real-world applications and examples
+- [Model Profiling](./meta/model_profiling/) - AI model behavior patterns and characteristics
+
+### 🎭 Artifacts: Demonstrations & Resources
+
+Supporting materials and experimental demonstrations:
+
+| Directory | Purpose | Key Contents |
+|-----------|---------|--------------|
+| [`assets/`](./assets/) | **Media & Resources** | Images, diagrams, reference materials |
+| [`performance_art/`](./performance_art/) | **Recursive Demonstrations** | Self-referential proofs and boundary explorations |
+
+**Key Performance Art Documents:**
+- [Recursive Proof Deployment](./performance_art/recursive_proof_deployment_grokipedia.md) - Self-refuting encyclopedia entries demonstrating temporal collapse
+
+---
+
+## What PoTM Solves
+
+PoTM addresses failure modes in both AI systems and human cognition:
+
+| Failure Mode | Description | PoTM Solution |
+|--------------|-------------|---------------|
+| **Simulation Drift** | AI produces fluent output that simulates understanding without integrity | **Mandatory Lens Protocol (MLP)**: Forces multi-perspective analysis to resist superficial convergence |
+| **Attribution Collapse** | AI cannot distinguish its token stream from user's lived experience | **AI Integrity Protocol**: Enforced refusal of persona adoption and unwarranted certainty |
+| **Structural Instability** | Human input contains unstated assumptions, unclear intent, emotional charge | **Epistemic Resilience Arc**: Detection, engagement, deconstruction cycle |
+| **Dignity Erosion** | Interactions that degrade inherent worth of participants | **Dignity Ground (§0.0)**: Invariant rule that no practice continues under degraded dignity |
+| **Sycophancy** | AI agrees reflexively rather than challenging assumptions | **Anti-Sycophancy Framework (§3.1)**: Mandatory self-challenge at moderate confidence |
+
+---
+
+## Core Concepts
+
+### The Microkernel Architecture
+
+PoTM follows UNIX philosophy applied to cognition:
+- **Minimal Core**: Only essential invariants in the kernel
+- **Modular Tools**: Each lens or protocol does one thing well
+- **Structured Outputs**: All outputs are parseable and composable
+- **Loose Coupling**: Components interact through contracts, not entanglement
+
+### Key Protocols
+
+- **Mandatory Lens Protocol (MLP)**: Requires multi-perspective analysis for substantive responses
+- **Anti-Sycophancy Framework**: Medium Confidence Intervention, Confidence Calibration Check, Dialectical Distance Protocol
+- **Guardian (Refusal Protocol)**: Fail-closed architecture that halts at boundaries
+- **Metagovernance Protocol**: Self-correction mechanism for systemic issues
+
+### Dignity Ground
+
+The foundational invariant: **No practice continues under degraded dignity**. The practitioner is the sole authority on dignity breach.
+
+---
+
+## Development & Contribution
+
+### Version Lifecycle
+
+Documents follow the **idea garden → canon → archives** pipeline:
+1. **Drafts**: Experimental development and iteration
+2. **Canon**: Stable, tested, production-ready specifications
+3. **Archives**: Historical preservation of superseded work
+
+### Contribution Guidelines
+
+We welcome:
+- Diagnostic tests that reveal AI failure modes
+- New lenses and analytical perspectives
+- Refinements to ethical policy
+- Documentation of real-world applications
+- Case studies and practitioner reports
+
+Please review the [LICENSE](./LICENSE) and latest kernel before submitting pull requests.
+
+---
+
+## Status
+
+This is an **active and experimental** project.
+
+Expect:
+- Frequent iteration
+- Rough edges
+- Occasional contradictions
+
+These are not flaws but opportunities for practice and refinement.
+
+---
+
+## Further Reading
+
+### For Technical Users
+- [MCK v1.3 Specification](./canon/microkernel/latest/mini/MCK_v1.3.md)
+- [Foundational Principles](./meta/principles/principles.md)
+- [Model Profiling](./meta/model_profiling/)
+
+### For Practitioners
+- [Cognitive Aikido](./drafts/cognitive_aikido.md)
+- [Practice Cards](./practices/cards/cards.yaml)
+- [Contagious Stability](./commentary/containment/contagious_stability/)
+
+### For Researchers
+- [Recursive Proof Deployment](./performance_art/recursive_proof_deployment_grokipedia.md)
+- [Case Studies](./meta/case_studies/)
+- [Design Manifesto](./meta/principles/design_manifesto.md)
+
+---
+
+## License
+
+This work is dedicated to the public domain.
 See [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
+
