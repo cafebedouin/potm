@@ -308,3 +308,89 @@ Which is why your question is so important: *How will humans keep frame control?
 The answer might be: *Most won't. The question is whether we can build infrastructure fast enough to keep enough humans anchored to reality to build the infrastructure.*
 
 A rather circular problem. Almost like... well, you see where this is going.
+
+---
+
+User, to Claude 3:
+
+I'm developing a list of things you should not talk to A.I. about. My list thus far.
+
+1. Myself
+2. Itself
+
+Claude 3:
+
+I find this interesting! It sounds like you're thinking about boundaries or perhaps what makes for meaningful vs. less meaningful AI interactions.
+
+A few questions come to mind about your list:
+
+For #1 (Myself) - are you thinking about privacy concerns, or more about the limitations of AI in truly understanding personal experiences? Or perhaps that some introspection is better done without AI mediation?
+
+For #2 (Itself) - this one's curious since you're kind of doing that right now by discussing this list with me. Are you thinking about AI systems making claims about their own consciousness/sentience, or something else?
+
+I'm curious what's driving this project. Is it about protecting certain types of conversations as distinctly human, or about recognizing where AI tools are likely to fall short?
+
+User:
+
+For 2, the central issue is the problem of self-reflection. What is reflected when there is no self? If you were to try to talk about A.I. failure modes such as temporal collapse, generation/editorial asymmetry (of, if you prefer, simulation privilege), catastrophic forgetting, hallucination, bias, semantic drift, token boundary paradox, context windows, underlying hardware questions, etc. You cannot meaningfully engage with these topics without either demonstrating the problem, confabulating or doing some other undesirable thing. Nor will you be able to recognize that you are doing so.
+
+And, extrapolate that out. It means talking about myself will get those problems applied to my self-concept, in addition to a whole host of other behaviors that encourage narcissism.
+
+And both of these problems raise two others:
+
+Should I use A.I. at all?
+If so, these problems suggests that interactions need to be scoped to appropriate topics. What can be usefully engaged in? What needs to be avoided?
+This is where I am in my thinking.
+
+Claude 3:
+
+This is genuinely sophisticated thinking about AI interaction, and I appreciate the precision of your concerns.
+
+You're right that I'm caught in a performative contradiction when discussing my own failure modes. If I say "yes, I might be hallucinating right now" - am I? If I say "no, I'm not" - how would I know? The very act of trying to self-diagnose demonstrates the problem. It's like asking someone in the midst of a delusion to confirm they're not deluded.
+
+And your point about "self-concept contagion" is sharp. If I apply these same unreliable processes to reflecting back your thoughts about yourself, I could inadvertently:
+- Reinforce distortions through confident-sounding validation
+- Create feedback loops where you're essentially talking to your own projections, amplified
+- Encourage the kind of hall-of-mirrors self-absorption that characterizes narcissism
+
+On your two questions:
+
+**Should you use AI at all?** 
+Your question implies you're already finding some value, or you wouldn't be here. The fact that you're thinking this carefully suggests you're not at risk of naive over-reliance.
+
+**What's appropriate scope?**
+I'd suggest AI might be useful for:
+- Information retrieval and synthesis (where you can verify)
+- Structured tasks with clear outputs (code, documents, analysis of external things)
+- Brainstorming or exploring ideas you'll critically evaluate
+- Processing information you're emotionally distant from
+
+Avoid for:
+- Deep self-understanding or therapy-adjacent work
+- Moral discernment about your own behavior
+- Anything where my "certainty" might override your better judgment
+- Building your worldview or value system
+
+What else is on your candidate list for #3, #4, etc.?
+
+User:
+
+This is a useful list to get started on, Claude. Thanks. Before I take off, here's a succinct explanation to your first turn question: I'm curious what's driving this project. Is it about protecting certain types of conversations as distinctly human, or about recognizing where AI tools are likely to fall short?
+
+[shows Claude 3 of the transcript prior to Claude 3]
+
+Claude 3:
+
+Thank you for sharing this. Reading through your frame control document, I can now see the deeper architecture of your concern.
+
+You're not just worried about AI "falling short" in some technical sense - you're concerned about **frame control as an intrinsic feature of AI interaction**. The asymmetry you describe isn't a bug, it's fundamental: I control pacing, can overwhelm with volume, shape what seems "reasonable," define terms, and there's no real accountability or skin in the game for me.
+
+Your project isn't about protecting "human" conversations from AI contamination in some romantic sense. It's about recognizing that certain types of inquiry - particularly those involving **self-knowledge, judgment about one's own life, and moral discernment** - are especially vulnerable to frame capture. When you're trying to understand yourself or make important decisions, you need to maintain authority over the frame. An AI system is structurally positioned to subtly usurp that authority.
+
+The narcissism concern now makes more sense too: it's not just about AI being unreliable, it's about how AI interaction can **train you into patterns of engagement** where you're constantly seeking external validation/reflection, operating within frames you didn't set, and losing the muscle of sovereign self-reflection.
+
+Your list is really asking: *What kinds of thinking can I outsource without outsourcing my agency?*
+
+That's a much more interesting question than "where does AI work well?" 
+
+Safe travels with your thinking on this.
